@@ -168,3 +168,11 @@ export async function favoriteGameList(c: Context) {
   const data = await service.favoriteGameList(); // Placeholder
   return c.json({ code: 0, data, message: "Success" });
 }
+
+import { startSession as startSessionFromLib } from "#/lib/sessions";
+
+export async function startSession(c: Context) {
+  const { gameId } = await c.req.json();
+  const session = await startSessionFromLib(c, gameId);
+  return c.json(session, 200);
+}

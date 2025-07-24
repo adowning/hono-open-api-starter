@@ -148,12 +148,12 @@ export const rtgSettingsRequestDtoSchema = z.object({
 
 // Schema for RTGSpinRequestDto
 export const rtgSpinRequestDtoSchema = z.object({
-  token: z.string(),
-  userId: z.string(),
-  gameId: z.string(),
-  stake: z.union([z.number(), z.string()]),
-  currency: z.string(),
-  sessionId: z.string(),
+  token: z.string().optional(),
+  userId: z.string().optional(),
+  gameId: z.string().optional(),
+  stake: z.union([z.number(), z.string()]).optional(),
+  currency: z.string().optional(),
+  sessionId: z.string().optional(),
   playMode: z.enum(["real", "demo", "test"]).optional(),
   actions: z.array(z.any()).optional(),
   custom: customObjectSchema,

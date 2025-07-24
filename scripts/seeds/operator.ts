@@ -9,10 +9,12 @@ const defaultOperator = {
   id: "clxjv0w2z0000356s1szacrqs",
   name: "Default Operator",
   operatorSecret: crypto.randomUUID(),
+  balance: 10000,
+  netRevenue: 0,
   operatorAccess: crypto.randomUUID(),
   callbackUrl: "https://example.com/callback",
   allowedIps: ["0.0.0.0/0"], // Allows all IPs for dev purposes
-  acceptedPayments: ["INSTORE_CASH", "CREDIT_CARD"],
+  acceptedPayments: ["INSTORE_CASH", "INSTORE_CARD"],
 };
 
 export async function seedOperator(db: NodePgDatabase<typeof schema>) {

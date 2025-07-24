@@ -101,19 +101,15 @@ export async function seedHardcodedUser(
       })
       .returning();
 
-    await tx.insert(schema.Wallet).values({
+    const [newWallet] = await tx.insert(schema.Wallet).values({
       id: `wallet_${crypto.randomUUID()}`,
       userId: newUser.id,
       operatorId,
       balance: 50000,
       isDefault: true,
-    });
+    }).returning();
 
-    // await tx.insert(schema.balances).values({
-    //   userId: newUser.id,
-    //   amount: 50000,
-    //   availableBalance: 50000,
-    // });
+    await tx.update(schema.User).set({ activeWalletId: newWallet.id }).where(eq(schema.User.id, newUser.id));
 
     await tx.insert(schema.AuthSession).values({
       userId: newUser.id,

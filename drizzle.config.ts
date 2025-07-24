@@ -13,7 +13,7 @@ import env from "#/env";
 //   },
 // });
 export default defineConfig({
-  schema: "./src/db/schema/index.ts",
+  schema: "./src/db/schema.ts",
   out: "./src/db/migrations",
   dialect: "postgresql",
   casing: "camelCase",

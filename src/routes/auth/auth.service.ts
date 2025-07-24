@@ -40,6 +40,7 @@ export async function login(username: string, password: string, uid?: string) {
         .limit(1);
       userRecord = result[0];
     }
+    console.log("userRecord", userRecord);
   }
   catch (error) {
     console.error("Error querying user:", error);

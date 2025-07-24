@@ -21,7 +21,7 @@ export const TransactionStatus = pgEnum("TransactionStatus", ["PENDING", "PROCES
 
 export const Role = pgEnum("Role", ["USER", "ADMIN", "VIP", "MODERATOR", "SYSTEM", "OWNER", "MEMBER", "OPERATOR", "SUPPORT_AGENT"]);
 
-export const GameCategory = pgEnum("game_categories", ["slots", "table", "live", "poker", "lottery", "virtual", "other"]);
+export const GameCategory = pgEnum("game_categories", ["slots", "fish", "table", "live", "poker", "lottery", "virtual", "other"]);
 
 export const GameProviderName = pgEnum("GameProviderName", ["PRAGMATICPLAY", "EVOPLAY", "NETENT", "PLAYNGO", "RELAXGAMING", "HACKSAW", "BGAMING", "SPRIBE", "INTERNAL", "REDTIGER", "NETGAME", "BIGFISHGAMES", "CQNINE", "NOLIMIT", "KICKASS"]);
 
@@ -83,7 +83,8 @@ export const User = pgTable("users", {
   refreshToken: text("refresh_token"),
   accessTokenExpiresAt: timestamp("access_token_expires_at", { precision: 3 }),
   refreshTokenExpiresAt: timestamp("refresh_token_expires_at", { precision: 3 }),
-  currentSessionDataId: text("current_session_data_id").unique(),
+  currentGameSessionDataId: text("current_game_session_data_id").unique(),
+  currentAuthSessionDataId: text("current_auth_session_data_id").unique(),
   avatar: text("avatar_url").default("avatar-01"),
   role: UserRole("role").notNull().default("USER"),
   isActive: boolean("is_active").notNull().default(true),
@@ -124,7 +125,6 @@ export const Game = pgTable("games", {
   targetRtp: integer("target_rtp"),
   isFeatured: boolean("is_featured").notNull(),
   isActive: boolean("is_active").notNull().default(true),
-  isChecked: boolean("is_checked").notNull(),
   operatorId: text("operator_id"),
   tournamentDirectives: jsonb("tournament_directives"),
   createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
@@ -974,7 +974,7 @@ export const rtgSettingsResultUser = pgTable("rtg_settings_result_user", {
 export const rtgSettingsResultUserBalance = pgTable("rtg_settings_result_user_balance", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
-  settingsResultUserId: integer("settings_result_user_id").notNull().references(() => rtgSettingsResultUser.id),
+  settingsResultUserId: varchar("settings_result_user_id").notNull().references(() => rtgSettingsResultUser.id),
   cash: decimal("cash").notNull(),
   freeBets: decimal("free_bets").notNull(),
   sessionCash: decimal("session_cash").notNull(),
@@ -1032,7 +1032,7 @@ export const rtgSpinResultUser = pgTable("rtg_spin_result_user", {
 export const rtgSpinResultUserBalance = pgTable("rtg_spin_result_user_balance", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
-  spinResultUserId: integer("spin_result_user_id").notNull().references(() => rtgSpinResultUser.id),
+  spinResultUserId: varchar("spin_result_user_id").notNull().references(() => rtgSpinResultUser.id),
   cashAtStart: decimal("cash_at_start").notNull(),
   cashAfterBet: decimal("cash_after_bet").notNull(),
   cashAtEnd: decimal("cash_at_end").notNull(),
@@ -1056,7 +1056,7 @@ export const rtgSpinResultGame = pgTable("rtg_spin_result_game", {
 export const rtgSpinResultGameWin = pgTable("rtg_spin_result_game_win", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
-  spinResultGameId: integer("spin_result_game_id").notNull().references(() => rtgSpinResultGame.id),
+  spinResultGameId: varchar("spin_result_game_id").notNull().references(() => rtgSpinResultGame.id),
   lines: decimal("lines").notNull(),
   total: decimal("total").notNull(),
 });

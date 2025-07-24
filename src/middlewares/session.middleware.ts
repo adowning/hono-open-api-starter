@@ -7,19 +7,20 @@ const IDLE_TIMEOUT = 10 * 60 * 1000; // 10 minutes
 
 export async function sessionMiddleware(c: Context, next: Next) {
   const authSession = c.get("authSession");
+  const user = c.get("user");
 
   if (!authSession) {
     return c.json({ error: "User not authenticated" }, 401);
   }
 
-  const gameSession = getGameSessionFromCache(authSession.id);
+  const gameSession = getGameSessionFromCache(user.currentGameSessionDataId);
 
   if (gameSession) {
     // Due to cache corruption, the gameSession.id may not be a string.
     // We fall back to the authSession.id which is reliable.
-    if (typeof gameSession.id !== "string") {
-      gameSession.id = authSession.id;
-    }
+    // if (typeof gameSession.id !== "string") {
+    //   gameSession.id = authSession.id;
+    // }
 
     const now = new Date();
     // `lastSeen` is a cache-only property not in the DB schema for GameSession.

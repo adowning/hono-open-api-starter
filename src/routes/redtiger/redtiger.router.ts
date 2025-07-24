@@ -1,6 +1,7 @@
 import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
 
 import { authMiddleware } from "#/middlewares/auth.middleware";
+import { sessionMiddleware } from "#/middlewares/session.middleware";
 
 // import { RTGSettingsResponseDtoSchema, RTGSpinResponseDtoSchema } from "../gameplay.schema";
 import { redtigerController } from "./redtiger.controller";
@@ -18,14 +19,14 @@ const ErrorSchema = z.object({
 
 const settingsRoute = createRoute({
   method: "post",
-  path: "/{gameSessionId}/{gameName}/game/settings",
+  path: "/redtiger/game/settings",
   tags,
   summary: "Get redtiger settings for a game",
   request: {
-    params: z.object({
-      gameSessionId: z.string(),
-      gameName: z.string(),
-    }),
+    // params: z.object({
+    //   gameSessionId: z.string(),
+    //   gameName: z.string(),
+    // }),
     body: {
       content: {
         "application/json": {
@@ -56,7 +57,7 @@ const settingsRoute = createRoute({
 
 const spinRoute = createRoute({
   method: "post",
-  path: "/{gameSessionId}/{gameName}/game/spin",
+  path: "/redtiger/game/spin",
   tags,
   summary: "Perform a spin in a redtiger game",
   request: {
@@ -94,6 +95,8 @@ const app = new OpenAPIHono();
 app.use("*", authMiddleware);
 
 app.openapi(settingsRoute, redtigerController.settings as any);
+app.use("*", sessionMiddleware);
+
 app.openapi(spinRoute, redtigerController.spin as any);
 
 export default app;
