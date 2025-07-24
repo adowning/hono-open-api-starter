@@ -2,16 +2,16 @@ import type { Context } from "hono";
 
 import type { UserWithRelations } from "#/db";
 
+import {
+  rtgSettingsRequestDtoSchema,
+  rtgSpinRequestDtoSchema,
+} from "#/db";
 import { getSession, startSession } from "#/lib/sessions";
 
 import {
   createRedtigerSettings,
   createRedtigerSpin,
 } from "./redtiger.service";
-import {
-  rtgSettingsRequestDtoSchema,
-  rtgSpinRequestDtoSchema,
-} from "./redtiger.types";
 
 export const redtigerController = {
   settings: async (c: Context) => {

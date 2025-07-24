@@ -4,21 +4,13 @@ import type { z } from "zod";
 
 import { and, eq, inArray } from "drizzle-orm";
 
-import type { GameSessionType, JackpotType, NewGameSpin, UserWithRelations } from "#/db";
+import type { GameSessionType, JackpotType, NewGameSpin, providerSpinResponseDataSchema, rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResponseDtoSchema, UserWithRelations } from "#/db";
 
 import db from "#/db";
 import { GameSession, Jackpot } from "#/db/schema";
 import { handleGameSpin } from "#/lib/gameplay";
 import { processJackpots } from "#/lib/jackpot";
 import { coinsToDollars, dollarsToCoins } from "#/utils/misc.utils";
-
-import type {
-  providerSpinResponseDataSchema,
-  rtgSettingsRequestDtoSchema,
-  rtgSettingsResponseDtoSchema,
-  rtgSpinRequestDtoSchema,
-  rtgSpinResponseDtoSchema,
-} from "./redtiger.types";
 
 import { atlantis_settings, atlantis_spin } from "./data";
 

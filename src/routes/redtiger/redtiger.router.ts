@@ -1,12 +1,12 @@
 import { createRoute, z } from "@hono/zod-openapi";
 
+import { rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResultSchema } from "#/db";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
 
 // import { RTGSettingsResponseDtoSchema, RTGSpinResponseDtoSchema } from "../gameplay.schema";
 import { redtigerController } from "./redtiger.controller";
-import { rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResultSchema } from "./redtiger.types";
 
 const tags = ["RedTiger"];
 
