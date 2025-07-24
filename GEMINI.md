@@ -21,6 +21,7 @@ Your operational behavior is the most critical aspect of our collaboration.
 
 *   **Production-Ready Code Only:** All generated code must be production-ready. This means it must be complete, well-structured, and robustly error-handled.
 *   **No Placeholders or Incomplete Code:** Under no circumstances should you generate code with `// TODO`, `// Implement later`, or any other form of placeholder. Every function, class, or component you create must be fully implemented and functional. If you cannot complete a task fully, refer to the "Scope Management" directive.
+*   When creating routes include openapi information and always include the schema needed for response content and the schema if needed for request params, body etc.
 
 ## 3. Technical Stack & Conventions
 

@@ -1,8 +1,9 @@
 import { createRoute, z } from "@hono/zod-openapi";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
+import { createMessageObjectSchema } from "stoker/openapi/schemas"; // Import the helper
 
-import { User } from "#/db";
+import { selectAuthSessionSchema, selectUserSchema, User } from "#/db";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
@@ -10,6 +11,15 @@ import { sessionMiddleware } from "#/middlewares/session.middleware";
 import * as controller from "./auth.controller";
 
 const tags = ["Auth"];
+
+// Use the Drizzle-Zod schema for the user object, but omit sensitive data for the response documentation
+const UserResponseSchema = selectUserSchema.omit({
+  passwordHash: true,
+  refreshToken: true,
+  accessToken: true,
+  accessTokenExpiresAt: true,
+  refreshTokenExpiresAt: true,
+}).openapi("UserResponse");
 
 const loginRoute = createRoute({
   path: "/login",
@@ -30,9 +40,9 @@ const loginRoute = createRoute({
       z.object({
         accessToken: z.string(),
         refreshToken: z.string(),
-        user: User,
+        user: UserResponseSchema,
       }),
-      "The login token",
+      "The login token and user object",
     ),
   },
 });
@@ -55,10 +65,9 @@ const signupRoute = createRoute({
       z.object({
         accessToken: z.string(),
         refreshToken: z.string(),
-        user: z.any(),
-
+        user: UserResponseSchema,
       }),
-      "The signup token",
+      "The signup token and user object",
     ),
   },
 });
@@ -70,10 +79,16 @@ const sessionRoute = createRoute({
   middleware: [authMiddleware, sessionMiddleware],
   summary: "Get current user session",
   responses: {
-
     [HttpStatusCodes.OK]: jsonContent(
-
-      z.object(),
+      z.object({
+        user: UserResponseSchema,
+        authSession: selectAuthSessionSchema,
+        // You can add more detailed schemas for the other session properties here if needed
+        gameSession: z.any().optional(),
+        wallet: z.any().optional(),
+        vipInfo: z.any().optional(),
+        operator: z.any().optional(),
+      }),
       "The current user session",
     ),
   },
@@ -86,9 +101,7 @@ const logoutRoute = createRoute({
   summary: "Logout current user",
   responses: {
     [HttpStatusCodes.OK]: jsonContent(
-      z.object({
-        message: z.string(),
-      }),
+      createMessageObjectSchema("Successfully logged out"),
       "Logout successful",
     ),
   },
@@ -98,23 +111,7 @@ const logoutRoute = createRoute({
 const router = createRouter()
   .openapi(loginRoute, controller.login as any)
   .openapi(signupRoute, controller.signup as any)
-  .openapi(logoutRoute, controller.logout)
-  // .use(authMiddleware, sessionMiddleware)
+  .openapi(logoutRoute, controller.logout as any)
   .openapi(sessionRoute, controller.session as any);
-
-// Protected routes (require authentication)
-// const protectedRouter = createRouter()
-//   .use("*", (c, next) => {
-//     // Skip auth for OPTIONS requests
-//     if (c.req.method === "OPTIONS")
-//       return next();
-//     return authMiddleware(c, next);
-//   })
-//   .openapi(sessionRoute, controller.session);
-
-// Combine routers
-// const router = createRouter()
-//   .route("/", publicRouter)
-//   .route("/", protectedRouter);
 
 export default router;

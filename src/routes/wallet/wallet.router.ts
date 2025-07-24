@@ -1,13 +1,42 @@
+import { createRoute, z } from "@hono/zod-openapi";
+
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
+import { sessionMiddleware } from "#/middlewares/session.middleware";
 
 import * as controller from "./wallet.controller";
 
-const router = createRouter();
+const tags = ["Wallet"];
 
 // All wallet routes should be protected
-router.use("*", authMiddleware);
+const updateBalanceRoute = createRoute({
+  method: "post",
+  path: "/balance",
+  tags,
+  middleware: [authMiddleware, sessionMiddleware],
+  summary: "Update current user balance",
 
-router.post("/balance", controller.handleUpdateBalance);
+  responses: {
+    200: {
+      description: "Returns the user's wallet balance.",
+      content: {
+        "application/json": {
+          schema: z.object({
+            amount: z.number(),
+            type: z.string(),
+            description: z.string(),
+            // Define the expected shape of the response here
+          }),
+        },
+      },
+    },
+    401: { description: "Unauthorized" },
+    404: { description: "Wallet Info not found" },
+  },
+});
+
+// export default router;
+const router = createRouter()
+  .openapi(updateBalanceRoute, controller.handleUpdateBalance as any);
 
 export default router;
