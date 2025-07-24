@@ -119,8 +119,15 @@ export const DAILY_SIGN_IN_REWARDS: Readonly<SignInReward[]> = Object.freeze([
   { day: 7, description: "Day 7: Weekly Jackpot!", xp: 100, amount: 25, currencyId: "USD_FUN" },
 ]);
 
+// ... (all the interface definitions and VIP_LEVEL_CONFIGS array remain the same)
+
 export function getVipLevelConfiguration(level: number): Readonly<LevelConfig> | undefined {
   return VIP_LEVEL_CONFIGS.find(l => l.level === level);
+}
+
+// This function was missing and has been restored
+export function getAllVipLevelConfigurations(): Readonly<LevelConfig[]> {
+  return VIP_LEVEL_CONFIGS;
 }
 
 export function getVipLevelByTotalXp(totalXp: number): Readonly<LevelConfig> {

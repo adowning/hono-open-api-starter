@@ -1,32 +1,38 @@
-async function runBot() {
-  const baseUrl = "http://localhost:9999";
-  let sessionCookie = "";
+import { randomUUID } from "crypto";
 
-  // Function to perform a fetch request with a timeout
-  async function fetchWithTimeout(url: string, options: RequestInit, timeout = 5000) {
-    const controller = new AbortController();
-    const id = setTimeout(() => controller.abort(), timeout);
+// --- CONFIGURATION ---
+// Set the desired starting balance for the user in cents (e.g., 50000 = $500.00)
+const INITIAL_WALLET_BALANCE_CENTS = 50000;
+// --- END CONFIGURATION ---
 
-    try {
-      const response = await fetch(url, {
-        ...options,
-        signal: controller.signal,
-      });
-      return response;
-    } catch (error) {
-      // If the error is an AbortError, we can throw a custom timeout error
-      if (error instanceof Error && error.name === 'AbortError') {
-        throw new Error('Request timed out');
-      }
-      // Otherwise, re-throw the original error
-      throw error;
-    } finally {
-      clearTimeout(id);
-    }
-  }
+// Function to perform a fetch request with a timeout
+async function fetchWithTimeout(url: string, options: RequestInit, timeout = 5000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
 
   try {
-    // 1. Login to get the session cookie
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    return response;
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('Request timed out');
+    }
+    throw error;
+  } finally {
+    clearTimeout(id);
+  }
+}
+
+async function runBot() {
+  const baseUrl = "http://localhost:9999";
+  let accessToken = "";
+  let user: any = null;
+  let gameSessionToken = ""; // Variable to store the session-specific token
+  let gameUserId: any = null; // To store the user ID from the settings response
+  let gameFingerprint: any = null; // To store the fingerprint from the settings response
+
+  try {
+    // 1. Login to get the initial access token
     console.log("Attempting to log in...");
     const loginResponse = await fetchWithTimeout(`${baseUrl}/login`, {
       method: "POST",
@@ -35,80 +41,130 @@ async function runBot() {
     });
 
     if (!loginResponse.ok) {
-      const errorText = await loginResponse.text();
-      console.error(`Login failed with status: ${loginResponse.status}. Response: ${errorText}`);
-      return; // Exit if login fails
+      console.error(`Login failed: ${loginResponse.status}`);
+      return;
     }
 
-    const setCookieHeader = loginResponse.headers.get("set-cookie");
-    if (!setCookieHeader) {
-      console.error("Login response did not include a set-cookie header.");
-      return; // Exit if no cookie
-    }
-    sessionCookie = setCookieHeader.split(";")[0];
-    console.log("Login successful. Received session cookie:", sessionCookie);
+    const loginData = await loginResponse.json();
+    accessToken = loginData.accessToken;
+    user = loginData.user;
+    console.log("Login successful.");
 
-    // 2. Make a request to the game settings endpoint
+    // 2. Set the initial wallet balance
+    console.log(`\nSetting initial wallet balance to $${(INITIAL_WALLET_BALANCE_CENTS / 100).toFixed(2)}...`);
+    await fetchWithTimeout(`${baseUrl}/wallet/balance`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${accessToken}` },
+        body: JSON.stringify({ amount: INITIAL_WALLET_BALANCE_CENTS, type: 'credit', description: 'Bot Initial Balance' }),
+    });
+
+
+    // 3. Establish WebSocket connections
+    console.log("\nConnecting to WebSockets...");
+    const userWs = new WebSocket(`${baseUrl.replace('http', 'ws')}/ws/user?token=${accessToken}`);
+    const notificationsWs = new WebSocket(`${baseUrl.replace('http', 'ws')}/ws/notifications?token=${accessToken}`);
+
+    userWs.onopen = () => console.log("🟢 User WebSocket connected.");
+    notificationsWs.onopen = () => console.log("🟢 Notifications WebSocket connected.");
+    userWs.onmessage = (event) => console.log("🔵 [USER UPDATE]:", event.data);
+    notificationsWs.onmessage = (event) => console.log("🔔 [NOTIFICATION]:", event.data);
+    userWs.onerror = (err) => console.error("🔴 User WebSocket error:", err);
+    notificationsWs.onerror = (err) => console.error("🔴 Notifications WebSocket error:", err);
+    
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // 4. Get Game Settings to initialize the session and get critical data
     console.log("\nAttempting to get game settings...");
+    const initialFingerprint = randomUUID();
+    const settingsPayload = {
+        gameId: "Atlantis",
+        token: null,
+        userId: user.id,
+        currency: "USD",
+        sessionId: "0", 
+        mode: "demo",
+        language: "en",
+        userData: {
+            userId: user.id,
+            fingerprint: initialFingerprint,
+        },
+        custom: {
+  "siteId": "",
+  "extras": ""
+}
+    };
+
     const settingsResponse = await fetchWithTimeout(`${baseUrl}/redtiger/game/settings`, {
       method: "POST",
-      headers: { "Cookie": sessionCookie, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        gameId: "Atlantis",
-        userId: "asdf",
-        currency: "USD",
-        mode: "real",
-        language: "en",
-        gameSessionId: "null",
-        gameName: "Atlantis",
-      }),
+      headers: { "Authorization": `Bearer ${accessToken}`, "Content-Type": "application/json" },
+      body: JSON.stringify(settingsPayload),
     });
 
     const settingsData = await settingsResponse.json();
-
-    if (!settingsResponse.ok) {
+    if (!settingsResponse.ok || !settingsData.success) {
       console.error(`Failed to get game settings with status: ${settingsResponse.status}.`);
       console.error("Response:", settingsData);
-      return; // Exit if settings fail
+      return;
     }
-    console.log("Game settings response success: true");
+    
+    // **CRITICAL STEP:** Capture session data from the settings response
+    gameSessionToken = settingsData.result.user.token;
+    gameUserId = settingsData.result.user.userId;
+    gameFingerprint = settingsData.result.user.fingerprint || initialFingerprint; 
+    console.log("Game settings received successfully. Using new game session data.");
 
 
-    // 3. Perform 3 spins with a 1-second delay
-    for (let i = 1; i <= 3; i++) {
-      console.log(`\nAttempting to perform spin #${i}...`);
+    // 5. Perform spins using the data from the settings response
+    for (let i = 1; i <= 5; i++) {
+      console.log(`\n--- Performing Spin #${i} ---`);
+
+      // Construct the detailed spin payload
+      const spinPayload = {
+          token: gameSessionToken,
+          sessionId: "0",
+          playMode: "demo",
+          gameId: "Atlantis",
+          userData: {
+              userId: gameUserId,
+              affiliate: "",
+              lang: "en",
+              channel: "I",
+              userType: "U",
+              fingerprint: gameFingerprint,
+          },
+          custom: {
+              siteId: "",
+              extras: ""
+          },
+          stake: 1.00,
+          bonusId: null,
+          extras: null,
+          gameMode: 0
+      };
+      
       const spinResponse = await fetchWithTimeout(`${baseUrl}/redtiger/game/spin`, {
           method: "POST",
           headers: {
-              "Cookie": sessionCookie,
+              "Authorization": `Bearer ${accessToken}`,
               "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-              token: "some-token",
-              userId: "asdf",
-              gameId: "Atlantis",
-              stake: "1.00",
-              currency: "USD",
-              sessionId: "null",
-              gameName: "Atlantis",
-              gameSessionId: "null",
-          }),
+          body: JSON.stringify(spinPayload),
       });
 
       const spinData = await spinResponse.json();
 
-      if (!spinResponse.ok) {
-          console.error(`Failed to perform spin #${i} with status: ${spinResponse.status}.`);
+      if (!spinResponse.ok || !spinData.success) {
+          console.error(`Spin #${i} failed with status: ${spinResponse.status}.`);
           console.error("Response:", spinData);
-          // Continue to the next spin even if this one fails
       } else {
-        console.log(`Spin #${i} successful.`);
+        console.log(`Spin #${i} successful. Win: $${spinData.result.game.win.total}`);
+        // **CRITICAL STEP:** Update the token and fingerprint for the next spin
+        gameSessionToken = spinData.result.user.token;
+        gameFingerprint = spinData.result.user.fingerprint || gameFingerprint;
       }
 
-      // Wait for 1 second before the next spin
-      if (i < 3) {
-        console.log("Waiting 1 second...");
-        await new Promise(resolve => setTimeout(resolve, 1000));
+      if (i < 5) {
+        await new Promise(resolve => setTimeout(resolve, 1500));
       }
     }
 
@@ -116,6 +172,7 @@ async function runBot() {
     console.error("An error occurred during the bot execution:", err);
   } finally {
     console.log("\nBot has finished its tasks.");
+    process.exit(0);
   }
 }
 

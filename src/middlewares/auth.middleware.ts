@@ -8,11 +8,19 @@ import db, { AuthSession, User } from "#/db";
 import env from "#/env";
 
 export async function authMiddleware(c: Context, next: Next) {
-  let token = getCookie(c, "access_token");
-  if (!token && c.req.url.includes("/rpc")) {
-    const slashArr = c.req.url.split("/");
-    token = slashArr[7];
+  let token: string | undefined;
+
+  // 1. Check for Bearer token in the Authorization header
+  const authHeader = c.req.header("Authorization");
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    token = authHeader.substring(7);
   }
+
+  // 2. Fallback to checking for the cookie
+  if (!token) {
+    token = getCookie(c, "access_token");
+  }
+
   if (!token) {
     return c.json({ error: "Unauthorized" }, 401);
   }

@@ -8,6 +8,8 @@ import type { JackpotContributionType, JackpotType, JackpotWinType, NewJackpot }
 import db, { GameSpin, Jackpot, JackpotContribution, JackpotWin, Transaction, Wallet } from "#/db";
 import { coinsToDollars } from "#/utils/misc.utils";
 
+import { triggerUserUpdate } from "./websocket.service";
+
 export const dollarsToCoins = (dollars: number): number => Math.round(dollars * 100);
 
 export function calculateContribution(wagerCoins: number, contributionRateBasisPoints: number): number {
@@ -418,5 +420,11 @@ export async function handleJackpotWin({
     console.log(`Jackpot win processed: ${amount} for user ${userId}`);
 
     return { success: true, newBalance };
+  }).then((result) => {
+    // After the transaction is successfully committed, trigger the update
+    if (result.success) {
+      triggerUserUpdate(userId);
+    }
+    return result;
   });
 }

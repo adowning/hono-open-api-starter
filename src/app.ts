@@ -5,6 +5,8 @@ import index from "#/routes/index.route";
 import redtiger from "#/routes/redtiger/redtiger.router";
 import tasks from "#/routes/tasks/tasks.index";
 import users from "#/routes/user/user.router";
+import vip from "#/routes/vip/vip.router"; // Import the new router
+import wallet from "#/routes/wallet/wallet.router"; // Import the new router
 import websocket from "#/routes/websocket/websocket.router"; // Import the new router
 
 const app = createApp();
@@ -18,6 +20,8 @@ const routes = [
   users,
   redtiger,
   websocket,
+  wallet,
+  vip,
 ] as const;
 
 routes.forEach((route) => {

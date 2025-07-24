@@ -11,7 +11,10 @@ export interface SpinParams {
   totalSpinWinnings: number;
   wagerAmount: number;
 }
-
+export interface SpinStats {
+  totalSpinWinnings: number;
+  wagerAmount: number;
+}
 export async function handleGameSpin(c: Context, spinInput: NewGameSpin, spinParams: SpinParams): Promise<Partial<GameSpinType>> {
   const user = c.get("user") as UserWithRelations;
   const gameSession = c.get("gameSession") as GameSessionType;
@@ -56,4 +59,21 @@ export async function handleGameSpin(c: Context, spinInput: NewGameSpin, spinPar
   await addSpinToCache(gameSession.id, newSpin);
 
   return newSpin;
+}
+export async function updateGameSessionStats(c: Context, spinStats: SpinStats): Promise<void> {
+  const gameSession = c.get("gameSession") as GameSessionType;
+
+  if (!gameSession) {
+    console.warn("Attempted to update game session stats, but no session was found in the context.");
+    return;
+  }
+
+  const { totalSpinWinnings, wagerAmount } = spinStats;
+
+  gameSession.totalWagered = (gameSession.totalWagered || 0) + wagerAmount;
+  gameSession.totalWon = (gameSession.totalWon || 0) + totalSpinWinnings;
+
+  await saveGameSessionToCache(gameSession, c);
+
+  console.log(chalk.gray(`Updated session ${gameSession.id}: Wagered=${wagerAmount}, Won=${totalSpinWinnings}`));
 }

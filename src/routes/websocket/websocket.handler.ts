@@ -5,11 +5,14 @@ import type { AuthSessionType, UserType } from "#/db";
 
 import { chatHandler } from "./chat.handler";
 import { notificationsHandler } from "./notifications.handler";
+import { userHandler } from "./user.handler";
 
 // Define a map of topic names to their handlers
 const topicHandlers = {
   chat: chatHandler,
   notifications: notificationsHandler,
+  user: userHandler, // 2. Add the new handler to the map
+
 };
 
 // Define an interface for the data attached to the WebSocket

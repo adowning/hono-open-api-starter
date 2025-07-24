@@ -4,17 +4,16 @@ import type { PgTransaction } from "drizzle-orm/pg-core";
 
 import { eq } from "drizzle-orm";
 
-import type { VipInfoType } from "#/db";
-import type * as schema from "#/db/schema"; // Import the full schema object
+import type { VipInfoType, VipRankType } from "#/db";
+import type * as schema from "#/db/schema";
 
-import db, { User, VipInfo } from "#/db";
+import db, { User, VipInfo, VipLevel, VipRank } from "#/db";
+import { triggerUserUpdate } from "#/lib/websocket.service";
 
-import { getVipLevelByTotalXp, getVipLevelConfiguration } from "./vip.config";
+import { getAllVipLevelConfigurations, getVipLevelByTotalXp, getVipLevelConfiguration } from "./vip.config"; // Ensure the function is imported
 
-// Define a reusable type for the Bun PostgreSQL transaction object
 type Transaction = PgTransaction<BunSQLQueryResultHKT, typeof schema, ExtractTablesWithRelations<typeof schema>>;
 
-// This interface defines the results of an XP calculation
 export interface XpCalculationResult {
   xpGained: number;
   newTotalXp: number;
@@ -24,29 +23,61 @@ export interface XpCalculationResult {
   oldLevel: number;
 }
 
+interface VipDetails {
+  info: VipInfoType;
+  rank: VipRankType;
+  xpForNextLevel: number;
+}
+
+// Export the function so the controller can use it
+export { getAllVipLevelConfigurations };
+
 /**
- * Calculates XP gained from wagers and wins based on VIP level.
+ * Retrieves a comprehensive overview of a user's VIP status.
  */
+export async function getVipDetailsForUser(userId: string): Promise<VipDetails | null> {
+  let vipInfo = await db.query.VipInfo.findFirst({ where: eq(VipInfo.userId, userId) });
+  if (!vipInfo) {
+    vipInfo = await db.transaction(async tx => createDefaultVipInfo(userId, tx));
+  }
+
+  const currentRank = await db.query.VipRank.findFirst({
+    where: eq(VipRank.id, vipInfo.currentRankid!),
+  });
+
+  if (!currentRank) {
+    throw new Error(`No matching VIP Rank found for user ${userId}.`);
+  }
+
+  const nextLevelData = await db.query.VipLevel.findFirst({
+    where: eq(VipLevel.level, vipInfo.level),
+  });
+
+  if (!nextLevelData) {
+    throw new Error(`XP requirement for level ${vipInfo.level} not found.`);
+  }
+
+  return {
+    info: vipInfo,
+    rank: currentRank,
+    xpForNextLevel: nextLevelData.xpForNext,
+  };
+}
+
 export function calculateXpForWagerAndWins(wagerAmount: number, isWin: boolean, vipInfo: VipInfoType): number {
   const baseXp = Math.floor(wagerAmount);
   const levelConfig = getVipLevelConfiguration(vipInfo.level);
   const multiplier = levelConfig?.dailyBonusMultiplier || 1.0;
-
   return isWin ? Math.floor(baseXp * multiplier * 2) : Math.floor(baseXp * multiplier);
 }
 
-/**
- * Adds XP to a user and handles level progression within a single database transaction.
- */
 export async function addXpToUser(userId: string, xpAmount: number): Promise<XpCalculationResult> {
   if (xpAmount <= 0) {
     throw new Error("XP amount must be positive");
   }
 
   return await db.transaction(async (tx) => {
-    const vipInfoResult = await tx.select().from(VipInfo).where(eq(VipInfo.userId, userId)).limit(1);
-    let vipInfo = vipInfoResult[0];
-
+    let vipInfo = await tx.query.VipInfo.findFirst({ where: eq(VipInfo.userId, userId) });
     if (!vipInfo) {
       vipInfo = await createDefaultVipInfo(userId, tx);
     }
@@ -65,7 +96,7 @@ export async function addXpToUser(userId: string, xpAmount: number): Promise<XpC
       xp: newCurrentLevelXp,
     }).where(eq(VipInfo.userId, userId));
 
-    const result: XpCalculationResult = {
+    const result = {
       xpGained: xpAmount,
       newTotalXp,
       newCurrentLevelXp,
@@ -79,17 +110,15 @@ export async function addXpToUser(userId: string, xpAmount: number): Promise<XpC
     }
 
     return result;
+  }).then((result) => {
+    triggerUserUpdate(userId);
+    return result;
   });
 }
 
-/**
- * Creates default VIP information for a new user.
- */
 async function createDefaultVipInfo(userId: string, tx: Transaction): Promise<VipInfoType> {
   const users = await tx.select().from(User).where(eq(User.id, userId)).limit(1);
-  const user = users[0];
-
-  if (!user) {
+  if (!users[0]) {
     throw new Error(`User with ID ${userId} not found.`);
   }
 
@@ -103,18 +132,11 @@ async function createDefaultVipInfo(userId: string, tx: Transaction): Promise<Vi
   return newVipInfo;
 }
 
-/**
- * Applies benefits when a user levels up.
- */
-async function applyLevelUpBenefits(userId: string, newLevel: number, tx: Transaction): Promise<void> {
+async function applyLevelUpBenefits(userId: string, newLevel: number, _tx: Transaction): Promise<void> {
   const levelConfig = getVipLevelConfiguration(newLevel);
   if (!levelConfig)
     return;
 
-  await tx.update(VipInfo).set({
-    // You can add more fields to update here, like cashbackPercentage
-  }).where(eq(VipInfo.userId, userId));
-
-  // Here you can add logic to grant level-up rewards, send notifications, etc.
+  // The tx parameter is currently unused, prefixing with _ to satisfy ESLint
   console.log(`User ${userId} has reached level ${newLevel}! Applying benefits.`);
 }

@@ -1457,7 +1457,7 @@ const userDataObjectSchema = z.object({
 // Schema for RTGSettingsRequestDto
 export const rtgSettingsRequestDtoSchema = z.object({
   gameId: z.string(),
-  token: z.string().optional(),
+  token: z.string().optional().nullable(),
   userId: z.string(),
   currency: z.string(),
   language: z.string(),
