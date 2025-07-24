@@ -22,7 +22,7 @@ export async function findUserById(id: string) {
   return await db.select().from(User).where(eq(User.id, id));
 }
 
-export async function updateUser(id: string, data: Partial<z.infer<NewUser>>) {
+export async function updateUser(id: string, data: Partial<NewUser>) {
   // @ts-ignore
   return await db.update(User).set(data).where(eq(User.id, id)).returning();
 }
@@ -85,7 +85,7 @@ export async function getUserAmount() {
   };
 }
 
-export async function updateUserInfo(data: z.infer<NewUser>) {
+export async function updateUserInfo(data: NewUser) {
   // Placeholder, you will need to implement the actual logic
   return { data };
 }

@@ -26,9 +26,7 @@ export async function handleGameSpin(c: Context, spinInput: NewGameSpin, spinPar
 
   const { totalSpinWinnings, wagerAmount } = spinParams;
 
-  // --- Start of New XP Logic ---
   const isWin = totalSpinWinnings > 0;
-  // Ensure vipInfo is loaded for the user
   if (user.vipInfo && user.vipInfo.length > 0) {
     const xpGained = calculateXpForWagerAndWins(wagerAmount, isWin, user.vipInfo[0]);
 
@@ -37,7 +35,6 @@ export async function handleGameSpin(c: Context, spinInput: NewGameSpin, spinPar
       console.log(chalk.yellow(`User ${user.id} earned ${xpGained} XP.`));
     }
   }
-  // --- End of New XP Logic ---
 
   gameSession.totalWagered = (gameSession.totalWagered || 0) + wagerAmount;
   gameSession.totalWon = (gameSession.totalWon || 0) + totalSpinWinnings;

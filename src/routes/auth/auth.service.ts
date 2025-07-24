@@ -4,15 +4,9 @@ import type { Context } from "hono";
 import { eq } from "drizzle-orm";
 import * as jose from "jose";
 
-import db, {
-  AuthSession,
-  insertUserSchema,
-  User,
-
-} from "#/db";
-import env, { } from "#/env";
-import { getGameSessionFromCache } from "#/lib/cache";
-import { endCurrentGameSession } from "#/lib/sessions";
+import db, { insertUserSchema, User } from "#/db";
+import env from "#/env";
+import { SessionManager } from "#/lib/session.manager";
 
 const ACCESS_TOKEN_EXPIRES_IN = "7 days";
 const REFRESH_TOKEN_EXPIRES_IN = "7 days";
@@ -40,7 +34,6 @@ export async function login(username: string, password: string, uid?: string) {
         .limit(1);
       userRecord = result[0];
     }
-    console.log("userRecord", userRecord);
   }
   catch (error) {
     console.error("Error querying user:", error);
@@ -58,10 +51,11 @@ export async function login(username: string, password: string, uid?: string) {
     throw new Error("Invalid credentials - password");
   }
 
-  const [authSession] = await db.insert(AuthSession).values({
-    userId: userRecord.id,
-    status: "ACTIVE",
-  }).returning();
+  // End all previous sessions for this user before creating a new one.
+  await SessionManager.endAllUserSessions(userRecord.id);
+
+  // Use the SessionManager to start the new auth session
+  const authSession = await SessionManager.startAuthSession(userRecord.id);
 
   const secret = new TextEncoder().encode(env.ACCESS_TOKEN_SECRET);
   const accessToken = await new jose.SignJWT({ userId: userRecord.id, sessionId: authSession.id })
@@ -77,24 +71,19 @@ export async function login(username: string, password: string, uid?: string) {
     .sign(secret);
 
   userRecord.passwordHash = null;
-  const user = userRecord; // z.object(selectUsersSchema).parse(userRecord)
+  const user = userRecord;
 
   return { accessToken, refreshToken, user };
 }
 
 export async function logout(authSessionId: string, userId: string) {
-  await db.update(AuthSession).set({ status: "EXPIRED" }).where(eq(AuthSession.id, authSessionId));
-  const gameSession = getGameSessionFromCache(authSessionId);
-  if (gameSession) {
-    await endCurrentGameSession(userId);
-  }
+  // Use the SessionManager to end the auth session, which also handles the game session.
+  await SessionManager.endAuthSession(authSessionId, userId);
 }
 
 export async function signup(c: Context, username: string, password: string) {
   const passwordHash = await Bun.password.hash(password, "bcrypt");
-  // const initialDepositAmount = 500; // 500 cents
 
-  // try {
   const result = await db.transaction(async (tx) => {
     const existingUser = await tx.query.User.findFirst({
       where: eq(User.username, username),
@@ -108,65 +97,19 @@ export async function signup(c: Context, username: string, password: string) {
     const newUserValues = insertUserSchema.parse({
       username,
       passwordHash,
-      inviteCode: crypto.randomUUID().slice(0, 8),
-      inviteUrl: `/invite/${username}`,
-      favoriteGameNames: [], // Add this line to provide a default empty array
     });
 
     const [newUser] = await tx
       .insert(User)
-    // @ts-ignore
+      // @ts-ignore
       .values(newUserValues)
       .returning();
-
-    // const userId = newUser.id;
-
-    // await tx.insert(balances).values({
-    //   userId,
-    //   amount: initialDepositAmount,
-    //   availableBalance: initialDepositAmount,
-    //   currency: "USD",
-    //   real: String(initialDepositAmount),
-    //   bonus: "0",
-    // });
-
-    // await tx.insert(deposits).values({
-    //   userId,
-    //   amount: initialDepositAmount,
-    //   status: "completed",
-    //   note: "Initial sign-up bonus",
-    //   currency: "USD",
-    // });
-
-    // await tx.insert(transactions).values({
-    //   userId,
-    //   amount: initialDepositAmount,
-    //   type: "deposit",
-    //   status: "completed",
-    //   note: "Initial sign-up bonus",
-    //   balance: initialDepositAmount,
-    // });
-
-    // await tx.insert(userRewards).values({ userId });
-    // await tx.insert(inviteStats).values({ userId });
-    // const user = await db.query.User.findFirst({
-    //   where: eq(User.id, newUser.id as string),
-    //   with: {
-    //     activeWallet: {
-    //       with: { operator: true },
-    //     },
-    //     vipInfo: true,
-    //   },
-    // });
     return { user: newUser };
   });
 
   const { user } = result;
 
-  const [authSession] = await db.insert(AuthSession).values({
-    userId: user.id,
-    status: "ACTIVE",
-  }).returning();
+  const authSession = await SessionManager.startAuthSession(user.id);
 
   const secret = new TextEncoder().encode(env.ACCESS_TOKEN_SECRET);
   const accessToken = await new jose.SignJWT({ userId: user.id, sessionId: authSession.id })
@@ -183,16 +126,3 @@ export async function signup(c: Context, username: string, password: string) {
 
   return { accessToken, refreshToken, user };
 }
-// catch (error) {
-//   console.error("Signup Transaction Failed:", error);
-//   // return { error: (error as Error).message };
-//   return c.json(null, null, null);
-//   // return c.json(
-//   //   {
-//   //     message: HttpStatusPhrases.PROCESSING,
-//   //     error: (error as Error).message,
-//   //   },
-//   //   HttpStatusCodes.NOT_FOUND,
-//   // );
-// }
-// }

@@ -1,6 +1,6 @@
 import type { Context } from "hono";
 
-import { startSession as startSessionFromLib } from "#/lib/sessions";
+import { SessionManager } from "#/lib/session.manager";
 
 import * as service from "./user.service";
 
@@ -53,27 +53,6 @@ export async function checkUser(c: Context) {
   }
   return c.json({ userCheck: true }, 200);
 }
-
-// export async function getBalance(c: Context) {
-//   const userId = c.req.param("id");
-//   const balance = await service.getUserBalance(userId);
-//   return c.json(balance, 200);
-// }
-
-// export async function setCurrency(c: Context) {
-//   const userId = Number(c.req.param("id"));
-//   const { currency } = await c.req.json();
-//   try {
-//     const result = await service.setUserCurrency(userId, currency);
-//     return c.json(result, 200);
-//   }
-//   catch (error: unknown) {
-//     if (error instanceof Error) {
-//       return c.json({ error: error.message }, 400);
-//     }
-//     return c.json({ error: "An unknown error occurred" }, 400);
-//   }
-// }
 
 export async function verifyEmail(c: Context) {
   const userId = c.req.param("id");
@@ -173,6 +152,16 @@ export async function favoriteGameList(c: Context) {
 
 export async function startSession(c: Context) {
   const { gameId } = await c.req.json();
-  const session = await startSessionFromLib(c, gameId);
+  const session = await SessionManager.startGameSession(c, gameId);
   return c.json(session, 200);
+}
+
+export async function endSession(c: Context) {
+  const user = c.get("user");
+  if (!user) {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+
+  await SessionManager.endCurrentGameSession(user.id);
+  return c.json({ success: true, message: "Game session ended." });
 }

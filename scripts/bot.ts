@@ -53,9 +53,9 @@ async function runBot() {
     // 2. Set the initial wallet balance
     console.log(`\nSetting initial wallet balance to $${(INITIAL_WALLET_BALANCE_CENTS / 100).toFixed(2)}...`);
     await fetchWithTimeout(`${baseUrl}/wallet/balance`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "Authorization": `Bearer ${accessToken}` },
-        body: JSON.stringify({ amount: INITIAL_WALLET_BALANCE_CENTS, type: 'credit', description: 'Bot Initial Balance' }),
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": `Bearer ${accessToken}` },
+      body: JSON.stringify({ amount: INITIAL_WALLET_BALANCE_CENTS, type: 'credit', description: 'Bot Initial Balance' }),
     });
 
 
@@ -70,28 +70,28 @@ async function runBot() {
     notificationsWs.onmessage = (event) => console.log("🔔 [NOTIFICATION]:", event.data);
     userWs.onerror = (err) => console.error("🔴 User WebSocket error:", err);
     notificationsWs.onerror = (err) => console.error("🔴 Notifications WebSocket error:", err);
-    
+
     await new Promise(resolve => setTimeout(resolve, 1000));
 
     // 4. Get Game Settings to initialize the session and get critical data
     console.log("\nAttempting to get game settings...");
     const initialFingerprint = randomUUID();
     const settingsPayload = {
-        gameId: "Atlantis",
-        token: null,
+      gameId: "Atlantis",
+      token: null,
+      userId: user.id,
+      currency: "USD",
+      sessionId: "0",
+      mode: "demo",
+      language: "en",
+      userData: {
         userId: user.id,
-        currency: "USD",
-        sessionId: "0", 
-        mode: "demo",
-        language: "en",
-        userData: {
-            userId: user.id,
-            fingerprint: initialFingerprint,
-        },
-        custom: {
-  "siteId": "",
-  "extras": ""
-}
+        fingerprint: initialFingerprint,
+      },
+      custom: {
+        "siteId": "",
+        "extras": ""
+      }
     };
 
     const settingsResponse = await fetchWithTimeout(`${baseUrl}/redtiger/game/settings`, {
@@ -106,11 +106,11 @@ async function runBot() {
       console.error("Response:", settingsData);
       return;
     }
-    
+
     // **CRITICAL STEP:** Capture session data from the settings response
     gameSessionToken = settingsData.result.user.token;
     gameUserId = settingsData.result.user.userId;
-    gameFingerprint = settingsData.result.user.fingerprint || initialFingerprint; 
+    gameFingerprint = settingsData.result.user.fingerprint || initialFingerprint;
     console.log("Game settings received successfully. Using new game session data.");
 
 
@@ -120,42 +120,42 @@ async function runBot() {
 
       // Construct the detailed spin payload
       const spinPayload = {
-          token: gameSessionToken,
-          sessionId: "0",
-          playMode: "demo",
-          gameId: "Atlantis",
-          userData: {
-              userId: gameUserId,
-              affiliate: "",
-              lang: "en",
-              channel: "I",
-              userType: "U",
-              fingerprint: gameFingerprint,
-          },
-          custom: {
-              siteId: "",
-              extras: ""
-          },
-          stake: 1.00,
-          bonusId: null,
-          extras: null,
-          gameMode: 0
+        token: gameSessionToken,
+        sessionId: "0",
+        playMode: "demo",
+        gameId: "Atlantis",
+        userData: {
+          userId: gameUserId,
+          affiliate: "",
+          lang: "en",
+          channel: "I",
+          userType: "U",
+          fingerprint: gameFingerprint,
+        },
+        custom: {
+          siteId: "",
+          extras: ""
+        },
+        stake: 1.00,
+        bonusId: null,
+        extras: null,
+        gameMode: 0
       };
-      
+
       const spinResponse = await fetchWithTimeout(`${baseUrl}/redtiger/game/spin`, {
-          method: "POST",
-          headers: {
-              "Authorization": `Bearer ${accessToken}`,
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify(spinPayload),
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(spinPayload),
       });
 
       const spinData = await spinResponse.json();
 
       if (!spinResponse.ok || !spinData.success) {
-          console.error(`Spin #${i} failed with status: ${spinResponse.status}.`);
-          console.error("Response:", spinData);
+        console.error(`Spin #${i} failed with status: ${spinResponse.status}.`);
+        console.error("Response:", spinData);
       } else {
         console.log(`Spin #${i} successful. Win: $${spinData.result.game.win.total}`);
         // **CRITICAL STEP:** Update the token and fingerprint for the next spin

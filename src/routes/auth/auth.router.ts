@@ -3,7 +3,7 @@ import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
 import { createMessageObjectSchema } from "stoker/openapi/schemas"; // Import the helper
 
-import { selectAuthSessionSchema, selectUserSchema, User } from "#/db";
+import { selectAuthSessionSchema, UserResponseSchema } from "#/db";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
@@ -13,13 +13,6 @@ import * as controller from "./auth.controller";
 const tags = ["Auth"];
 
 // Use the Drizzle-Zod schema for the user object, but omit sensitive data for the response documentation
-const UserResponseSchema = selectUserSchema.omit({
-  passwordHash: true,
-  refreshToken: true,
-  accessToken: true,
-  accessTokenExpiresAt: true,
-  refreshTokenExpiresAt: true,
-}).openapi("UserResponse");
 
 const loginRoute = createRoute({
   path: "/login",

@@ -18,7 +18,7 @@ const EnvSchema = z.object({
       expected: "string",
       received: "undefined",
       fatal: true,
-      input: "undefined",
+      // input: "undefined",
       path: ["DATABASE_AUTH_TOKEN"],
       message: "Must be set when NODE_ENV is 'production'",
     });

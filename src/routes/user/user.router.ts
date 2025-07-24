@@ -341,6 +341,20 @@ export const favoriteGameList = createRoute({
   responses: { 200: { description: "Favorite game list" } },
 });
 
+export const endGameSession = createRoute({
+  method: "post",
+  path: "/end-game-session",
+  tags,
+  summary: "End the current game session",
+  responses: {
+    [HttpStatusCodes.OK]: jsonContent(
+      z.object({ success: z.boolean(), message: z.string() }),
+      "Session ended response",
+    ),
+    [HttpStatusCodes.UNAUTHORIZED]: { description: "Unauthorized" },
+  },
+});
+
 export const router = createRouter()
   // .openapi(createUser, controller.createUser)
   .openapi(listUser, controller.listUser as any)
@@ -351,6 +365,7 @@ export const router = createRouter()
   .openapi(spinPage, controller.spinPage)
   .openapi(spin, controller.spin)
   .openapi(favoriteGameList, controller.favoriteGameList)
+  .openapi(endGameSession, controller.endSession as any)
 
   // Basic CRUD
   .openapi(getOneUser, controller.getUserById as any)

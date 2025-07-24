@@ -16,7 +16,9 @@ const client = new SQL(env.DATABASE_URL!);
 const db = drizzle(client, { schema });
 export default db;
 
-export * from "./schema";
+export * from "./relations.schema";
+export * from "./rtg.schema";
+export * from "./slim.schema";
 export * from "./types";
 // import { createClient } from "@libsql/client";
 // import { drizzle } from "drizzle-orm/libsql";
