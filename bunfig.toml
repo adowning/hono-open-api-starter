@@ -1,0 +1,10 @@
+# bunfig.toml
+
+[install]
+pm = "bun"
+
+# Defines the directory where modules are installed.
+modules-dir = "node_modules"
+
+[run]
+shell = "bun"

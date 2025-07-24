@@ -5,6 +5,7 @@ import chalk from "chalk";
 import type { GameSessionType, GameSpinType, NewGameSpin, UserWithRelations } from "#/db";
 
 import { addSpinToCache, saveGameSessionToCache } from "#/lib/cache";
+import { addXpToUser, calculateXpForWagerAndWins } from "#/routes/vip/vip.service";
 
 export interface SpinParams {
   totalSpinWinnings: number;
@@ -22,11 +23,18 @@ export async function handleGameSpin(c: Context, spinInput: NewGameSpin, spinPar
 
   const { totalSpinWinnings, wagerAmount } = spinParams;
 
-  const xpEarned = Math.floor(wagerAmount);
-  if (xpEarned > 0) {
-    gameSession.totalXpGained = (gameSession.totalXpGained || 0) + xpEarned;
-    console.log(chalk.yellow(`User ${user.id} earned ${xpEarned} XP. Session total: ${gameSession.totalXpGained}`));
+  // --- Start of New XP Logic ---
+  const isWin = totalSpinWinnings > 0;
+  // Ensure vipInfo is loaded for the user
+  if (user.vipInfo && user.vipInfo.length > 0) {
+    const xpGained = calculateXpForWagerAndWins(wagerAmount, isWin, user.vipInfo[0]);
+
+    if (xpGained > 0) {
+      await addXpToUser(user.id, xpGained);
+      console.log(chalk.yellow(`User ${user.id} earned ${xpGained} XP.`));
+    }
   }
+  // --- End of New XP Logic ---
 
   gameSession.totalWagered = (gameSession.totalWagered || 0) + wagerAmount;
   gameSession.totalWon = (gameSession.totalWon || 0) + totalSpinWinnings;
