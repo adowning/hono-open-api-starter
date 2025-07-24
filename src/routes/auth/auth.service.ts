@@ -12,7 +12,7 @@ import db, {
 } from "#/db";
 import env, { } from "#/env";
 import { getGameSessionFromCache } from "#/lib/cache";
-import { endAndPersistGameSession } from "#/lib/sessions";
+import { endCurrentGameSession } from "#/lib/sessions";
 
 const ACCESS_TOKEN_EXPIRES_IN = "7 days";
 const REFRESH_TOKEN_EXPIRES_IN = "7 days";
@@ -82,11 +82,11 @@ export async function login(username: string, password: string, uid?: string) {
   return { accessToken, refreshToken, user };
 }
 
-export async function logout(authSessionId: string) {
+export async function logout(authSessionId: string, userId: string) {
   await db.update(AuthSession).set({ status: "EXPIRED" }).where(eq(AuthSession.id, authSessionId));
   const gameSession = getGameSessionFromCache(authSessionId);
   if (gameSession) {
-    await endAndPersistGameSession(gameSession.id);
+    await endCurrentGameSession(userId);
   }
 }
 

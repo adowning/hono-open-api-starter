@@ -1,5 +1,6 @@
-import { createRoute, OpenAPIHono, z } from "@hono/zod-openapi";
+import { createRoute, z } from "@hono/zod-openapi";
 
+import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
 
@@ -90,13 +91,13 @@ const spinRoute = createRoute({
   },
 });
 
-const app = new OpenAPIHono();
+const router = createRouter();
 
-app.use("*", authMiddleware);
+router.use("*", authMiddleware);
 
-app.openapi(settingsRoute, redtigerController.settings as any);
-app.use("*", sessionMiddleware);
+router.openapi(settingsRoute, redtigerController.settings as any);
+router.use("*", sessionMiddleware);
 
-app.openapi(spinRoute, redtigerController.spin as any);
+router.openapi(spinRoute, redtigerController.spin as any);
 
-export default app;
+export default router;

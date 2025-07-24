@@ -1,7 +1,7 @@
 import type { Context, Next } from "hono";
 
 import { getGameSessionFromCache, saveGameSessionToCache } from "#/lib/cache";
-import { endAndPersistGameSession } from "#/lib/sessions";
+import { endCurrentGameSession } from "#/lib/sessions";
 
 const IDLE_TIMEOUT = 10 * 60 * 1000; // 10 minutes
 
@@ -32,8 +32,8 @@ export async function sessionMiddleware(c: Context, next: Next) {
     if (timeDiff > IDLE_TIMEOUT) {
       // Session has expired, end it and remove from cache.
       // Ensure gameSession.id is a string before passing to endAndPersistGameSession
-      const sessionId = typeof gameSession.id === "string" ? gameSession.id : authSession.id;
-      await endAndPersistGameSession(sessionId);
+      // const sessionId = typeof gameSession.id === "string" ? gameSession.id : authSession.id;
+      await endCurrentGameSession(user.id);
       c.set("gameSession", null);
     }
     else {

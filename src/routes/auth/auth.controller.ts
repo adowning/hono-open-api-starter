@@ -54,8 +54,9 @@ export async function session(c: Context) {
 
 export async function logout(c: Context) {
   const authSession = c.get("authSession");
+  const user = c.get("user");
   if (authSession) {
-    await service.logout(authSession.id);
+    await service.logout(authSession.id, user.id);
   }
 
   setCookie(c, "access_token", "", {

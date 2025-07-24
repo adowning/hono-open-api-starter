@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import rclone from "rclone.js";
 
-import type { AppVersion, UpdateMetadata, UpdateType, UpdateTypeZ } from "#/db";
+import type { AppVersion, UpdateMetadata, UpdateTypeZ } from "#/db";
 
 import env from "#/env";
 

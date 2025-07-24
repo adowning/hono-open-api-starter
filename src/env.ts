@@ -18,6 +18,9 @@ const EnvSchema = z.object({
   DATABASE_URL: z.string().url(),
   DATABASE_AUTH_TOKEN: z.string().optional(),
   ACCESS_TOKEN_SECRET: z.string(),
+  R2_PUBLIC_URL: z.string(),
+  R2_BUCKET_NAME: z.string(),
+  RCLONE_R2_REMOTE: z.string(),
 }).superRefine((input, ctx) => {
   if (input.NODE_ENV === "production" && !input.DATABASE_AUTH_TOKEN) {
     ctx.addIssue({

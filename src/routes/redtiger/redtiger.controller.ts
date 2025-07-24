@@ -34,7 +34,7 @@ export const redtigerController = {
       return c.json({ message: "not authenticated" }, 401);
     if (!user.currentGameSessionDataId)
       return c.json({ message: "no gameSession" }, 404);
-    const gameSession = await getSession(user.currentGameSessionDataId);
+    const gameSession = await getSession(c, user.currentGameSessionDataId);
     if (!gameSession || gameSession === null)
       return c.json({ message: "no gameSession" }, 404);
 
@@ -42,7 +42,7 @@ export const redtigerController = {
     if (!gameName || gameName === "" || gameName === null)
       return c.json({ message: "no gameName" }, 404);
 
-    const spin = await createRedtigerSpin(user, gameName, gameSession.id, c, data);
+    const spin = await createRedtigerSpin(c, data);
     return c.json(spin);
   },
 };

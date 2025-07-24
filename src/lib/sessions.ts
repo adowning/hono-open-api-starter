@@ -1,13 +1,10 @@
 import type { InferSelectModel } from "drizzle-orm";
 import type { Context } from "hono";
-import type { z } from "zod";
 
 import chalk from "chalk";
 import { and, eq } from "drizzle-orm";
 
-import type { insertGameSession } from "#/db";
-
-import db, { AuthSession, Game, GameSession, GameSpin, User } from "#/db"; // Adjust path as needed
+import db, { AuthSession, Game, GameSession, GameSpin } from "#/db"; // Adjust path as needed
 import { deleteGameSessionFromCache, deleteSpinsFromCache, getGameSessionFromCache, getSpinsFromCache, saveGameSessionToCache } from "#/lib/cache";
 import { nanoid } from "#/utils/nanoid";
 
@@ -17,13 +14,6 @@ import { nanoid } from "#/utils/nanoid";
 // The type for a game session is now inferred from the Drizzle schema
 type GameSessionType = InferSelectModel<typeof GameSession>;
 
-/**
- * Starts a new game session for a user.
- * This function creates a new 'ACTIVE' GameSession in the database, linked to the user's active AuthSession.
- * @param c The Hono context.
- * @param data The input data, containing the gameId.
- * @returns A promise resolving to the newly created game session data.
- */
 export async function startSession(c: Context, gameName: string): Promise<GameSessionType> {
   const user = c.get("user");
 
@@ -42,7 +32,7 @@ export async function startSession(c: Context, gameName: string): Promise<GameSe
   }
   const game = await db.select().from(Game).where(eq(Game.name, gameName));
   // 2. Ensure any previous game session is properly ended before starting a new one.
-  await endCurrentGameSession(c, user.id);
+  await endCurrentGameSession(user.id);
 
   // 3. Validate the gameId
   const gameId = game[0].id || "lobby";
@@ -77,15 +67,7 @@ export async function startSession(c: Context, gameName: string): Promise<GameSe
   return newSessionData;
 }
 
-/**
- * Ends a user's current active game session.
- * This function orchestrates retrieving cached data (spins) for the session
- * and persisting the final state to the database in a single transaction.
- * @param c The Hono context.
- * @param db The Drizzle database instance.
- * @param userId The ID of the user whose session is ending.
- */
-export async function endCurrentGameSession(c: Context, userId: string): Promise<void> {
+export async function endCurrentGameSession(userId: string): Promise<void> {
   const activeSession = await db.query.GameSession.findFirst({
     where: and(eq(GameSession.userId, userId), eq(GameSession.status, "ACTIVE")),
   });
@@ -123,8 +105,12 @@ export async function endCurrentGameSession(c: Context, userId: string): Promise
       const spinsToCreate = sessionSpins.map((spin, i) => ({
         ...spin,
         gameSessionId: activeSession.id, // Link spin to the session
+        sessionId: activeSession.id,
         spinNumber: i + 1,
         timeStamp: new Date(spin.createdAt ?? Date.now()),
+        grossWinAmount: spin.grossWinAmount ?? 0,
+        wagerAmount: spin.wagerAmount ?? 0,
+        occurredAt: spin.occurredAt ?? new Date(),
       }));
       await tx.insert(GameSpin).values(spinsToCreate);
     }
