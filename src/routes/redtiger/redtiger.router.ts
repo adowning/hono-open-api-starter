@@ -1,6 +1,6 @@
 import { createRoute, z } from "@hono/zod-openapi";
 
-import { rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResultSchema } from "#/db";
+import { rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResultSchema } from "#/db/schema";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";

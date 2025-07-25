@@ -1,12 +1,12 @@
 {
-  "version": "7",
-  "dialect": "sqlite",
+  "version": "6",
+  "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
       "version": "6",
-      "when": 1728133964232,
-      "tag": "0000_same_squadron_sinister",
+      "when": 1721853530586,
+      "tag": "0001_create_enums",
       "breakpoints": true
     }
   ]

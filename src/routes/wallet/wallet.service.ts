@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 
-import db, { Transaction, User, Wallet } from "#/db";
+import db from "#/db";
+import { Transaction, User, Wallet } from "#/db/schema";
 import { triggerUserUpdate } from "#/lib/websocket.service";
 
 /**

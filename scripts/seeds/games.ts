@@ -30,9 +30,9 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import "dotenv/config";
 
-import type * as schema from "../../src/db";
+import type * as schema from "../../src/db/schema";
 
-import { Game as gamesTable } from "../../src/db"; // Adjust this path to your actual schema file
+import { Game as gamesTable } from "../../src/db/schema"; // Adjust this path to your actual schema file
 // Type definition for the raw game data from the JSON file.
 interface RawGame {
   id: string;

@@ -4,7 +4,8 @@ import { and, eq } from "drizzle-orm";
 import * as jose from "jose";
 
 import app from "./app";
-import db, { AuthSession, User } from "./db";
+import db from "./db";
+import { AuthSession, User } from "./db/schema";
 import env from "./env";
 import { websocketHandler } from "./routes/websocket/websocket.handler";
 

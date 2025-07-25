@@ -4,11 +4,12 @@ import type { createInsertSchema } from "drizzle-zod";
 
 import { eq } from "drizzle-orm";
 
-import db, { User } from "#/db";
+import db from "#/db";
+import { User } from "#/db/schema";
 
 import type {
   NewUser,
-} from "../../db";
+} from "../../db/schema";
 
 export async function findManyUser() {
   return await db.select().from(User);

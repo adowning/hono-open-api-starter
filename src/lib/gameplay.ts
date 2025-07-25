@@ -2,7 +2,7 @@ import type { Context } from "hono";
 
 import chalk from "chalk";
 
-import type { GameSessionType, GameSpinType, NewGameSpin, UserWithRelations } from "#/db";
+import type { GameSessionType, GameSpinType, NewGameSpin, UserWithRelations } from "#/db/schema";
 
 import { addSpinToCache, saveGameSessionToCache } from "#/lib/cache";
 import { addXpToUser, calculateXpForWagerAndWins } from "#/routes/vip/vip.service";

@@ -4,7 +4,8 @@ import type { Context } from "hono";
 import { eq } from "drizzle-orm";
 import * as jose from "jose";
 
-import db, { insertUserSchema, User } from "#/db";
+import db from "#/db";
+import { insertUserSchema, User } from "#/db/schema";
 import env from "#/env";
 import { SessionManager } from "#/lib/session.manager";
 

@@ -1,6 +1,7 @@
 import { eq } from "drizzle-orm";
 
-import db, { VipInfo, Wallet } from "#/db";
+import db from "#/db";
+import { VipInfo, Wallet } from "#/db/schema";
 import { server } from "#/index";
 
 interface NotificationPayload {

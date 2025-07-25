@@ -3,7 +3,7 @@ import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
 import { createMessageObjectSchema } from "stoker/openapi/schemas"; // Import the helper
 
-import { selectAuthSessionSchema, UserResponseSchema } from "#/db";
+import { selectAuthSessionSchema, selectGameSession, selectOperatorSchema, selectVipInfoSchema, selectWalletSchema, UserResponseSchema } from "#/db/schema";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
@@ -68,7 +68,7 @@ const signupRoute = createRoute({
 const sessionRoute = createRoute({
   method: "get",
   path: "/me",
-  tags: ["Auth"],
+  tags,
   middleware: [authMiddleware, sessionMiddleware],
   summary: "Get current user session",
   responses: {
@@ -76,11 +76,10 @@ const sessionRoute = createRoute({
       z.object({
         user: UserResponseSchema,
         authSession: selectAuthSessionSchema,
-        // You can add more detailed schemas for the other session properties here if needed
-        gameSession: z.any().optional(),
-        wallet: z.any().optional(),
-        vipInfo: z.any().optional(),
-        operator: z.any().optional(),
+        gameSession: selectGameSession.optional(), // z.any().optional().openapi({ description: "The current game session, if any." }),
+        wallet: selectWalletSchema,
+        vipInfo: selectVipInfoSchema,
+        operator: selectOperatorSchema,
       }),
       "The current user session",
     ),
@@ -90,7 +89,7 @@ const sessionRoute = createRoute({
 const logoutRoute = createRoute({
   method: "post",
   path: "/logout",
-  tags: ["Auth"],
+  tags,
   summary: "Logout current user",
   responses: {
     [HttpStatusCodes.OK]: jsonContent(

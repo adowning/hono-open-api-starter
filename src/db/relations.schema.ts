@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
 
-import { AuthSession, Game, GameSession, GameSpin, Jackpot, JackpotContribution, JackpotWin, Operator, Product, Transaction, User, VipInfo, VipLevelUpHistory, VipRank, Wallet } from "./schema";
+import { AuthSession, Game, GameSession, GameSpin, Jackpot, JackpotContribution, JackpotWin, Operator, Product, Transaction, User, VipInfo, VipLevelUpHistory, VipRank, Wallet } from "./slim.schema";
 
 export const UserRelations = relations(User, ({ one, many }) => ({
   activeWallet: one(Wallet, {
@@ -8,8 +8,10 @@ export const UserRelations = relations(User, ({ one, many }) => ({
     fields: [User.activeWalletId],
     references: [Wallet.id],
   }),
-  vipInfo: many(VipInfo, {
+  vipInfo: one(VipInfo, {
     relationName: "UserVipInfo",
+    fields: [User.vipInfoId],
+    references: [VipInfo.id],
   }),
   //   tournamentParticipations: many(TournamentParticipant, {
   //     relationName: "TournamentParticipantToUser",

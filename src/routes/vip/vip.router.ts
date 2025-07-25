@@ -1,5 +1,6 @@
 import { createRoute, z } from "@hono/zod-openapi";
 
+import { VipInfoResponseSchema, selectVipLevelSchema, selectVipRankSchema } from "#/db";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 
@@ -10,7 +11,7 @@ const tags = ["VIP"];
 // --- Route Definitions ---
 const getMyVipDetailsRoute = createRoute({
   method: "get",
-  path: "/me",
+  path: "/vip/me",
   tags,
   summary: "Get the authenticated user's VIP details",
   responses: {
@@ -19,7 +20,9 @@ const getMyVipDetailsRoute = createRoute({
       content: {
         "application/json": {
           schema: z.object({
-            // Define the expected shape of the response here
+            info: VipInfoResponseSchema,
+            rank: selectVipRankSchema,
+            xpForNextLevel: z.number(),
           }),
         },
       },
@@ -31,7 +34,7 @@ const getMyVipDetailsRoute = createRoute({
 
 const getVipLevelsRoute = createRoute({
   method: "get",
-  path: "/levels",
+  path: "/vip/levels",
   tags,
   summary: "Get the configuration for all VIP levels",
   responses: {
@@ -39,9 +42,24 @@ const getVipLevelsRoute = createRoute({
       description: "Returns the VIP level configuration table.",
       content: {
         "application/json": {
-          schema: z.array(z.object({
-            // Define the shape of a level config object
-          })),
+          schema: z.array(selectVipLevelSchema),
+        },
+      },
+    },
+  },
+});
+
+const getVipRanksRoute = createRoute({
+  method: "get",
+  path: "/vip/ranks",
+  tags,
+  summary: "Get the configuration for all VIP ranks",
+  responses: {
+    200: {
+      description: "Returns the VIP rank configuration table.",
+      content: {
+        "application/json": {
+          schema: z.array(selectVipRankSchema),
         },
       },
     },
@@ -54,6 +72,7 @@ const router = createRouter();
 router.use("*", authMiddleware);
 
 router.openapi(getMyVipDetailsRoute, controller.getMyVipDetails as any);
-router.openapi(getVipLevelsRoute, controller.getVipLevels as any); // Cast to any to resolve type mismatch
+router.openapi(getVipLevelsRoute, controller.getVipLevels as any);
+router.openapi(getVipRanksRoute, controller.getVipRanks as any);
 
 export default router;

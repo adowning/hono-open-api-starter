@@ -1,10 +1,16 @@
+import { relations } from "drizzle-orm";
 import { boolean, decimal, doublePrecision, foreignKey, index, integer, jsonb, pgEnum, pgTable, serial, text, timestamp, unique, uniqueIndex, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import z from "zod";
 
 import { nanoid } from "#/utils/nanoid";
 
-import { GameCategory, GameProviderName, PaymentMethod, TransactionStatus, TypeOfJackpot, TypeOfTransaction, UserRole } from "./schema";
+// --- Main User Schema ---
+export const sessionStatusEnum = pgEnum("session_status", [
+  "ACTIVE",
+  "COMPLETED",
+  "EXPIRED",
+]);
 
 export const Operator = pgTable("operators", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
@@ -18,41 +24,15 @@ export const Operator = pgTable("operators", {
   description: text("description"),
   balance: integer("balance").notNull(),
   netRevenue: integer("net-revenue").notNull(),
-  acceptedPayments: PaymentMethod("accepted_payments").array().notNull(),
+  acceptedPayments: text("accepted_payments").array().notNull(),
   ownerId: text("owner_id"),
   lastUsedAt: timestamp("last_used_at", { precision: 3 }),
   createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
 });
 
-export const Wallet = pgTable("wallets", {
-  id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-  balance: integer("balance").notNull(),
-  paymentMethod: PaymentMethod("payment_method").notNull().default("INSTORE_CASH"),
-  currency: text("currency").notNull().default("USD"),
-  isActive: boolean("is_active").notNull().default(true),
-  isDefault: boolean("is_default").notNull(),
-  address: text("address").unique(),
-  cashtag: text("cashtag").unique(),
-  userId: text("user_id"),
-  operatorId: text("operator_id").notNull(),
-  lastUsedAt: timestamp("last_used_at", { precision: 3 }),
-  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
-  updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
-}, Wallet => ({
-  wallets_operator_fkey: foreignKey({
-    name: "wallets_operator_fkey",
-    columns: [Wallet.operatorId],
-    foreignColumns: [Operator.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-}));
-
 export const User = pgTable("users", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
-
   username: text("username").notNull().unique(),
   email: text("email").unique(),
   passwordHash: text("password_hash"),
@@ -63,7 +43,7 @@ export const User = pgTable("users", {
   currentGameSessionDataId: text("current_game_session_data_id").unique(),
   currentAuthSessionDataId: text("current_auth_session_data_id").unique(),
   avatar: text("avatar_url").default("avatar-01"),
-  role: UserRole("role").notNull().default("USER"),
+  role: text("role").notNull().default("USER"),
   isActive: boolean("is_active").notNull().default(true),
   lastLoginAt: timestamp("last_login_at", { precision: 3 }),
   totalXpGained: integer("total_xp_gained").notNull(),
@@ -72,17 +52,165 @@ export const User = pgTable("users", {
   createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
   deletedAt: timestamp("deleted_at", { precision: 3 }),
-}, User => ({
-  users_activeWallet_fkey: foreignKey({
-    name: "users_activeWallet_fkey",
-    columns: [User.activeWalletId],
-    foreignColumns: [Wallet.id],
+});
+
+// --- Schemas with Direct Relations to User ---
+
+export const Wallet = pgTable("wallets", {
+  id: varchar("id").primaryKey().$defaultFn(nanoid),
+  balance: integer("balance").notNull(),
+  paymentMethod: text("payment_method").notNull().default("INSTORE_CASH"),
+  currency: text("currency").notNull().default("USD"),
+  isActive: boolean("is_active").notNull().default(true),
+  isDefault: boolean("is_default").notNull(),
+  address: text("address").unique(),
+  cashtag: text("cashtag").unique(),
+  userId: text("user_id").notNull().references(() => User.id, { onDelete: "cascade" }),
+  operatorId: text("operator_id").notNull(),
+  lastUsedAt: timestamp("last_used_at", { precision: 3 }),
+  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
+});
+
+export const AuthSession = pgTable(
+  "auth_sessions",
+  {
+    id: varchar("id").primaryKey().$defaultFn(nanoid),
+    userId: text("user_id")
+      .notNull()
+      .references(() => User.id, { onDelete: "cascade" }),
+    status: sessionStatusEnum("status").default("ACTIVE").notNull(),
+    ipAddress: text("ip_address"),
+    userAgent: text("user_agent"),
+    deviceId: text("device_id"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    expiresAt: timestamp("expires_at", { withTimezone: true }),
+    lastSeen: timestamp("last_seen", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+  },
+  (table) => {
+    return {
+      userIdx: index("auth_session_user_idx").on(table.userId, table.createdAt),
+      statusIdx: index("auth_session_status_idx").on(table.status),
+    };
+  },
+);
+
+export const GameSession = pgTable(
+  "game_sessions",
+  {
+    id: varchar("id").primaryKey().$defaultFn(nanoid),
+    authSessionId: text("auth_session_id")
+      .notNull()
+      .references(() => AuthSession.id, { onDelete: "cascade" }),
+    userId: text("user_id")
+      .notNull()
+      .references(() => User.id, { onDelete: "cascade" }),
+    gameId: text("game_id"), // Note: Game schema not included as requested
+    status: sessionStatusEnum("status").default("ACTIVE").notNull(),
+    totalWagered: integer("total_wagered").default(0).notNull(),
+    totalWon: integer("total_won").default(0).notNull(),
+    totalXpGained: integer("total_xp_gained").default(0).notNull(),
+    rtp: decimal("rtp", { precision: 5, scale: 2 }),
+    duration: integer("duration").default(0).notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .defaultNow()
+      .notNull(),
+    endedAt: timestamp("end_at", { withTimezone: true }),
+  },
+  (table) => {
+    return {
+      authSessionIdx: index("game_session_auth_session_idx").on(
+        table.authSessionId,
+      ),
+      userIdx: index("game_session_user_idx").on(table.userId),
+    };
+  },
+);
+
+export const VipRank = pgTable("VipRank", {
+  id: integer("id").notNull().primaryKey(),
+  name: text("name").notNull().unique(),
+  minXp: integer("minXp").notNull().unique(),
+  dailyBonusCoinPct: integer("dailyBonusCoinPct").notNull(),
+  hourlyBonusCoinPct: integer("hourlyBonusCoinPct").notNull(),
+  purchaseBonusCoinPct: integer("purchaseBonusCoinPct").notNull(),
+  levelUpBonusCoinPct: integer("levelUpBonusCoinPct").notNull(),
+  hasConcierge: boolean("hasConcierge").notNull(),
+  hasVipLoungeAccess: boolean("hasVipLoungeAccess").notNull(),
+  isInvitationOnly: boolean("isInvitationOnly").notNull(),
+});
+
+export const VipInfo = pgTable("vip_info", {
+  id: varchar("id").primaryKey().$defaultFn(nanoid),
+
+  level: integer("level").notNull().default(1),
+  xp: integer("xp").notNull(),
+  totalXp: integer("totalXp").notNull(),
+  userId: text("userId").notNull().unique(),
+  currentRankid: integer("currentRankid"),
+  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
+}, VipInfo => ({
+  vip_info_user_fkey: foreignKey({
+    name: "vip_info_user_fkey",
+    columns: [VipInfo.userId],
+    foreignColumns: [User.id],
   })
-    .onDelete("set null")
+    .onDelete("cascade")
+    .onUpdate("cascade"),
+  vip_info_currentRank_fkey: foreignKey({
+    name: "vip_info_currentRank_fkey",
+    columns: [VipInfo.currentRankid],
+    foreignColumns: [VipRank.id],
+  })
+    .onDelete("cascade")
     .onUpdate("cascade"),
 }));
+
+export const TournamentParticipant = pgTable("tournament_participants", {
+  id: varchar("id").primaryKey().$defaultFn(nanoid),
+  tournamentId: text("tournament_id").notNull(),
+  userId: text("user_id").notNull().references(() => User.id, { onDelete: "cascade" }),
+  score: integer("score").notNull(),
+  rank: integer("rank"),
+  joinedAt: timestamp("joined_at", { precision: 3 }).notNull().defaultNow(),
+});
+
+// --- Drizzle Relations ---
+
+export const walletRelations = relations(Wallet, ({ one }) => ({
+  user: one(User, {
+    fields: [Wallet.userId],
+    references: [User.id],
+  }),
+}));
+
+export const vipInfoRelations = relations(VipInfo, ({ one }) => ({
+  user: one(User, {
+    fields: [VipInfo.userId],
+    references: [User.id],
+  }),
+}));
+
+export const tournamentParticipantRelations = relations(TournamentParticipant, ({ one }) => ({
+  user: one(User, {
+    fields: [TournamentParticipant.userId],
+    references: [User.id],
+  }),
+}));
+
+// --- Zod Schemas ---
 export const insertUserSchema = createInsertSchema(User);
 export const selectUserSchema = createSelectSchema(User);
+export const selectWalletSchema = createSelectSchema(Wallet);
+export const selectAuthSessionSchema = createSelectSchema(AuthSession);
+export const selectGameSession = createSelectSchema(GameSession);
+export const selectVipInfoSchema = createSelectSchema(VipInfo);
+export const selectOperatorSchema = createSelectSchema(Operator);
 
 export const UserResponseSchema = selectUserSchema.omit({
   passwordHash: true,
@@ -90,7 +218,15 @@ export const UserResponseSchema = selectUserSchema.omit({
   accessToken: true,
   accessTokenExpiresAt: true,
   refreshTokenExpiresAt: true,
-}).openapi("UserResponse");
+}).openapi("User");
+
+export const OperatorResponseSchema = selectOperatorSchema.omit({
+  operatorSecret: true,
+  operatorAccess: true,
+}).openapi("Operator");
+
+export const WalletResponseSchema = selectWalletSchema.openapi("Wallet");
+export const VipInfoResponseSchema = selectVipInfoSchema.openapi("VipInfo");
 
 export const Game = pgTable("games", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
@@ -99,11 +235,11 @@ export const Game = pgTable("games", {
   title: text("title").notNull(),
   goldsvetData: jsonb("goldsvet_data"),
   description: text("description"),
-  category: GameCategory("category").notNull(),
+  category: text("category").notNull(),
   tags: text("tags").array().notNull(),
   thumbnailUrl: text("thumbnail_url"),
   bannerUrl: text("banner_url"),
-  providerName: GameProviderName("provider_name").notNull(),
+  providerName: text("provider_name").notNull(),
   providerId: text("provider_id"),
   totalWagered: integer("total_wagered").notNull(),
   totalWon: integer("total_won").notNull(),
@@ -147,7 +283,7 @@ export const InActiveWallet = pgTable("in_active_wallets", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
   balance: integer("balance").notNull(),
-  paymentMethod: PaymentMethod("payment_method").notNull().default("INSTORE_CASH"),
+  paymentMethod: text("payment_method").notNull().default("INSTORE_CASH"),
   currency: text("currency").notNull().default("USD"),
   isActive: boolean("is_active").notNull(),
   isDefault: boolean("is_default").notNull(),
@@ -160,72 +296,11 @@ export const InActiveWallet = pgTable("in_active_wallets", {
   updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
 });
 
-export const VipRank = pgTable("VipRank", {
-  id: integer("id").notNull().primaryKey(),
-  name: text("name").notNull().unique(),
-  minXp: integer("minXp").notNull().unique(),
-  dailyBonusCoinPct: integer("dailyBonusCoinPct").notNull(),
-  hourlyBonusCoinPct: integer("hourlyBonusCoinPct").notNull(),
-  purchaseBonusCoinPct: integer("purchaseBonusCoinPct").notNull(),
-  levelUpBonusCoinPct: integer("levelUpBonusCoinPct").notNull(),
-  hasConcierge: boolean("hasConcierge").notNull(),
-  hasVipLoungeAccess: boolean("hasVipLoungeAccess").notNull(),
-  isInvitationOnly: boolean("isInvitationOnly").notNull(),
-});
-
-export const VipLevel = pgTable("VipLevel", {
-  level: integer("level").notNull().primaryKey(),
-  xpForNext: integer("xpForNext").notNull(),
-});
-
-export const VipInfo = pgTable("vip_info", {
-  id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-  level: integer("level").notNull().default(1),
-  xp: integer("xp").notNull(),
-  totalXp: integer("totalXp").notNull(),
-  userId: text("userId").notNull().unique(),
-  currentRankid: integer("currentRankid"),
-  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
-  updatedAt: timestamp("updated_at", { precision: 3 }).notNull().defaultNow(),
-}, VipInfo => ({
-  vip_info_user_fkey: foreignKey({
-    name: "vip_info_user_fkey",
-    columns: [VipInfo.userId],
-    foreignColumns: [User.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-  vip_info_currentRank_fkey: foreignKey({
-    name: "vip_info_currentRank_fkey",
-    columns: [VipInfo.currentRankid],
-    foreignColumns: [VipRank.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-}));
-
-export const VipLevelUpHistory = pgTable("vip_level_up_history", {
-  id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-  previousLevel: integer("previous_level").notNull(),
-  newLevel: integer("new_level").notNull(),
-  timestamp: timestamp("timestamp", { precision: 3 }).notNull().defaultNow(),
-  vipInfoId: text("vip_info_id").notNull(),
-}, VipLevelUpHistory => ({
-  vip_level_up_history_vipInfo_fkey: foreignKey({
-    name: "vip_level_up_history_vipInfo_fkey",
-    columns: [VipLevelUpHistory.vipInfoId],
-    foreignColumns: [VipInfo.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-}));
-
+export const selectVipRankSchema = createSelectSchema(VipRank).openapi("VipRank");
 export const Jackpot = pgTable("jackpots", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
-  type: TypeOfJackpot("type").notNull(),
+  type: text("type").notNull(),
   currentAmountCoins: integer("current_amount_coins").notNull(),
   seedAmountCoins: integer("seed_amount_coins").notNull(),
   minimumBetCoins: integer("minimum_bet_coins").notNull().default(1),
@@ -244,6 +319,69 @@ export const Jackpot = pgTable("jackpots", {
     foreignColumns: [User.id],
   })
     .onDelete("set null")
+    .onUpdate("cascade"),
+}));
+
+export const JackpotWin = pgTable("jackpot_wins", {
+  id: varchar("id").primaryKey().$defaultFn(nanoid),
+  jackpotId: text("jackpot_id").notNull(),
+  winnerId: text("winner_id").notNull(),
+  winAmountCoins: integer("win_amount_coins").notNull(),
+  gameSpinId: text("game_spin_id").notNull().unique(),
+  transactionId: text("transaction_id"),
+  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
+  sessionDataId: text("session_data_id"),
+}, JackpotWin => ({
+  jackpot_wins_gameSpin_fkey: foreignKey({
+    name: "jackpot_wins_gameSpin_fkey",
+    columns: [JackpotWin.gameSpinId],
+    foreignColumns: [GameSpin.id],
+  })
+    .onDelete("cascade")
+    .onUpdate("cascade"),
+  jackpot_wins_jackpot_fkey: foreignKey({
+    name: "jackpot_wins_jackpot_fkey",
+    columns: [JackpotWin.jackpotId],
+    foreignColumns: [Jackpot.id],
+  })
+    .onDelete("cascade")
+    .onUpdate("cascade"),
+  jackpot_wins_winner_fkey: foreignKey({
+    name: "jackpot_wins_winner_fkey",
+    columns: [JackpotWin.winnerId],
+    foreignColumns: [User.id],
+  })
+    .onDelete("cascade")
+    .onUpdate("cascade"),
+}));
+
+export const jackpotWinRelations = relations(JackpotWin, ({ one }) => ({
+  winner: one(User, {
+    fields: [JackpotWin.winnerId],
+    references: [User.id],
+  }),
+}));
+
+export const VipLevel = pgTable("VipLevel", {
+  level: integer("level").notNull().primaryKey(),
+  xpForNext: integer("xpForNext").notNull(),
+});
+export const selectVipLevelSchema = createSelectSchema(VipLevel).openapi("VipLevel");
+
+export const VipLevelUpHistory = pgTable("vip_level_up_history", {
+  id: varchar("id").primaryKey().$defaultFn(nanoid),
+
+  previousLevel: integer("previous_level").notNull(),
+  newLevel: integer("new_level").notNull(),
+  timestamp: timestamp("timestamp", { precision: 3 }).notNull().defaultNow(),
+  vipInfoId: text("vip_info_id").notNull(),
+}, VipLevelUpHistory => ({
+  vip_level_up_history_vipInfo_fkey: foreignKey({
+    name: "vip_level_up_history_vipInfo_fkey",
+    columns: [VipLevelUpHistory.vipInfoId],
+    foreignColumns: [VipInfo.id],
+  })
+    .onDelete("cascade")
     .onUpdate("cascade"),
 }));
 
@@ -273,18 +411,21 @@ export const Product = pgTable("products", {
     .onDelete("cascade")
     .onUpdate("cascade"),
 }));
+
+export const ProductResponseSchema = createSelectSchema(Product).openapi("Product");
+
 export const Transaction = pgTable("transactions", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
   processedAt: timestamp("processed_at", { precision: 3 }),
   walletId: text("wallet_id"),
-  type: TypeOfTransaction("type").notNull(),
-  status: TransactionStatus("status").notNull().default("PENDING"),
+  type: text("type").notNull(),
+  status: text("status").notNull().default("PENDING"),
   amount: integer("amount").notNull(),
   netAmount: integer("net_amount"),
   feeAmount: integer("fee_amount"),
   productId: text("product_id"),
-  paymentMethod: PaymentMethod("payment_method"),
+  paymentMethod: text("payment_method"),
   balanceBefore: integer("balance_before"),
   balanceAfter: integer("balance_after"),
   bonusBalanceBefore: integer("bonus_balance_before"),
@@ -345,47 +486,6 @@ export const JackpotContribution = pgTable("jackpot_contributions", {
     .on(JackpotContribution.jackpotId, JackpotContribution.gameSpinId),
 }));
 
-export const JackpotWin = pgTable("jackpot_wins", {
-  id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-  jackpotId: text("jackpot_id").notNull(),
-  winnerId: text("winner_id").notNull(),
-  winAmountCoins: integer("win_amount_coins").notNull(),
-  gameSpinId: text("game_spin_id").notNull().unique(),
-  transactionId: text("transaction_id"),
-  createdAt: timestamp("created_at", { precision: 3 }).notNull().defaultNow(),
-  sessionDataId: text("session_data_id"),
-}, JackpotWin => ({
-  jackpot_wins_gameSpin_fkey: foreignKey({
-    name: "jackpot_wins_gameSpin_fkey",
-    columns: [JackpotWin.gameSpinId],
-    foreignColumns: [GameSpin.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-  jackpot_wins_jackpot_fkey: foreignKey({
-    name: "jackpot_wins_jackpot_fkey",
-    columns: [JackpotWin.jackpotId],
-    foreignColumns: [Jackpot.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-  jackpot_wins_transaction_fkey: foreignKey({
-    name: "jackpot_wins_transaction_fkey",
-    columns: [JackpotWin.transactionId],
-    foreignColumns: [Transaction.id],
-  })
-    .onDelete("set null")
-    .onUpdate("cascade"),
-  jackpot_wins_winner_fkey: foreignKey({
-    name: "jackpot_wins_winner_fkey",
-    columns: [JackpotWin.winnerId],
-    foreignColumns: [User.id],
-  })
-    .onDelete("cascade")
-    .onUpdate("cascade"),
-}));
-
 export const tasks = pgTable("tasks", {
   id: varchar("id").primaryKey().$defaultFn(nanoid),
 
@@ -418,80 +518,27 @@ export const insertTasksSchema = createInsertSchema(
 
 export const patchTasksSchema = insertTasksSchema.partial();
 
-export const sessionStatusEnum = pgEnum("session_status", [
-  "ACTIVE",
-  "COMPLETED",
-  "EXPIRED",
-]);
-
-export const AuthSession = pgTable(
-  "auth_sessions",
-  {
-    id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-    userId: text("user_id")
-      .notNull()
-      .references(() => User.id, { onDelete: "cascade" }),
-    status: sessionStatusEnum("status").default("ACTIVE").notNull(),
-    ipAddress: text("ip_address"),
-    userAgent: text("user_agent"),
-    deviceId: text("device_id"),
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .defaultNow()
-      .notNull(),
-    expiresAt: timestamp("expires_at", { withTimezone: true }),
-    lastSeen: timestamp("last_seen", { withTimezone: true })
-      .defaultNow()
-      .notNull(),
-  },
-  (table) => {
-    return {
-      userIdx: index("auth_session_user_idx").on(table.userId, table.createdAt),
-      statusIdx: index("auth_session_status_idx").on(table.status),
-    };
-  },
-);
-
-export const GameSession = pgTable(
-  "game_sessions",
-  {
-    id: varchar("id").primaryKey().$defaultFn(nanoid),
-
-    authSessionId: text("auth_session_id")
-      .notNull()
-      .references(() => AuthSession.id, { onDelete: "cascade" }),
-    userId: text("user_id")
-      .notNull()
-      .references(() => User.id, { onDelete: "cascade" }),
-    gameId: text("game_id").references(() => Game.id, { onDelete: "cascade" }),
-    status: sessionStatusEnum("status").default("ACTIVE").notNull(),
-    totalWagered: integer("total_wagered").default(0).notNull(),
-    totalWon: integer("total_won").default(0).notNull(),
-    totalXpGained: integer("total_xp_gained").default(0).notNull(),
-    rtp: decimal("rtp", { precision: 5, scale: 2 }),
-    duration: integer("duration").default(0).notNull(), // in seconds
-    createdAt: timestamp("created_at", { withTimezone: true })
-      .defaultNow()
-      .notNull(),
-    endedAt: timestamp("end_at", { withTimezone: true }),
-  },
-  (table) => {
-    return {
-      authSessionIdx: index("game_session_auth_session_idx").on(
-        table.authSessionId,
-      ),
-      userIdx: index("game_session_user_idx").on(table.userId),
-    };
-  },
-);
+export const userRelations = relations(User, ({ one, many }) => ({
+  activeWallet: one(Wallet, {
+    fields: [User.activeWalletId],
+    references: [Wallet.id],
+    relationName: "active_wallet",
+  }),
+  wallets: many(Wallet),
+  vipInfo: one(VipInfo, {
+    fields: [User.id],
+    references: [VipInfo.userId],
+  }),
+  authSessions: many(AuthSession),
+  gameSessions: many(GameSession),
+  tournamentParticipations: many(TournamentParticipant),
+  jackpotWins: many(JackpotWin),
+  // blackjackBets: many(BlackjackBet),
+}));
 
 export const insertAuthSessionSchema = createInsertSchema(AuthSession);
-export const selectAuthSessionSchema
-  = createSelectSchema(AuthSession);
 
 export const insertGameSession = createInsertSchema(GameSession);
-export const selectGameSession
-  = createSelectSchema(GameSession);
 
 /**
  * Enum for the different update types, corresponding to UpdateTypeSchema.
@@ -513,7 +560,7 @@ export const appVersions = pgTable("app_versions", {
   // --- Columns from AppVersionSchema ---
   version: text("version").notNull(),
   platform: text("platform").notNull(),
-  updateType: updateTypeEnum("update_type").notNull(),
+  updateType: text("update_type").notNull(),
   downloadUrl: text("download_url").notNull(),
 
   // PostgreSQL can store string arrays directly.

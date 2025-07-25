@@ -1,5 +1,7 @@
 import { pgEnum } from "drizzle-orm/pg-core";
 
+export const GameCategory = pgEnum("game_categories", ["slots", "fish", "table", "live", "poker", "lottery", "virtual", "other"]);
+
 export const TournamentStatus = pgEnum("TournamentStatus", ["PENDING", "ACTIVE", "COMPLETED", "CANCELLED"]);
 
 export const UserRole = pgEnum("UserRole", ["USER", "ADMIN", "MODERATOR", "SUPPORT", "BOT", "SYSTEM"]);
@@ -15,8 +17,6 @@ export const TypeOfTransaction = pgEnum("TypeOfTransaction", ["DEPOSIT", "WITHDR
 export const TransactionStatus = pgEnum("TransactionStatus", ["PENDING", "PROCESSING", "COMPLETED", "FAILED", "CANCELLED", "REFUNDED", "EXPIRED", "REJECTED", "REQUIRES_ACTION", "ON_HOLD"]);
 
 export const Role = pgEnum("Role", ["USER", "ADMIN", "VIP", "MODERATOR", "SYSTEM", "OWNER", "MEMBER", "OPERATOR", "SUPPORT_AGENT"]);
-
-export const GameCategory = pgEnum("game_categories", ["slots", "fish", "table", "live", "poker", "lottery", "virtual", "other"]);
 
 export const GameProviderName = pgEnum("GameProviderName", ["PRAGMATICPLAY", "EVOPLAY", "NETENT", "PLAYNGO", "RELAXGAMING", "HACKSAW", "BGAMING", "SPRIBE", "INTERNAL", "REDTIGER", "NETGAME", "BIGFISHGAMES", "CQNINE", "NOLIMIT", "KICKASS"]);
 

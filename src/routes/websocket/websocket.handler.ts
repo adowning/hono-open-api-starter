@@ -1,7 +1,7 @@
 import type { ServerWebSocket } from "bun";
 import type { Buffer } from "node:buffer";
 
-import type { AuthSessionType, UserType } from "#/db";
+import type { AuthSessionType, UserType } from "#/db/schema";
 
 import { chatHandler } from "./chat.handler";
 import { notificationsHandler } from "./notifications.handler";

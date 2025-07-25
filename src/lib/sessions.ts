@@ -4,7 +4,7 @@
 // import chalk from "chalk";
 // import { and, eq } from "drizzle-orm";
 
-// import db, { AuthSession, Game, GameSession, GameSpin } from "#/db"; // Adjust path as needed
+// import db, { AuthSession, Game, GameSession, GameSpin } from "#/db/schema"; // Adjust path as needed
 // import { deleteGameSessionFromCache, deleteSpinsFromCache, getGameSessionFromCache, getSpinsFromCache, saveGameSessionToCache } from "#/lib/cache";
 // import { nanoid } from "#/utils/nanoid";
 

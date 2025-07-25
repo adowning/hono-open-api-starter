@@ -4,9 +4,10 @@ import type { Context } from "hono";
 import chalk from "chalk";
 import { and, eq } from "drizzle-orm";
 
-import type { AuthSessionType, GameSessionType, UserType } from "#/db";
+import type { AuthSessionType, GameSessionType, UserType } from "#/db/schema";
 
-import db, { AuthSession, Game, GameSession, GameSpin, User } from "#/db";
+import db from "#/db";
+import { AuthSession, Game, GameSession, GameSpin, User } from "#/db/schema";
 import {
   deleteGameSessionFromCache,
   deleteSpinsFromCache,
@@ -32,8 +33,23 @@ export class SessionManager {
   }
 
   static async endAuthSession(authSessionId: string, userId: string): Promise<void> {
-    await db.update(AuthSession).set({ status: "EXPIRED" }).where(eq(AuthSession.id, authSessionId));
-    await this.endCurrentGameSession(userId);
+    try {
+      await db.update(AuthSession)
+        .set({ status: "EXPIRED" })
+        .where(eq(AuthSession.id, authSessionId));
+    }
+    catch (error) {
+      console.error(`Failed to end auth session ${authSessionId}:`, error);
+      // Continue to end game session even if auth session update fails
+    }
+
+    try {
+      await this.endCurrentGameSession(userId);
+    }
+    catch (error) {
+      console.error(`Failed to end game session for user ${userId}:`, error);
+      // Continue even if game session end fails
+    }
   }
 
   /**
@@ -43,13 +59,37 @@ export class SessionManager {
    */
   static async endAllUserSessions(userId: string): Promise<void> {
     console.log(chalk.yellow(`Ending all previous sessions for user ${userId}...`));
-    // First, end any active game session, as its state might need to be persisted.
-    await this.endCurrentGameSession(userId);
 
-    // Then, mark all active authentication sessions as expired.
-    await db.update(AuthSession)
-      .set({ status: "EXPIRED" })
-      .where(and(eq(AuthSession.userId, userId), eq(AuthSession.status, "ACTIVE")));
+    try {
+      // First, end any active game session, as its state might need to be persisted.
+      await this.endCurrentGameSession(userId);
+
+      // Get all active session IDs first
+      const activeSessions = await db
+        .select({ id: AuthSession.id })
+        .from(AuthSession)
+        .where(and(
+          eq(AuthSession.userId, userId),
+          eq(AuthSession.status, "ACTIVE"),
+        ));
+
+      // Update sessions one by one to avoid potential deadlocks
+      for (const session of activeSessions) {
+        try {
+          await db.update(AuthSession)
+            .set({ status: "EXPIRED" })
+            .where(eq(AuthSession.id, session.id));
+        }
+        catch (error) {
+          console.error(`Failed to end session ${session.id}:`, error);
+          // Continue with other sessions even if one fails
+        }
+      }
+    }
+    catch (error) {
+      console.error("Error in endAllUserSessions:", error);
+      throw error; // Re-throw to be handled by the caller
+    }
   }
 
   // --- Game Session Management ---

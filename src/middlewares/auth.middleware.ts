@@ -4,7 +4,8 @@ import { and, eq } from "drizzle-orm";
 import { getCookie } from "hono/cookie";
 import * as jose from "jose";
 
-import db, { AuthSession, User } from "#/db";
+import db from "#/db";
+import { AuthSession, User, VipInfo, Wallet } from "#/db/schema";
 import env from "#/env";
 
 export async function authMiddleware(c: Context, next: Next) {
@@ -44,23 +45,43 @@ export async function authMiddleware(c: Context, next: Next) {
 
     const user = await db.query.User.findFirst({
       where: eq(User.id, payload.userId as string),
-      with: {
-        activeWallet: {
-          with: { operator: true },
-        },
-        vipInfo: true,
-      },
     });
 
     if (!user) {
       return c.json({ error: "User not found" }, 401);
     }
-    const activeWallet = user.activeWallet;
+
+    if (!user.activeWalletId) {
+      return c.json({ error: "activeWalletId not found on user" }, 401);
+    }
+
+    const activeWallet = await db.query.Wallet.findFirst({
+      where: eq(Wallet.id, user.activeWalletId),
+    });
+
     if (!activeWallet) {
       return c.json({ error: "activeWallet not found or has expired" }, 401);
     }
-    c.set("vipInfo", user.vipInfo);
-    c.set("operator", activeWallet.operator);
+
+    // Get the operator separately since we can't use with clause directly
+    const operator = await db.query.Operator.findFirst({
+      where: operators => eq(operators.id, activeWallet.operatorId),
+    });
+
+    if (!operator) {
+      return c.json({ error: "Operator not found for wallet" }, 401);
+    }
+
+    if (!user.vipInfoId) {
+      return c.json({ error: "vipInfoId not found on user" }, 401);
+    }
+
+    const vipInfo = await db.query.VipInfo.findFirst({
+      where: eq(VipInfo.id, user.vipInfoId),
+    });
+
+    c.set("vipInfo", vipInfo);
+    c.set("operator", operator);
     c.set("wallet", activeWallet);
     c.set("token", token);
     c.set("authSession", authSession);

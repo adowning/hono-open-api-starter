@@ -3,9 +3,9 @@ import type { Context } from "hono";
 import * as crypto from "node:crypto";
 import { z } from "zod";
 
-import type { AppVersion } from "#/db";
+import type { AppVersion } from "#/db/schema";
 
-import { AppVersionSchema, CheckUpdateRequestSchema, UpdateTypeSchema } from "#/db";
+import { AppVersionSchema, CheckUpdateRequestSchema, UpdateTypeSchema } from "#/db/schema";
 import env from "#/env";
 
 import * as service from "./updates.service";

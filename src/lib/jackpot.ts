@@ -3,9 +3,10 @@ import type { Context } from "hono";
 import chalk from "chalk";
 import { and, desc, eq, inArray } from "drizzle-orm";
 
-import type { JackpotContributionType, JackpotType, JackpotWinType, NewJackpot } from "#/db";
+import type { JackpotContributionType, JackpotType, JackpotWinType, NewJackpot } from "#/db/schema";
 
-import db, { GameSpin, Jackpot, JackpotContribution, JackpotWin, Transaction, Wallet } from "#/db";
+import db from "#/db";
+import { GameSpin, Jackpot, JackpotContribution, JackpotWin, Transaction, Wallet } from "#/db/schema";
 import { coinsToDollars } from "#/utils/misc.utils";
 
 import { triggerUserUpdate } from "./websocket.service";
@@ -89,12 +90,6 @@ export async function findManyJackpot(): Promise<JackpotType[]> {
   }
 }
 
-/**
- * Creates a new Jackpot record.
- * @param c The Hono context.
- * @param data The data for the new Jackpot.
- * @returns A promise resolving to the created Jackpot record.
- */
 export async function createJackpot(c: Context, data: NewJackpot): Promise<JackpotType> {
   try {
     const [newJackpot] = await db.insert(Jackpot).values(data).returning();
@@ -106,12 +101,6 @@ export async function createJackpot(c: Context, data: NewJackpot): Promise<Jackp
   }
 }
 
-/**
- * Finds a single Jackpot record by its ID.
- * @param c The Hono context.
- * @param id The ID of the Jackpot to find.
- * @returns A promise resolving to the Jackpot record or null if not found.
- */
 export async function findJackpotById(c: Context, id: string): Promise<JackpotType | undefined> {
   try {
     const [jackpot] = await db.select().from(Jackpot).where(eq(Jackpot.id, id));
@@ -123,14 +112,7 @@ export async function findJackpotById(c: Context, id: string): Promise<JackpotTy
   }
 }
 
-/**
- * Updates a Jackpot record by its ID.
- * @param c The Hono context.
- * @param id The ID of the Jackpot to update.
- * @param data The data to update the Jackpot with.
- * @returns A promise resolving to the updated Jackpot record.
- */
-export async function updateJackpot(c: Context, id: string, data: NewJackpot): Promise<JackpotType> {
+export async function updateJackpot(c: Context, id: string, data: Partial<NewJackpot>): Promise<JackpotType> {
   try {
     const [updatedJackpot] = await db.update(Jackpot).set(data).where(eq(Jackpot.id, id)).returning();
     return updatedJackpot;
@@ -141,12 +123,6 @@ export async function updateJackpot(c: Context, id: string, data: NewJackpot): P
   }
 }
 
-/**
- * Deletes a Jackpot record by its ID.
- * @param c The Hono context.
- * @param id The ID of the Jackpot to delete.
- * @returns A promise resolving to the deleted Jackpot record.
- */
 export async function deleteJackpot(c: Context, id: string): Promise<JackpotType> {
   try {
     const [deletedJackpot] = await db.delete(Jackpot).where(eq(Jackpot.id, id)).returning();
@@ -159,11 +135,12 @@ export async function deleteJackpot(c: Context, id: string): Promise<JackpotType
 }
 
 export async function initializeJackpots(): Promise<void> {
-  const existingJackpotsCount = await db.select({ count: Jackpot.id }).from(Jackpot);
+  const result = await db.select({ count: Jackpot.id }).from(Jackpot).limit(1);
+  const existingJackpotsCount = result.length > 0 ? Number(result[0].count) : 0;
 
-  if (existingJackpotsCount.length === 0 || Number(existingJackpotsCount[0].count) === 0) { // Fix: Access count property correctly
+  if (existingJackpotsCount === 0) {
     console.log(chalk.yellow("Initializing jackpots..."));
-    const jackpotData = Object.values(JACKPOT_CONFIG).map((config: any): any => ({
+    const jackpotData = Object.values(JACKPOT_CONFIG).map(config => ({
       type: config.type,
       currentAmountCoins: config.seedAmountCoins,
       seedAmountCoins: config.seedAmountCoins,
@@ -206,7 +183,7 @@ export async function processJackpots(c: Context, request: AsyncJackpotProcessin
   }
 
   return db.transaction(async (tx) => {
-    const contributions: JackpotContributionType[] = [];
+    const contributions: Partial<JackpotContributionType>[] = [];
     let jackpotWin: JackpotWinType | null = null;
 
     for (const jackpot of activeJackpots) {
@@ -228,12 +205,8 @@ export async function processJackpots(c: Context, request: AsyncJackpotProcessin
         }).where(eq(Jackpot.id, jackpot.id)).returning();
 
         contributions.push({
-          //   jackpotType: jackpot.type,
           contributionAmountCoins: contributionAmount,
-          id: "",
-          createdAt: new Date(),
-          userId, // This should be the user ID if the contribution is directly tied to a user, otherwise null is fine.
-          jackpotId: jackpot.id, // Use the actual jackpot ID from the loop
+          jackpotId: jackpot.id,
           gameSpinId,
         });
 
@@ -254,16 +227,7 @@ export async function processJackpots(c: Context, request: AsyncJackpotProcessin
             gameSpinId,
           }).returning();
 
-          jackpotWin = {
-            id: win.id,
-            createdAt: win.createdAt,
-            sessionDataId: win.sessionDataId,
-            jackpotId: win.jackpotId,
-            winnerId: win.winnerId,
-            winAmountCoins: winAmount,
-            gameSpinId: win.gameSpinId,
-            transactionId: win.transactionId,
-          };
+          jackpotWin = win;
         }
       }
     }
@@ -299,27 +263,15 @@ export async function getJackpotStats() {
   };
 }
 
-interface RecentJackpotWin {
-  jackpot: {
-    type: string;
-  };
-  winner: {
-    username: string | null;
-    avatar: string | null;
-  };
-}
+// Correctly infer the return type of the function for RecentJackpotWin
+export type RecentJackpotWin = Awaited<ReturnType<typeof getRecentJackpotWins>>[number];
 
-export async function getRecentJackpotWins(c: Context, limit: number = 10): Promise<RecentJackpotWin[]> {
+export async function getRecentJackpotWins(c: Context, limit: number = 10) {
   console.log(chalk.yellow("Getting recent jackpot wins"));
-  return await db.query.JackpotWin.findMany({
+  const jackpotWins = await db.query.JackpotWin.findMany({
     limit,
     orderBy: [desc(JackpotWin.createdAt)],
     with: {
-      jackpot: {
-        columns: {
-          type: true,
-        },
-      },
       winner: {
         columns: {
           username: true,
@@ -328,16 +280,32 @@ export async function getRecentJackpotWins(c: Context, limit: number = 10): Prom
       },
     },
   });
+
+  const result = await Promise.all(
+    jackpotWins.map(async (win) => {
+      const jackpot = await db.query.Jackpot.findFirst({
+        where: eq(Jackpot.id, win.jackpotId),
+        columns: {
+          type: true,
+        },
+      });
+      return {
+        ...win,
+        jackpot,
+      };
+    }),
+  );
+
+  return result;
 }
 
-export async function getUserJackpotContributions(c: Context, userId: string, limit: number = 50): Promise<JackpotContributionType[]> {
+export async function getUserJackpotContributions(c: Context, userId: string, limit: number = 50) {
   console.log(chalk.yellow("Getting user jackpot contributions for user:", userId));
-  const contributions = await db
+  return db
     .select({
       id: JackpotContribution.id,
       jackpotId: JackpotContribution.jackpotId,
-      jackpot: Jackpot, // This line is causing the issue. `jackpot` is not a column in JackpotContribution.
-      jackpotType: Jackpot,
+      jackpotType: Jackpot.type,
       gameSpinId: JackpotContribution.gameSpinId,
       contributionAmountCoins: JackpotContribution.contributionAmountCoins,
       createdAt: JackpotContribution.createdAt,
@@ -345,21 +313,20 @@ export async function getUserJackpotContributions(c: Context, userId: string, li
     })
     .from(JackpotContribution)
     .innerJoin(GameSpin, eq(JackpotContribution.gameSpinId, GameSpin.id))
+    .innerJoin(Jackpot, eq(JackpotContribution.jackpotId, Jackpot.id))
     .where(eq(GameSpin.userId, userId))
     .orderBy(desc(JackpotContribution.createdAt))
     .limit(limit);
-
-  return contributions;
 }
 
 export async function getUserJackpotWins(c: Context, userId: string): Promise<JackpotWinType[]> {
   console.log(chalk.yellow("Getting user jackpot wins for user:", userId));
-  return await db.select().from(JackpotWin).where(eq(JackpotWin.winnerId, userId)).orderBy(desc(JackpotWin.createdAt));
+  return db.select().from(JackpotWin).where(eq(JackpotWin.winnerId, userId)).orderBy(desc(JackpotWin.createdAt));
 }
 
-export async function getJackpotById(c: Context, id: string): Promise<JackpotType | undefined> {
+export async function getJackpotById(c: Context, id: string) {
   console.log(chalk.yellow("Getting jackpot by id:", id));
-  const [jackpot] = await db.query.Jackpot.findMany({
+  return db.query.Jackpot.findFirst({
     where: eq(Jackpot.id, id),
     with: {
       lastWinner: {
@@ -370,7 +337,6 @@ export async function getJackpotById(c: Context, id: string): Promise<JackpotTyp
       },
     },
   });
-  return jackpot;
 }
 
 interface JackpotWinParams {
@@ -381,9 +347,6 @@ interface JackpotWinParams {
   walletId: string;
 }
 
-/**
- * Handles jackpot wins by creating transactions and updating the wallet
- */
 export async function handleJackpotWin({
   userId,
   gameId,
@@ -421,7 +384,6 @@ export async function handleJackpotWin({
 
     return { success: true, newBalance };
   }).then((result) => {
-    // After the transaction is successfully committed, trigger the update
     if (result.success) {
       triggerUserUpdate(userId);
     }

@@ -8,7 +8,7 @@ import { createRouter } from "#/lib/create-app";
 import {
   insertUserSchema,
   selectUserSchema,
-} from "../../db";
+} from "../../db/schema";
 import { notFoundSchema } from "../../lib/constants";
 import * as controller from "./user.controller";
 

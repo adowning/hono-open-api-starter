@@ -19,6 +19,8 @@
     "generate:pg": "drizzle-kit generate --config drizzle.config.ts",
     "generate": "bun run generate:pg",
     "push": "drizzle-kit push",
+    "migrate": "drizzle-kit migrate",
+    "seed": " bun --bun run scripts/seed.ts ",
     "studio": "drizzle-kit studio --config drizzle.config.ts"
   },
   "dependencies": {

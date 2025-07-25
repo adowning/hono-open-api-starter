@@ -13,8 +13,8 @@ import env from "#/env";
 //   },
 // });
 export default defineConfig({
-  schema: "./src/db/schema.ts",
-  out: "./src/db/migrations",
+  schema: "./src/db/slim.schema.ts",
+  out: "/tmp/hono-open-api-starter/src/db/migrations",
   dialect: "postgresql",
   casing: "camelCase",
   dbCredentials: {

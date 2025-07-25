@@ -29,8 +29,22 @@ export async function getMyVipDetails(c: Context) {
  */
 export async function getVipLevels(c: Context) {
   try {
-    const levels = service.getAllVipLevelConfigurations();
+    const levels = await service.getAllVipLevels();
     return c.json(levels);
+  }
+  catch (error) {
+    const message = error instanceof Error ? error.message : "An unknown error occurred.";
+    return c.json({ error: message }, 500);
+  }
+}
+
+/**
+ * Gets the VIP rank configuration table.
+ */
+export async function getVipRanks(c: Context) {
+  try {
+    const ranks = await service.getAllVipRanks();
+    return c.json(ranks);
   }
   catch (error) {
     const message = error instanceof Error ? error.message : "An unknown error occurred.";

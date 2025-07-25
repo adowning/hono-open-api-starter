@@ -1,5 +1,6 @@
 import { createRoute, z } from "@hono/zod-openapi";
 
+import { WalletResponseSchema } from "#/db";
 import { createRouter } from "#/lib/create-app";
 import { authMiddleware } from "#/middlewares/auth.middleware";
 import { sessionMiddleware } from "#/middlewares/session.middleware";
@@ -21,12 +22,7 @@ const updateBalanceRoute = createRoute({
       description: "Returns the user's wallet balance.",
       content: {
         "application/json": {
-          schema: z.object({
-            amount: z.number(),
-            type: z.string(),
-            description: z.string(),
-            // Define the expected shape of the response here
-          }),
+          schema: WalletResponseSchema,
         },
       },
     },

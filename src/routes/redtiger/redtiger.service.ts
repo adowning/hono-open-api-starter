@@ -3,7 +3,7 @@ import type { z } from "zod";
 
 import { and, eq, inArray } from "drizzle-orm";
 
-import type { GameSessionType, JackpotType, providerSpinResponseDataSchema, rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResponseDtoSchema, UserWithRelations } from "#/db";
+import type { GameSessionType, JackpotType, providerSpinResponseDataSchema, rtgSettingsRequestDtoSchema, rtgSettingsResponseDtoSchema, rtgSpinRequestDtoSchema, rtgSpinResponseDtoSchema, UserWithRelations } from "#/db/schema";
 
 import db from "#/db";
 import { GameSession, Jackpot } from "#/db/schema";

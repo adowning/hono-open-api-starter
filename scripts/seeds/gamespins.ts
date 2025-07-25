@@ -2,10 +2,10 @@ import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 
 import { rand, randFloat, randNumber, randPastDate } from "@ngneat/falso";
 
-import type * as schema from "../../src/db";
+import type * as schema from "../../src/db/schema";
 // import type { GameSession } from "../../src/db";
 
-import { AuthSession, Game, GameSession, GameSpin } from "../../src/db";
+import { AuthSession, Game, GameSession, GameSpin } from "../../src/db/schema";
 
 export async function seedGameSpins(db: NodePgDatabase<typeof schema>) {
   console.log("🔄 Seeding game sessions and spins...");

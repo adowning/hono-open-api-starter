@@ -2,6 +2,7 @@ import configureOpenAPI from "#/lib/configure-open-api";
 import createApp from "#/lib/create-app";
 import auth from "#/routes/auth/auth.router";
 import index from "#/routes/index.route";
+import operator from "#/routes/operator/operator.router";
 import redtiger from "#/routes/redtiger/redtiger.router";
 import users from "#/routes/user/user.router";
 import vip from "#/routes/vip/vip.router"; // Import the new router
@@ -20,6 +21,7 @@ const routes = [
   websocket,
   wallet,
   vip,
+  operator,
 ] as const;
 
 routes.forEach((route) => {

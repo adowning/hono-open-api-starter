@@ -5,14 +5,14 @@ import type { PgTransaction } from "drizzle-orm/pg-core";
 import { eq } from "drizzle-orm";
 
 import type { VipInfoType, VipRankType } from "#/db";
-import type * as schema from "#/db/schema";
+import type { combinedSchema } from "#/db";
 
 import db, { User, VipInfo, VipLevel, VipRank } from "#/db";
 import { triggerUserUpdate } from "#/lib/websocket.service";
 
 import { getAllVipLevelConfigurations, getVipLevelByTotalXp, getVipLevelConfiguration } from "./vip.config"; // Ensure the function is imported
 
-type Transaction = PgTransaction<BunSQLQueryResultHKT, typeof schema, ExtractTablesWithRelations<typeof schema>>;
+type Transaction = PgTransaction<BunSQLQueryResultHKT, typeof combinedSchema, ExtractTablesWithRelations<typeof combinedSchema>>;
 
 export interface XpCalculationResult {
   xpGained: number;
@@ -31,6 +31,14 @@ interface VipDetails {
 
 // Export the function so the controller can use it
 export { getAllVipLevelConfigurations };
+
+export async function getAllVipLevels() {
+  return db.query.VipLevel.findMany();
+}
+
+export async function getAllVipRanks() {
+  return db.query.VipRank.findMany();
+}
 
 /**
  * Retrieves a comprehensive overview of a user's VIP status.

@@ -1,11 +1,11 @@
 import type { Context } from "hono";
 
-import type { UserWithRelations } from "#/db";
+import type { UserWithRelations } from "#/db/schema";
 
 import {
   rtgSettingsRequestDtoSchema,
   rtgSpinRequestDtoSchema,
-} from "#/db";
+} from "#/db/schema";
 import { SessionManager } from "#/lib/session.manager";
 
 import {

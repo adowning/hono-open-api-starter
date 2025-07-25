@@ -2,7 +2,7 @@ import { createRoute, z } from "@hono/zod-openapi";
 import * as HttpStatusCodes from "stoker/http-status-codes";
 import { jsonContent, jsonContentRequired } from "stoker/openapi/helpers";
 
-import { CheckUpdateRequestSchema, CheckUpdateResponseSchema, ErrorSchema, ListVersionsResponseSchema, SuccessResponseSchema } from "#/db";
+import { CheckUpdateRequestSchema, CheckUpdateResponseSchema, ErrorSchema, ListVersionsResponseSchema, SuccessResponseSchema } from "#/db/schema";
 
 import { createRouter } from "../../lib/create-app";
 import { handleCheckUpdate, handleDownloadLocalUpdate, handleListVersions, handleUploadUpdate } from "./updates.controller";

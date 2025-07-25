@@ -2,7 +2,7 @@ import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 
 import { sql } from "drizzle-orm";
 
-import type * as schema from "../../src/db/schema";
+import type * as schema from "../../src/db";
 
 const tableNames = [
   "wallets",

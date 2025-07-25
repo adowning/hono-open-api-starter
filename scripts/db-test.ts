@@ -1,5 +1,5 @@
-import db from "#/db";
-import { User } from "#/db/schema";
+import db from "../src/db";
+import { User } from "../src/db/slim.schema";
 import { eq } from "drizzle-orm";
 
 async function testDbConnection() {
