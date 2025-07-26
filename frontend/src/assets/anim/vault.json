@@ -1,0 +1,235 @@
+{
+  "frames": [
+    {
+      "filename": "vaultIcon-0001",
+      "frame": { "x": 2, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0002",
+      "frame": { "x": 132, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0003",
+      "frame": { "x": 2, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0004",
+      "frame": { "x": 2, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0005",
+      "frame": { "x": 132, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0006",
+      "frame": { "x": 262, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0007",
+      "frame": { "x": 2, "y": 262, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0008",
+      "frame": { "x": 132, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0009",
+      "frame": { "x": 132, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0010",
+      "frame": { "x": 262, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0011",
+      "frame": { "x": 392, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0012",
+      "frame": { "x": 2, "y": 132, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0013",
+      "frame": { "x": 132, "y": 262, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0014",
+      "frame": { "x": 262, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0015",
+      "frame": { "x": 392, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0016",
+      "frame": { "x": 522, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0017",
+      "frame": { "x": 2, "y": 2, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0018",
+      "frame": { "x": 132, "y": 132, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0019",
+      "frame": { "x": 262, "y": 262, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0020",
+      "frame": { "x": 392, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0021",
+      "frame": { "x": 522, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0022",
+      "frame": { "x": 652, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0023",
+      "frame": { "x": 132, "y": 2, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0024",
+      "frame": { "x": 262, "y": 132, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0025",
+      "frame": { "x": 392, "y": 262, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0026",
+      "frame": { "x": 522, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0027",
+      "frame": { "x": 652, "y": 522, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0028",
+      "frame": { "x": 262, "y": 2, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0029",
+      "frame": { "x": 392, "y": 132, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0030",
+      "frame": { "x": 522, "y": 262, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0031",
+      "frame": { "x": 652, "y": 392, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0032",
+      "frame": { "x": 392, "y": 2, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    },
+    {
+      "filename": "vaultIcon-0033",
+      "frame": { "x": 2, "y": 652, "w": 128, "h": 128 },
+      "rotated": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 128, "h": 128 },
+      "sourceSize": { "w": 128, "h": 128 }
+    }
+  ]
+}

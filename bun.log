@@ -1,0 +1,116 @@
+[dotenv@17.2.0] injecting env (0) from .env (tip: ⚙️  enable debug logging with { debug: true })
+Server is running on port http://localhost:9999
+userRecord {
+  id: "hw337j8lsydldrvf19pd1",
+  username: "asdf",
+  email: null,
+  passwordHash: "$argon2id$v=19$m=65536,t=2,p=1$fMCw9UkygDTcX6pD0rbbFrsHNDhvhMrceGII9tcIE4A$gkJTWBl85hM4loIUz2pnHTDzHC+aKhQVTDJ7lVJUsjw",
+  accessToken: null,
+  refreshToken: null,
+  accessTokenExpiresAt: null,
+  refreshTokenExpiresAt: null,
+  currentGameSessionDataId: "d8dtu049vdo0o32frcdpv",
+  currentAuthSessionDataId: null,
+  avatar: "avatar-01.webp",
+  role: "USER",
+  isActive: true,
+  lastLoginAt: null,
+  totalXpGained: 0,
+  activeWalletId: "wallet_a0dd1121-56cb-4337-838d-6bb7fb3b5a4f",
+  vipInfoId: null,
+  createdAt: 2025-07-24T09:27:06.000Z,
+  updatedAt: 2025-07-24T09:27:06.000Z,
+  deletedAt: null,
+}
+eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJodzMzN2o4bHN5ZGxkcnZmMTlwZDEiLCJzZXNzaW9uSWQiOiJrdjB1dTg4MjdlZ2Y4NnNteDVvamgiLCJpYXQiOjE3NTMzNzE1NDgsImV4cCI6MTc1Mzk3NjM0OH0.9Vc4T50sW7sXN9Oasc7hRdiljq78WUqYELVhq_RJS28
+hw337j8lsydldrvf19pd1
+Starting new session for user: hw337j8lsydldrvf19pd1
+{
+  id: "hw337j8lsydldrvf19pd1",
+  username: "asdf",
+  email: null,
+  passwordHash: "$argon2id$v=19$m=65536,t=2,p=1$fMCw9UkygDTcX6pD0rbbFrsHNDhvhMrceGII9tcIE4A$gkJTWBl85hM4loIUz2pnHTDzHC+aKhQVTDJ7lVJUsjw",
+  accessToken: null,
+  refreshToken: null,
+  accessTokenExpiresAt: null,
+  refreshTokenExpiresAt: null,
+  currentGameSessionDataId: "d8dtu049vdo0o32frcdpv",
+  currentAuthSessionDataId: null,
+  avatar: "avatar-01.webp",
+  role: "USER",
+  isActive: true,
+  lastLoginAt: null,
+  totalXpGained: 0,
+  activeWalletId: "wallet_a0dd1121-56cb-4337-838d-6bb7fb3b5a4f",
+  vipInfoId: null,
+  createdAt: 2025-07-24T09:27:06.000Z,
+  updatedAt: 2025-07-24T09:27:06.000Z,
+  deletedAt: null,
+  activeWallet: {
+    id: "wallet_a0dd1121-56cb-4337-838d-6bb7fb3b5a4f",
+    balance: 50000,
+    paymentMethod: "INSTORE_CASH",
+    currency: "USD",
+    isActive: true,
+    isDefault: true,
+    address: null,
+    cashtag: null,
+    userId: "hw337j8lsydldrvf19pd1",
+    operatorId: "clxjv0w2z0000356s1szacrqs",
+    lastUsedAt: null,
+    createdAt: 2025-07-24T14:27:06.248Z,
+    updatedAt: 2025-07-24T14:27:06.248Z,
+    operator: {
+      id: "clxjv0w2z0000356s1szacrqs",
+      name: "Default Operator",
+      operatorSecret: "7750693e-7b51-4414-a52c-a622460f7282",
+      operatorAccess: "c72128bc-1253-4dff-adc7-001ffcbd563d",
+      callbackUrl: "https://example.com/callback",
+      isActive: true,
+      allowedIps: [ "0.0.0.0/0" ],
+      description: null,
+      balance: 10000,
+      netRevenue: 0,
+      acceptedPayments: [ "INSTORE_CASH", "INSTORE_CARD" ],
+      ownerId: null,
+      lastUsedAt: null,
+      createdAt: 2025-07-24T14:27:04.107Z,
+      updatedAt: 2025-07-24T14:27:04.107Z,
+    },
+  },
+  vipInfo: [
+    {
+      id: "f0clhlbuxfz7dk1k044x9",
+      level: 4,
+      xp: 0,
+      totalXp: 0,
+      userId: "hw337j8lsydldrvf19pd1",
+      currentRankid: null,
+      createdAt: 2025-07-24T14:27:06.269Z,
+      updatedAt: 2025-07-24T14:27:06.269Z,
+    }
+  ],
+}
+{
+  id: "3e2v56avg4fql8n7883rb",
+  userId: "hw337j8lsydldrvf19pd1",
+  authSessionId: "pg9zdz4jyaq9sok9zageh",
+  gameId: "13511",
+  status: "ACTIVE",
+  createdAt: 2025-07-24T15:39:08.303Z,
+  endedAt: null,
+  duration: 0,
+  totalWagered: 0,
+  totalWon: 0,
+  rtp: null,
+  totalXpGained: 0,
+}
+Handling game spin for user: hw337j8lsydldrvf19pd1 in session: 3e2v56avg4fql8n7883rb
+User hw337j8lsydldrvf19pd1 earned 200 XP. Session total: 200
+Processing jackpots for spin: 1753371548354
+Handling game spin for user: hw337j8lsydldrvf19pd1 in session: 3e2v56avg4fql8n7883rb
+User hw337j8lsydldrvf19pd1 earned 200 XP. Session total: 400
+Processing jackpots for spin: 1753371549391
+Handling game spin for user: hw337j8lsydldrvf19pd1 in session: 3e2v56avg4fql8n7883rb
+User hw337j8lsydldrvf19pd1 earned 200 XP. Session total: 600
+Processing jackpots for spin: 1753371550413

@@ -1,0 +1,100 @@
+{"frames": [
+
+{
+	"filename": "wheel-0.png",
+	"frame": {"x":1,"y":1,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-1.png",
+	"frame": {"x":1,"y":158,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-2.png",
+	"frame": {"x":1,"y":472,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-3.png",
+	"frame": {"x":1,"y":629,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-4.png",
+	"frame": {"x":1,"y":786,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-5.png",
+	"frame": {"x":1,"y":943,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-6.png",
+	"frame": {"x":1,"y":1100,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-7.png",
+	"frame": {"x":1,"y":1257,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-8.png",
+	"frame": {"x":1,"y":1414,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-9.png",
+	"frame": {"x":1,"y":1571,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+},
+{
+	"filename": "wheel-10.png",
+	"frame": {"x":1,"y":315,"w":228,"h":125},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":125},
+	"sourceSize": {"w":228,"h":125}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "wheel.png",
+	"format": "RGBA8888",
+	"size": {"w":230,"h":1727},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:20bfc979d3a611190a89dd49b7050afc:5fe153dc0bcdc49794c71d5ac5b8d812:8a3f0e13418c7922d5e92446500fa75c$"
+}
+}

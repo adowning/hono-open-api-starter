@@ -1,0 +1,214 @@
+{
+  "frames": [
+
+    {
+      "filename": "FX_Sym_Win_00000.jpg",
+      "frame": { "x": 1, "y": 1, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00001.jpg",
+      "frame": { "x": 1, "y": 93, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00002.jpg",
+      "frame": { "x": 1, "y": 185, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00003.jpg",
+      "frame": { "x": 1, "y": 277, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00004.jpg",
+      "frame": { "x": 1, "y": 369, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00005.jpg",
+      "frame": { "x": 93, "y": 1, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00006.jpg",
+      "frame": { "x": 185, "y": 1, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00007.jpg",
+      "frame": { "x": 277, "y": 1, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00008.jpg",
+      "frame": { "x": 369, "y": 1, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00009.jpg",
+      "frame": { "x": 93, "y": 93, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00010.jpg",
+      "frame": { "x": 93, "y": 185, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00011.jpg",
+      "frame": { "x": 93, "y": 277, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00012.jpg",
+      "frame": { "x": 93, "y": 369, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00013.jpg",
+      "frame": { "x": 185, "y": 93, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00014.jpg",
+      "frame": { "x": 277, "y": 93, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00015.jpg",
+      "frame": { "x": 369, "y": 93, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00016.jpg",
+      "frame": { "x": 185, "y": 185, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00017.jpg",
+      "frame": { "x": 185, "y": 277, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00018.jpg",
+      "frame": { "x": 185, "y": 369, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00019.jpg",
+      "frame": { "x": 277, "y": 185, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00020.jpg",
+      "frame": { "x": 369, "y": 185, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00021.jpg",
+      "frame": { "x": 277, "y": 277, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00022.jpg",
+      "frame": { "x": 277, "y": 369, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00023.jpg",
+      "frame": { "x": 369, "y": 277, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    },
+    {
+      "filename": "FX_Sym_Win_00026.jpg",
+      "frame": { "x": 369, "y": 369, "w": 90, "h": 90 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 90, "h": 90 },
+      "sourceSize": { "w": 90, "h": 90 }
+    }
+  ],
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "avatar_xp.png",
+    "format": "RGBA8888",
+    "size": { "w": 460, "h": 460 },
+    "scale": "0.5",
+    "smartupdate": "$TexturePacker:SmartUpdate:b50fba8a4fee6b1f579ef4c16ef7857f:a5c0e1812a01acf3c65da25789d792c4:0b6a5c7eba8d1f172ef74690c1905054$"
+  }
+}

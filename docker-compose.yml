@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+    postgres:
+        image: postgres:latest
+        restart: always
+        environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: asdfasdf
+            POSTGRES_DB: hono
+        ports:
+            - '5439:5432'
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+volumes:
+    postgres_data:

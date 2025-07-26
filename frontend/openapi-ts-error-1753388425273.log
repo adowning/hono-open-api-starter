@@ -1,0 +1,8 @@
+[2025-07-24T20:20:25.273Z] Error: Request failed with status 500: Internal Server Error
+Stack:
+Error: Request failed with status 500: Internal Server Error
+    at ti (/home/ash/Documents/vue-project/node_modules/@hey-api/openapi-ts/dist/index.cjs:42:8753)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Promise.all (index 0)
+    at async PD (/home/ash/Documents/vue-project/node_modules/@hey-api/openapi-ts/dist/index.cjs:1338:4639)
+    at async start (/home/ash/Documents/vue-project/node_modules/@hey-api/openapi-ts/bin/index.cjs:139:21)

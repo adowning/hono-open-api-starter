@@ -1,0 +1,124 @@
+<!doctype html>
+<html style="background: black" translate="no" class="notranslate">
+  <head>
+    <title>Loading Game...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="google" content="notranslate" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .loading-icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 80px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="loading-icon" src="https://placehold.co/80x80/000000/ffffff?text=..." />
+<script type="text/javascript">
+			window.com = window.com || {};
+			window.com.casino = window.com.casino || {};
+			com.casino.cdn = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/';
+			com.casino.baseCdn = 'https://cdn-eu.cloudedge.info/all/games/';
+			com.casino.barsPath = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/';
+			com.casino.bridgePath = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/';
+		</script>
+    <script type="text/javascript" crossorigin="" src="https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/bridge.min.js?t=1753092943667"></script>
+    <!-- <script id="bridgeScript" type="text/javascript" crossorigin="">
+
+    </script> -->
+
+    <script type="text/javascript">
+
+
+
+     (function () {
+      'use strict';
+            const urlParams = new URLSearchParams(window.location.search);
+          console.log(urlParams)
+            if (com.casino.debug) com.casino.debug.onlyGaff = true;
+
+      var get = com.casino.utils.getURLParams();
+      const gameSessionId = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJvd3RpYTM1NTh2ZTBsMGVhb2xvcTN0bTAiLCJpYXQiOjE3NTMxNzA0MjAsImV4cCI6MTc1Mzc3NTIyMH0.x5ObeN1W7TdOLeCzsJmxDeeAsQ1rj2qGCj0t9-SYfGI'
+      com.casino.preconfig = {
+        bridge: {
+			postParams: [],
+                    feedUrl: 'https://feed-rtg.redtiger.com',
+          provider: 'kronos',
+          operator: 'redtiger',
+          timestamp: '?t=1753092943667',
+                    notifications: {
+                        inRealPlay: true,
+                        inDemoPlay: false,
+                        showUnfinishedWins: true,
+                        showUnfinishedNoWins: false
+                    },
+                    bridgeLaunch: true
+        },
+        server: {
+          rgsApi: 'http://localhost:9999/rpc/spin-data/redtiger/platform' + `/${gameSessionId}/Atlantis/` || `/rpc/spin-data/${localPreconfig.bridge.operator}/platform`,
+          launchParams: {
+            gameId: 'Atlantis'
+          }
+        },
+        game: {
+          namespace: 'com.casino.game',
+          preconfig: {
+            cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
+            delayedBalanceUpdate: false,
+            defaultLang: 'en',
+            splash: true,
+            hideCurrency: get['hideCurrency'] === 'true',
+            disclaimer: '',
+            skin: 'next-name-payouts',
+            skinURL: get['skinURL'],
+            gameType: 'slot',
+                        gameAppId: 'Atlantis',
+                        responsive: true,
+                        addedAnticipation: get['addedAnticipation'] === 'false' ? false : true
+          }
+        },
+        bars: {
+          basePath: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/',
+          options: {
+            historySrc: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../history/',
+            hasGamble: true
+          }
+        },
+        bonusWheel: {
+                    cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
+                    basePath: '../../scenes/bonus-wheels/{skin}/',
+                    skin: get['bonusWheelSkin'] || 'base-wheel',
+                    enabled: true,
+                },
+                analytics: {
+                    gaTrackingIds: ["G-5YV4BNS2LW"]
+                }
+      };
+
+      com.casino.bridge.init(com.casino.preconfig);
+
+    })();
+    </script>
+  </body>
+</html>

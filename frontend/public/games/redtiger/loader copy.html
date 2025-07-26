@@ -1,0 +1,206 @@
+<!doctype html>
+<html style="background: black" translate="no" class="notranslate">
+  <head>
+    <title>Loading Game...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="google" content="notranslate" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .loading-icon {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 80px;
+        height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <img class="loading-icon" src="https://placehold.co/80x80/000000/ffffff?text=..." />
+
+    <script id="bridgeScript" type="text/javascript" crossorigin=""></script>
+
+    <script type="text/javascript">
+      ;(function () {
+        try {
+            let authToken = null;
+            let gameSessionId  = null;
+            let authUserId = null;
+            let isAuthTokenReceived = false;
+            let isBridgeScriptLoaded = false;
+            let localPreconfig = {};
+
+            window.addEventListener('message', function receiveAuthToken(event) {
+                if (event.data && event.data.type === 'SET_AUTH_TOKEN') {
+                    authToken = event.data.token;
+                    gameSessionId = event.data.gameSessionId;
+                    authUserId = event.data.userId;
+                    isAuthTokenReceived = true;
+                    tryInitializeBridge();
+                }
+            });
+
+            window.com = window.com || {};
+            window.com.casino = window.com.casino || {};
+            const casino = window.com.casino;
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // --- DECODE THE 'options' PARAMETER ---
+            const optionsParam = urlParams.get('options');
+            if (!optionsParam) {
+                throw new Error("GameLauncher error: 'options' parameter is missing from the URL.");
+            }
+            const decodedConfig = JSON.parse(decodeURIComponent(escape(window.atob(optionsParam))));
+            const gameConfig = decodedConfig.gameConfig || decodedConfig; // Handle both nested and flat structures
+
+            // --- Use decoded config object instead of individual URL params ---
+            const gameId = (gameConfig.gameName || '').replace('RTG', '');
+            const lang = gameConfig.lang || 'en';
+            const currency = gameConfig.currency || 'USD';
+            const operator = gameConfig.operator || 'redtiger';
+            const provider = gameConfig.provider || 'kronos';
+            const depositUrl = gameConfig.depositUrl || '/wallet/deposit';
+            const lobbyUrl = gameConfig.lobbyUrl || '/';
+            const mode = gameConfig.mode || 'real';
+
+            casino.cdn = gameConfig.cdn || `https://cdn-eu.cloudedge.info/all/games/slots/${gameId}/`;
+            casino.baseCdn = gameConfig.baseCdn || 'https://cdn-eu.cloudedge.info/all/games/';
+            casino.barsPath = gameConfig.barsPath || `${casino.baseCdn}bars-next/`;
+            casino.bridgePath = gameConfig.bridgePath || `${casino.baseCdn}bridge/`;
+
+            localPreconfig = {
+              bridge: {
+                postParams: [],
+                feedUrl: gameConfig.feedUrl || `https://feed-rtg.redtiger.com/`,
+                provider: provider,
+                operator: operator,
+                timestamp: `?t=${new Date().getTime()}`,
+                notifications: {
+                  inRealPlay: gameConfig.notificationsInRealPlay !== 'false',
+                  inDemoPlay: gameConfig.notificationsInDemoPlay === 'true',
+                  showUnfinishedWins: gameConfig.notificationsShowUnfinishedWins !== 'false',
+                  showUnfinishedNoWins: gameConfig.notificationsShowUnfinishedNoWins === 'true',
+                },
+                bridgeLaunch: true,
+                currency: currency,
+                lang: lang,
+                lobbyUrl: lobbyUrl,
+                depositUrl: depositUrl,
+                mode: mode,
+              },
+              server: {
+                rgsApi: '',
+                launchParams: {
+                  gameId: gameId,
+                  freeroundId: gameConfig.freeroundId || undefined,
+                  autoplay: gameConfig.autoplay === 'true' || undefined,
+                },
+              },
+              game: {
+                namespace: 'com.casino.game',
+                preconfig: {
+                  cdn: casino.cdn,
+                  delayedBalanceUpdate: gameConfig.delayedBalanceUpdate === 'true',
+                  defaultLang: lang,
+                  splash: gameConfig.splash !== 'false',
+                  hideCurrency: gameConfig.hideCurrency === 'true',
+                  disclaimer: gameConfig.disclaimer || '',
+                  skin: gameConfig.skin || 'next-name-payouts',
+                  skinURL: gameConfig.skinURL || undefined,
+                  gameType: gameConfig.gameType || 'slot',
+                  gameAppId: gameId,
+                  responsive: true,
+                  hasTurboMode: gameConfig.hasTurboMode === 'true' || false,
+                  addedAnticipation: gameConfig.addedAnticipation !== 'false',
+                  hasAutoplay: gameConfig.hasAutoplay !== 'false',
+                },
+              },
+              bars: {
+                basePath: casino.barsPath,
+                options: {
+                  historySrc: `${casino.baseCdn}history/`,
+                  hasGamble: gameConfig.hasGamble === 'true',
+                },
+              },
+              bonusWheel: {
+                cdn: casino.cdn,
+                basePath: `../../scenes/bonus-wheels/{skin}/`,
+                skin: gameConfig.bonusWheelSkin || 'base-wheel',
+                enabled: gameConfig.bonusWheelEnabled === 'true',
+              },
+              analytics: {
+                gaTrackingIds: gameConfig.gaTrackingIds?.split(',') || [],
+              },
+            };
+
+            if (window.parent && window.parent !== window) {
+                parent.postMessage('RTG_LOADER_READY', '*');
+            }
+
+﻿
+
+            const bridgeScriptElement = document.getElementById('bridgeScript');
+            if (bridgeScriptElement) {
+                // --- LOAD SCRIPT FROM THE LOCAL PATH ---
+                bridgeScriptElement.src = `/games/redtiger/rtg.bridge.js?t=${new Date().getTime()}`;
+                bridgeScriptElement.onload = function () {
+                    isBridgeScriptLoaded = true;
+                    tryInitializeBridge();
+                };
+                bridgeScriptElement.onerror = function () {
+                    console.error('[RTG Loader] Failed to load bridge script.');
+                    window.parent.postMessage({ type: 'game_error', data: { error: 'Failed to load bridge script.' } }, '*');
+                };
+            } else {
+                 throw new Error('Bridge script element not found in template.');
+            }
+
+            function tryInitializeBridge() {
+                if (isAuthTokenReceived && isBridgeScriptLoaded) {
+                  console.log('[RTG Loader] Initializing bridge...');
+                    localPreconfig.bridge.token = authToken;
+                    localPreconfig.bridge.userId = authUserId;
+                    const rgsApiBasePath = gameConfig.rgsApiBase + `/${gameSessionId}` || `/rpc/spin-data/${localPreconfig.bridge.operator}/platform`;
+                    localPreconfig.server.rgsApi = `${rgsApiBasePath}/${authToken}/${localPreconfig.server.launchParams.gameId}/`;
+                    casino.preconfig = localPreconfig;
+
+                    if (casino.bridge && typeof casino.bridge.init === 'function') {
+                        casino.bridge.init(casino.preconfig);
+                        
+                        const loadingIcon = document.querySelector('.loading-icon');
+                        if (loadingIcon) loadingIcon.style.display = 'none';
+
+                        // SUCCESS: Notify parent frame that the game is fully loaded.
+                        window.parent.postMessage({ type: 'clientReady' }, '*');
+                    } else {
+                        throw new Error('com.casino.bridge.init is not available!');
+                    }
+                }
+            }
+        } catch (e) {
+            console.error('[RTG Loader] Initialization Error:', e);
+            // ERROR: Notify parent frame of any failure.
+            window.parent.postMessage({ type: 'game_error', data: { error: e.message } }, '*');
+        }
+      })()
+    </script>
+  </body>
+</html>

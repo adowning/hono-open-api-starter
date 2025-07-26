@@ -1,0 +1,2 @@
+$ bun run --watch src/index.ts
+error: script "dev" was terminated by signal SIGKILL (Forced quit)
