@@ -1,5 +1,3 @@
-/* eslint-disable perfectionist/sort-exports */
-
 export * from './enums.schema'
 export * from './slim.schema'
 export * from './rtg.schema'

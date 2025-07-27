@@ -26,6 +26,7 @@ export const client = createClient(
   createClientConfig(
     createConfig<ClientOptions>({
       baseURL: "http://localhost:9999",
+      throwOnError: true,
     }),
   ),
 );

@@ -1,6 +1,5 @@
 /* eslint-disable node/prefer-global/buffer */
-/* eslint-disable ts/ban-ts-comment */
-/* eslint-disable style/spaced-comment */
+
 import chalk from 'chalk'
 import { existsSync } from 'node:fs'
 import { mkdir, readFile, unlink, writeFile } from 'node:fs/promises'

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useAppStore } from '@/stores/app'
+import { useAppStore } from '@/stores/app.store'
 import { useAuthStore } from '@/stores/auth.store'
 import { useGameStore } from '@/stores/game.store'
-import { useGameSpinStore } from '@/stores/gameSpin.store'
+import { useGameSpinStore } from '@/stores/gamespin.store'
 import { useVipStore } from '@/stores/vip.store'
 import { useMutation } from '@tanstack/vue-query'
 import { postAuthLogin } from './generated/sdk.gen'

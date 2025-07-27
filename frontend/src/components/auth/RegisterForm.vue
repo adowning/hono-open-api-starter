@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import AuthPanel from './AuthPanel.vue'
 import { useAuthStore } from '@/stores/auth.store'

@@ -100,8 +100,6 @@ import type {
   GetGamesAllResponses,
   GetGamesCategoriesData,
   GetGamesCategoriesResponses,
-  GetMeData,
-  GetMeResponses,
   GetGamesSearchData,
   GetGamesSearchResponses,
   GetUserGamesData,
@@ -138,7 +136,7 @@ export type Options<
   meta?: Record<string, unknown>;
 };
 
-export const postAuthLogin = <ThrowOnError extends boolean = false>(
+export const postAuthLogin = <ThrowOnError extends boolean = true>(
   options: Options<PostAuthLoginData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -156,7 +154,7 @@ export const postAuthLogin = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postAuthSignup = <ThrowOnError extends boolean = false>(
+export const postAuthSignup = <ThrowOnError extends boolean = true>(
   options: Options<PostAuthSignupData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -177,7 +175,7 @@ export const postAuthSignup = <ThrowOnError extends boolean = false>(
 /**
  * Logout current user
  */
-export const postAuthLogout = <ThrowOnError extends boolean = false>(
+export const postAuthLogout = <ThrowOnError extends boolean = true>(
   options?: Options<PostAuthLogoutData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -194,7 +192,7 @@ export const postAuthLogout = <ThrowOnError extends boolean = false>(
 /**
  * Get current user session
  */
-export const getAuthMe = <ThrowOnError extends boolean = false>(
+export const getAuthMe = <ThrowOnError extends boolean = true>(
   options?: Options<GetAuthMeData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -208,7 +206,7 @@ export const getAuthMe = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const get = <ThrowOnError extends boolean = false>(
+export const get = <ThrowOnError extends boolean = true>(
   options?: Options<GetData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -222,7 +220,7 @@ export const get = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUpdatesCheck = <ThrowOnError extends boolean = false>(
+export const postUpdatesCheck = <ThrowOnError extends boolean = true>(
   options: Options<PostUpdatesCheckData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -243,7 +241,7 @@ export const postUpdatesCheck = <ThrowOnError extends boolean = false>(
 /**
  * Upload a new application version (APK or OTA bundle)
  */
-export const postUpdatesUpload = <ThrowOnError extends boolean = false>(
+export const postUpdatesUpload = <ThrowOnError extends boolean = true>(
   options?: Options<PostUpdatesUploadData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -266,7 +264,7 @@ export const postUpdatesUpload = <ThrowOnError extends boolean = false>(
  * Download an update file (for local development only)
  */
 export const getUpdatesDownloadByFilename = <
-  ThrowOnError extends boolean = false,
+  ThrowOnError extends boolean = true,
 >(
   options: Options<GetUpdatesDownloadByFilenameData, ThrowOnError>,
 ) => {
@@ -284,7 +282,7 @@ export const getUpdatesDownloadByFilename = <
  * List all available versions for an app and platform
  */
 export const getUpdatesVersionsByAppIdByPlatform = <
-  ThrowOnError extends boolean = false,
+  ThrowOnError extends boolean = true,
 >(
   options: Options<GetUpdatesVersionsByAppIdByPlatformData, ThrowOnError>,
 ) => {
@@ -299,7 +297,7 @@ export const getUpdatesVersionsByAppIdByPlatform = <
   });
 };
 
-export const getUsers = <ThrowOnError extends boolean = false>(
+export const getUsers = <ThrowOnError extends boolean = true>(
   options?: Options<GetUsersData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -313,7 +311,7 @@ export const getUsers = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postEnterGame = <ThrowOnError extends boolean = false>(
+export const postEnterGame = <ThrowOnError extends boolean = true>(
   options?: Options<PostEnterGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -326,7 +324,7 @@ export const postEnterGame = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postGames = <ThrowOnError extends boolean = false>(
+export const postGames = <ThrowOnError extends boolean = true>(
   options?: Options<PostGamesData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -339,7 +337,7 @@ export const postGames = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postSetupGame = <ThrowOnError extends boolean = false>(
+export const postSetupGame = <ThrowOnError extends boolean = true>(
   options?: Options<PostSetupGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -352,7 +350,7 @@ export const postSetupGame = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getSpinpage = <ThrowOnError extends boolean = false>(
+export const getSpinpage = <ThrowOnError extends boolean = true>(
   options?: Options<GetSpinpageData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -365,7 +363,7 @@ export const getSpinpage = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postSpin = <ThrowOnError extends boolean = false>(
+export const postSpin = <ThrowOnError extends boolean = true>(
   options?: Options<PostSpinData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -378,7 +376,7 @@ export const postSpin = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getFavoriteGame = <ThrowOnError extends boolean = false>(
+export const getFavoriteGame = <ThrowOnError extends boolean = true>(
   options?: Options<GetFavoriteGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -394,7 +392,7 @@ export const getFavoriteGame = <ThrowOnError extends boolean = false>(
 /**
  * End the current game session
  */
-export const postEndGameSession = <ThrowOnError extends boolean = false>(
+export const postEndGameSession = <ThrowOnError extends boolean = true>(
   options?: Options<PostEndGameSessionData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -408,7 +406,7 @@ export const postEndGameSession = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const deleteUsersById = <ThrowOnError extends boolean = false>(
+export const deleteUsersById = <ThrowOnError extends boolean = true>(
   options: Options<DeleteUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).delete<
@@ -421,7 +419,7 @@ export const deleteUsersById = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getUsersById = <ThrowOnError extends boolean = false>(
+export const getUsersById = <ThrowOnError extends boolean = true>(
   options: Options<GetUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
@@ -435,7 +433,7 @@ export const getUsersById = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const patchUsersById = <ThrowOnError extends boolean = false>(
+export const patchUsersById = <ThrowOnError extends boolean = true>(
   options: Options<PatchUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).patch<
@@ -456,7 +454,7 @@ export const patchUsersById = <ThrowOnError extends boolean = false>(
 /**
  * Check if a user exists
  */
-export const getUsersByIdCheck = <ThrowOnError extends boolean = false>(
+export const getUsersByIdCheck = <ThrowOnError extends boolean = true>(
   options: Options<GetUsersByIdCheckData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
@@ -473,7 +471,7 @@ export const getUsersByIdCheck = <ThrowOnError extends boolean = false>(
 /**
  * Send email verification
  */
-export const postUsersByIdVerifyEmail = <ThrowOnError extends boolean = false>(
+export const postUsersByIdVerifyEmail = <ThrowOnError extends boolean = true>(
   options: Options<PostUsersByIdVerifyEmailData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -490,7 +488,7 @@ export const postUsersByIdVerifyEmail = <ThrowOnError extends boolean = false>(
 /**
  * Get user info
  */
-export const getUsersByIdInfo = <ThrowOnError extends boolean = false>(
+export const getUsersByIdInfo = <ThrowOnError extends boolean = true>(
   options: Options<GetUsersByIdInfoData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
@@ -507,7 +505,7 @@ export const getUsersByIdInfo = <ThrowOnError extends boolean = false>(
 /**
  * Get user VIP info
  */
-export const getUsersByIdVipinfo = <ThrowOnError extends boolean = false>(
+export const getUsersByIdVipinfo = <ThrowOnError extends boolean = true>(
   options: Options<GetUsersByIdVipinfoData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
@@ -521,7 +519,7 @@ export const getUsersByIdVipinfo = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getUserAmount = <ThrowOnError extends boolean = false>(
+export const getUserAmount = <ThrowOnError extends boolean = true>(
   options?: Options<GetUserAmountData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -535,7 +533,7 @@ export const getUserAmount = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUserChange = <ThrowOnError extends boolean = false>(
+export const postUserChange = <ThrowOnError extends boolean = true>(
   options: Options<PostUserChangeData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -553,7 +551,7 @@ export const postUserChange = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUserEmail = <ThrowOnError extends boolean = false>(
+export const postUserEmail = <ThrowOnError extends boolean = true>(
   options: Options<PostUserEmailData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -571,7 +569,7 @@ export const postUserEmail = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUserPassword = <ThrowOnError extends boolean = false>(
+export const postUserPassword = <ThrowOnError extends boolean = true>(
   options: Options<PostUserPasswordData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -589,7 +587,7 @@ export const postUserPassword = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUserSuspend = <ThrowOnError extends boolean = false>(
+export const postUserSuspend = <ThrowOnError extends boolean = true>(
   options: Options<PostUserSuspendData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -610,7 +608,7 @@ export const postUserSuspend = <ThrowOnError extends boolean = false>(
 /**
  * Get redtiger settings for a game
  */
-export const postRedtigerGameSettings = <ThrowOnError extends boolean = false>(
+export const postRedtigerGameSettings = <ThrowOnError extends boolean = true>(
   options?: Options<PostRedtigerGameSettingsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -631,7 +629,7 @@ export const postRedtigerGameSettings = <ThrowOnError extends boolean = false>(
 /**
  * Perform a spin in a redtiger game
  */
-export const postRedtigerGameSpin = <ThrowOnError extends boolean = false>(
+export const postRedtigerGameSpin = <ThrowOnError extends boolean = true>(
   options?: Options<PostRedtigerGameSpinData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -652,7 +650,7 @@ export const postRedtigerGameSpin = <ThrowOnError extends boolean = false>(
 /**
  * Update current user balance
  */
-export const postBalance = <ThrowOnError extends boolean = false>(
+export const postBalance = <ThrowOnError extends boolean = true>(
   options?: Options<PostBalanceData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -669,7 +667,7 @@ export const postBalance = <ThrowOnError extends boolean = false>(
 /**
  * Get the authenticated user VIP details
  */
-export const getVipMe = <ThrowOnError extends boolean = false>(
+export const getVipMe = <ThrowOnError extends boolean = true>(
   options?: Options<GetVipMeData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -686,7 +684,7 @@ export const getVipMe = <ThrowOnError extends boolean = false>(
 /**
  * Get the configuration for all VIP levels
  */
-export const getVipLevels = <ThrowOnError extends boolean = false>(
+export const getVipLevels = <ThrowOnError extends boolean = true>(
   options?: Options<GetVipLevelsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -703,7 +701,7 @@ export const getVipLevels = <ThrowOnError extends boolean = false>(
 /**
  * Get the configuration for all VIP ranks
  */
-export const getVipRanks = <ThrowOnError extends boolean = false>(
+export const getVipRanks = <ThrowOnError extends boolean = true>(
   options?: Options<GetVipRanksData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -720,7 +718,7 @@ export const getVipRanks = <ThrowOnError extends boolean = false>(
 /**
  * Get all operators
  */
-export const getOperators = <ThrowOnError extends boolean = false>(
+export const getOperators = <ThrowOnError extends boolean = true>(
   options?: Options<GetOperatorsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -737,7 +735,7 @@ export const getOperators = <ThrowOnError extends boolean = false>(
 /**
  * Get all products for the current users operator
  */
-export const getOperatorsProducts = <ThrowOnError extends boolean = false>(
+export const getOperatorsProducts = <ThrowOnError extends boolean = true>(
   options?: Options<GetOperatorsProductsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -751,7 +749,7 @@ export const getOperatorsProducts = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getGamesAll = <ThrowOnError extends boolean = false>(
+export const getGamesAll = <ThrowOnError extends boolean = true>(
   options?: Options<GetGamesAllData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -765,7 +763,7 @@ export const getGamesAll = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getGamesCategories = <ThrowOnError extends boolean = false>(
+export const getGamesCategories = <ThrowOnError extends boolean = true>(
   options?: Options<GetGamesCategoriesData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -779,24 +777,7 @@ export const getGamesCategories = <ThrowOnError extends boolean = false>(
   });
 };
 
-/**
- * Get current user session
- */
-export const getMe = <ThrowOnError extends boolean = false>(
-  options?: Options<GetMeData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetMeResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/me",
-    ...options,
-  });
-};
-
-export const getGamesSearch = <ThrowOnError extends boolean = false>(
+export const getGamesSearch = <ThrowOnError extends boolean = true>(
   options?: Options<GetGamesSearchData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -810,7 +791,7 @@ export const getGamesSearch = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getUserGames = <ThrowOnError extends boolean = false>(
+export const getUserGames = <ThrowOnError extends boolean = true>(
   options: Options<GetUserGamesData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
@@ -824,7 +805,7 @@ export const getUserGames = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postUserGamesFavorite = <ThrowOnError extends boolean = false>(
+export const postUserGamesFavorite = <ThrowOnError extends boolean = true>(
   options?: Options<PostUserGamesFavoriteData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -841,7 +822,7 @@ export const postUserGamesFavorite = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getUserGamesFavorites = <ThrowOnError extends boolean = false>(
+export const getUserGamesFavorites = <ThrowOnError extends boolean = true>(
   options?: Options<GetUserGamesFavoritesData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
@@ -855,7 +836,7 @@ export const getUserGamesFavorites = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postGamesByIdEnter = <ThrowOnError extends boolean = false>(
+export const postGamesByIdEnter = <ThrowOnError extends boolean = true>(
   options: Options<PostGamesByIdEnterData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
@@ -869,7 +850,7 @@ export const postGamesByIdEnter = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const postGamesLeave = <ThrowOnError extends boolean = false>(
+export const postGamesLeave = <ThrowOnError extends boolean = true>(
   options?: Options<PostGamesLeaveData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
@@ -882,7 +863,7 @@ export const postGamesLeave = <ThrowOnError extends boolean = false>(
   });
 };
 
-export const getGamespinsTopwins = <ThrowOnError extends boolean = false>(
+export const getGamespinsTopwins = <ThrowOnError extends boolean = true>(
   options?: Options<GetGamespinsTopwinsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<

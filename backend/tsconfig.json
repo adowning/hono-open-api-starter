@@ -9,8 +9,6 @@
         "paths": {
             "#/*": ["./src/*"]
         },
-        "typeRoots": ["../../node_modules/@types", "./node_modules/@types"],
-        "types": ["node"],
         "outDir": "./dist",
         "esModuleInterop": true,
         "skipLibCheck": true,

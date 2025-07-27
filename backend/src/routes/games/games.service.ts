@@ -18,7 +18,7 @@ export async function findAllGames() {
             name: true,
             title: true,
             category: true,
-            providerName: true,
+            developer: true,
             thumbnailUrl: true,
             isActive: true,
             createdAt: true,

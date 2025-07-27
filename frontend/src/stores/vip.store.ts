@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue'
-import { useEventManager } from '@/composables/EventManager'
+// import { useEventManager } from '@/composables/EventManager'
 import { defineStore } from 'pinia'
 import {
     getVipLevels,
@@ -18,7 +18,7 @@ export const useVipStore = defineStore(
         const totalXp = ref<number>(0)
         const vipInfo = ref<VipInfo>({} as VipInfo) // Keeping type assertion as in original
         const getTotalXp = computed(() => totalXp.value || 0)
-        const eventManager = useEventManager() // Get an instance of the event manager
+        // const eventManager = useEventManager() // Get an instance of the event manager
 
         const updateXp = (newTotalXp: number, xpGained: number) => {
             if (vipInfo.value) {
@@ -26,7 +26,7 @@ export const useVipStore = defineStore(
             }
 
             // Emit a global event that the PlayerAvatar component can listen to.
-            eventManager.emit('xp:gain', { xpGained })
+            // eventManager.emit('xp:gain', { xpGained })
             console.log(`VIP Store: Emitted xp:gain event with ${xpGained} XP.`)
         }
 

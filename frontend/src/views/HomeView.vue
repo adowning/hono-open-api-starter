@@ -45,9 +45,37 @@ onMounted(async () => {
 </script>
 
 <template>
-  <main>
+  <main class="overflow-hidden">
+    <!-- <div class="background-container"> -->
+    <!-- <img src="/images/starsbg.png" alt="Background" class="background-image" /> -->
+    <Starfield class="star-overlay" />
+    <!-- <FlickeringGrid class="absolute left-0 top-0 w-full h-[900px] z-[9999]" /> -->
     <GameCarousel />
     <RtgGameLauncher v-if="currentUser && gameActive" :gameId="'atlantis'" :sessionId="currentUser.id" />
     <SettingsView v-if="currentUser && settingsModal" />
+    <!-- </div> -->
   </main>
 </template>
+
+<style scoped>
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.star-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+}
+</style>

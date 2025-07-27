@@ -12,7 +12,6 @@ import vip from '#/routes/vip/vip.router'
 import wallet from '#/routes/wallet/wallet.router'
 import websocket from '#/routes/websocket/websocket.router'
 import { cors } from 'hono/cors'
-import { updateGameSessionStats } from './lib/gameplay'
 
 const app = createApp()
 app.use(

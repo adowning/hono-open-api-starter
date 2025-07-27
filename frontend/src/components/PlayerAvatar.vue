@@ -153,10 +153,10 @@ eventBus.on('xp:gain', handleXpGain)
 onMounted(async () => {
   try {
     // Fetch VIP levels if not already loaded
-    if (!vipStore.getVipLevels.length) {
-      await vipStore.fetchAllVipLevels()
-    }
-
+    // if (!vipStore.getVipLevels.length) {
+      // await vipStore.fetchAllVipLevels()
+    // }
+    console.log(vipStore.getVipLevels)
     // Initialize XP display
     const result = vipStore.getPercentOfCurrentLevel()
     if (result) {

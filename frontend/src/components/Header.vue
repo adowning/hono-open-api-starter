@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 import { useDepositStore } from '@/stores/deposit.store'
-import { useEventManager } from '@/composables/EventManager'
+import { useEventManager, type EventMessage } from '@/composables/EventManager'
+import { BalanceUpdatePayload } from '@/types/events';
 
 const eventBus = useEventManager()
 // const router = useRouter()
@@ -19,19 +20,13 @@ const balanceChangeKey = ref(0) // Used to re-trigger the animation
 // } = storeToRefs(transactionStore)
 
 // Use wallet for balance display
-const balance = computed(() => (wallet.value as any)?.balance || 0)
+const balance = computed(() => wallet.value?.balance || 0)
 
 function openSettings() {
   console.log('x')
   eventBus.emit('settingsModal', true)
 }
-async function goHome() {
-  // console.log('x')
-  // await gameStore.dispatchGameLeave()
-  // // gameStore.dispatchGameLeave.then(() => {
-  // router.push('/home')
-  // // })
-}
+
 const depositItems = ref()
 
 const target = ref()
@@ -40,7 +35,7 @@ const remaining_seconds_display = ref(0)
 
 // Format balance with 2 decimal places
 const formatBalance = (balance: number) => {
-  return balance.toFixed(2)
+  return balance.toFixed(0)
 }
 const interval = ref()
 
@@ -100,17 +95,16 @@ function countdownTimer(start_date: Date): void {
 // })
 
 onMounted(async () => {
-  eventBus.on('balance:update', (payload: any) => {
-    console.log(`TopBarMobile: balance:update event received with change of ${payload.changeAmount}.`);
-    balanceChange.value = payload.changeAmount;
+  eventBus.on('balance:update', ((payload: BalanceUpdatePayload) => {
+    console.log(`TopBarMobile: balance:update event received with change of ${payload.amount}.`);
+    balanceChange.value = payload.amount;
     balanceChangeKey.value++; // Increment key to force re-render of animation element
 
     // Hide the indicator after the animation
     setTimeout(() => {
       balanceChange.value = null;
     }, 2000); // Animation duration: 2 seconds
-  }, 'TopBarMobile');
-  //@ts-ignore
+  }) as EventMessage<'balance:update'>, 'TopBarMobile');
   depositItems.value = []
   // console.log(depositItems.value)
 
@@ -127,7 +121,7 @@ onMounted(async () => {
 
 <template>
   <!-- <div class=" animate__animated animate__slideInDown flex"> -->
-  <div ref="target" class="tbar flex flex-row justify-stretch">
+  <div ref="target" class="tbar flex flex-row justify-stretch animate__animated animate__slideInDown animate__delay-2s">
     <div class="w-100 flex flex-row justify-start">
       <!-- <PlayerAvatar @click="router.push('/client/profile')" style="z-index: 99; max-height: 60px" /> -->
       <PlayerAvatar style="z-index: 99; width: 55px" current-exp="1000" :sparkle="sparkle" :max-exp="100" />
@@ -160,8 +154,8 @@ onMounted(async () => {
             background-size: cover;
             background-image: url('/images/layout/money_backing.png');
           ">
-          <div v-if="wallet" class="glow mt--2 flex justify-center leading-[0.5] pt-1"
-            style="line-height: 0.5; text-align: center; letter-spacing: 0px; font-weight: 800">
+          <div v-if="wallet" class="glow mt--2 flex justify-center leading-[0.5] pt-.5"
+            style="line-height: 0.8; text-align: center; letter-spacing: 0px; font-weight: 800">
             {{ formatBalance(balance) }}
           </div>
         </div>

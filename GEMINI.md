@@ -51,8 +51,8 @@ These are the standard commands for this project. Use them as needed.
 ## 5. Project Guildlines
 
 - use frontend/src/sdk/generated/sdk.gen.ts for api calls
+- do not use 'any' as a type
 - use frontend/src/stores/auth.store.ts for auth state management and tracking the current user
 - use frontend/src/stores/notification.store.ts for notification state managment
-
 - always check frontend/src/sdk/generated for types before creating one
 - if any changes to the backend routes are made, run `bunx @hey-api/openapi-ts -f ./openapi-ts.config.ts` when inside the fronted to update the fronted sdk

@@ -16,6 +16,7 @@ const tags = ['VIP']
 const getMyVipDetails = createRoute({
     method: 'get',
     path: '/vip/me',
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the authenticated user VIP details',
     responses: {
@@ -42,6 +43,7 @@ const getMyVipDetails = createRoute({
 const getVipLevels = createRoute({
     method: 'get',
     path: '/vip/levels',
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the configuration for all VIP levels',
     responses: {
@@ -59,6 +61,7 @@ const getVipLevels = createRoute({
 const getVipRanks = createRoute({
     method: 'get',
     path: '/vip/ranks',
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the configuration for all VIP ranks',
     responses: {
@@ -76,7 +79,6 @@ const getVipRanks = createRoute({
 const router = createRouter()
 
 // All VIP routes require authentication
-router.use('/vip/*', authMiddleware)
 
 router.openapi(getMyVipDetails, controller.getMyVipDetails as any)
 router.openapi(getVipLevels, controller.getVipLevels as any)

@@ -8,17 +8,18 @@ import * as service from './auth.service'
 
 export async function login(c: Context) {
     const { username, password, uid } = await c.req.json()
-    const { accessToken, refreshToken, user, error } = await service.login(
-        c,
+    const result = await service.login(
         username,
         password,
         uid
     )
-    if (error || !accessToken || !refreshToken || !user) {
-        return c.json({ error }, 401)
+    if ('error' in result) {
+        return c.json({ error: result.error }, 401)
     }
+    const { accessToken, refreshToken, user } = result
     setCookie(c, 'access_token', accessToken, {
         path: '/',
+        domain: 'localhost:9999',
         httpOnly: true,
         secure: env.NODE_ENV === 'production',
         sameSite: 'Lax',
@@ -30,13 +31,14 @@ export async function login(c: Context) {
 
 export async function signup(c: Context) {
     const { username, password } = await c.req.json()
-    const { accessToken, refreshToken, user, error } = await service.signup(
+    const result = await service.signup(
         username,
         password
     )
-    if (error || !accessToken || !refreshToken || !user) {
-        return c.json({ error }, 401)
+    if ('error' in result) {
+        return c.json({ error: result.error }, 401)
     }
+    const { accessToken, refreshToken, user } = result
     return c.json({ accessToken, refreshToken, user })
 }
 

@@ -129,7 +129,7 @@ const onIframeLoad = async () => {
   loadError.value = false
 
   console.log(`RTG Game Iframe loaded for: ${props.options.gameName}`)
-  eventBus.emit('hideBottomBar')
+  eventBus.emit('hideBottomBar', undefined)
   // notificationStore.addNotification('info', `Game "${props.options.gameName}" loaded.`)
 }
 

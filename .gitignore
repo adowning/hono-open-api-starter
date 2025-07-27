@@ -10,3 +10,5 @@ dist/
 
 # Bun
 .bun/
+
+**/node_modules/

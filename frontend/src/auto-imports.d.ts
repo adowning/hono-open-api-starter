@@ -49,6 +49,7 @@ declare global {
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const onWatcherCleanup: typeof import('vue')['onWatcherCleanup']
+  const pinia: typeof import('./stores/index')['pinia']
   const plugin: typeof import('./stores/index')['plugin']
   const provide: typeof import('vue')['provide']
   const reactive: typeof import('vue')['reactive']
@@ -68,17 +69,19 @@ declare global {
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
   const useAnimationLayer: typeof import('./composables/useAnimationLayer')['useAnimationLayer']
-  const useAppStore: typeof import('./stores/app')['useAppStore']
+  const useAppStore: typeof import('./stores/app.store')['useAppStore']
   const useAttrs: typeof import('vue')['useAttrs']
   const useAuthStore: typeof import('./stores/auth.store')['useAuthStore']
+  const useAuthStoreOutside: typeof import('./stores/auth.store')['useAuthStoreOutside']
   const useChatStore: typeof import('./stores/chat.store')['useChatStore']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
   const useDepositStore: typeof import('./stores/deposit.store')['useDepositStore']
   const useEventManager: typeof import('./composables/EventManager')['useEventManager']
-  const useGameSpinStore: typeof import('./stores/gameSpin.store')['useGameSpinStore']
+  const useGameSpinStore: typeof import('./stores/gamespin.store')['useGameSpinStore']
   const useGameStore: typeof import('./stores/game.store')['useGameStore']
   const useId: typeof import('vue')['useId']
+  const useImagePreloader: typeof import('./composables/useImagePreloader')['useImagePreloader']
   const useLink: typeof import('vue-router')['useLink']
   const useModel: typeof import('vue')['useModel']
   const useNotificationStore: typeof import('./stores/notification.store')['useNotificationStore']
@@ -100,7 +103,7 @@ declare global {
   export type { Component, Slot, Slots, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from 'vue'
   import('vue')
   // @ts-ignore
-  export type { IEventManagerService, eventobject } from './composables/EventManager'
+  export type { Events, EventMessage, IEventManagerService } from './composables/EventManager'
   import('./composables/EventManager')
   // @ts-ignore
   export type { AnimationInstance } from './composables/useAnimationLayer'
@@ -155,6 +158,7 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
+    readonly pinia: UnwrapRef<typeof import('./stores/index')['pinia']>
     readonly plugin: UnwrapRef<typeof import('./stores/index')['plugin']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
@@ -174,17 +178,19 @@ declare module 'vue' {
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly useAnimationLayer: UnwrapRef<typeof import('./composables/useAnimationLayer')['useAnimationLayer']>
-    readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
+    readonly useAppStore: UnwrapRef<typeof import('./stores/app.store')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuthStore: UnwrapRef<typeof import('./stores/auth.store')['useAuthStore']>
+    readonly useAuthStoreOutside: UnwrapRef<typeof import('./stores/auth.store')['useAuthStoreOutside']>
     readonly useChatStore: UnwrapRef<typeof import('./stores/chat.store')['useChatStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useDepositStore: UnwrapRef<typeof import('./stores/deposit.store')['useDepositStore']>
     readonly useEventManager: UnwrapRef<typeof import('./composables/EventManager')['useEventManager']>
-    readonly useGameSpinStore: UnwrapRef<typeof import('./stores/gameSpin.store')['useGameSpinStore']>
+    readonly useGameSpinStore: UnwrapRef<typeof import('./stores/gamespin.store')['useGameSpinStore']>
     readonly useGameStore: UnwrapRef<typeof import('./stores/game.store')['useGameStore']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>
+    readonly useImagePreloader: UnwrapRef<typeof import('./composables/useImagePreloader')['useImagePreloader']>
     readonly useLink: UnwrapRef<typeof import('vue-router')['useLink']>
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNotificationStore: UnwrapRef<typeof import('./stores/notification.store')['useNotificationStore']>

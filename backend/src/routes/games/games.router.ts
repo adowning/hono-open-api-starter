@@ -1,13 +1,13 @@
-import { createRoute, z } from '@hono/zod-openapi'
+import { GameResponseSchema, UserResponseSchema } from '#/db/schema'
 import { notFoundSchema } from '#/lib/constants'
 import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
 import { sessionMiddleware } from '#/middlewares/session.middleware'
-import { GameResponseSchema, UserResponseSchema } from '#/db/schema'
+import { createRoute, z } from '@hono/zod-openapi'
 import { StatusCodes as HttpStatusCodes } from 'http-status-codes'
 
-import * as controller from './games.controller'
 import { jsonContent } from 'stoker/openapi/helpers'
+import * as controller from './games.controller'
 
 const tags = ['Games']
 
@@ -138,6 +138,8 @@ const getFavoriteGames = createRoute({
 const enterGame = createRoute({
     method: 'post',
     path: '/games/{id}/enter',
+    middleware: [authMiddleware, sessionMiddleware],
+
     tags,
     request: {
         params: z.object({
@@ -185,6 +187,7 @@ const enterGame = createRoute({
 const leaveGame = createRoute({
     method: 'post',
     path: '/games/leave',
+    middleware: [authMiddleware, sessionMiddleware],
     tags,
     responses: {
         200: {
@@ -192,37 +195,20 @@ const leaveGame = createRoute({
         },
     },
 })
-const topWins = createRoute({
-    method: 'get',
-    path: '/me',
-    tags,
-    middleware: [authMiddleware, sessionMiddleware],
-    summary: 'Get current user session',
-    responses: {
-        [HttpStatusCodes.OK]: jsonContent(
-            z.object({
-                user: UserResponseSchema,
-            }),
-            'The current user session'
-        ),
-    },
-})
+
 const router = createRouter()
 
 // Public routes - no authentication or session required
 router.openapi(getAllGames, controller.getAllGames as any)
 router.openapi(getGameCategories, controller.getGameCategories as any)
-router.openapi(topWins, controller.topWins as any)
 
 // Routes that require authentication but not a game session
-router.use('/games/*', authMiddleware)
 router.openapi(searchGames, controller.searchGames as any)
 router.openapi(getUserGames, controller.getUserGames as any)
 router.openapi(favoriteGame, controller.favoriteGame)
 router.openapi(getFavoriteGames, controller.getFavoriteGames as any)
 
 // Routes that require both authentication and a game session
-router.use('*', sessionMiddleware)
 router.openapi(enterGame, controller.enterGame as any)
 router.openapi(leaveGame, controller.leaveGame)
 

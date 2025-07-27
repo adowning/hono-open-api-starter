@@ -1,16 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { defineStore } from 'pinia'
-import { ref, computed, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
-import { useNotificationStore } from './notification.store'
-import { webSocketService } from '@/services/websocket.service'
+import router from '@/router'
 import {
-    postAuthSignup,
     getAuthMe,
     postAuthLogin,
+    postAuthSignup,
     type User,
 } from '@/sdk/generated'
+import { client } from '@/sdk/generated/client.gen'
+import { webSocketService } from '@/services/websocket.service'
 import { pinia } from '@/stores'
+import localforage from 'localforage'
+import { defineStore } from 'pinia'
+import { computed, onUnmounted, ref } from 'vue'
+import { useNotificationStore } from './notification.store'
+import { useAppStore } from './app.store'
+import { useDepositStore } from './deposit.store'
+import { useGameStore } from './game.store'
+import { useGameSpinStore } from './gamespin.store'
+import { useVipStore } from './vip.store'
 
 interface AuthTokens {
     accessToken: string
@@ -21,34 +28,43 @@ export const useAuthStore = defineStore('auth', () => {
     const notificationStore = useNotificationStore()
 
     const currentUser = ref<User | null>(null)
-    const accessToken = ref<string | null>(localStorage.getItem('accessToken'))
-    const refreshToken = ref<string | null>(
-        localStorage.getItem('refresh_token')
-    )
+    const accessToken = ref<string | null>(null)
+    const refreshToken = ref<string | null>(null)
     const isLoading = ref(false)
     const error = ref<string | null>(null)
     const isSignUpMode = ref(false)
+    let interceptorId: number | null = null
 
-    // Set tokens in state and localStorage
-    const setTokens = (tokens: AuthTokens) => {
+    // Set tokens in state and localforage
+    const setTokens = async (tokens: AuthTokens) => {
         accessToken.value = tokens.accessToken
         refreshToken.value = tokens.refreshToken
-        localStorage.setItem('accessToken', tokens.accessToken)
-        localStorage.setItem('refresh_token', tokens.refreshToken)
+        await localforage.setItem('accessToken', tokens.accessToken)
+        await localforage.setItem('refresh_token', tokens.refreshToken)
+
+        if (interceptorId !== null) {
+            client.instance.interceptors.request.eject(interceptorId)
+        }
+
+        interceptorId = client.instance.interceptors.request.use((config) => {
+            config.headers.set('Authorization', `Bearer ${tokens.accessToken}`)
+            return config
+        })
+        console.log('Tokens set:', tokens)
     }
 
-    const setAccessToken = (token: string) => {
-        accessToken.value = token
-        localStorage.setItem('accessToken', token)
-    }
 
     // Clear auth state
-    const clearAuth = () => {
+    const clearAuth = async () => {
         currentUser.value = null
         accessToken.value = null
         refreshToken.value = null
-        localStorage.removeItem('accessToken')
-        localStorage.removeItem('refresh_token')
+        await localforage.removeItem('accessToken')
+        await localforage.removeItem('refresh_token')
+        if (interceptorId !== null) {
+            client.instance.interceptors.request.eject(interceptorId)
+            interceptorId = null
+        }
     }
 
     // Sign up a new user
@@ -74,7 +90,7 @@ export const useAuthStore = defineStore('auth', () => {
                     user: userData,
                 } = response.data
                 if (at && rt) {
-                    setTokens({ accessToken: at, refreshToken: rt })
+                    await setTokens({ accessToken: at, refreshToken: rt })
                     currentUser.value = userData
                     notificationStore.addNotification({
                         type: 'success',
@@ -101,7 +117,6 @@ export const useAuthStore = defineStore('auth', () => {
         username: string
         password: string
     }) => {
-        const router = useRouter()
         const appStore = useAppStore()
         const gameSpinStore = useGameSpinStore()
         const gameStore = useGameStore()
@@ -134,26 +149,35 @@ export const useAuthStore = defineStore('auth', () => {
 
             // Set tokens if they exist in the response
             if (responseData.accessToken) {
-                setTokens({
+                await setTokens({
                     accessToken: responseData.accessToken,
                     refreshToken: responseData.refreshToken || '',
                 })
-                await Promise.all([
-                    getSession(),
-                    gameStore.fetchAllGames(),
-                    gameStore.fetchAllGameCategories(),
-                    gameSpinStore.getTopWins(),
-                    vipStore.fetchAllVipLevels(),
-                ])
-                // Initialize WebSocket connection after successful login
-                webSocketService.initConnection()
+                try {
+                    await Promise.all([
+                        getSession(),
+                        gameStore.fetchAllGames(),
+                        // gameStore.fetchAllGameCategories(),
+                        gameSpinStore.fetchTopWins(),
+                        vipStore.fetchAllVipLevels(),
+                    ])
+                    // Initialize WebSocket connection after successful login
+                    webSocketService.initConnection()
 
-                // Redirect to home page
-                router.push('/')
 
-                appStore.hideLoading()
+                    // Redirect to home page
+                    router.push('/')
 
-                return responseData
+                    appStore.hideLoading()
+
+                    return responseData
+                } catch (e) {
+                    console.log(e)
+                    appStore.hideLoading()
+                    clearAuth()
+                    router.push('/login')
+
+                }
             } else {
                 throw new Error('Invalid response from server')
             }
@@ -175,12 +199,19 @@ export const useAuthStore = defineStore('auth', () => {
 
     // Get current session
     const getSession = async () => {
+        const vipStore = useVipStore()
+        const depositStore = useDepositStore()
         if (!accessToken.value) return null
 
         try {
             const response = await getAuthMe()
-            if (response.data) {
+            if (response.data && response.data.wallet) {
                 currentUser.value = response.data.user // The response is already typed from the SDK
+                vipStore.setVipInfo(response.data.vipInfo)
+                depositStore.setDepositInfo({
+                    wallet: response.data.wallet as any,
+                    operator: response.data.operator as any,
+                })
                 return response.data
             }
             return null
@@ -223,24 +254,26 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
     // Initialize the store
-    // const init = async (): Promise<void> => {
-    //     if (accessToken.value) {
-    //         try {
-    //             await getSession()
-    //             initWebSocket()
-    //         } catch (error) {
-    //             console.error('Failed to initialize session:', error)
-    //             // Clear invalid auth state
-    //             clearAuth()
-    //         }
-    //     }
-    // }
-    onUnmounted(() => {
-        closeWebSocket()
-    })
+    const init = async (): Promise<void> => {
+        const at = await localforage.getItem('accessToken') as string | null
+        const rt = await localforage.getItem('refresh_token') as string | null
+
+        if (at && rt) {
+            try {
+                await setTokens({ accessToken: at, refreshToken: rt })
+                await getSession()
+                initWebSocket()
+            } catch (error) {
+                console.error('Failed to initialize session:', error)
+                // Clear invalid auth state
+                clearAuth()
+            }
+        }
+    }
+    
 
     // // Call init on store creation
-    // init()
+    init()
 
     return {
         // State
@@ -256,7 +289,6 @@ export const useAuthStore = defineStore('auth', () => {
 
         // Actions
         setTokens,
-        setAccessToken,
         clearAuth,
         signUp,
         login,
@@ -265,8 +297,12 @@ export const useAuthStore = defineStore('auth', () => {
         logout,
         initWebSocket,
         closeWebSocket,
+        init,
     }
 })
 export function useAuthStoreOutside() {
     return useAuthStore(pinia)
 }
+
+
+// Import other stores

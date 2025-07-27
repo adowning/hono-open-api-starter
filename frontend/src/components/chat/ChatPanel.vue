@@ -7,7 +7,7 @@
         :sprite-sheet-data="LogoJson" style="position: absolute; transform: scale(0.9); z-index: -1" :speed="60"
         :delay="6000" :offset="5000" :autoplay="true" /> -->
       <SpriteAnimator :animation-data="LogoJson" image-url="/images/bottom/logo_shine_trans.png" :width="80"
-        :height="80" :frame-count="LogoJson.frames.length" :initial-delay-max="8" :loop-delay="7" />
+        :height="80" :frame-count="LogoJson.frames.length" :initial-delay-max="5" :loop-delay="7" />
       <!--background-repeat: no-repeat; z-index: 10; margin-top: -200px; padding-top: 30px; margin-right: -27px; transform: scale(0.6) translateY(55px)-->
       <!-- Close Button -->
       <div id="close-chat" @click.stop="closeChat">
@@ -37,11 +37,11 @@
 <style scoped></style>
 <script setup lang="ts">
 import LogoJson from '@/assets/anim/logo_shine.json'
-import { ref, onMounted } from 'vue'
+import { useChatStore } from '@/stores/chat.store'; // Import the chat store
 import { gsap } from 'gsap'
 import { Flip } from 'gsap/Flip'
-import MessageList from './ChatMessageList.vue' // Adjust path
-import { useChatStore } from '@/stores/chat.store' // Import the chat store
+import { onMounted, ref } from 'vue'
+import MessageList from './ChatMessageList.vue'; // Adjust path
 
 const chatStore = useChatStore()
 const isExpanded = ref(false)
@@ -214,7 +214,7 @@ const simulateReply = () => {
 
     setTimeout(() => {
       // Remove typing indicator
-      currentMessages.value = currentMessages.value.filter((m: any) => m.id !== 'typing-indicator')
+      currentMessages.value = currentMessages.value.filter((m: Message) => m.id !== 'typing-indicator')
       // Add actual reply
       addMessage("That's an interesting point!", randomResponderId)
     }, 2000)

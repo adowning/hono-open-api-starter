@@ -12,7 +12,7 @@ import {
     type Game,
     type PostGamesByIdEnterResponse,
 } from '@/sdk/generated'
-import { useAppStore } from './app'
+import { useAppStore } from './app.store'
 import { useAuthStore } from './auth.store'
 
 export const useGameStore = defineStore('game', () => {
@@ -35,6 +35,7 @@ export const useGameStore = defineStore('game', () => {
                 const uniqueGames = response.data.reduce<Game[]>(
                     (acc, game) => {
                         if (!acc.some((g) => g.id === game.id)) {
+                            game.developer = game.developer.toLowerCase()
                             acc.push({
                                 ...game,
                                 // Ensure all required fields are present

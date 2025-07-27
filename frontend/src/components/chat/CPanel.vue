@@ -198,7 +198,7 @@ const simulateReply = () => {
     setTimeout(() => {
       // Remove typing indicator
       currentMessages.value = currentMessages.value.filter(
-        (m:any) => m.id !== "typing-indicator"
+        (m: Message) => m.id !== "typing-indicator"
       );
       // Add actual reply
       addMessage("That's an interesting point!", randomResponderId);

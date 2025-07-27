@@ -27,7 +27,7 @@ module.exports = [
             quotes: 'off',
             'comma-dangle': 'off',
             'vue/html-self-closing': 'off',
-            'eslint/no-explicit-any': 'warn',
+            '@typescript-eslint/no-explicit-any': 'warn',
             'vue/max-attributes-per-line': 'off',
             'vue/singleline-html-element-content-newline': 'off',
         },

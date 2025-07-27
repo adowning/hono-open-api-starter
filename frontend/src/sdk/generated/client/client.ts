@@ -24,13 +24,13 @@ export const createClient = (config: Config = {}): Client => {
     instance.defaults = {
       ...instance.defaults,
       ..._config,
-      // @ts-expect-error
+      // @ts-expect-error Awaiting headers type fix from Axios
       headers: mergeHeaders(instance.defaults.headers, _config.headers),
     };
     return getConfig();
   };
 
-  // @ts-expect-error
+  // @ts-expect-error Awaiting headers type fix from Axios
   const request: Client["request"] = async (options) => {
     const opts = {
       ..._config,
@@ -92,7 +92,7 @@ export const createClient = (config: Config = {}): Client => {
       if (opts.throwOnError) {
         throw e;
       }
-      // @ts-expect-error
+      // @ts-expect-error Awaiting headers type fix from Axios
       e.error = e.response?.data ?? {};
       return e;
     }

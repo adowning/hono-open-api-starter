@@ -228,7 +228,7 @@ export const Game = pgTable(
         tags: text('tags').array().notNull(),
         thumbnailUrl: text('thumbnail_url'),
         bannerUrl: text('banner_url'),
-        providerName: text('provider_name').notNull(),
+        developer: text('provider_name').notNull(),
         providerId: text('provider_id'),
         totalWagered: integer('total_wagered').notNull(),
         totalWon: integer('total_won').notNull(),
@@ -284,6 +284,26 @@ export const GameSpin = pgTable('game_spins', {
     sessionDataId: text('sessionDataId'),
 })
 
+export const GameSpinResponseSchema = z.object({
+    id: z.string(),
+    playerName: z.string().optional(),
+    gameName: z.string().optional(),
+    spinData: z.record(z.any()).optional(),
+    grossWinAmount: z.number(),
+    wagerAmount: z.number(),
+    spinNumber: z.number(),
+    playerAvatar: z.string().optional(),
+    currencyId: z.string().optional(),
+    sessionId: z.string(),
+    userId: z.string().optional(),
+    createdAt: z.string().datetime(),
+    updatedAt: z.string().datetime(),
+    occurredAt: z.string().datetime(),
+    sessionDataId: z.string().optional(),
+})
+
+// export const GameSpinListResponseSchema = z.array(GameSpinResponseSchema)
+
 export const GameHistory = pgTable('game_history', {
     id: varchar('id').primaryKey().$defaultFn(nanoid),
     userId: text('user_id')
@@ -331,6 +351,7 @@ export const newGameSession = createInsertSchema(GameSession)
 export const selectVipInfoSchema = createSelectSchema(VipInfo)
 export const selectOperatorSchema = createSelectSchema(Operator)
 export const selectGameSchema = createSelectSchema(Game)
+export const selectGameSpinSchema = createSelectSchema(GameSpin)
 
 export const UserResponseSchema = selectUserSchema.omit({
     passwordHash: true,
@@ -353,6 +374,7 @@ export const GameResponseSchema = z.object({
     id: z.string(),
     name: z.string(),
     title: z.string(),
+    developer: z.string(),
     description: z.string().optional(),
     category: z.string(),
     tags: z.array(z.string()),

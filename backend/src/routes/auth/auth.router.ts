@@ -108,7 +108,6 @@ const logoutRoute = createRoute({
     },
 })
 
-// Public routes
 const router = createRouter()
     .openapi(loginRoute, controller.login as any)
     .openapi(signupRoute, controller.signup as any)

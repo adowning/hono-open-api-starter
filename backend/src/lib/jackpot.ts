@@ -1,5 +1,3 @@
-
-
 import chalk from 'chalk'
 import { and, desc, eq, inArray } from 'drizzle-orm'
 

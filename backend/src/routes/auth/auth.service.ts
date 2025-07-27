@@ -8,13 +8,11 @@ import { insertUserSchema, User } from '#/db/schema'
 import type { AuthSessionType } from '#/db/schema'
 import env from '#/env'
 import { SessionManager } from '#/lib/session.manager'
-import type { Context } from 'hono'
 
 const ACCESS_TOKEN_EXPIRES_IN = '7 days'
 const REFRESH_TOKEN_EXPIRES_IN = '7 days'
 
 export async function login(
-    c: Context,
     username: string,
     password: string,
     uid?: string

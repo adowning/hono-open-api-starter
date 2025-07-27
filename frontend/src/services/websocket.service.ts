@@ -1,6 +1,6 @@
 import { useAuthStore } from '@/stores/auth.store'
 import { useEventManager } from '@/composables/EventManager'
-import type { WebSocketMessages } from '@/types/websocket'
+import type { WebSocketMessage } from '@/types/websocket'
 
 class WebSocketService {
     private socket: WebSocket | null = null
@@ -67,7 +67,7 @@ class WebSocketService {
                 return
             }
 
-            const message = data as WebSocketMessages
+            const message = data as WebSocketMessage
 
             // Validate message structure
             if (!message.type || !message.payload) {
@@ -81,17 +81,20 @@ class WebSocketService {
             // Handle different message types
             switch (message.type) {
                 case 'user:update':
-                    this.eventManager.emit('user:updated', message.payload)
+                    this.eventManager.emit('user:updated', {data: message.payload, type: 'user', action: 'update'})
                     break
                 case 'wallet:update':
-                    this.eventManager.emit('wallet:updated', message.payload)
+                    this.eventManager.emit('wallet:updated', {data: message.payload, type: 'user', action: 'update'})
                     break
                 case 'vip:update':
-                    this.eventManager.emit('vip:updated', message.payload)
+                    this.eventManager.emit('vip:updated', {data: message.payload, type: 'user', action: 'update'})
                     break
+                case 'xp:gain':
+                    this.eventManager.emit('xp:gain', {amount: message.payload.amount})
+                    break          
                 default:
                     console.warn(
-                        `Unknown message type: ${message.type}`,
+                        `Unknown message type`,
                         message
                     )
             }

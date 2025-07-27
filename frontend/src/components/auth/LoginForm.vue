@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, reactive, onMounted, onUnmounted, watch } from 'vue' // Import necessary Vue 3 APIs
-import { storeToRefs } from 'pinia' // Import storeToRefs
+import { storeToRefs } from 'pinia'; // Import storeToRefs
+import { onMounted, reactive, ref } from 'vue'; // Import necessary Vue 3 APIs
 import { useRouter } from 'vue-router'
 import AuthPanel from './AuthPanel.vue'
 
@@ -18,8 +18,9 @@ const formData = reactive({
 })
 const showError = ref<boolean>(false)
 
-const handleLogin = () => {
-    authStore.login({
+const handleLogin = async () => {
+    await authStore.clearAuth()
+    await authStore.login({
         username: formData.username,
         password: formData.password,
     })
@@ -53,7 +54,7 @@ const handleLogin = () => {
 onMounted(() => {
     if (isAuthenticated.value) {
         console.log('Already authenticated, redirecting from LoginView.')
-        router.push({ name: 'home' }) // Assuming 'Home' is your main app route
+        // router.push({ name: 'home' }) // Assuming 'Home' is your main app route
     }
 })
 </script>
@@ -389,3 +390,4 @@ body {
     --font-color-btn: #ffffff;
 }
 </style>
+<!-- "{\"currentUser\":{\"id\":\"5fymmflp0ul7r9fq7ccre\",\"username\":\"asdf\",\"email\":null,\"accessToken\":null,\"refreshToken\":null,\"accessTokenExpiresAt\":null,\"refreshTokenExpiresAt\":null,\"currentGameSessionDataId\":null,\"currentAuthSessionDataId\":null,\"avatar\":\"avatar-1.webp\",\"role\":\"USER\",\"isActive\":true,\"lastLoginAt\":null,\"totalXpGained\":0,\"activeWalletId\":\"zcqztc8gzbs5lhevkv5m8\",\"vipInfoId\":\"u7l33tc15m7ut4av2wcw2\",\"createdAt\":\"2025-07-25T17:20:31.000Z\",\"updatedAt\":\"2025-07-25T17:20:31.000Z\",\"deletedAt\":null},\"accessToken\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1ZnltbWZscDB1bDdyOWZxN2NjcmUiLCJzZXNzaW9uSWQiOiJic2pzY3ZjdG9xOW9jZ2RwcnpncjUiLCJpYXQiOjE3NTM1NzQ4NDMsImV4cCI6MTc1NDE3OTY0M30.X2jgDrtVrGVX0AwPWX5OEc79E1tCibgNzAH0dmTYEfo\",\"refreshToken\":\"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI1ZnltbWZscDB1bDdyOWZxN2NjcmUiLCJzZXNzaW9uSWQiOiJic2pzY3ZjdG9xOW9jZ2RwcnpncjUiLCJpYXQiOjE3NTM1NzQ4NDMsImV4cCI6MTc1NDE3OTY0M30.X2jgDrtVrGVX0AwPWX5OEc79E1tCibgNzAH0dmTYEfo\",\"isLoading\":false,\"error\":null,\"isSignUpMode\":false}" -->

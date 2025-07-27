@@ -1,14 +1,6 @@
 <template>
-  <div
-    ref="containerRef"
-    :class="cn('w-full h-full', props.class)"
-  >
-    <canvas
-      ref="canvasRef"
-      class="pointer-events-none"
-      :width="canvasSize.width"
-      :height="canvasSize.height"
-    />
+  <div ref="containerRef" :class="cn('w-full h-full', props.class)">
+    <canvas ref="canvasRef" class="pointer-events-none" :width="canvasSize.width" :height="canvasSize.height" />
   </div>
 </template>
 
@@ -31,7 +23,7 @@ const props = withDefaults(defineProps<FlickeringGridProps>(), {
   starSize: 12,
   gridGap: 6,
   flickerChance: 0.3,
-  color: "rgb(0, 0, 0)",
+  color: "#ffea00",
   maxOpacity: 0.3,
 });
 
@@ -45,7 +37,7 @@ const isInView = ref(false);
 const canvasSize = ref({ width: 0, height: 0 });
 
 const computedColor = computed(() => {
-  if (!context.value) return "rgba(255, 0, 0,";
+  if (!context.value) return "rgba(255, 0, 0, 0.3)";
 
   const hex = color.value.replace(/^#/, "");
   const bigint = Number.parseInt(hex, 16);

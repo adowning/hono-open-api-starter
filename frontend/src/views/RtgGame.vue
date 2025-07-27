@@ -17,10 +17,18 @@ import { useGameStore } from '@/stores/game.store'
 import { useRouteQuery } from '@vueuse/router'
 import { onMounted, ref, computed } from 'vue'
 
+interface GameLaunchOptions {
+    launch_url: string;
+    launch_options: {
+        game_launcher_url: string;
+        [key: string]: unknown;
+    };
+}
+
 const gameName = useRouteQuery('gameName')
 const gameStore = useGameStore()
 const error = ref(!gameName.value)
-const gameLaunchOptions = ref<any | null>(null)
+const gameLaunchOptions = ref<GameLaunchOptions | null>(null)
 
 const game = computed(() =>
     gameStore.games.find((g) => g.name === gameName.value)
@@ -34,12 +42,14 @@ onMounted(async () => {
     if (game.value) {
         try {
             const response = await gameStore.enterGame(game.value.id)
-            gameLaunchOptions.value = {
-                launch_url: response?.webUrl,
-                launch_options: {
-                    game_launcher_url: response?.webUrl,
-                    ...response?.gameConfig,
-                },
+            if (response) {
+                gameLaunchOptions.value = {
+                    launch_url: response.webUrl,
+                    launch_options: {
+                        game_launcher_url: response.webUrl,
+                        ...response.gameConfig,
+                    },
+                }
             }
         } catch (e) {
             console.error('Failed to enter game', e)

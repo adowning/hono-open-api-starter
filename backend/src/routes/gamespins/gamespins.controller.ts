@@ -1,33 +1,17 @@
-import { desc, gt } from 'drizzle-orm'
-import { z } from 'zod'
 import db from '#/db'
 import { GameSpin } from '#/db/slim.schema'
+import { desc, gt } from 'drizzle-orm'
+import type { Context } from 'hono'
 
-export async function getTopWins(limit = 10) {
-    return db
+export async function getTopWins(c: Context) {
+    let result = await db
         .select()
         .from(GameSpin)
         .where(gt(GameSpin.grossWinAmount, 0))
         .orderBy(desc(GameSpin.grossWinAmount))
-        .limit(limit)
+    // .limit(limit)
+    console.log(result)
+    if (result === undefined)
+        result = []
+    return c.json(result)
 }
-
-export const GameSpinResponseSchema = z.object({
-    id: z.string(),
-    playerName: z.string().optional(),
-    gameName: z.string().optional(),
-    spinData: z.record(z.any()).optional(),
-    grossWinAmount: z.number(),
-    wagerAmount: z.number(),
-    spinNumber: z.number(),
-    playerAvatar: z.string().optional(),
-    currencyId: z.string().optional(),
-    sessionId: z.string(),
-    userId: z.string().optional(),
-    createdAt: z.string().datetime(),
-    updatedAt: z.string().datetime(),
-    occurredAt: z.string().datetime(),
-    sessionDataId: z.string().optional(),
-})
-
-export const GameSpinListResponseSchema = z.array(GameSpinResponseSchema)

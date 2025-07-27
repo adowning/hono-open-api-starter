@@ -1,4 +1,3 @@
-/* eslint-disable perfectionist/sort-imports */
 /* eslint-disable node/no-process-env */
 import { z } from 'zod'
 
@@ -37,7 +36,7 @@ const EnvSchema = z
         }
     })
 
-export type env = z.infer<typeof EnvSchema>
+export type Env = z.infer<typeof EnvSchema>
 
 const { data: env, error } = EnvSchema.safeParse(process.env)
 

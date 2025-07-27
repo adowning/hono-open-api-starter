@@ -1,207 +1,314 @@
 <template>
-  <div :class="['h-full', isDesktop ? 'w-[430px] mx-auto' : 'w-full']">
-    <canvas ref="canvasRef" class="w-full h-full"></canvas>
+  <div class="starfield-wrapper bg-black/30 backdrop-blur-sm p-3 rounded-lg shadow-2xl border border-blue-500/20">
+    <!-- The main container for the starfield effect -->
+    <div ref="starContainer" class="star-container w-full h-full rounded-md relative overflow-hidden bg-cover bg-center"
+      style="background-image: url('/images/starsbg.png');">
+      <!-- Stars will be dynamically added here by the script -->
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
-import { useWindowSize } from '@vueuse/core';
+import { ref, onMounted } from 'vue';
 
-const canvasRef = ref<HTMLCanvasElement | null>(null);
-const { width: windowWidth } = useWindowSize();
-
-const isDesktop = computed(() => windowWidth.value > 1024);
-
-const starImages = [
-  '/images/stars/star0.avif',
-  '/images/stars/star1.avif',
-  '/images/stars/star2.avif',
-  '/images/stars/star3.avif',
-];
-
-const particleImages = [
-  '/images/stars/particle02.png',
-  '/images/stars/particle03.png',
-  '/images/stars/particle05.png',
-];
-
-interface Star {
+// --- Type Definitions ---
+interface StarPosition {
   x: number;
   y: number;
-  size: number;
-  opacity: number;
-  rotation: number;
-  image: HTMLImageElement;
-  life: number;
-  maxLife: number;
-  // direction
-  vx: number;
-  vy: number;
-  rotationSpeed: number;
+  width: number;
+  height: number;
 }
 
-interface Particle {
-  x: number;
-  y: number;
-  size: number;
-  opacity: number;
-  rotation: number;
-  image: HTMLImageElement;
-  life: number;
-  maxLife: number;
-  rotationSpeed: number;
+// Holds all data for a single star instance
+interface StarInstance {
+  element: HTMLImageElement;
+  position: StarPosition;
 }
 
-let stars: Star[] = [];
-let particles: Particle[] = [];
-let loadedImages: Record<string, HTMLImageElement> = {};
+// --- Component State ---
+const starContainer = ref<HTMLDivElement | null>(null);
 
-const loadImage = (src: string): Promise<HTMLImageElement> => {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.src = src;
-    img.onload = () => resolve(img);
-    img.onerror = reject;
-  });
-};
+// --- Animation & Layout Configuration ---
+const starUrls: string[] = [
+  'https://gameui.cashflowcasino.com/images/stars/star0.avif',
+  'https://gameui.cashflowcasino.com/images/stars/star1.avif',
+  'https://gameui.cashflowcasino.com/images/stars/star2.avif',
+  'https://gameui.cashflowcasino.com/images/stars/star3.avif'
+];
+const numStars: number = 15;
+const starSize: number = 50;
+const minSpacing: number = 20;
 
-const createStar = (width: number, height: number) => {
-  const imageSrc = starImages[Math.floor(Math.random() * starImages.length)];
-  const maxLife = 2000 + Math.random() * 3000;
-  const speedModifier = isDesktop.value ? 1 / 3 : 1;
-  return {
-    x: Math.random() * width,
-    y: Math.random() * height,
-    size: 0,
-    opacity: 0,
-    rotation: Math.random() * 360,
-    image: loadedImages[imageSrc],
-    life: maxLife,
-    maxLife: maxLife,
-    vx: (Math.random() - 0.5) * 0.1 * speedModifier,
-    vy: (Math.random() - 0.5) * 0.1 * speedModifier,
-    rotationSpeed: (Math.random() - 0.5) * 0.1 * speedModifier,
+// This runs once the component is mounted to the DOM
+onMounted(() => {
+  if (!starContainer.value) {
+    console.error('Starfield container not found.');
+    return;
+  }
+
+  const container: HTMLDivElement = starContainer.value;
+  const containerWidth = container.offsetWidth;
+  const containerHeight = container.offsetHeight;
+  const starInstances: StarInstance[] = [];
+
+  // --- Core Functions ---
+
+  /**
+  * Checks if two rectangular areas overlap, including a minimum spacing buffer.
+  */
+  const checkOverlap = (rect1: StarPosition, rect2: StarPosition): boolean => {
+    const noOverlap =
+      rect1.x > rect2.x + rect2.width + minSpacing ||
+      rect1.x + rect1.width + minSpacing < rect2.x ||
+      rect1.y > rect2.y + rect2.height + minSpacing ||
+      rect1.y + rect1.height + minSpacing < rect2.y;
+    return !noOverlap;
   };
-};
 
-const createParticle = (x: number, y: number) => {
-  const imageSrc = particleImages[Math.floor(Math.random() * particleImages.length)];
-  const maxLife = 500 + Math.random() * 500;
-  return {
-    x,
-    y,
-    size: 0,
-    opacity: 0,
-    rotation: Math.random() * 360,
-    image: loadedImages[imageSrc],
-    life: maxLife,
-    maxLife,
-    rotationSpeed: (Math.random() - 0.5) * 2,
+  /**
+  * Finds a new, non-overlapping position for a given star and applies it.
+  */
+  const findAndSetNewPosition = (instance: StarInstance) => {
+    const otherInstances = starInstances.filter(inst => inst !== instance);
+    let newPosition: StarPosition | null = null;
+    let isPositionSafe = false;
+    let attempts = 0;
+    const maxAttempts = 200;
+
+    while (!isPositionSafe && attempts < maxAttempts) {
+      attempts++;
+      const candidateX = Math.random() * (containerWidth - starSize);
+      const candidateY = Math.random() * (containerHeight - starSize);
+      const candidatePos: StarPosition = { x: candidateX, y: candidateY, width: starSize, height: starSize };
+
+      if (!otherInstances.some(other => checkOverlap(candidatePos, other.position))) {
+        isPositionSafe = true;
+        newPosition = candidatePos;
+      }
+    }
+
+    if (isPositionSafe && newPosition) {
+      instance.position = newPosition;
+      instance.element.style.left = `${(newPosition.x / containerWidth) * 100}%`;
+      instance.element.style.top = `${(newPosition.y / containerHeight) * 100}%`;
+    } else {
+      console.warn('Could not find a new non-overlapping position. Hiding star for one cycle.');
+      instance.element.style.opacity = '0';
+    }
   };
-};
 
-const update = (width: number, height: number) => {
-  const sizeModifier = isDesktop.value ? 12 : 1;
-  // Update stars
-  stars.forEach((star, index) => {
-    star.life -= 16;
-    if (star.life <= 0) {
-      stars[index] = createStar(width, height);
-    }
 
-    const lifeRatio = star.life / star.maxLife;
-    star.opacity = 1 - Math.abs(lifeRatio - 0.5) * 2;
-    star.size = (1 - Math.abs(lifeRatio - 0.5) * 2) * 30 * sizeModifier;
-    star.rotation += star.rotationSpeed;
-    star.x += star.vx;
-    star.y += star.vy;
+  /**
+  * Handles the cycling animation for types A and C (grow/shrink, grow-only).
+  */
+  const animateStarContinuous = (instance: StarInstance, animationName: string) => {
+    const runCycle = () => {
+      // 1. Find a new position.
+      findAndSetNewPosition(instance);
 
-    if (Math.random() < 0.05) {
-        particles.push(createParticle(star.x, star.y));
-    }
-  });
-
-  // Update particles
-  particles.forEach((particle, index) => {
-    particle.life -= 16;
-    if (particle.life <= 0) {
-      particles.splice(index, 1);
-      return;
-    }
-
-    const lifeRatio = particle.life / particle.maxLife;
-    particle.opacity = 1 - Math.abs(lifeRatio - 0.5) * 2;
-    particle.size = (1 - Math.abs(lifeRatio - 0.5) * 2) * 10;
-    particle.rotation += particle.rotationSpeed;
-  });
-};
-
-const draw = (ctx: CanvasRenderingContext2D) => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    
-    const drawItem = (item: Star | Particle) => {
-        ctx.save();
-        ctx.globalAlpha = item.opacity;
-        ctx.translate(item.x, item.y);
-        ctx.rotate(item.rotation * Math.PI / 180);
-        ctx.drawImage(item.image, -item.size / 2, -item.size / 2, item.size, item.size);
-        ctx.restore();
-    };
-
-    stars.forEach(drawItem);
-    particles.forEach(drawItem);
-};
-
-let animationFrameId: number;
-
-const animate = () => {
-  if (!canvasRef.value) return;
-  const ctx = canvasRef.value.getContext('2d');
-  if (!ctx) return;
-
-  const rect = canvasRef.value.getBoundingClientRect();
-  update(rect.width, rect.height);
-  draw(ctx);
-
-  animationFrameId = requestAnimationFrame(animate);
-};
-
-const setupCanvas = () => {
-    if (canvasRef.value) {
-        const canvas = canvasRef.value;
-        const dpr = window.devicePixelRatio || 1;
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        const ctx = canvas.getContext('2d');
-        ctx?.resetTransform();
-        ctx?.scale(dpr, dpr);
-
-        const starCount = isDesktop.value ? 25 : 50;
-        stars = [];
-        for (let i = 0; i < starCount; i++) {
-            stars.push(createStar(rect.width, rect.height));
+      // 2. Set up the listener that will restart the cycle.
+      instance.element.addEventListener('animationend', (event: AnimationEvent) => {
+        // Only restart if the correct animation finished.
+        if (event.animationName === animationName) {
+          setTimeout(runCycle, Math.random() * 4000 + 2000);
         }
+      }, { once: true });
+
+      // 3. Reset the animation to force a re-trigger.
+      instance.element.style.animation = 'none';
+      // This line is crucial. It forces the browser to "reflow" the element,
+      // acknowledging that the animation has been removed.
+      void instance.element.offsetHeight;
+
+      // 4. Apply the new animation with halved duration.
+      const duration = animationName === 'star-type-a-animation'
+        ? Math.random() * 3.5 + 4 // Was 7 + 8
+        : Math.random() * 2.5 + 3; // Was 5 + 6
+      instance.element.style.animation = `${animationName} ${duration}s linear forwards`;
+    };
+    // Start the very first cycle after a random delay.
+    setTimeout(runCycle, Math.random() * 5000);
+  };
+
+  /**
+  * Handles the multi-step fade/spin animation for intermittent stars (Type B).
+  */
+  const animateStarTypeB = (instance: StarInstance) => {
+    const runAnimationCycle = () => {
+      findAndSetNewPosition(instance);
+
+      const star = instance.element;
+      star.style.animation = '';
+      star.style.transform = 'scale(1) rotate(0deg)';
+      star.style.opacity = '0';
+
+      star.style.animation = 'star-type-b-fade-in 0.5s ease-out forwards';
+
+      star.addEventListener('animationend', function onFadeInEnd(event) {
+        if (event.animationName !== 'star-type-b-fade-in') return;
+
+        setTimeout(() => {
+          star.addEventListener('animationend', function onCycleEnd(event) {
+            if (event.animationName !== 'star-type-b-fade-out' && event.animationName !== 'star-type-b-spin-out') return;
+            setTimeout(runAnimationCycle, Math.random() * 7000 + 8000);
+          }, { once: true });
+
+          if (Math.random() < 0.5) {
+            star.style.animation = 'star-type-b-fade-out 0.5s ease-in forwards';
+          } else {
+            star.style.animation = 'star-type-b-spin-out 1s ease-in-out forwards';
+          }
+        }, 500);
+      }, { once: true });
+    };
+    setTimeout(runAnimationCycle, Math.random() * 8000);
+  };
+
+  // --- Initialization Loop ---
+  let typeACStarCount = 0;
+  const maxTypeACStars = 2;
+
+  for (let i = 0; i < numStars; i++) {
+    let initialPosition: StarPosition | null = null;
+    let isPositionSafe = false;
+    let attempts = 0;
+    const maxAttempts = 200;
+
+    while (!isPositionSafe && attempts < maxAttempts) {
+      attempts++;
+      const candidateX = Math.random() * (containerWidth - starSize);
+      const candidateY = Math.random() * (containerHeight - starSize);
+      const candidatePos: StarPosition = { x: candidateX, y: candidateY, width: starSize, height: starSize };
+
+      if (!starInstances.some(inst => checkOverlap(candidatePos, inst.position))) {
+        isPositionSafe = true;
+        initialPosition = candidatePos;
+      }
     }
-}
 
-onMounted(async () => {
-  const allImages = [...starImages, ...particleImages];
-  const imagePromises = allImages.map(loadImage);
-  const loaded = await Promise.all(imagePromises);
-  allImages.forEach((src, i) => {
-    loadedImages[src] = loaded[i];
-  });
+    if (isPositionSafe && initialPosition) {
+      const starElement = document.createElement('img');
+      let starTypeIndex = Math.floor(Math.random() * starUrls.length);
 
-  setupCanvas();
-  animate();
+      const isTypeACCandidate = starTypeIndex === 0 || starTypeIndex === 3;
+      if (isTypeACCandidate && typeACStarCount >= maxTypeACStars) {
+        starTypeIndex = Math.random() < 0.5 ? 1 : 2;
+      }
 
-  window.addEventListener('resize', setupCanvas);
-});
+      starElement.src = starUrls[starTypeIndex];
+      starElement.classList.add('star-image');
+      starElement.style.left = `${(initialPosition.x / containerWidth) * 100}%`;
+      starElement.style.top = `${(initialPosition.y / containerHeight) * 100}%`;
+      starElement.onerror = () => { starElement.style.display = 'none'; };
+      container.appendChild(starElement);
 
-onBeforeUnmount(() => {
-  cancelAnimationFrame(animationFrameId);
-  window.removeEventListener('resize', setupCanvas);
+      const instance: StarInstance = {
+        element: starElement,
+        position: initialPosition,
+      };
+      starInstances.push(instance);
+
+      if (starTypeIndex === 0 || starTypeIndex === 3) {
+        typeACStarCount++;
+        if (Math.random() < 0.5) {
+          animateStarContinuous(instance, 'star-type-c-animation');
+        } else {
+          animateStarContinuous(instance, 'star-type-a-animation');
+        }
+      } else {
+        animateStarTypeB(instance);
+      }
+    } else {
+      console.warn(`Could not find an initial non-overlapping position for star ${i + 1}.`);
+    }
+  }
 });
 </script>
+
+<style>
+/* Styles are global, allowing JS to find the keyframes by name. */
+.starfield-wrapper {
+  width: 393px;
+  height: 852px;
+}
+
+.star-image {
+  position: absolute;
+  width: clamp(25px, 5vw, 50px);
+  height: auto;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+@keyframes star-type-a-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.5) rotate(216deg);
+  }
+
+  75% {
+    opacity: 1;
+    transform: scale(1.5) rotate(270deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(360deg);
+  }
+}
+
+@keyframes star-type-c-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+
+  80% {
+    opacity: 1;
+    transform: scale(2.0) rotate(288deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(3) rotate(360deg);
+  }
+}
+
+@keyframes star-type-b-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes star-type-b-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes star-type-b-spin-out {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(720deg);
+    opacity: 0;
+  }
+}
+</style>

@@ -118,12 +118,33 @@ export type Game = {
   id: string;
   name: string;
   title: string;
+  developer: string;
   description?: string;
   category: string;
   tags: Array<string>;
   thumbnailUrl?: string;
   bannerUrl?: string;
   isActive?: boolean;
+};
+
+export type GameSpin = {
+  id: string;
+  playerName?: string;
+  gameName?: string;
+  spinData?: {
+    [key: string]: unknown;
+  };
+  grossWinAmount: number;
+  wagerAmount: number;
+  spinNumber: number;
+  playerAvatar?: string;
+  currencyId?: string;
+  sessionId: string;
+  userId?: string;
+  createdAt: string;
+  updatedAt: string;
+  occurredAt: string;
+  sessionDataId?: string;
 };
 
 export type PostAuthLoginData = {
@@ -1484,40 +1505,6 @@ export type GetGamesCategoriesResponses = {
 export type GetGamesCategoriesResponse =
   GetGamesCategoriesResponses[keyof GetGamesCategoriesResponses];
 
-export type GetMeData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/me";
-};
-
-export type GetMeResponses = {
-  /**
-   * The current user session
-   */
-  200: {
-    user: {
-      id: string;
-      username: string;
-      email: string | null;
-      currentGameSessionDataId: string | null;
-      currentAuthSessionDataId: string | null;
-      avatar: string | null;
-      role: string;
-      isActive: boolean;
-      lastLoginAt: string | null;
-      totalXpGained: number;
-      activeWalletId: string | null;
-      vipInfoId: string | null;
-      createdAt: string;
-      updatedAt: string;
-      deletedAt: string | null;
-    };
-  };
-};
-
-export type GetMeResponse = GetMeResponses[keyof GetMeResponses];
-
 export type GetGamesSearchData = {
   body?: never;
   path?: never;
@@ -1538,6 +1525,7 @@ export type GetGamesSearchResponses = {
       id: string;
       name: string;
       title: string;
+      developer: string;
       description?: string;
       category: string;
       tags: Array<string>;
@@ -1572,6 +1560,7 @@ export type GetUserGamesResponses = {
       id: string;
       name: string;
       title: string;
+      developer: string;
       description?: string;
       category: string;
       tags: Array<string>;
@@ -1706,25 +1695,7 @@ export type GetGamespinsTopwinsResponses = {
   /**
    * A list of top winning game spins
    */
-  200: Array<{
-    id: string;
-    playerName?: string;
-    gameName?: string;
-    spinData?: {
-      [key: string]: unknown;
-    };
-    grossWinAmount: number;
-    wagerAmount: number;
-    spinNumber: number;
-    playerAvatar?: string;
-    currencyId?: string;
-    sessionId: string;
-    userId?: string;
-    createdAt: string;
-    updatedAt: string;
-    occurredAt: string;
-    sessionDataId?: string;
-  }>;
+  200: Array<GameSpin>;
 };
 
 export type GetGamespinsTopwinsResponse =

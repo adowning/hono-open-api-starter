@@ -18,11 +18,32 @@ export default function configureOpenAPI(app: AppOpenAPI) {
         Scalar({
             url: '/doc',
             theme: 'kepler',
-            // layout: "classic",
-            defaultHttpClient: {
-                targetKey: 'js',
-                clientKey: 'fetch',
-            },
-        })
+            authentication: {
+                preferredSecurityScheme: 'httpBearer',
+                securitySchemes: {
+                    // apiKeyHeader: {
+                    //     value: 'tokenValue'
+                    // },
+                    httpBearer: {
+                        token: 'xyz token value'
+                    },
+                    // httpBasic: {
+                    //     username: 'username',
+                    //     password: 'password'
+                    // },
+                    // flows: {
+                    //     authorizationCode: {
+                    //         token: 'auth code token'
+                    //     }
+                    // }
+                    // layout: "classic",
+                    // defaultHttpClient: {
+                    //     targetKey: 'js',
+                    //     clientKey: 'fetch',
+                    // },
+                }
+            }
+        }
+        )
     )
 }

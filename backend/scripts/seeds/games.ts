@@ -66,7 +66,7 @@ export async function seedGames(db: NodePgDatabase<typeof schema>) { // Check fo
     const category = game.gamebank;
 
     // Use provider if available, otherwise fallback to developer.
-    const providerName = game.provider || game.developer;
+    const developer = game.provider || game.developer;
 
     return {
       ...game,
@@ -79,7 +79,7 @@ export async function seedGames(db: NodePgDatabase<typeof schema>) { // Check fo
       // The schema requires tags, so we provide an empty array as a default.
       tags: [game.type],
       // Use the provider name from the data.
-      providerName: providerName.toUpperCase(),
+      developer: developer.toLowerCase(),
       // The `id` from the JSON seems to be the provider's unique ID for the game.
       providerId: game.id,
       // Parse statIn and statOut as numbers, defaulting to 0 if invalid or missing.

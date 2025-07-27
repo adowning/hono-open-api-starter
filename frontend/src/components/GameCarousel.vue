@@ -39,7 +39,7 @@ const imageDimensions = ref<Map<string, { width: number; height: number; aspectR
 // Get image URL for a game
 const getGameImageUrl = (game: LocalGame): string => {
   // console.log(game)
-  const developer = game.providerName?.toLowerCase() || ''
+  const developer = game.provider?.toLowerCase() ||  game.developer?.toLowerCase() || game.providerName?.toLowerCase() ||''
   const gameName = game.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
   // return `/images/games/${developer}/${gameName}.avif`
 
@@ -258,7 +258,8 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured)
 </script>
 
 <template>
-  <div class="carousel-container bungee align-center relative flex flex-row items-center justify-center">
+  <div
+    class="carousel-container animate__animated animate__slideInRight animate__delay-1s bungee align-center relative flex flex-row items-center justify-center">
     <div ref="carousel" class="carousel-scroll-area">
       <div class="carousel-track">
         <div v-for="game in games" :key="game.name" :data-game-id="game.id" class="game-card" :class="{

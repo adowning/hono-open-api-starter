@@ -26,8 +26,8 @@ const props = defineProps<{
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 const image = new Image();
 let frameIndex = 0;
-let startTimeoutId: any;
-let loopTimeoutId: any;
+let startTimeoutId: NodeJS.Timeout;
+let loopTimeoutId: NodeJS.Timeout;
 let lastFrameTime = 0;
 let animationFrameId: number;
 
@@ -113,7 +113,7 @@ const startAnimationCycle = () => {
   clearTimeout(startTimeoutId);
   clearTimeout(loopTimeoutId);
 
-  const initialDelay = Math.random() * (props.initialDelayMax || 0) * 1000;
+  const initialDelay = (props.initialDelayMax || 0) * 1000 //Math.random() * (props.initialDelayMax || 0) * 1000;
 
   startTimeoutId = setTimeout(() => {
     frameIndex = 0;

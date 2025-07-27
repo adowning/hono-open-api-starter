@@ -1,3 +1,26 @@
+<script setup lang="ts">
+import LoginForm from '@/components/auth/LoginForm.vue'
+import RegisterForm from '@/components/auth/RegisterForm.vue'
+import Logo from '@/components/Logo.vue'
+import { useAppStore } from '@/stores/app.store'
+import { useAuthStore } from '@/stores/auth.store'
+import { storeToRefs } from 'pinia'
+import { onMounted } from 'vue'
+
+const authStore = useAuthStore()
+const appStore = useAppStore()
+
+const {
+  isSignUpMode,
+  isLoading: isAuthLoading, // Auth store's loading state
+} = storeToRefs(authStore)
+onMounted(() => {
+  appStore.hideLoading()
+  authStore.clearAuth()
+  if (authStore.isSignUpMode == true)
+    authStore.toggleSignUpMode()
+})
+</script>
 <template>
   <div class="min-h-screen bg-gray-900 flex items-center justify-center px-4">
     <div v-if="!isAuthLoading">
@@ -549,26 +572,4 @@ label:active:after {
 }
 </style>
 
-<script setup lang="ts">
-import { useLogin } from '@/sdk/auth'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 
-const username = ref('asdf')
-const password = ref('asdfasdf')
-const authStore = useAuthStore()
-const appStore = useAppStore()
-const debugLoading = () => {
-  appStore.debugLoadingState()
-}
-const router = useRouter()
-const {
-  isSignUpMode,
-  isLoading: isAuthLoading, // Auth store's loading state
-} = storeToRefs(authStore)
-onMounted(() => {
-  appStore.hideLoading()
-  if (authStore.isSignUpMode == true)
-    authStore.toggleSignUpMode()
-})
-</script>
