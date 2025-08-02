@@ -9,6 +9,7 @@ import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
 
 import * as controller from './vip.controller'
+import { sessionMiddleware } from '#/middlewares/session.middleware'
 
 const tags = ['VIP']
 
@@ -16,7 +17,7 @@ const tags = ['VIP']
 const getMyVipDetails = createRoute({
     method: 'get',
     path: '/vip/me',
-    middleware: [authMiddleware],
+    middleware: [authMiddleware, sessionMiddleware],
     tags,
     summary: 'Get the authenticated user VIP details',
     responses: {
@@ -43,7 +44,7 @@ const getMyVipDetails = createRoute({
 const getVipLevels = createRoute({
     method: 'get',
     path: '/vip/levels',
-    middleware: [authMiddleware],
+    middleware: [authMiddleware, sessionMiddleware],
     tags,
     summary: 'Get the configuration for all VIP levels',
     responses: {
@@ -61,7 +62,7 @@ const getVipLevels = createRoute({
 const getVipRanks = createRoute({
     method: 'get',
     path: '/vip/ranks',
-    middleware: [authMiddleware],
+    middleware: [authMiddleware, sessionMiddleware],
     tags,
     summary: 'Get the configuration for all VIP ranks',
     responses: {

@@ -27,6 +27,7 @@ const settingsRoute = createRoute({
     method: 'post',
     path: '/redtiger/game/settings',
     tags,
+    middleware: [authMiddleware],
     summary: 'Get redtiger settings for a game',
     request: {
         // params: z.object({
@@ -65,6 +66,7 @@ const spinRoute = createRoute({
     method: 'post',
     path: '/redtiger/game/spin',
     tags,
+    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Perform a spin in a redtiger game',
     request: {
         params: rtgSpinRequestDtoSchema,
@@ -98,11 +100,7 @@ const spinRoute = createRoute({
 
 const router = createRouter()
 
-router.use('/redtiger/*', authMiddleware)
-
 router.openapi(settingsRoute, redtigerController.settings as any)
-router.use('/redtiger/*', sessionMiddleware)
-
 router.openapi(spinRoute, redtigerController.spin as any)
 
 export default router

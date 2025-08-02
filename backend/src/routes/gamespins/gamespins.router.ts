@@ -33,17 +33,6 @@ const getTopWins = createRoute({
     },
 })
 
-// const router = createRouter()
-
-// router.use('/gamespins/*', sessionMiddleware)
-// router.use('/gamespins/*', authMiddleware)
-
-// router.openapi(getTopWins, async (c) => {
-//     const spins = await controller.getTopWins(10)
-//     return c.json(spins, HttpStatusCodes.OK)
-// })
-
-// export default router
 const router = createRouter()
     .openapi(getTopWins, controller.getTopWins as any)
 
