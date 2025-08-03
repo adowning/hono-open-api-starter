@@ -1,0 +1,237 @@
+{"frames": {
+
+"bottleshatter/bottleshatter_04":
+{
+	"frame": {"x":0,"y":1660,"w":252,"h":380},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":0,"w":252,"h":380},
+	"sourceSize": {"w":315,"h":400}
+},
+"chainsawBubbles/chainsawBubbles_11":
+{
+	"frame": {"x":1688,"y":1264,"w":100,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":24,"w":100,"h":224},
+	"sourceSize": {"w":250,"h":250}
+},
+"chainsawBubbles/chainsawBubbles_12":
+{
+	"frame": {"x":1688,"y":1496,"w":100,"h":220},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":24,"w":100,"h":220},
+	"sourceSize": {"w":250,"h":250}
+},
+"chainsawBubbles/chainsawBubbles_23":
+{
+	"frame": {"x":1688,"y":800,"w":104,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":84,"y":4,"w":104,"h":224},
+	"sourceSize": {"w":250,"h":250}
+},
+"chainsawBubbles/chainsawBubbles_27":
+{
+	"frame": {"x":1688,"y":248,"w":112,"h":220},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":4,"w":112,"h":220},
+	"sourceSize": {"w":250,"h":250}
+},
+"chainsawBubbles/chainsawBubbles_28":
+{
+	"frame": {"x":1688,"y":476,"w":112,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":4,"w":112,"h":212},
+	"sourceSize": {"w":250,"h":250}
+},
+"chainsawBubbles/chainsawBubbles_29":
+{
+	"frame": {"x":1688,"y":0,"w":112,"h":240},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":80,"y":4,"w":112,"h":240},
+	"sourceSize": {"w":250,"h":250}
+},
+"fsBg/iceburg":
+{
+	"frame": {"x":0,"y":1008,"w":1680,"h":644},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":1680,"h":644},
+	"sourceSize": {"w":1680,"h":643}
+},
+"fsIntroCurtain/countUp/4":
+{
+	"frame": {"x":1688,"y":1032,"w":104,"h":172},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":172},
+	"sourceSize": {"w":104,"h":170}
+},
+"fsIntroCurtain/linclon":
+{
+	"frame": {"x":1564,"y":1724,"w":236,"h":236},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":236,"h":236},
+	"sourceSize": {"w":233,"h":234}
+},
+"idiotSpinBonus/idiotspin":
+{
+	"frame": {"x":488,"y":1660,"w":324,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":324,"h":56},
+	"sourceSize": {"w":321,"h":53}
+},
+"mainGameBG/foreGround":
+{
+	"frame": {"x":0,"y":0,"w":1680,"h":1000},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":1680,"h":1000},
+	"sourceSize": {"w":1680,"h":997}
+},
+"mainGameBG/head":
+{
+	"frame": {"x":1748,"y":2012,"w":32,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":36},
+	"sourceSize": {"w":30,"h":34}
+},
+"mainGameBG/tree":
+{
+	"frame": {"x":488,"y":1724,"w":840,"h":324},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":840,"h":324},
+	"sourceSize": {"w":840,"h":323}
+},
+"maxWin/lowerLip":
+{
+	"frame": {"x":1748,"y":1968,"w":52,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":16},
+	"sourceSize": {"w":49,"h":16}
+},
+"maxWin/upperLip":
+{
+	"frame": {"x":1748,"y":1992,"w":48,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":12},
+	"sourceSize": {"w":46,"h":10}
+},
+"metalSpark2/metalSpark_1":
+{
+	"frame": {"x":1564,"y":1968,"w":84,"h":80},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":80},
+	"sourceSize": {"w":90,"h":80}
+},
+"metalSpark2/metalSpark_2":
+{
+	"frame": {"x":1656,"y":1968,"w":84,"h":80},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":80},
+	"sourceSize": {"w":90,"h":80}
+},
+"shitSplash/shitSplash_3":
+{
+	"frame": {"x":1408,"y":1660,"w":168,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":20,"w":168,"h":44},
+	"sourceSize": {"w":218,"h":145}
+},
+"shitSplash/shitSplash_4":
+{
+	"frame": {"x":1028,"y":1660,"w":168,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":32,"y":8,"w":168,"h":52},
+	"sourceSize": {"w":218,"h":145}
+},
+"shitSplash/shitSplash_7":
+{
+	"frame": {"x":820,"y":1660,"w":200,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":8,"w":200,"h":56},
+	"sourceSize": {"w":218,"h":145}
+},
+"shitSplash/shitSplash_8":
+{
+	"frame": {"x":1204,"y":1660,"w":196,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":20,"w":196,"h":44},
+	"sourceSize": {"w":218,"h":145}
+},
+"xBet/green_0":
+{
+	"frame": {"x":1688,"y":696,"w":112,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":44},
+	"sourceSize": {"w":112,"h":42}
+},
+"xBet/red_0":
+{
+	"frame": {"x":1688,"y":748,"w":112,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":44},
+	"sourceSize": {"w":112,"h":42}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_16":
+{
+	"frame": {"x":1336,"y":1724,"w":220,"h":324},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":248,"w":220,"h":324},
+	"sourceSize": {"w":219,"h":582}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_27":
+{
+	"frame": {"x":260,"y":1660,"w":220,"h":380},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":220,"h":380},
+	"sourceSize": {"w":219,"h":582}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_37":
+{
+	"frame": {"x":1688,"y":1212,"w":104,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":64,"y":4,"w":104,"h":44},
+	"sourceSize": {"w":219,"h":582}
+},
+"xSplitShutter/xsplitLower":
+{
+	"frame": {"x":1584,"y":1660,"w":96,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":40},
+	"sourceSize": {"w":94,"h":40}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "pngHigh2.png",
+	"format": "RGBA8888",
+	"size": {"w":1800,"h":2048},
+	"scale": "1",
+	"related_multi_packs": [ "pngHigh0.json", "pngHigh1.json", "pngHigh3.json", "pngHigh4.json", "pngHigh5.json", "pngHigh6.json", "pngHigh7.json", "pngHigh8.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:d66dee28a2260bff3c41fe3fc9694060:272f11cb381124057041cce967009e9d:8796785d53fd6cc520c242744812d0d7$"
+}
+}

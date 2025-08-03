@@ -1,0 +1,128 @@
+{"frames": {
+
+"Presentations/File_Cover":
+{
+	"frame": {"x":1152,"y":712,"w":540,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":540,"h":704},
+	"sourceSize": {"w":540,"h":703}
+},
+"Presentations/File_Cover2":
+{
+	"frame": {"x":1700,"y":712,"w":92,"h":696},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":696},
+	"sourceSize": {"w":92,"h":695}
+},
+"Presentations/File_Page":
+{
+	"frame": {"x":0,"y":0,"w":568,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":568,"h":704},
+	"sourceSize": {"w":566,"h":704}
+},
+"Presentations/File_Page_2":
+{
+	"frame": {"x":0,"y":712,"w":568,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":568,"h":704},
+	"sourceSize": {"w":566,"h":704}
+},
+"Presentations/File_Page_3":
+{
+	"frame": {"x":576,"y":0,"w":568,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":568,"h":704},
+	"sourceSize": {"w":566,"h":704}
+},
+"Presentations/File_Page_4":
+{
+	"frame": {"x":576,"y":712,"w":568,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":568,"h":704},
+	"sourceSize": {"w":566,"h":704}
+},
+"Presentations/File_Page_5":
+{
+	"frame": {"x":1152,"y":0,"w":568,"h":704},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":568,"h":704},
+	"sourceSize": {"w":566,"h":704}
+},
+"Presentations/Name":
+{
+	"frame": {"x":976,"y":1424,"w":432,"h":172},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":432,"h":172},
+	"sourceSize": {"w":432,"h":170}
+},
+"Presentations/Name_2":
+{
+	"frame": {"x":976,"y":1604,"w":372,"h":180},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":372,"h":180},
+	"sourceSize": {"w":371,"h":179}
+},
+"Presentations/Name_2_italy":
+{
+	"frame": {"x":1416,"y":1424,"w":376,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":376,"h":224},
+	"sourceSize": {"w":376,"h":222}
+},
+"Presentations/Name_3":
+{
+	"frame": {"x":0,"y":1616,"w":404,"h":176},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":404,"h":176},
+	"sourceSize": {"w":402,"h":174}
+},
+"Presentations/Name_4":
+{
+	"frame": {"x":608,"y":1424,"w":360,"h":184},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":360,"h":184},
+	"sourceSize": {"w":358,"h":181}
+},
+"Presentations/Name_5":
+{
+	"frame": {"x":412,"y":1616,"w":336,"h":176},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":336,"h":176},
+	"sourceSize": {"w":335,"h":176}
+},
+"Presentations/Name_italy":
+{
+	"frame": {"x":0,"y":1424,"w":600,"h":184},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":184},
+	"sourceSize": {"w":599,"h":182}
+}},
+"animations": {
+	"Presentations/File_Page": ["Presentations/File_Page_2","Presentations/File_Page_3","Presentations/File_Page_4","Presentations/File_Page_5"],
+	"Presentations/Name": ["Presentations/Name_2","Presentations/Name_3","Presentations/Name_4","Presentations/Name_5"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "intro0.png",
+	"format": "RGBA8888",
+	"size": {"w":1792,"h":1792},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:fa546dbb453c1f587f5ee728232565a3:95306f0f7257ad6600149e3b1bb74e05:5963f4cdf4742c6ee8c5f24869f9cd23$"
+}
+}

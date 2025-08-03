@@ -1,0 +1,691 @@
+<!--
+    ##READ ME :
+
+    There are two ways of formatting Symbol payout multipliers
+    1. (default) The multiplier values are to the right of the image.
+    2. The multiplier values are below the image.
+
+    To use the second option add the class "column" to the "Symbol-group" you would like to format this way.
+
+
+    Eg. Option 1
+     <div class="Symbol-group">
+        ...
+     </div>
+
+    Eg. Option 2
+     <div class="Symbol-group column">
+        ...
+     </div>
+
+
+     PLEASE refrain from adding your own CSS. Instead add an issue in the repo below with the changes you need and well find a solution.
+     https://github.com/nolimitcity/nolimit-slot-keypad
+
+-->
+<style>
+    #paytable .betline td.inActive{
+        background-color: #232323;
+    }
+    #paytable .betline td{
+        width: 14px;
+        height: 3px;
+        text-align: center;
+        font-size: 10px;
+    }
+    #paytable h2.noMarginBottom {
+        margin-bottom: 0em;
+    }
+    #paytable h3.marginBottom{
+        margin: 0em 0em 1em 0em;
+    }
+</style>
+<!--PAYOUT-->
+<div class="section">
+    <h2>{{#tr}}PAYOUT{{/tr}}</h2>
+
+    <!--HIGH SYMBOLS-->
+    <div class="symbol-group column" style="width: 100%">
+        {{W}}
+    </div>
+
+    <!--MID SYMBOLS-->
+    <div class="symbol-group column">
+        {{M1}}
+        {{M2}}
+        {{M3}}
+        {{M4}}
+        {{M5}}
+    </div>
+
+    <!--LOW SYMBOLS-->
+    <div class="symbol-group column">
+        {{L1}}
+        {{L2}}
+        {{L3}}
+        {{L4}}
+        {{L5}}
+    </div>
+</div>
+
+<!--Feature section 1-->
+<div class="section">
+    <h2>REEL AREA</h2>
+    <div class="content">
+        <div class="featureImg">
+    {{#boostedBetAllowed}}
+        <img src="{{gamePath}}screens/images/pageImage_1.png">
+    {{/boostedBetAllowed}}
+    {{^boostedBetAllowed}}
+            <img src="{{gamePath}}screens/images/pageImage_1_without-light.png">
+    {{/boostedBetAllowed}}
+
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}The game has 5 reels with reel 5 locked in the main game.{{/tr}}</p>
+            <p>{{#tr}}The reel setup is 4-4-4-4-4 and a Conveyor Belt beneath the bottom row. All reels are unlocked during the Tsunami Spins and Submerged Spins.{{/tr}}</p>
+    
+        </div>
+    </div>
+</div>
+
+<!--Feature section 2-->
+<div class="section boostedBetAllowed">
+    <h2>xBET: ASSCAR MODE</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_2.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}At a cost of an extra 25%, the player is guaranteed a Scatter symbol on reel 1.{{/tr}}</p>
+            <p>{{#tr}}The payout for each symbol is not affected.{{/tr}}</p>
+
+        </div>
+    </div>
+</div>
+
+<!--Feature section 3-->
+<div class="section">
+    <h2>WILD & STACKED SYMBOLS</h2>
+    <div class="content">
+        <div class="featureImg">
+            {{#boostedBetAllowed}}
+                <img src="{{gamePath}}screens/images/pageImage_3.png">
+            {{/boostedBetAllowed}}
+            {{^boostedBetAllowed}}
+                <img src="{{gamePath}}screens/images/pageImage_3_without-light.png">
+            {{/boostedBetAllowed}}
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}In main game the Wild symbols can land on any reel.{{/tr}}</p>
+            <p>{{#tr}}Partial and fully stacked character symbols may land. Fully stacked character symbols convert into stacked Wild symbols.{{/tr}}</p>
+
+        </div>
+    </div>
+</div>
+
+<!--Feature section 4-->
+<div class="section">
+    <h2>CONVEYOR BELT</h2>
+    <div class="content">
+        <div class="featureInfo">
+
+        </div>
+    </div>
+    <div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_4.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}PROTEIN POWDER KEG{{/tr}}</b>
+                <br>
+                {{#tr}}Gets activated if there is a partially stacked symbol on the same reel. It converts the partially stacked symbol to a fully stacked symbol.{{/tr}}
+                <br>
+        </div>
+</div>
+
+<div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_5.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}BOTTLES{{/tr}}</b>
+                <br>{{#tr}}A crate with 1 or 2 bottles.{{/tr}}</p> 
+                <p>{{#tr}}1 bottle will convert any random paying symbol on the same reel into Wild.{{/tr}}</p>                   
+            <p>{{#tr}}2 bottles —> First bottle will convert any random paying symbol on the same reel into Wild and the second bottle will split that Wild symbol into two parts.{{/tr}}</p>
+
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_6.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}BENZO BEAR{{/tr}}</b>
+                <br>{{#tr}}A half stacked Benzo Bear only exists in main game and will convert 3-8 random symbols into Wild and/or Scatter.{{/tr}}</p>
+
+<p>{{#tr}}A fully stacked Benzo Bear only exists in Submerged Spins and will convert all symbols below water surface into Wild.{{/tr}}</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_7.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}MR SPLIT & CHAINSAW{{/tr}}</b>
+                <br>{{#tr}}Mr Split can only appear on reel 5 if it's unlocked and will split all symbols except Scatter from reel 1-5 on a row according to its size. It can appear half or fully stacked in the main game.{{/tr}}</p>
+                <p>{{#tr}}During Tsunami Spins and Submerged Spins, Mr Split appears as fully stacked symbol and will split all symbols that are below water surface.{{/tr}}</p>
+                <p>{{#tr}}Chainsaw will be active if Mr Split is present on unlocked reel 5. Chainsaw will add 1 more split to the already split positions on the same reel where it appears.{{/tr}}</p>
+                
+        </div>
+    </div>
+
+
+    <div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_9.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}RUBBER DUCKS{{/tr}}</b>
+                <br>{{#tr}}When appears during Tsunami Spins and/or Submerged Spins, it awards +2 spins per Rubber Duck.{{/tr}}</p>
+                <p>{{#tr}}Each Rubber Duck increases the level of water by one row during Tsunami Spins.{{/tr}}</p>
+        </div>
+    </div>
+
+
+
+    <div class="content">
+        <div class="featureImg" style="width: 36%; text-align: center;">
+            <img src="{{gamePath}}screens/images/pageImage_8.png">
+        </div>
+        <div class="featureInfo">
+            <p><b>{{#tr}}TITAN SPIN{{/tr}}</b>
+                <br>{{#tr}}When a submarine enters during any spin in main game or Tsunami Spins/ Submerged Spins, Titan Spin will be triggered. One of three Presidants may land in the submarine window and the multiplier of that Presidant will be applied to the base bet. If no Presidant lands, it is a no win.{{/tr}}</p>
+                 <p>{{#tr}}The three Presidants and their multipliers are:{{/tr}}
+                <br>
+                - {{#tr}}Presidant 3: 15000x{{/tr}}
+                <br>
+                - {{#tr}}Presidant 2: 25000x{{/tr}}
+                <br>
+                - {{#tr}}Presidant 1: 57000x{{/tr}}
+                </p>
+
+                <li class="rtp-feature" style="list-style: none">{{#tr}}Titan Spin is termed as Idiot Spin for bonus buy.{{/tr}}</li>
+        </div>
+    </div>
+</div>
+
+<!--Feature section 5-->
+ <div class="section">
+    <h2>SCATTER</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_10.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}In main game the Scatter symbols can land on any reel.{{/tr}}</p>
+            <p>{{#tr}}Landing one Scatter anywhere on reel 1-4 unlocks reel 5.{{/tr}}</p>
+            <p>{{#tr}}Landing 3/4/5 Scatter will trigger Tsunami Spins and will award 12/15/20 spins respectively.{{/tr}}</p>
+
+        </div>
+    </div>
+</div>
+
+<!--Feature section 6-->
+<div class="section">
+    <h2>TSUNAMI SPINS</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_11.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}All reels are active. It starts with bottom 2 rows submerged under water.{{/tr}}</p>
+            <p>{{#tr}}When all 4 rows are covered by water, Tsunami Spins are upgraded to Submerged Spins.{{/tr}}</p>
+
+        </div>
+    </div>
+</div>
+
+<!--Feature section 7-->
+<div class="section">
+    <h2>SUBMERGED SPINS</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_12.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}All 4 rows are covered by water level.{{/tr}}</p>
+        </div>
+    </div>
+</div>
+
+<!--Feature section 8-->
+{{^replaceWincapInfo}}
+<div class="section simulated-maximum-payout">
+    <h2>PEARLY GATES</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_13.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}The max payout of the game is 57000 times the base bet.{{/tr}}</p>
+            <p>{{#tr}}When the total win exceeds this amount the game round will end and 57000 times the base bet is awarded.{{/tr}}</p>
+
+        </div>
+    </div>
+</div>
+{{/replaceWincapInfo}}
+
+<!--Win ways asymmetric-->
+<div class="section">
+    <h2 class="noMarginBottom">{{#tr}}256 WIN WAYS{{/tr}}</h2>
+    <h3 class="marginBottom">{{#tr}}with last reel locked{{/tr}}</h3>
+    <div class="betlines asymmetric">
+        <span class="betlinesHeadline">{{#tr}}WIN{{/tr}}</span>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td ></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+
+        <span class="betlinesHeadline">{{#tr}}NO WIN{{/tr}}</span>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td  class="active"></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td ></td>
+                    <td></td>
+                    <td></td>
+                    <td class="inactive">X</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="inactive">X</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="noMarginBottom">{{#tr}}1024 WIN WAYS{{/tr}}</h2>
+    <h3 class="marginBottom">{{#tr}}with last reel unlocked{{/tr}}</h3>
+    <div class="betlines asymmetric">
+        <span class="betlinesHeadline">{{#tr}}WIN{{/tr}}</span>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td ></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="active">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+
+        <span class="betlinesHeadline">{{#tr}}NO WIN{{/tr}}</span>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="active">&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--FOOTER -->
+<footer>
+    <p>{{#tr}}Winnings are calculated by multiplying the value of the symbol in paytable and the number of the ways of the winning symbol.{{/tr}} {{#tr}}Only the highest win per bet way is paid.{{/tr}}</p>
+    <p>{{#tr}}A winning combination of the same symbol pays from left to right on adjacent reels. A malfunction voids all winnings.{{/tr}}</p>
+</footer>
+

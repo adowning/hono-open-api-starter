@@ -1,0 +1,20 @@
+{"frames": {
+
+"FSBackground":
+{
+	"frame": {"x":0,"y":0,"w":840,"h":840},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":840,"h":840},
+	"sourceSize": {"w":840,"h":840}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "freespin0@0.5x.jpg",
+	"format": "RGB888",
+	"size": {"w":840,"h":840},
+	"scale": "0.5",
+	"smartupdate": "$TexturePacker:SmartUpdate:8f24113581b0d0871173f326d2a10a2b:e3653696b3d27c9606b6283dcdc33679:bf2e94be977d196ccdb6959e1d4e18b9$"
+}
+}

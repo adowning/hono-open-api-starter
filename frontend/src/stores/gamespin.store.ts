@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // /* eslint-disable @typescript-eslint/no-explicit-any */
-// import { defineStore } from 'pinia'
-// import { ref } from 'vue'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 // import { handleException } from './exception'
 // import { api } from '@/sdk/api'
 // import type { InferResponseType } from 'hono/client'
 // import { getGamesAll } from '@/sdk/generated'
 
-import { GameSpin, getGamespinsTopwins } from '@/sdk/generated'
+import { GameSpin, getApiGamespinsTopwins } from '@/sdk/generated'
 
 // type Game = InferResponseType<typeof api.games.all.$get>[0]
 
@@ -46,11 +46,12 @@ export const useGameSpinStore = defineStore('gameSpin', () => {
         isLoading.value = true
         errMessage.value = ''
         try {
-            const { data,  } = await getGamespinsTopwins()
-            if ( !data) throw new Error('Failed to get top wins')
+            const { data } = await getApiGamespinsTopwins()
+            if (!data) throw new Error('Failed to get top wins')
             topWins.value = data
         } catch (error: any) {
-            errMessage.value = handleException(error.code || 500)
+            // Safe fallback without external dependency to avoid ReferenceError
+            errMessage.value = error?.message || 'Failed to get top wins'
             topWins.value = []
         } finally {
             isLoading.value = false

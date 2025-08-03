@@ -1,0 +1,296 @@
+{"frames": {
+
+"B_land/Back_Blast/Back_Blast_01":
+{
+	"frame": {"x":544,"y":1076,"w":212,"h":172},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":172},
+	"sourceSize": {"w":209,"h":171}
+},
+"B_land/S_Back_Glow":
+{
+	"frame": {"x":1492,"y":896,"w":200,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":200},
+	"sourceSize": {"w":200,"h":200}
+},
+"B_land/starA":
+{
+	"frame": {"x":1188,"y":1300,"w":52,"h":52},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":52},
+	"sourceSize": {"w":52,"h":52}
+},
+"BigWin/BigWin_bg1":
+{
+	"frame": {"x":956,"y":616,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"BigWin/BWFire/BW_Fire_00000":
+{
+	"frame": {"x":1560,"y":1664,"w":452,"h":360},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":452,"h":360},
+	"sourceSize": {"w":450,"h":360}
+},
+"BigWin/cap_bg":
+{
+	"frame": {"x":8,"y":8,"w":924,"h":720},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":924,"h":720},
+	"sourceSize": {"w":922,"h":720}
+},
+"BigWin/cave_fill":
+{
+	"frame": {"x":956,"y":8,"w":796,"h":584},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":796,"h":584},
+	"sourceSize": {"w":796,"h":583}
+},
+"BigWin/firesmoke/firesmoke_000":
+{
+	"frame": {"x":1492,"y":1128,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"BigWin/firesmoke/firesmoke_001":
+{
+	"frame": {"x":784,"y":1376,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"BigWin/firesmoke/firesmoke_002":
+{
+	"frame": {"x":8,"y":752,"w":512,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":512},
+	"sourceSize": {"w":512,"h":512}
+},
+"BigWin/main_city_water":
+{
+	"frame": {"x":908,"y":1152,"w":480,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":124},
+	"sourceSize": {"w":477,"h":121}
+},
+"eff_anticipation/eff_anticipation_000":
+{
+	"frame": {"x":8,"y":1664,"w":752,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":752,"h":256},
+	"sourceSize": {"w":750,"h":256}
+},
+"eff_anticipation/eff_anticipation_001":
+{
+	"frame": {"x":8,"y":1288,"w":752,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":752,"h":256},
+	"sourceSize": {"w":750,"h":256}
+},
+"eff_line_01":
+{
+	"frame": {"x":908,"y":1300,"w":256,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":32},
+	"sourceSize": {"w":256,"h":32}
+},
+"freespin/eff_ringstar":
+{
+	"frame": {"x":1776,"y":8,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"freespin/FX_Jumping_Electric/FX_Electric_00000":
+{
+	"frame": {"x":784,"y":752,"w":100,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":600},
+	"sourceSize": {"w":100,"h":600}
+},
+"freespin/FX_Jumping_Electric/FX_Electric_00001":
+{
+	"frame": {"x":1320,"y":1360,"w":100,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":600},
+	"sourceSize": {"w":100,"h":600}
+},
+"freespin/mult_gold/mult_gold_015":
+{
+	"frame": {"x":544,"y":752,"w":200,"h":300},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":300},
+	"sourceSize": {"w":200,"h":300}
+},
+"freespin/theme_glow/theme_glow_000":
+{
+	"frame": {"x":8,"y":1944,"w":752,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":752,"h":52},
+	"sourceSize": {"w":750,"h":52}
+},
+"freespin/theme_glow/theme_glow_001":
+{
+	"frame": {"x":784,"y":1984,"w":752,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":752,"h":52},
+	"sourceSize": {"w":750,"h":52}
+},
+"freespin/theme_glow/theme_glow_002":
+{
+	"frame": {"x":8,"y":1568,"w":752,"h":52},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":752,"h":52},
+	"sourceSize": {"w":750,"h":52}
+},
+"mult_dot/mult_dot_000":
+{
+	"frame": {"x":1444,"y":1664,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"mult_dot/mult_dot_001":
+{
+	"frame": {"x":1444,"y":1752,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"mult_dot/mult_dot_002":
+{
+	"frame": {"x":1444,"y":1840,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+"utility/black_square":
+{
+	"frame": {"x":1264,"y":1300,"w":36,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":36},
+	"sourceSize": {"w":34,"h":34}
+},
+"utility/dark":
+{
+	"frame": {"x":1776,"y":288,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"utility/white_square":
+{
+	"frame": {"x":1324,"y":1300,"w":36,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":36},
+	"sourceSize": {"w":34,"h":34}
+},
+"WinEff_L1/WinEff_L1_000":
+{
+	"frame": {"x":1776,"y":568,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"WinEff_L1/WinEff_L1_001":
+{
+	"frame": {"x":1492,"y":616,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+},
+"WinEff_L1/WinEff_L1_002":
+{
+	"frame": {"x":1772,"y":848,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":256,"h":256}
+}},
+"animations": {
+	"B_land/B_land": ["B_land/B_land_000","B_land/B_land_001","B_land/B_land_002","B_land/B_land_003","B_land/B_land_004","B_land/B_land_005","B_land/B_land_006","B_land/B_land_007","B_land/B_land_008","B_land/B_land_009","B_land/B_land_010","B_land/B_land_011","B_land/B_land_012"],
+	"B_land/Back_Blast/Back_Blast": ["B_land/Back_Blast/Back_Blast_01","B_land/Back_Blast/Back_Blast_02","B_land/Back_Blast/Back_Blast_03","B_land/Back_Blast/Back_Blast_04","B_land/Back_Blast/Back_Blast_05","B_land/Back_Blast/Back_Blast_06","B_land/Back_Blast/Back_Blast_07","B_land/Back_Blast/Back_Blast_08","B_land/Back_Blast/Back_Blast_09","B_land/Back_Blast/Back_Blast_10","B_land/Back_Blast/Back_Blast_11","B_land/Back_Blast/Back_Blast_12","B_land/Back_Blast/Back_Blast_13","B_land/Back_Blast/Back_Blast_14","B_land/Back_Blast/Back_Blast_15","B_land/Back_Blast/Back_Blast_16","B_land/Back_Blast/Back_Blast_17","B_land/Back_Blast/Back_Blast_18","B_land/Back_Blast/Back_Blast_19","B_land/Back_Blast/Back_Blast_20","B_land/Back_Blast/Back_Blast_21","B_land/Back_Blast/Back_Blast_22","B_land/Back_Blast/Back_Blast_23","B_land/Back_Blast/Back_Blast_24","B_land/Back_Blast/Back_Blast_25","B_land/Back_Blast/Back_Blast_26","B_land/Back_Blast/Back_Blast_27","B_land/Back_Blast/Back_Blast_28"],
+	"BigWin/BWFire/BW_Fire": ["BigWin/BWFire/BW_Fire_00000","BigWin/BWFire/BW_Fire_00001","BigWin/BWFire/BW_Fire_00002","BigWin/BWFire/BW_Fire_00003","BigWin/BWFire/BW_Fire_00004","BigWin/BWFire/BW_Fire_00005","BigWin/BWFire/BW_Fire_00006","BigWin/BWFire/BW_Fire_00007","BigWin/BWFire/BW_Fire_00008","BigWin/BWFire/BW_Fire_00009","BigWin/BWFire/BW_Fire_00010","BigWin/BWFire/BW_Fire_00011","BigWin/BWFire/BW_Fire_00012","BigWin/BWFire/BW_Fire_00013","BigWin/BWFire/BW_Fire_00014","BigWin/BWFire/BW_Fire_00015","BigWin/BWFire/BW_Fire_00016","BigWin/BWFire/BW_Fire_00017","BigWin/BWFire/BW_Fire_00018","BigWin/BWFire/BW_Fire_00019"],
+	"BigWin/bg_troch/bg_troch": ["BigWin/bg_troch/bg_troch_00","BigWin/bg_troch/bg_troch_01","BigWin/bg_troch/bg_troch_02","BigWin/bg_troch/bg_troch_03","BigWin/bg_troch/bg_troch_04","BigWin/bg_troch/bg_troch_05","BigWin/bg_troch/bg_troch_06","BigWin/bg_troch/bg_troch_07","BigWin/bg_troch/bg_troch_08","BigWin/bg_troch/bg_troch_09","BigWin/bg_troch/bg_troch_10","BigWin/bg_troch/bg_troch_11","BigWin/bg_troch/bg_troch_12","BigWin/bg_troch/bg_troch_13","BigWin/bg_troch/bg_troch_14","BigWin/bg_troch/bg_troch_15","BigWin/bg_troch/bg_troch_16","BigWin/bg_troch/bg_troch_17","BigWin/bg_troch/bg_troch_18","BigWin/bg_troch/bg_troch_19","BigWin/bg_troch/bg_troch_20","BigWin/bg_troch/bg_troch_21","BigWin/bg_troch/bg_troch_22","BigWin/bg_troch/bg_troch_23","BigWin/bg_troch/bg_troch_24","BigWin/bg_troch/bg_troch_25","BigWin/bg_troch/bg_troch_26","BigWin/bg_troch/bg_troch_27","BigWin/bg_troch/bg_troch_28","BigWin/bg_troch/bg_troch_29"],
+	"BigWin/firesmoke/firesmoke": ["BigWin/firesmoke/firesmoke_000","BigWin/firesmoke/firesmoke_001","BigWin/firesmoke/firesmoke_002","BigWin/firesmoke/firesmoke_003","BigWin/firesmoke/firesmoke_004","BigWin/firesmoke/firesmoke_005","BigWin/firesmoke/firesmoke_006","BigWin/firesmoke/firesmoke_007","BigWin/firesmoke/firesmoke_008","BigWin/firesmoke/firesmoke_009","BigWin/firesmoke/firesmoke_010","BigWin/firesmoke/firesmoke_011","BigWin/firesmoke/firesmoke_012","BigWin/firesmoke/firesmoke_013","BigWin/firesmoke/firesmoke_014","BigWin/firesmoke/firesmoke_015","BigWin/firesmoke/firesmoke_016","BigWin/firesmoke/firesmoke_017","BigWin/firesmoke/firesmoke_018","BigWin/firesmoke/firesmoke_019","BigWin/firesmoke/firesmoke_020","BigWin/firesmoke/firesmoke_021","BigWin/firesmoke/firesmoke_022","BigWin/firesmoke/firesmoke_023","BigWin/firesmoke/firesmoke_024","BigWin/firesmoke/firesmoke_025","BigWin/firesmoke/firesmoke_026","BigWin/firesmoke/firesmoke_027","BigWin/firesmoke/firesmoke_028","BigWin/firesmoke/firesmoke_029"],
+	"W_explde_eff/W_explode_eff": ["W_explde_eff/W_explode_eff_000","W_explde_eff/W_explode_eff_001","W_explde_eff/W_explode_eff_002","W_explde_eff/W_explode_eff_003","W_explde_eff/W_explode_eff_004","W_explde_eff/W_explode_eff_005","W_explde_eff/W_explode_eff_006","W_explde_eff/W_explode_eff_007","W_explde_eff/W_explode_eff_008","W_explde_eff/W_explode_eff_009","W_explde_eff/W_explode_eff_010","W_explde_eff/W_explode_eff_011","W_explde_eff/W_explode_eff_012","W_explde_eff/W_explode_eff_013","W_explde_eff/W_explode_eff_014","W_explde_eff/W_explode_eff_015","W_explde_eff/W_explode_eff_016","W_explde_eff/W_explode_eff_017","W_explde_eff/W_explode_eff_018","W_explde_eff/W_explode_eff_019"],
+	"WinBig_L/WinBig_L": ["WinBig_L/WinBig_L_000","WinBig_L/WinBig_L_001","WinBig_L/WinBig_L_002","WinBig_L/WinBig_L_003","WinBig_L/WinBig_L_004","WinBig_L/WinBig_L_005","WinBig_L/WinBig_L_006","WinBig_L/WinBig_L_007","WinBig_L/WinBig_L_008","WinBig_L/WinBig_L_009","WinBig_L/WinBig_L_010","WinBig_L/WinBig_L_011","WinBig_L/WinBig_L_012","WinBig_L/WinBig_L_013","WinBig_L/WinBig_L_014","WinBig_L/WinBig_L_015","WinBig_L/WinBig_L_016","WinBig_L/WinBig_L_017","WinBig_L/WinBig_L_018","WinBig_L/WinBig_L_019"],
+	"WinBig_M1/WinBig_M1": ["WinBig_M1/WinBig_M1_000","WinBig_M1/WinBig_M1_001","WinBig_M1/WinBig_M1_002","WinBig_M1/WinBig_M1_003","WinBig_M1/WinBig_M1_004","WinBig_M1/WinBig_M1_005","WinBig_M1/WinBig_M1_006","WinBig_M1/WinBig_M1_007","WinBig_M1/WinBig_M1_008","WinBig_M1/WinBig_M1_009","WinBig_M1/WinBig_M1_010","WinBig_M1/WinBig_M1_011","WinBig_M1/WinBig_M1_012","WinBig_M1/WinBig_M1_013","WinBig_M1/WinBig_M1_014","WinBig_M1/WinBig_M1_015","WinBig_M1/WinBig_M1_016","WinBig_M1/WinBig_M1_017","WinBig_M1/WinBig_M1_018","WinBig_M1/WinBig_M1_019"],
+	"WinBig_M2/WinBig_M2": ["WinBig_M2/WinBig_M2_000","WinBig_M2/WinBig_M2_001","WinBig_M2/WinBig_M2_002","WinBig_M2/WinBig_M2_003","WinBig_M2/WinBig_M2_004","WinBig_M2/WinBig_M2_005","WinBig_M2/WinBig_M2_006","WinBig_M2/WinBig_M2_007","WinBig_M2/WinBig_M2_008","WinBig_M2/WinBig_M2_009","WinBig_M2/WinBig_M2_010","WinBig_M2/WinBig_M2_011","WinBig_M2/WinBig_M2_012","WinBig_M2/WinBig_M2_013","WinBig_M2/WinBig_M2_014","WinBig_M2/WinBig_M2_015","WinBig_M2/WinBig_M2_016","WinBig_M2/WinBig_M2_017","WinBig_M2/WinBig_M2_018","WinBig_M2/WinBig_M2_019"],
+	"WinBig_M3/WinBig_M3": ["WinBig_M3/WinBig_M3_000","WinBig_M3/WinBig_M3_001","WinBig_M3/WinBig_M3_002","WinBig_M3/WinBig_M3_003","WinBig_M3/WinBig_M3_004","WinBig_M3/WinBig_M3_005","WinBig_M3/WinBig_M3_006","WinBig_M3/WinBig_M3_007","WinBig_M3/WinBig_M3_008","WinBig_M3/WinBig_M3_009","WinBig_M3/WinBig_M3_010","WinBig_M3/WinBig_M3_011","WinBig_M3/WinBig_M3_012","WinBig_M3/WinBig_M3_013","WinBig_M3/WinBig_M3_014","WinBig_M3/WinBig_M3_015","WinBig_M3/WinBig_M3_016","WinBig_M3/WinBig_M3_017","WinBig_M3/WinBig_M3_018","WinBig_M3/WinBig_M3_019"],
+	"WinBig_M4/WinBig_M4": ["WinBig_M4/WinBig_M4_000","WinBig_M4/WinBig_M4_001","WinBig_M4/WinBig_M4_002","WinBig_M4/WinBig_M4_003","WinBig_M4/WinBig_M4_004","WinBig_M4/WinBig_M4_005","WinBig_M4/WinBig_M4_006","WinBig_M4/WinBig_M4_007","WinBig_M4/WinBig_M4_008","WinBig_M4/WinBig_M4_009","WinBig_M4/WinBig_M4_010","WinBig_M4/WinBig_M4_011","WinBig_M4/WinBig_M4_012","WinBig_M4/WinBig_M4_013","WinBig_M4/WinBig_M4_014","WinBig_M4/WinBig_M4_015","WinBig_M4/WinBig_M4_016","WinBig_M4/WinBig_M4_017","WinBig_M4/WinBig_M4_018","WinBig_M4/WinBig_M4_019"],
+	"WinBig_M5/WinBig_M5": ["WinBig_M5/WinBig_M5_000","WinBig_M5/WinBig_M5_001","WinBig_M5/WinBig_M5_002","WinBig_M5/WinBig_M5_003","WinBig_M5/WinBig_M5_004","WinBig_M5/WinBig_M5_005","WinBig_M5/WinBig_M5_006","WinBig_M5/WinBig_M5_007","WinBig_M5/WinBig_M5_008","WinBig_M5/WinBig_M5_009","WinBig_M5/WinBig_M5_010","WinBig_M5/WinBig_M5_011","WinBig_M5/WinBig_M5_012","WinBig_M5/WinBig_M5_013","WinBig_M5/WinBig_M5_014","WinBig_M5/WinBig_M5_015","WinBig_M5/WinBig_M5_016","WinBig_M5/WinBig_M5_017","WinBig_M5/WinBig_M5_018","WinBig_M5/WinBig_M5_019"],
+	"WinEff_A/WinEff_A": ["WinEff_A/WinEff_A_000","WinEff_A/WinEff_A_001","WinEff_A/WinEff_A_002","WinEff_A/WinEff_A_003","WinEff_A/WinEff_A_004","WinEff_A/WinEff_A_005","WinEff_A/WinEff_A_006","WinEff_A/WinEff_A_007","WinEff_A/WinEff_A_008","WinEff_A/WinEff_A_009","WinEff_A/WinEff_A_010","WinEff_A/WinEff_A_011","WinEff_A/WinEff_A_012","WinEff_A/WinEff_A_013","WinEff_A/WinEff_A_014","WinEff_A/WinEff_A_015","WinEff_A/WinEff_A_016","WinEff_A/WinEff_A_017","WinEff_A/WinEff_A_018","WinEff_A/WinEff_A_019"],
+	"WinEff_L1/WinEff_L1": ["WinEff_L1/WinEff_L1_000","WinEff_L1/WinEff_L1_001","WinEff_L1/WinEff_L1_002","WinEff_L1/WinEff_L1_003","WinEff_L1/WinEff_L1_004","WinEff_L1/WinEff_L1_005","WinEff_L1/WinEff_L1_006","WinEff_L1/WinEff_L1_007","WinEff_L1/WinEff_L1_008","WinEff_L1/WinEff_L1_009","WinEff_L1/WinEff_L1_010","WinEff_L1/WinEff_L1_011","WinEff_L1/WinEff_L1_012","WinEff_L1/WinEff_L1_013","WinEff_L1/WinEff_L1_014","WinEff_L1/WinEff_L1_015","WinEff_L1/WinEff_L1_016"],
+	"WinEff_L2/WinEff_L2": ["WinEff_L2/WinEff_L2_000","WinEff_L2/WinEff_L2_001","WinEff_L2/WinEff_L2_002","WinEff_L2/WinEff_L2_003","WinEff_L2/WinEff_L2_004","WinEff_L2/WinEff_L2_005","WinEff_L2/WinEff_L2_006","WinEff_L2/WinEff_L2_007","WinEff_L2/WinEff_L2_008","WinEff_L2/WinEff_L2_009","WinEff_L2/WinEff_L2_010","WinEff_L2/WinEff_L2_011","WinEff_L2/WinEff_L2_012","WinEff_L2/WinEff_L2_013","WinEff_L2/WinEff_L2_014","WinEff_L2/WinEff_L2_015","WinEff_L2/WinEff_L2_016"],
+	"WinEff_L3/WinEff_L3": ["WinEff_L3/WinEff_L3_000","WinEff_L3/WinEff_L3_001","WinEff_L3/WinEff_L3_002","WinEff_L3/WinEff_L3_003","WinEff_L3/WinEff_L3_004","WinEff_L3/WinEff_L3_005","WinEff_L3/WinEff_L3_006","WinEff_L3/WinEff_L3_007","WinEff_L3/WinEff_L3_008","WinEff_L3/WinEff_L3_009","WinEff_L3/WinEff_L3_010","WinEff_L3/WinEff_L3_011","WinEff_L3/WinEff_L3_012","WinEff_L3/WinEff_L3_013","WinEff_L3/WinEff_L3_014","WinEff_L3/WinEff_L3_015","WinEff_L3/WinEff_L3_016"],
+	"WinEff_L4/WinEff_L4": ["WinEff_L4/WinEff_L4_000","WinEff_L4/WinEff_L4_001","WinEff_L4/WinEff_L4_002","WinEff_L4/WinEff_L4_003","WinEff_L4/WinEff_L4_004","WinEff_L4/WinEff_L4_005","WinEff_L4/WinEff_L4_006","WinEff_L4/WinEff_L4_007","WinEff_L4/WinEff_L4_008","WinEff_L4/WinEff_L4_009","WinEff_L4/WinEff_L4_010","WinEff_L4/WinEff_L4_011","WinEff_L4/WinEff_L4_012","WinEff_L4/WinEff_L4_013","WinEff_L4/WinEff_L4_014","WinEff_L4/WinEff_L4_015","WinEff_L4/WinEff_L4_016"],
+	"WinEff_L5/WinEff_L5": ["WinEff_L5/WinEff_L5_000","WinEff_L5/WinEff_L5_001","WinEff_L5/WinEff_L5_002","WinEff_L5/WinEff_L5_003","WinEff_L5/WinEff_L5_004","WinEff_L5/WinEff_L5_005","WinEff_L5/WinEff_L5_006","WinEff_L5/WinEff_L5_007","WinEff_L5/WinEff_L5_008","WinEff_L5/WinEff_L5_009","WinEff_L5/WinEff_L5_010","WinEff_L5/WinEff_L5_011","WinEff_L5/WinEff_L5_012","WinEff_L5/WinEff_L5_013","WinEff_L5/WinEff_L5_014","WinEff_L5/WinEff_L5_015","WinEff_L5/WinEff_L5_016"],
+	"WinEff_M1/WinEff_M1": ["WinEff_M1/WinEff_M1_000","WinEff_M1/WinEff_M1_001","WinEff_M1/WinEff_M1_002","WinEff_M1/WinEff_M1_003","WinEff_M1/WinEff_M1_004","WinEff_M1/WinEff_M1_005","WinEff_M1/WinEff_M1_006","WinEff_M1/WinEff_M1_007","WinEff_M1/WinEff_M1_008","WinEff_M1/WinEff_M1_009","WinEff_M1/WinEff_M1_010","WinEff_M1/WinEff_M1_011","WinEff_M1/WinEff_M1_012","WinEff_M1/WinEff_M1_013","WinEff_M1/WinEff_M1_014","WinEff_M1/WinEff_M1_015","WinEff_M1/WinEff_M1_016","WinEff_M1/WinEff_M1_017","WinEff_M1/WinEff_M1_018","WinEff_M1/WinEff_M1_019"],
+	"WinEff_M2/WinEff_M2": ["WinEff_M2/WinEff_M2_000","WinEff_M2/WinEff_M2_001","WinEff_M2/WinEff_M2_002","WinEff_M2/WinEff_M2_003","WinEff_M2/WinEff_M2_004","WinEff_M2/WinEff_M2_005","WinEff_M2/WinEff_M2_006","WinEff_M2/WinEff_M2_007","WinEff_M2/WinEff_M2_008","WinEff_M2/WinEff_M2_009","WinEff_M2/WinEff_M2_010","WinEff_M2/WinEff_M2_011","WinEff_M2/WinEff_M2_012","WinEff_M2/WinEff_M2_013","WinEff_M2/WinEff_M2_014","WinEff_M2/WinEff_M2_015","WinEff_M2/WinEff_M2_016","WinEff_M2/WinEff_M2_017","WinEff_M2/WinEff_M2_018","WinEff_M2/WinEff_M2_019"],
+	"WinEff_M3/WinEff_M3": ["WinEff_M3/WinEff_M3_000","WinEff_M3/WinEff_M3_001","WinEff_M3/WinEff_M3_002","WinEff_M3/WinEff_M3_003","WinEff_M3/WinEff_M3_004","WinEff_M3/WinEff_M3_005","WinEff_M3/WinEff_M3_006","WinEff_M3/WinEff_M3_007","WinEff_M3/WinEff_M3_008","WinEff_M3/WinEff_M3_009","WinEff_M3/WinEff_M3_010","WinEff_M3/WinEff_M3_011","WinEff_M3/WinEff_M3_012","WinEff_M3/WinEff_M3_013","WinEff_M3/WinEff_M3_014","WinEff_M3/WinEff_M3_015","WinEff_M3/WinEff_M3_016","WinEff_M3/WinEff_M3_017","WinEff_M3/WinEff_M3_018","WinEff_M3/WinEff_M3_019"],
+	"WinEff_M4/WinEff_M4": ["WinEff_M4/WinEff_M4_000","WinEff_M4/WinEff_M4_001","WinEff_M4/WinEff_M4_002","WinEff_M4/WinEff_M4_003","WinEff_M4/WinEff_M4_004","WinEff_M4/WinEff_M4_005","WinEff_M4/WinEff_M4_006","WinEff_M4/WinEff_M4_007","WinEff_M4/WinEff_M4_008","WinEff_M4/WinEff_M4_009","WinEff_M4/WinEff_M4_010","WinEff_M4/WinEff_M4_011","WinEff_M4/WinEff_M4_012","WinEff_M4/WinEff_M4_013","WinEff_M4/WinEff_M4_014","WinEff_M4/WinEff_M4_015","WinEff_M4/WinEff_M4_016","WinEff_M4/WinEff_M4_017","WinEff_M4/WinEff_M4_018","WinEff_M4/WinEff_M4_019"],
+	"WinEff_M5/WinEff_M5": ["WinEff_M5/WinEff_M5_000","WinEff_M5/WinEff_M5_001","WinEff_M5/WinEff_M5_002","WinEff_M5/WinEff_M5_003","WinEff_M5/WinEff_M5_004","WinEff_M5/WinEff_M5_005","WinEff_M5/WinEff_M5_006","WinEff_M5/WinEff_M5_007","WinEff_M5/WinEff_M5_008","WinEff_M5/WinEff_M5_009","WinEff_M5/WinEff_M5_010","WinEff_M5/WinEff_M5_011","WinEff_M5/WinEff_M5_012","WinEff_M5/WinEff_M5_013","WinEff_M5/WinEff_M5_014","WinEff_M5/WinEff_M5_015","WinEff_M5/WinEff_M5_016","WinEff_M5/WinEff_M5_017","WinEff_M5/WinEff_M5_018","WinEff_M5/WinEff_M5_019"],
+	"X_Bet_Attention/X_Bet_Attention": ["X_Bet_Attention/X_Bet_Attention_00000","X_Bet_Attention/X_Bet_Attention_00001","X_Bet_Attention/X_Bet_Attention_00002","X_Bet_Attention/X_Bet_Attention_00003","X_Bet_Attention/X_Bet_Attention_00004","X_Bet_Attention/X_Bet_Attention_00005","X_Bet_Attention/X_Bet_Attention_00006","X_Bet_Attention/X_Bet_Attention_00007","X_Bet_Attention/X_Bet_Attention_00008","X_Bet_Attention/X_Bet_Attention_00009","X_Bet_Attention/X_Bet_Attention_00010","X_Bet_Attention/X_Bet_Attention_00011","X_Bet_Attention/X_Bet_Attention_00012","X_Bet_Attention/X_Bet_Attention_00013","X_Bet_Attention/X_Bet_Attention_00014","X_Bet_Attention/X_Bet_Attention_00015","X_Bet_Attention/X_Bet_Attention_00016","X_Bet_Attention/X_Bet_Attention_00017","X_Bet_Attention/X_Bet_Attention_00018","X_Bet_Attention/X_Bet_Attention_00019","X_Bet_Attention/X_Bet_Attention_00020","X_Bet_Attention/X_Bet_Attention_00021","X_Bet_Attention/X_Bet_Attention_00022","X_Bet_Attention/X_Bet_Attention_00023","X_Bet_Attention/X_Bet_Attention_00024","X_Bet_Attention/X_Bet_Attention_00025","X_Bet_Attention/X_Bet_Attention_00026","X_Bet_Attention/X_Bet_Attention_00027","X_Bet_Attention/X_Bet_Attention_00028","X_Bet_Attention/X_Bet_Attention_00029"],
+	"eff_anticipation/eff_anticipation": ["eff_anticipation/eff_anticipation_000","eff_anticipation/eff_anticipation_001","eff_anticipation/eff_anticipation_002","eff_anticipation/eff_anticipation_003","eff_anticipation/eff_anticipation_004","eff_anticipation/eff_anticipation_005","eff_anticipation/eff_anticipation_006","eff_anticipation/eff_anticipation_007","eff_anticipation/eff_anticipation_008","eff_anticipation/eff_anticipation_009","eff_anticipation/eff_anticipation_010","eff_anticipation/eff_anticipation_011","eff_anticipation/eff_anticipation_012","eff_anticipation/eff_anticipation_013","eff_anticipation/eff_anticipation_014"],
+	"freespin/FX_Jumping_Electric/FX_Electric": ["freespin/FX_Jumping_Electric/FX_Electric_00000","freespin/FX_Jumping_Electric/FX_Electric_00001","freespin/FX_Jumping_Electric/FX_Electric_00002","freespin/FX_Jumping_Electric/FX_Electric_00003","freespin/FX_Jumping_Electric/FX_Electric_00004","freespin/FX_Jumping_Electric/FX_Electric_00005","freespin/FX_Jumping_Electric/FX_Electric_00006","freespin/FX_Jumping_Electric/FX_Electric_00007","freespin/FX_Jumping_Electric/FX_Electric_00008","freespin/FX_Jumping_Electric/FX_Electric_00009","freespin/FX_Jumping_Electric/FX_Electric_00010","freespin/FX_Jumping_Electric/FX_Electric_00011"],
+	"freespin/FX_beam_coin/FX_beam_coin": ["freespin/FX_beam_coin/FX_beam_coin_000","freespin/FX_beam_coin/FX_beam_coin_001","freespin/FX_beam_coin/FX_beam_coin_002","freespin/FX_beam_coin/FX_beam_coin_003","freespin/FX_beam_coin/FX_beam_coin_004","freespin/FX_beam_coin/FX_beam_coin_005","freespin/FX_beam_coin/FX_beam_coin_006","freespin/FX_beam_coin/FX_beam_coin_007","freespin/FX_beam_coin/FX_beam_coin_008","freespin/FX_beam_coin/FX_beam_coin_009","freespin/FX_beam_coin/FX_beam_coin_010","freespin/FX_beam_coin/FX_beam_coin_011","freespin/FX_beam_coin/FX_beam_coin_012","freespin/FX_beam_coin/FX_beam_coin_013","freespin/FX_beam_coin/FX_beam_coin_014"],
+	"freespin/H_mult/H_mult": ["freespin/H_mult/H_mult_000","freespin/H_mult/H_mult_001","freespin/H_mult/H_mult_002","freespin/H_mult/H_mult_003","freespin/H_mult/H_mult_004","freespin/H_mult/H_mult_005","freespin/H_mult/H_mult_006","freespin/H_mult/H_mult_007","freespin/H_mult/H_mult_008","freespin/H_mult/H_mult_009","freespin/H_mult/H_mult_010","freespin/H_mult/H_mult_011","freespin/H_mult/H_mult_012","freespin/H_mult/H_mult_013","freespin/H_mult/H_mult_014","freespin/H_mult/H_mult_015","freespin/H_mult/H_mult_016","freespin/H_mult/H_mult_017"],
+	"freespin/V_glow/V_glow": ["freespin/V_glow/V_glow_000","freespin/V_glow/V_glow_001","freespin/V_glow/V_glow_002","freespin/V_glow/V_glow_003","freespin/V_glow/V_glow_004","freespin/V_glow/V_glow_005","freespin/V_glow/V_glow_006","freespin/V_glow/V_glow_007","freespin/V_glow/V_glow_008","freespin/V_glow/V_glow_009","freespin/V_glow/V_glow_010","freespin/V_glow/V_glow_011","freespin/V_glow/V_glow_012","freespin/V_glow/V_glow_013","freespin/V_glow/V_glow_014","freespin/V_glow/V_glow_015","freespin/V_glow/V_glow_016","freespin/V_glow/V_glow_017","freespin/V_glow/V_glow_018","freespin/V_glow/V_glow_019","freespin/V_glow/V_glow_020","freespin/V_glow/V_glow_021","freespin/V_glow/V_glow_022","freespin/V_glow/V_glow_023","freespin/V_glow/V_glow_024","freespin/V_glow/V_glow_025","freespin/V_glow/V_glow_026","freespin/V_glow/V_glow_027","freespin/V_glow/V_glow_028","freespin/V_glow/V_glow_029"],
+	"freespin/chest_unlock/chest_unlock": ["freespin/chest_unlock/chest_unlock_000","freespin/chest_unlock/chest_unlock_001","freespin/chest_unlock/chest_unlock_002","freespin/chest_unlock/chest_unlock_003","freespin/chest_unlock/chest_unlock_004","freespin/chest_unlock/chest_unlock_005","freespin/chest_unlock/chest_unlock_006","freespin/chest_unlock/chest_unlock_007","freespin/chest_unlock/chest_unlock_008","freespin/chest_unlock/chest_unlock_009","freespin/chest_unlock/chest_unlock_010","freespin/chest_unlock/chest_unlock_011","freespin/chest_unlock/chest_unlock_012","freespin/chest_unlock/chest_unlock_013","freespin/chest_unlock/chest_unlock_014","freespin/chest_unlock/chest_unlock_015","freespin/chest_unlock/chest_unlock_016","freespin/chest_unlock/chest_unlock_017","freespin/chest_unlock/chest_unlock_018","freespin/chest_unlock/chest_unlock_019","freespin/chest_unlock/chest_unlock_020","freespin/chest_unlock/chest_unlock_021","freespin/chest_unlock/chest_unlock_022","freespin/chest_unlock/chest_unlock_023","freespin/chest_unlock/chest_unlock_024","freespin/chest_unlock/chest_unlock_025","freespin/chest_unlock/chest_unlock_026","freespin/chest_unlock/chest_unlock_027","freespin/chest_unlock/chest_unlock_028","freespin/chest_unlock/chest_unlock_029"],
+	"freespin/convert_eff/convert_eff": ["freespin/convert_eff/convert_eff_000","freespin/convert_eff/convert_eff_001","freespin/convert_eff/convert_eff_002","freespin/convert_eff/convert_eff_003","freespin/convert_eff/convert_eff_004","freespin/convert_eff/convert_eff_005","freespin/convert_eff/convert_eff_006","freespin/convert_eff/convert_eff_007","freespin/convert_eff/convert_eff_008","freespin/convert_eff/convert_eff_009","freespin/convert_eff/convert_eff_010","freespin/convert_eff/convert_eff_011","freespin/convert_eff/convert_eff_012","freespin/convert_eff/convert_eff_013","freespin/convert_eff/convert_eff_014","freespin/convert_eff/convert_eff_015","freespin/convert_eff/convert_eff_016"],
+	"freespin/eff_chest_mult/eff_chest_mult": ["freespin/eff_chest_mult/eff_chest_mult_000","freespin/eff_chest_mult/eff_chest_mult_001","freespin/eff_chest_mult/eff_chest_mult_002","freespin/eff_chest_mult/eff_chest_mult_003","freespin/eff_chest_mult/eff_chest_mult_004","freespin/eff_chest_mult/eff_chest_mult_005","freespin/eff_chest_mult/eff_chest_mult_006","freespin/eff_chest_mult/eff_chest_mult_007","freespin/eff_chest_mult/eff_chest_mult_008","freespin/eff_chest_mult/eff_chest_mult_009","freespin/eff_chest_mult/eff_chest_mult_010","freespin/eff_chest_mult/eff_chest_mult_011","freespin/eff_chest_mult/eff_chest_mult_012","freespin/eff_chest_mult/eff_chest_mult_013","freespin/eff_chest_mult/eff_chest_mult_014","freespin/eff_chest_mult/eff_chest_mult_015","freespin/eff_chest_mult/eff_chest_mult_016","freespin/eff_chest_mult/eff_chest_mult_017","freespin/eff_chest_mult/eff_chest_mult_018","freespin/eff_chest_mult/eff_chest_mult_019","freespin/eff_chest_mult/eff_chest_mult_020","freespin/eff_chest_mult/eff_chest_mult_021","freespin/eff_chest_mult/eff_chest_mult_022","freespin/eff_chest_mult/eff_chest_mult_023","freespin/eff_chest_mult/eff_chest_mult_024","freespin/eff_chest_mult/eff_chest_mult_025","freespin/eff_chest_mult/eff_chest_mult_026","freespin/eff_chest_mult/eff_chest_mult_027","freespin/eff_chest_mult/eff_chest_mult_028","freespin/eff_chest_mult/eff_chest_mult_029"],
+	"freespin/eff_chest_trigger/eff_chest_trigger": ["freespin/eff_chest_trigger/eff_chest_trigger_000","freespin/eff_chest_trigger/eff_chest_trigger_001","freespin/eff_chest_trigger/eff_chest_trigger_002","freespin/eff_chest_trigger/eff_chest_trigger_003","freespin/eff_chest_trigger/eff_chest_trigger_004","freespin/eff_chest_trigger/eff_chest_trigger_005","freespin/eff_chest_trigger/eff_chest_trigger_006","freespin/eff_chest_trigger/eff_chest_trigger_007","freespin/eff_chest_trigger/eff_chest_trigger_008","freespin/eff_chest_trigger/eff_chest_trigger_009","freespin/eff_chest_trigger/eff_chest_trigger_010","freespin/eff_chest_trigger/eff_chest_trigger_011","freespin/eff_chest_trigger/eff_chest_trigger_012","freespin/eff_chest_trigger/eff_chest_trigger_013","freespin/eff_chest_trigger/eff_chest_trigger_014"],
+	"freespin/eff_glow": ["freespin/eff_glow_01","freespin/eff_glow_02"],
+	"freespin/mult_gold/mult_gold": ["freespin/mult_gold/mult_gold_000","freespin/mult_gold/mult_gold_001","freespin/mult_gold/mult_gold_002","freespin/mult_gold/mult_gold_003","freespin/mult_gold/mult_gold_004","freespin/mult_gold/mult_gold_005","freespin/mult_gold/mult_gold_006","freespin/mult_gold/mult_gold_007","freespin/mult_gold/mult_gold_008","freespin/mult_gold/mult_gold_009","freespin/mult_gold/mult_gold_010","freespin/mult_gold/mult_gold_011","freespin/mult_gold/mult_gold_012","freespin/mult_gold/mult_gold_013","freespin/mult_gold/mult_gold_014","freespin/mult_gold/mult_gold_015"],
+	"freespin/refresh/refresh": ["freespin/refresh/refresh_000","freespin/refresh/refresh_001","freespin/refresh/refresh_002","freespin/refresh/refresh_003","freespin/refresh/refresh_004","freespin/refresh/refresh_005","freespin/refresh/refresh_006","freespin/refresh/refresh_007","freespin/refresh/refresh_008","freespin/refresh/refresh_009","freespin/refresh/refresh_010","freespin/refresh/refresh_011","freespin/refresh/refresh_012","freespin/refresh/refresh_013","freespin/refresh/refresh_014","freespin/refresh/refresh_015"],
+	"freespin/slot_hl/slot_hl": ["freespin/slot_hl/slot_hl_000","freespin/slot_hl/slot_hl_001","freespin/slot_hl/slot_hl_002","freespin/slot_hl/slot_hl_003","freespin/slot_hl/slot_hl_004","freespin/slot_hl/slot_hl_005","freespin/slot_hl/slot_hl_006","freespin/slot_hl/slot_hl_007","freespin/slot_hl/slot_hl_008","freespin/slot_hl/slot_hl_009","freespin/slot_hl/slot_hl_010","freespin/slot_hl/slot_hl_011","freespin/slot_hl/slot_hl_012","freespin/slot_hl/slot_hl_013","freespin/slot_hl/slot_hl_014"],
+	"freespin/theme_glow/theme_glow": ["freespin/theme_glow/theme_glow_000","freespin/theme_glow/theme_glow_001","freespin/theme_glow/theme_glow_002","freespin/theme_glow/theme_glow_003","freespin/theme_glow/theme_glow_004","freespin/theme_glow/theme_glow_005","freespin/theme_glow/theme_glow_006","freespin/theme_glow/theme_glow_007","freespin/theme_glow/theme_glow_008","freespin/theme_glow/theme_glow_009","freespin/theme_glow/theme_glow_010","freespin/theme_glow/theme_glow_011","freespin/theme_glow/theme_glow_012","freespin/theme_glow/theme_glow_013","freespin/theme_glow/theme_glow_014"],
+	"freespin/wagon_reelfire/wagon_reelfire": ["freespin/wagon_reelfire/wagon_reelfire_000","freespin/wagon_reelfire/wagon_reelfire_001","freespin/wagon_reelfire/wagon_reelfire_002","freespin/wagon_reelfire/wagon_reelfire_003","freespin/wagon_reelfire/wagon_reelfire_004","freespin/wagon_reelfire/wagon_reelfire_005","freespin/wagon_reelfire/wagon_reelfire_006","freespin/wagon_reelfire/wagon_reelfire_007","freespin/wagon_reelfire/wagon_reelfire_008","freespin/wagon_reelfire/wagon_reelfire_009"],
+	"mult_dot/mult_dot": ["mult_dot/mult_dot_000","mult_dot/mult_dot_001","mult_dot/mult_dot_002","mult_dot/mult_dot_003","mult_dot/mult_dot_004","mult_dot/mult_dot_005","mult_dot/mult_dot_006","mult_dot/mult_dot_007","mult_dot/mult_dot_008","mult_dot/mult_dot_009"],
+	"sparkle/sparkle": ["sparkle/sparkle_000","sparkle/sparkle_001","sparkle/sparkle_002","sparkle/sparkle_003","sparkle/sparkle_004","sparkle/sparkle_005","sparkle/sparkle_006","sparkle/sparkle_007","sparkle/sparkle_008","sparkle/sparkle_009","sparkle/sparkle_010","sparkle/sparkle_011","sparkle/sparkle_012","sparkle/sparkle_013","sparkle/sparkle_014"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "mainJpeg0.jpg",
+	"format": "RGB888",
+	"size": {"w":2040,"h":2044},
+	"scale": "1",
+	"related_multi_packs": [ "mainJpeg1.json", "mainJpeg2.json", "mainJpeg3.json", "mainJpeg4.json", "mainJpeg5.json", "mainJpeg6.json", "mainJpeg7.json", "mainJpeg8.json", "mainJpeg9.json", "mainJpeg10.json", "mainJpeg11.json", "mainJpeg12.json", "mainJpeg13.json", "mainJpeg14.json", "mainJpeg15.json", "mainJpeg16.json", "mainJpeg17.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:690370ba2e4810ccd63114e1a12132f6:b966338cdcbcb36baa09dc7edad6da2c:27349c9108a4d6cc3ef832fbba80c567$"
+}
+}

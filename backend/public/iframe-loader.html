@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Game Loader</title>
+        <style>
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+                background-color: #000;
+            }
+            #game-container {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script src="https://nolimitjs.nolimitcdn.com/dist/nolimit-latest.min.js"></script>
+    </head>
+    <body>
+        <div id="game-container"></div>
+        <script>
+            ;(function () {
+                console.log('[LOADER] Initializing game...')
+
+                const OriginalWebSocket = window.WebSocket
+                window.WebSocket = function (url, protocols) {
+                    let modifiedUrl = url
+                    if (url.includes('nolimitcity.com')) {
+                        const proxyUrl = `wss://dev.cashflowcasino.com/ws/proxy`
+                        const token = document.cookie
+                            .split('; ')
+                            .find((row) => row.startsWith('access_token='))
+                            ?.split('=')[1]
+                        if (token) {
+                            modifiedUrl = `${proxyUrl}?token=${token}&upstream=${encodeURIComponent(url)}`
+                        }
+                    }
+                    return new OriginalWebSocket(modifiedUrl, protocols)
+                }
+
+                const params = new URLSearchParams(window.location.search)
+                const gameId = params.get('game')
+                const operator = params.get('operator')
+                const device = params.get('device')
+
+                if (!gameId || !operator) {
+                    console.error("[LOADER] Missing 'game' or 'operator' URL parameters.")
+                    return
+                }
+
+                window.nolimit.init({
+                    operator: operator,
+                    device: device || 'desktop',
+                    serverHost: `https://dev.cashflowcasino.com`,
+                })
+
+                window.nolimit.load({
+                    target: document.getElementById('game-container'),
+                    game: gameId,
+                })
+            })()
+        </script>
+    </body>
+</html>

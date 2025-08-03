@@ -1,5 +1,6 @@
 import type { Context } from 'hono'
 import type { z } from 'zod'
+import chalk from 'chalk'
 
 import { and, eq, inArray } from 'drizzle-orm'
 
@@ -15,18 +16,19 @@ import type {
 } from '#/db/schema'
 
 import db from '#/db'
-import { GameSession, Jackpot } from '#/db/schema'
+import { jackpots } from '#/db/schema'
 import { updateGameSessionStats } from '#/lib/gameplay'
 import * as jackpotService from '#/lib/jackpot'
 import { sendNotificationToUser } from '#/lib/websocket.service'
 import {
-    addXpToUser,
+    addXpTousers,
     calculateXpForWagerAndWins,
 } from '#/routes/vip/vip.service'
-import { creditToWallet, debitFromWallet } from '#/routes/wallet/wallet.service'
+import { creditTowallets, debitFromwallets } from '#/routes/wallet/wallet.service'
 import { coinsToDollars, dollarsToCoins } from '#/utils/misc.utils'
 
 import { atlantis_settings, atlantis_spin } from './data'
+import { getGameSessionFromCache } from '#/lib/cache'
 
 type ProviderSpinResponseData = z.infer<typeof providerSpinResponseDataSchema>
 type RTGSettingsRequestDto = z.infer<typeof rtgSettingsRequestDtoSchema>
@@ -36,43 +38,27 @@ type RTGSpinResponseDto = z.infer<typeof rtgSpinResponseDtoSchema>
 
 const testing = false
 
-async function getGameSessionById(
-    _c: Context,
-    gameSessionId: string
-): Promise<GameSessionType | null> {
-    const [session] = await db
-        .select()
-        .from(GameSession)
-        .where(eq(GameSession.id, gameSessionId))
-    return session || null
-}
-
 export async function createRedtigerSettings(
     user: UserWithRelations,
     gameName: string,
-    gameSessionId: string,
-    c: Context,
+    authSessionId: string,
     data: RTGSettingsRequestDto
-): Promise<RTGSettingsResponseDto> {
+): Promise<RTGSettingsResponseDto | null> {
+    console.log(chalk.magenta('--- createRedtigerSettings ---'))
     try {
-        if (!user) {
-            throw new Error('User not authenticated.')
+        if (!authSessionId || !gameName || !user) {
+            console.log(chalk.red('fuk'))
+            return null
         }
-
-        if (!gameSessionId || !gameName) {
-            throw new Error('gameSessionId and gameName are required.')
-        }
-
-        const gameSession = await getGameSessionById(c, gameSessionId)
+        const gameSession = await getGameSessionFromCache(authSessionId)
         if (!gameSession) {
-            throw new Error('Game session not found.')
+            console.log(chalk.red('fuk'))
+            return null
         }
-        let gameSettingsFromDeveloper: Partial<RTGSettingsResponseDto>
+        let gameSettingsFromDeveloper: RTGSettingsResponseDto
+        console.log(chalk.blue('testing', testing))
         if (testing) {
             gameSettingsFromDeveloper = atlantis_settings
-            gameSettingsFromDeveloper.result!.user.balance.cash = (
-                user.activeWallet!.balance! / 100
-            ).toFixed(2)
         } else {
             const init = {
                 body: JSON.stringify({
@@ -96,20 +82,13 @@ export async function createRedtigerSettings(
                     'content-type': 'application/json;charset=UTF-8',
                 },
             }
-            console.log(init)
             const response = await fetch(
                 `https://proxy.andrews.workers.dev/proxy/gserver-rtg.redtiger.com/rtg/platform/game/settings`,
                 init
             )
-            console.log(response)
             gameSettingsFromDeveloper = await response.json()
-            console.log(gameSettingsFromDeveloper)
         }
-
-        return {
-            ...gameSettingsFromDeveloper,
-            success: true,
-        }
+        return gameSettingsFromDeveloper
     } catch (error: any) {
         return {
             success: false,
@@ -125,12 +104,21 @@ export async function createRedtigerSpin(
     c: Context,
     data: RTGSpinRequestDto
 ): Promise<RTGSpinResponseDto> {
+    console.log(chalk.magenta('--- createRedtigerSpin ---'))
     const user = c.get('user') as UserWithRelations
-    const gameName = `${data.gameId}RTG`
+    const gameName = `${data.gamesId}RTG`
     const gameSession = c.get('gameSession') as GameSessionType
-
+    console.log('user', user.id)
+    console.log('gs', gameSession.id)
     if (!user || !gameSession) {
-        throw new Error('User and game session are required.')
+        console.log(chalk.red('fuk'))
+        return {
+            success: false,
+            error: {
+                code: 'INTERNAL_SERVER_ERROR',
+                message: 'User and game session are required.',
+            },
+        }
     }
 
     const wagerAmountCoins = dollarsToCoins(
@@ -138,36 +126,30 @@ export async function createRedtigerSpin(
     )
 
     try {
-        // 1. Debit wallet BEFORE the spin
-        await debitFromWallet(
+        await debitFromwallets(
             user.id,
             wagerAmountCoins,
             `Wager for ${gameName}`
         )
 
-        // 2. Get the spin result from the game provider
         let gameResultFromDeveloper: RTGSpinResponseDto
         if (testing) {
-            gameResultFromDeveloper = atlantis_spin
+            gameResultFromDeveloper = atlantis_spin as unknown as RTGSpinResponseDto
         } else {
             const init = {
                 body: JSON.stringify(data),
                 method: 'POST',
                 headers: { 'content-type': 'application/json;charset=UTF-8' },
             }
-            console.log(init)
             const response = await fetch(
                 `https://proxy.andrews.workers.dev/proxy/gserver-rtg.redtiger.com/rtg/platform/game/spin`,
                 init
             )
-            console.log(response)
             gameResultFromDeveloper = await response.json()
-            console.log(gameResultFromDeveloper)
         }
 
-        // 3. Handle provider failure: refund the user and exit
         if (!gameResultFromDeveloper.success) {
-            await creditToWallet(
+            await creditTowallets(
                 user.id,
                 wagerAmountCoins,
                 `Refund for failed spin on ${gameName}`
@@ -176,40 +158,46 @@ export async function createRedtigerSpin(
         }
 
         const grossWinAmountCoins = dollarsToCoins(
-            Number.parseFloat(gameResultFromDeveloper.result!.game.win.total)
+            Number.parseFloat(gameResultFromDeveloper.result!.games.win.total)
         )
 
-        // 4. Credit winnings to the user's wallet
         if (grossWinAmountCoins > 0) {
-            await creditToWallet(
+            await creditTowallets(
                 user.id,
                 grossWinAmountCoins,
                 `Win from ${gameName}`
             )
         }
 
-        // 5. Calculate and award XP
-        const isWin = grossWinAmountCoins > 0
-        if (user.vipInfo && user.vipInfo[0]) {
-            const xpGained = calculateXpForWagerAndWins(
-                wagerAmountCoins / 100,
-                isWin,
-                user.vipInfo[0]
+        if (user.vipInfo) {
+            const xpResult = calculateXpForWagerAndWins(
+                wagerAmountCoins / 100, // Convert cents to dollars
+                grossWinAmountCoins / 100, // Convert cents to dollars
+                user.vipInfo
             )
-            if (xpGained > 0) {
-                await addXpToUser(user.id, xpGained)
+
+            if (xpResult.totalXp > 0) {
+                await addXpTousers(user.id, xpResult.totalXp)
+                gameSession.totalXpGained =
+                    (gameSession.totalXpGained || 0) + xpResult.totalXp
+                c.set('gameSession', gameSession)
             }
+
+            if (gameResultFromDeveloper.result?.games) {
+                ;(gameResultFromDeveloper.result.games as any).xpBreakdown =
+                    xpResult
+            }
+        } else {
+            console.warn('No VIP info found for user:', user.id)
         }
 
-        // 6. Update the cached game session stats
         await updateGameSessionStats(c, {
             totalSpinWinnings: grossWinAmountCoins,
             wagerAmount: wagerAmountCoins,
         })
 
-        // 7. Handle Jackpots
         const jackpotResult = await jackpotService.processJackpots({
-            gameSpinId: 'temp-spin-id', // This would need to come from a newly created spin record if you persist every spin
+            gameSpinId: 'temp-spin-id',
             wagerAmountCoins,
             gameCategory: 'SLOTS',
             userId: user.id,
@@ -221,12 +209,25 @@ export async function createRedtigerSpin(
         )
         gameResultFromDeveloper.result = enhancedResponse
 
-        // 8. Send a big win notification
         const winAmountInDollars = coinsToDollars(grossWinAmountCoins)
+        const wagerAmountInDollars = coinsToDollars(wagerAmountCoins)
+
+        if (winAmountInDollars > (wagerAmountInDollars * 100)) {
+            sendNotificationToUser(user.id, {
+                title: 'recording:upload',
+                message: JSON.stringify({
+                    sessionId: gameSession.id,
+                    reason: 'big_win',
+                    winAmount: winAmountInDollars,
+                    wagerAmount: wagerAmountInDollars,
+                })
+            })
+        }
+
         if (winAmountInDollars > 10) {
             sendNotificationToUser(user.id, {
                 title: 'Big Win!',
-                message: `Congratulations! You won $${winAmountInDollars.toFixed(2)} on ${gameName}!`,
+                message: `Congratulations! You won ${winAmountInDollars.toFixed(2)} on ${gameName}!`,
             })
         }
 
@@ -306,24 +307,24 @@ async function enhanceRTGResponseWithJackpots(
             enhancedResponse.user.balance.cash.atEnd = newBalance.toFixed(2)
         }
 
-        if (enhancedResponse.game?.win?.total) {
+        if (enhancedResponse.games?.win?.total) {
             const currentWin = Number.parseFloat(
-                enhancedResponse.game.win.total
+                enhancedResponse.games.win.total
             )
             const newWin =
                 currentWin + coinsToDollars(jackpotWin.winAmountCoins)
-            enhancedResponse.game.win.total = newWin.toFixed(2)
+            enhancedResponse.games.win.total = newWin.toFixed(2)
         }
     }
 
     const eligibleTypes = ['MAJOR', 'MINOR', 'GRAND']
-    const currentJackpots = await db.query.Jackpot.findMany({
+    const currentJackpots = await db.query.jackpots.findMany({
         where: and(
             inArray(
-                Jackpot.type,
-                eligibleTypes as (typeof Jackpot.type.enumValues)[number][]
+                jackpots.type,
+                eligibleTypes as (typeof jackpots.type.enumValues)[number][]
             ),
-            eq(Jackpot.isActive, true)
+            eq(jackpots.isActive, true)
         ),
     })
     ;(

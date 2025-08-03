@@ -1,0 +1,1321 @@
+{
+  "messages": [],
+  "betLevels": {
+    "bet": "1.00",
+    "availableBetLevels": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "unavailableBetLevels": []
+  },
+  "featureBetLevels": {
+    "FREESPIN_3_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_5_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_4_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ]
+  },
+  "game": {
+    "reels": [
+      [
+        "L4",
+        "L3",
+        "M5",
+        "L2",
+        "L3"
+      ],
+      [
+        "L3",
+        "M5",
+        "L1",
+        "L5",
+        "L3"
+      ],
+      [
+        "M3",
+        "L2",
+        "M2",
+        "M5",
+        "L4"
+      ],
+      [
+        "M2",
+        "L4",
+        "L2",
+        "M2",
+        "L4"
+      ],
+      [
+        "M3",
+        "L5",
+        "L3",
+        "M5",
+        "L2"
+      ]
+    ],
+    "evaluatedArea": [
+      [
+        "X",
+        "L3",
+        "M5",
+        "L2",
+        "X"
+      ],
+      [
+        "X",
+        "M5",
+        "L1",
+        "L5",
+        "X"
+      ],
+      [
+        "X",
+        "L2",
+        "M2",
+        "M5",
+        "X"
+      ],
+      [
+        "X",
+        "L4",
+        "L2",
+        "M2",
+        "X"
+      ],
+      [
+        "X",
+        "L5",
+        "L3",
+        "M5",
+        "X"
+      ]
+    ],
+    "betWayWins": [
+      {
+        "symbol": "M5",
+        "length": 3,
+        "numberOfCombinations": 1,
+        "reelWinPositions": [
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "amount": 0.25,
+        "multipliedAmount": 0.25,
+        "multiplier": 1,
+        "mode": "NORMAL"
+      }
+    ],
+    "totalBetWayWinnings": 0.25,
+    "totalSpinWinnings": 0.25,
+    "accumulatedRoundWin": 0.25,
+    "playedBetValue": 1.00,
+    "nearWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "reelsNextSpin": "BASE_REELSET",
+    "mode": "NORMAL",
+    "nextMode": "NORMAL",
+    "numberOfFreespinsPlayed": 0,
+    "freespinsLeft": 0,
+    "addedNumberOfFreespinsThisSpin": 0,
+    "freespinTriggeredThisSpin": false,
+    "scatterPositionsEnteringFreespin": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "scatterPositions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "nearWinBigWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "symbolSizes": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "mysterySymbolTrigger": false,
+    "mysterySymbolReveal": "",
+    "cellReelOne": [
+      "M5",
+      "M4",
+      "X2",
+      "M3",
+      "M3"
+    ],
+    "cellReelTwo": [
+      "M5",
+      "M5",
+      "X2",
+      "M5",
+      "M5"
+    ],
+    "topReel": "M5;M4;X2;M3;M3;",
+    "bottomReel": "M5;M5;X2;M5;M5;",
+    "baseScatterWildTrigger": false,
+    "topRowOpened": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "topRowOpenedNew": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "bottomRowOpened": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "bottomRowOpenedNew": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "featureBuyTimesBetValue": [
+      {
+        "name": "FREESPIN_3_SCATTERS",
+        "type": "FREESPIN",
+        "price": 100
+      },
+      {
+        "name": "FREESPIN_4_SCATTERS",
+        "type": "FREESPIN",
+        "price": 400
+      },
+      {
+        "name": "FREESPIN_5_SCATTERS",
+        "type": "FREESPIN",
+        "price": 2000
+      }
+    ],
+    "wasFeatureBuy": false,
+    "featureBet": false,
+    "stickyWildPositions": "",
+    "doubleXWays": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "totalWays": 243,
+    "specialSymbol": {},
+    "brokeTheBank": false
+  },
+  "features": {
+    "available": [
+      "FREESPIN"
+    ]
+  },
+  "remainingFreeSpins": 0,
+  "balances": {
+    "TOTAL_BALANCE": "9999.25"
+  },
+  "balance": "9999.25",
+  "realityCheck": {
+    "winnings": 0.25
+  },
+  "id": "i4ya7u8gbb-2",
+  "extPlayerKey": "a4f77fac3f3d193949141360b35bc909724374f6afdff1d3955ad4aba87885f3b0"
+}
+
+{
+  "messages": [],
+  "betLevels": {
+    "bet": "1.00",
+    "availableBetLevels": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "unavailableBetLevels": []
+  },
+  "featureBetLevels": {
+    "FREESPIN_3_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_5_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_4_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ]
+  },
+  "game": {
+    "reels": [
+      [
+        "L2",
+        "M5",
+        "M4",
+        "L4",
+        "L2"
+      ],
+      [
+        "S",
+        "L1",
+        "L5",
+        "M4",
+        "L3"
+      ],
+      [
+        "M3",
+        "M4",
+        "M2",
+        "L4",
+        "M4"
+      ],
+      [
+        "L2",
+        "M1",
+        "L3",
+        "L2",
+        "M4"
+      ],
+      [
+        "M5",
+        "L3",
+        "L4",
+        "L5",
+        "L3"
+      ]
+    ],
+    "evaluatedArea": [
+      [
+        "X",
+        "M5",
+        "M4",
+        "L4",
+        "X"
+      ],
+      [
+        "X",
+        "L1",
+        "L5",
+        "M4",
+        "X"
+      ],
+      [
+        "X",
+        "M4",
+        "M2",
+        "L4",
+        "X"
+      ],
+      [
+        "X",
+        "M1",
+        "L3",
+        "L2",
+        "X"
+      ],
+      [
+        "X",
+        "L3",
+        "L4",
+        "L5",
+        "X"
+      ]
+    ],
+    "betWayWins": [
+      {
+        "symbol": "M4",
+        "length": 3,
+        "numberOfCombinations": 1,
+        "reelWinPositions": [
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            false,
+            false
+          ]
+        ],
+        "amount": 0.30,
+        "multipliedAmount": 0.30,
+        "multiplier": 1,
+        "mode": "NORMAL"
+      }
+    ],
+    "totalBetWayWinnings": 0.30,
+    "totalSpinWinnings": 0.30,
+    "accumulatedRoundWin": 0.30,
+    "playedBetValue": 1.00,
+    "nearWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "reelsNextSpin": "BASE_REELSET",
+    "mode": "NORMAL",
+    "nextMode": "NORMAL",
+    "numberOfFreespinsPlayed": 0,
+    "freespinsLeft": 0,
+    "addedNumberOfFreespinsThisSpin": 0,
+    "freespinTriggeredThisSpin": false,
+    "scatterPositionsEnteringFreespin": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "scatterPositions": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "nearWinBigWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "symbolSizes": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "mysterySymbolTrigger": false,
+    "mysterySymbolReveal": "",
+    "cellReelOne": [
+      "M4",
+      "W",
+      "M4",
+      "M5",
+      "M2"
+    ],
+    "cellReelTwo": [
+      "M4",
+      "X2",
+      "X2",
+      "M1",
+      "M5"
+    ],
+    "topReel": "M4;W;M4;M5;M2;",
+    "bottomReel": "M4;X2;X2;M1;M5;",
+    "baseScatterWildTrigger": false,
+    "topRowOpened": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "topRowOpenedNew": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "bottomRowOpened": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "bottomRowOpenedNew": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "featureBuyTimesBetValue": [
+      {
+        "name": "FREESPIN_3_SCATTERS",
+        "type": "FREESPIN",
+        "price": 100
+      },
+      {
+        "name": "FREESPIN_4_SCATTERS",
+        "type": "FREESPIN",
+        "price": 400
+      },
+      {
+        "name": "FREESPIN_5_SCATTERS",
+        "type": "FREESPIN",
+        "price": 2000
+      }
+    ],
+    "wasFeatureBuy": false,
+    "featureBet": false,
+    "stickyWildPositions": "",
+    "doubleXWays": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "totalWays": 243,
+    "specialSymbol": {},
+    "brokeTheBank": false
+  },
+  "features": {
+    "available": [
+      "FREESPIN"
+    ]
+  },
+  "remainingFreeSpins": 0,
+  "balances": {
+    "TOTAL_BALANCE": "9990.30"
+  },
+  "balance": "9990.30",
+  "realityCheck": {
+    "winnings": 0.30
+  },
+  "id": "i4ya7u8gbb-11",
+  "extPlayerKey": "a4f77fac3f3d193949141360b35bc909724374f6afdff1d3955ad4aba87885f3b0"
+}
+
+{
+  "messages": [],
+  "betLevels": {
+    "bet": "1.00",
+    "availableBetLevels": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "unavailableBetLevels": []
+  },
+  "featureBetLevels": {
+    "FREESPIN_3_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_5_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ],
+    "FREESPIN_4_SCATTERS": [
+      "0.20",
+      "0.40",
+      "0.60",
+      "0.80",
+      "1.00",
+      "1.20",
+      "1.40",
+      "1.60",
+      "1.80",
+      "2.00",
+      "2.40",
+      "2.80",
+      "3.00",
+      "3.60",
+      "4.00",
+      "6.00",
+      "8.00",
+      "10",
+      "12",
+      "14",
+      "16",
+      "20",
+      "24",
+      "28",
+      "32"
+    ]
+  },
+  "game": {
+    "reels": [
+      [
+        "L5",
+        "L4",
+        "L2",
+        "L5",
+        "L3"
+      ],
+      [
+        "L3",
+        "M3",
+        "M5",
+        "W",
+        "L5"
+      ],
+      [
+        "M2",
+        "L2",
+        "M4",
+        "S",
+        "M1"
+      ],
+      [
+        "M2",
+        "L2",
+        "M4",
+        "W",
+        "L4"
+      ],
+      [
+        "L4",
+        "L1",
+        "W",
+        "L3",
+        "L4"
+      ]
+    ],
+    "evaluatedArea": [
+      [
+        "X",
+        "L4",
+        "L2",
+        "L5",
+        "X"
+      ],
+      [
+        "X",
+        "M3",
+        "M5",
+        "W",
+        "X"
+      ],
+      [
+        "M5",
+        "L2",
+        "M4",
+        "W",
+        "L3"
+      ],
+      [
+        "X",
+        "L2",
+        "M4",
+        "W",
+        "X"
+      ],
+      [
+        "X",
+        "L1",
+        "W",
+        "L3",
+        "X"
+      ]
+    ],
+    "betWayWins": [
+      {
+        "symbol": "L2",
+        "length": 5,
+        "numberOfCombinations": 6,
+        "reelWinPositions": [
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            true,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            true,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ]
+        ],
+        "amount": 12.00,
+        "multipliedAmount": 12.00,
+        "multiplier": 1,
+        "mode": "NORMAL"
+      },
+      {
+        "symbol": "L4",
+        "length": 5,
+        "numberOfCombinations": 1,
+        "reelWinPositions": [
+          [
+            false,
+            true,
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ]
+        ],
+        "amount": 1.50,
+        "multipliedAmount": 1.50,
+        "multiplier": 1,
+        "mode": "NORMAL"
+      },
+      {
+        "symbol": "L5",
+        "length": 5,
+        "numberOfCombinations": 1,
+        "reelWinPositions": [
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          [
+            false,
+            false,
+            true,
+            false,
+            false
+          ]
+        ],
+        "amount": 1.50,
+        "multipliedAmount": 1.50,
+        "multiplier": 1,
+        "mode": "NORMAL"
+      }
+    ],
+    "totalBetWayWinnings": 15.00,
+    "totalSpinWinnings": 15.00,
+    "accumulatedRoundWin": 15.00,
+    "playedBetValue": 1.00,
+    "nearWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "reelsNextSpin": "BASE_REELSET",
+    "mode": "NORMAL",
+    "nextMode": "NORMAL",
+    "numberOfFreespinsPlayed": 0,
+    "freespinsLeft": 0,
+    "addedNumberOfFreespinsThisSpin": 0,
+    "freespinTriggeredThisSpin": false,
+    "scatterPositionsEnteringFreespin": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "scatterPositions": [
+      -1,
+      -1,
+      2,
+      -1,
+      -1
+    ],
+    "nearWinBigWinReels": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "symbolSizes": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        4
+      ],
+      [
+        0,
+        2,
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0,
+        2,
+        0
+      ]
+    ],
+    "mysterySymbolTrigger": true,
+    "mysterySymbolReveal": "L3",
+    "cellReelOne": [
+      "M2",
+      "M1",
+      "M5",
+      "M2",
+      "M4"
+    ],
+    "cellReelTwo": [
+      "M2",
+      "M1",
+      "XWAYS",
+      "M4",
+      "M3"
+    ],
+    "topReel": "M2;M1;M5;M2;M4;",
+    "bottomReel": "M2;M1;L3:4;M4;M3;",
+    "baseScatterWildTrigger": true,
+    "topRowOpened": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "topRowOpenedNew": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "bottomRowOpened": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "bottomRowOpenedNew": [
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "featureBuyTimesBetValue": [
+      {
+        "name": "FREESPIN_3_SCATTERS",
+        "type": "FREESPIN",
+        "price": 100
+      },
+      {
+        "name": "FREESPIN_4_SCATTERS",
+        "type": "FREESPIN",
+        "price": 400
+      },
+      {
+        "name": "FREESPIN_5_SCATTERS",
+        "type": "FREESPIN",
+        "price": 2000
+      }
+    ],
+    "wasFeatureBuy": false,
+    "featureBet": false,
+    "stickyWildPositions": "",
+    "doubleXWays": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "totalWays": 3000,
+    "specialSymbol": {},
+    "brokeTheBank": false
+  },
+  "features": {
+    "available": [
+      "FREESPIN"
+    ]
+  },
+  "remainingFreeSpins": 0,
+  "balances": {
+    "TOTAL_BALANCE": "9996.00"
+  },
+  "balance": "9996.00",
+  "realityCheck": {
+    "winnings": 15.00
+  },
+  "id": "i4ya7u8gbb-22",
+  "extPlayerKey": "a4f77fac3f3d193949141360b35bc909724374f6afdff1d3955ad4aba87885f3b0"
+}

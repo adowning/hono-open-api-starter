@@ -1,0 +1,22 @@
+<font>
+    <info aa='1' size='50' smooth='1' stretchH='100' bold='0' padding='0,0,0,0' spacing='0,0' charset='' italic='0' unicode='0' face='NumbersWinCountUp'/>
+    <common scaleW='448' packed='0' pages='1' lineHeight='58' scaleH='384' base='49'/>
+    <pages>
+        <page id='0' file='NumbersWinCountUp.png'/>
+    </pages>
+    <chars count='13'>
+        <char xadvance='4' x='2' chnl='0' yoffset='46' y='326' xoffset='0' id='32' page='0' height='0' width='0'/>
+        <char xadvance='30' x='352' chnl='0' yoffset='0' y='164' xoffset='0' id='46' page='0' height='160' width='40'/>
+        <char xadvance='58' x='282' chnl='0' yoffset='0' y='164' xoffset='0' id='48' page='0' height='160' width='68'/>
+        <char xadvance='58' x='212' chnl='0' yoffset='0' y='164' xoffset='0' id='49' page='0' height='160' width='68'/>
+        <char xadvance='58' x='352' chnl='0' yoffset='0' y='2' xoffset='0' id='50' page='0' height='160' width='68'/>
+        <char xadvance='58' x='282' chnl='0' yoffset='0' y='2' xoffset='0' id='51' page='0' height='160' width='68'/>
+        <char xadvance='58' x='212' chnl='0' yoffset='0' y='2' xoffset='0' id='52' page='0' height='160' width='68'/>
+        <char xadvance='58' x='142' chnl='0' yoffset='0' y='164' xoffset='0' id='53' page='0' height='160' width='68'/>
+        <char xadvance='58' x='142' chnl='0' yoffset='0' y='2' xoffset='0' id='54' page='0' height='160' width='68'/>
+        <char xadvance='58' x='72' chnl='0' yoffset='0' y='164' xoffset='0' id='55' page='0' height='160' width='68'/>
+        <char xadvance='58' x='72' chnl='0' yoffset='0' y='2' xoffset='0' id='56' page='0' height='160' width='68'/>
+        <char xadvance='58' x='2' chnl='0' yoffset='0' y='164' xoffset='0' id='57' page='0' height='160' width='68'/>
+        <char xadvance='58' x='2' chnl='0' yoffset='0' y='2' xoffset='0' id='88' page='0' height='160' width='68'/>
+    </chars>
+</font>

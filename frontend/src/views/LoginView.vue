@@ -13,17 +13,29 @@ const appStore = useAppStore()
 const {
   isSignUpMode,
   isLoading: isAuthLoading, // Auth store's loading state
+  isAuthenticated,
 } = storeToRefs(authStore)
+
+// Ensure we navigate away if already authenticated (e.g., after successful login)
 onMounted(() => {
   appStore.hideLoading()
-  authStore.clearAuth()
-  if (authStore.isSignUpMode == true)
+  // Do NOT clear auth here; this caused post-login logout loops
+  if (authStore.isSignUpMode === true) {
     authStore.toggleSignUpMode()
+  }
+  if (isAuthenticated.value) {
+
+    console.debug('[login-view] already authenticated on mount, redirecting to /')
+    // Push home using router import to avoid circular import issues at top-level
+    import('@/router').then((m) => {
+      m.default.push('/')
+    })
+  }
 })
 </script>
 <template>
-  <div class="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-    <div v-if="!isAuthLoading">
+  <div class="min-h-screen bg-gray-900 flex items-center justify-center px-4 relative">
+    <div v-if="!isAuthLoading && !isAuthenticated">
       <div class="login-view-container overflow-hidden">
         <Logo class="logo-main"></Logo>
         <div class="flex mt-4 justify-center items-center min-h-[20px] w-80 glow text-sm zIndex-1">
@@ -39,7 +51,9 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- <Loading v-else /> -->
+    <div v-else class="text-white text-center">
+      Loading authentication...
+    </div>
   </div>
 
 </template>
@@ -571,5 +585,3 @@ label:active:after {
   --font-color-btn: #ffffff;
 }
 </style>
-
-

@@ -1,0 +1,26 @@
+{
+  "commitTime": "2024-01-29T09:37:58+05:30",
+  "commitShort": "0de89b6",
+  "commit": "0de89b670987022b9e143800970ef1b56cad164e",
+  "branch": "main",
+  "name": "LandOfTheFree",
+  "version": "1.0.157",
+  "date": "2024-01-29T04:08:56.759Z",
+  "dependencies": {
+    "@nolimit/core": "0.1.1",
+    "@nolimit/game-api": "1.1.18",
+    "@nolimit/game-communication": "0.2.1",
+    "@nolimit/game-tools": "0.3.3",
+    "@nolimit/google-analytics": "0.3.0",
+    "@nolimit/promo-panel": "0.8.26",
+    "@nolimit/slot-audio": "0.6.3",
+    "@nolimit/slot-game": "2.2.1",
+    "@nolimit/slot-keypad": "1.8.31",
+    "@nolimit/slot-launcher": "1.8.31",
+    "@nolimit/slot-translations": "1.0.66"
+  },
+  "size": {
+    "width": 1280,
+    "height": 720
+  }
+}

@@ -1,42 +1,64 @@
 import configureOpenAPI from '#/lib/configure-open-api'
 import createApp from '#/lib/create-app'
 import auth from '#/routes/auth/auth.router'
-import games from '#/routes/games/games.router'
-import gamespins from '#/routes/gamespins/gamespins.router'
+import game from '#/routes/games/games.router'
+import gameService from '#/routes/gameService.route'
+import gameSpin from '#/routes/gamespins/gamespins.router'
 import index from '#/routes/index.route'
-import operator from '#/routes/operator/operator.router'
 import redtiger from '#/routes/redtiger/redtiger.router'
-import users from '#/routes/user/user.router'
 import updates from '#/routes/updates/updates.router'
+import users from '#/routes/user/user.router'
 import vip from '#/routes/vip/vip.router'
-import wallet from '#/routes/wallet/wallet.router'
-import websocket from '#/routes/websocket/websocket.router'
+import { serveStatic } from 'hono/bun'
 import { cors } from 'hono/cors'
 
 const app = createApp()
-app.use(
-    '*',
-    cors({
-        origin: [
-            'http://localhost',
-            'http://localhost:5173',
-            'http://localhost:9999',
-            'http://localhost:3001',
-            'http://localhost:3000',
-        ],
-        allowHeaders: [
-            'X-Custom-Header',
-            'Authorization',
-            'Content-Type',
-            'Upgrade-Insecure-Requests',
-        ],
-        allowMethods: ['POST', 'GET', 'OPTIONS'],
-        exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
-        maxAge: 600,
-        credentials: true,
-    })
-)
+
+/**
+ * Dynamic CORS that reflects the exact allowed Origin and always enables credentials.
+ * This is required so the browser accepts Set-Cookie on cross-site requests
+ * (app.cashflowcasino.com -> api.cashflowcasino.com) for refresh_token.
+ */
+const allowedOrigins = new Set<string>([
+    'http://localhost',
+    'http://localhost:5173',
+    'http://localhost:9999',
+    'http://localhost:3001',
+    'http://localhost:3000',
+    'https://slots.cashflowcasino.com',
+    'https://app.cashflowcasino.com',
+    'https://api.cashflowcasino.com',
+])
+
+app.use('*', async (c, next) => {
+    const origin = c.req.header('Origin') || ''
+    const isAllowed = allowedOrigins.has(origin)
+
+    // Apply CORS headers reflecting the incoming allowed origin
+    if (isAllowed) {
+        c.header('Access-Control-Allow-Origin', origin)
+        c.header('Vary', 'Origin')
+        c.header('Access-Control-Allow-Credentials', 'true')
+        c.header(
+            'Access-Control-Allow-Headers',
+            // Include headers used by the frontend during refresh/token flows
+            'Authorization, Content-Type, X-Requested-With, Upgrade-Insecure-Requests, Cache-Control, Pragma'
+        )
+        c.header('Access-Control-Expose-Headers', 'Content-Length, X-Kuma-Revision')
+        c.header('Access-Control-Max-Age', '600')
+        c.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
+    }
+
+    // Handle preflight
+    if (c.req.method === 'OPTIONS') {
+        return c.body(null, 204)
+    }
+
+    return next()
+})
 configureOpenAPI(app)
+
+app.use('/*', serveStatic({ root: './public' }))
 
 const routes = [
     auth,
@@ -44,17 +66,18 @@ const routes = [
     updates,
     users,
     redtiger,
-    websocket,
-    wallet,
+    game,
     vip,
-    operator,
-    games,
-    gamespins,
+    gameSpin
 ] as const
 
 routes.forEach((route) => {
-    app.route('/', route)
+    app.route('/api/', route)
 })
+
+app.route('/gs2c/ge/v3/gameService/', gameService)
+
+
 
 export type AppType = (typeof routes)[number]
 

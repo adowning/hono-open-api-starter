@@ -1,0 +1,66 @@
+{
+  "skeleton": {
+    "hash": "LLI3JYyAaNiPn5UipxIkgnu/zHk",
+    "spine": "3.8.97",
+    "images": "/Users/gaurav/Workplace/NolimitGames/landofthefree/resources/sources",
+    "audio": ""
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "preBigWin",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "preBigWin",
+      "bone": "preBigWin",
+      "attachment": "preBigWin"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "preBigWin": {
+          "preBigWin": {
+            "path": "pngNormal/bigWins/preBigWin",
+            "x": 11.5,
+            "y": 9.5,
+            "width": 437,
+            "height": 531
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "animation": {
+      "slots": {
+        "preBigWin": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.3333,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffffff"
+            },
+            {
+              "time": 1,
+              "color": "ffffff00"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Nolimit Analytics</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MQMN6X2J51"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.addEventListener('message', function (e) {
+      try {
+        var options = JSON.parse(e.data);
+        gtag('js', new Date());
+        gtag('config', 'G-MQMN6X2J51', {
+          'page_title': options.game,
+          'page_path': '/games/' + options.game,
+          'app_name': options.game,
+          'app_version': options.version,
+          'app_id': options.game + '@' + options.device,
+          'app_installer_id': options.operator
+        });
+        gtag('event', 'game_options', options);
+        //gtag('event', 'screen_view', {
+        //    'screen_name': 'main'
+        //});
+
+        if (e.ports.length > 0) {
+          var port = e.ports[0];
+          port.onmessage = function (e) {
+            if (e.data.hitType && e.data.eventData && e.data.hitType !== 'event') {
+              var name = e.data.hitType;
+              var content = e.data.eventData;
+              if (name === 'screenview') {
+                name = 'screen_view';
+                content = {
+                  'screen_name': content['screenName']
+                };
+              }
+              if (name === 'exception') {
+                content = {
+                  'exception': content['exDescription'] || content['description'],
+                  'fatal': content['exFatal'] || content['fatal']
+                };
+              }
+              if (name === 'timing') {
+                name = 'timing_complete';
+                content = {
+                  'name': content['timingVar'],
+                  'value': content['timingValue'],
+                  'event_label': content['timingLabel'],
+                  'event_category': content['timingCategory']
+                };
+              }
+              if (content['eventCategory'] || content['eventAction'] || content['eventLabel'] || content['eventValue']) {
+                content = {
+                  'event_category': content['eventCategory'],
+                  'event_action': content['eventAction'],
+                  'event_label': content['eventLabel'],
+                  'event_value': content['eventValue']
+                };
+              }
+              gtag('event', name, content);
+            }
+          };
+        }
+      } catch (e) {
+        gtag('event', 'exception', {
+          'description': e.message,
+          'fatal': false
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+[2025-08-03T14:58:02.776Z] Error: Unsupported OpenAPI specification
+Stack:
+Error: Unsupported OpenAPI specification
+    at Dp (/home/ash/Documents/hono-open-api-starter/node_modules/@hey-api/openapi-ts/dist/index.cjs:32:125962)
+    at ti (/home/ash/Documents/hono-open-api-starter/node_modules/@hey-api/openapi-ts/dist/index.cjs:42:9033)
+    at async Promise.all (index 0)
+    at async PD (/home/ash/Documents/hono-open-api-starter/node_modules/@hey-api/openapi-ts/dist/index.cjs:1338:4639)
+    at async start (/home/ash/Documents/hono-open-api-starter/node_modules/@hey-api/openapi-ts/bin/index.cjs:139:21)

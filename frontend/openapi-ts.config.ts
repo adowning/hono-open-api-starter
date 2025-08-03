@@ -1,7 +1,7 @@
 import { defineConfig } from '@hey-api/openapi-ts'
 
 export default defineConfig({
-    input: 'http://localhost:9999/doc',
+    input: 'https://api.cashflowcasino.com/doc',
     output: {
         lint: 'eslint',
         format: 'prettier',

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>Nolimit City | Casino</title>
+<!-- <script src="/js/lib/jquery-3.3.1.min.js"></script> -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<body>
+    <script src="./nolimit-latest.min.js"></script>
+    <script>
+//        var VITE_SUPABASE_URL='https://pykjixfuargqkjkgxsyc.supabase.co'
+// var VITE_SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB5a2ppeGZ1YXJncWtqa2d4c3ljIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDczMDEyMjIsImV4cCI6MjAyMjg3NzIyMn0.t2ayCugyEAii4KHDG0rWRZcvQcILYtF_-UApm0XGlKg'
+//         console.log('nolimit.js', nolimit.version);
+//         console.log(supabase)
+//         const client = supabase.createClient(VITE_SUPABASE_URL,VITE_SUPABASE_KEY)
+//         console.log(client)
+//         client.auth.signInWithPassword({
+//   email: 'someone@email.com',
+//   password: 'ADHvNTDEOSzhjcNsHyuC'
+// })
+//     client
+//   .rpc('arcade_increment_crystals', {row_id: 1, val: 2.3}
+//   ).then((data, error)=>{
+//     console.log(error)
+//     console.log(data)
+//   })
+
+        // if (location.search.indexOf('game=') === -1) {
+        //     location.href = '/';
+        // } else {
+          console.log(window.location.search)
+            var options = {};
+
+            var query = window.location.search.substring(1);
+            var pairs = query.split('&');
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split('=');
+                options[pair[0]] = decodeURIComponent(pair[1]);
+            }
+            options.game = 'SanQuentin'
+            options.device = options.device || 'mobile';
+
+            var extra = ""
+
+            console.log("Token: " + options.token);
+
+            if (sessionStorage.getItem('demo.username') != null && options.token) {
+
+                var data = {
+                    operator: 'HOMEPAGE_RESTRICTED',
+                    environment: 'demo',
+                    game: options.game,
+                    device: options.device,
+                    extra: extra,
+                    quality: 'high'
+                };
+
+            } else {
+
+                var data = {
+                    operator: 'HOMEPAGE_PUBLIC',
+                    environment: 'demo',
+                    game: options.game,
+                    device: options.device,
+                    extra: extra,
+                    quality: 'high'
+                };
+
+            }
+
+            if (options.token) {
+                data.token = options.token;
+                data.demo = options.demo;
+            }
+            var game = nolimit.load(data);
+
+            game.on('exit', function() {
+                if (sessionStorage.getItem('demo.username') != null) {
+                    parent.location.href = '/operator/';
+                } else {
+                    parent.location.href = '/games/';
+                }
+            });
+
+            game.on('ready', function() {
+                console.log(options.game, options.device, 'is loaded');
+            });
+        // }
+    </script>
+</body>

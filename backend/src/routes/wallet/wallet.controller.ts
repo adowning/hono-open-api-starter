@@ -1,6 +1,6 @@
 import type { Context } from 'hono'
 
-import { creditToWallet, debitFromWallet } from './wallet.service' // Assuming wallet service is in the same directory
+import { creditTowallets, debitFromwallets } from './wallet.service' // Assuming wallet service is in the same directory
 
 export async function handleUpdateBalance(c: Context) {
     const user = c.get('user')
@@ -16,10 +16,10 @@ export async function handleUpdateBalance(c: Context) {
 
     try {
         if (type === 'credit') {
-            await creditToWallet(user.id, amount, description || 'Test credit')
+            await creditTowallets(user.id, amount, description || 'Test credit')
         }
         else if (type === 'debit') {
-            await debitFromWallet(user.id, amount, description || 'Test debit')
+            await debitFromwallets(user.id, amount, description || 'Test debit')
         }
         else {
             return c.json({ error: 'Invalid transaction type' }, 400)

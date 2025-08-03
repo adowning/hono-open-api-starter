@@ -1,0 +1,458 @@
+[
+  {
+    "name": "effects",
+    "src": [
+      "effects.mp4"
+    ],
+    "sprite": {
+      "asWin": [
+        0,
+        768
+      ],
+      "asWinBig": [
+        2000,
+        3706
+      ],
+      "bigwin1": [
+        7000,
+        7168
+      ],
+      "bigwin2": [
+        16000,
+        5310
+      ],
+      "bigwin3": [
+        23000,
+        5310
+      ],
+      "bigwin4": [
+        30000,
+        9558
+      ],
+      "bigwin5": [
+        41000,
+        9558
+      ],
+      "bigwinEnds1": [
+        52000,
+        4248
+      ],
+      "bigwinEnds2": [
+        58000,
+        4248
+      ],
+      "bigwinEnds3": [
+        64000,
+        4248
+      ],
+      "bigwinInit": [
+        70000,
+        2719
+      ],
+      "capWinEnds": [
+        74000,
+        4251
+      ],
+      "capWinIntro": [
+        80000,
+        4301
+      ],
+      "capWinMusic": [
+        86000,
+        25600
+      ],
+      "capWinStart": [
+        113000,
+        14625
+      ],
+      "continueButton": [
+        129000,
+        4867
+      ],
+      "fsEnds": [
+        135000,
+        5920
+      ],
+      "fsIntro": [
+        142000,
+        5162
+      ],
+      "fsMeterFill": [
+        149000,
+        1511
+      ],
+      "fsMeterFire": [
+        152000,
+        1046
+      ],
+      "fsMeterFull": [
+        155000,
+        2564
+      ],
+      "fsMeterToWild": [
+        159000,
+        1143
+      ],
+      "fsMeterWoosh01": [
+        162000,
+        732
+      ],
+      "fsMeterWoosh02": [
+        164000,
+        732
+      ],
+      "fsMeterWoosh03": [
+        166000,
+        732
+      ],
+      "fsMeterWoosh04": [
+        168000,
+        732
+      ],
+      "fsMeterWoosh05": [
+        170000,
+        732
+      ],
+      "fsMeterWoosh06": [
+        172000,
+        732
+      ],
+      "fsMultiCollect": [
+        174000,
+        2068
+      ],
+      "fsMultiUp": [
+        178000,
+        2068
+      ],
+      "fsPlusSpins": [
+        182000,
+        5932
+      ],
+      "fsSymToWild": [
+        189000,
+        1751
+      ],
+      "reelLanding1": [
+        192000,
+        949
+      ],
+      "reelLanding10": [
+        194000,
+        991
+      ],
+      "reelLanding11": [
+        196000,
+        1138
+      ],
+      "reelLanding2": [
+        199000,
+        1027
+      ],
+      "reelLanding3": [
+        202000,
+        997
+      ],
+      "reelLanding4": [
+        204000,
+        954
+      ],
+      "reelLanding5": [
+        206000,
+        615
+      ],
+      "reelLanding6": [
+        208000,
+        968
+      ],
+      "reelLanding7": [
+        210000,
+        994
+      ],
+      "reelLanding8": [
+        212000,
+        931
+      ],
+      "reelLanding9": [
+        214000,
+        873
+      ],
+      "reelsSpinIn": [
+        216000,
+        3218
+      ],
+      "reelsSpinOut": [
+        221000,
+        2253
+      ],
+      "scatter1": [
+        225000,
+        2665
+      ],
+      "scatter2": [
+        229000,
+        3433
+      ],
+      "scatter3": [
+        234000,
+        6655
+      ],
+      "scatterAnticipation": [
+        242000,
+        8391
+      ],
+      "scatterAnticipationEnd": [
+        252000,
+        3393
+      ],
+      "scatterAnticipationLand01": [
+        257000,
+        1593
+      ],
+      "scatterAnticipationLand02": [
+        260000,
+        1593
+      ],
+      "scatterAnticipationLand03": [
+        263000,
+        1593
+      ],
+      "scatterFlash": [
+        266000,
+        2345
+      ],
+      "scatterLand3Spins": [
+        270000,
+        2602
+      ],
+      "wildExplosion": [
+        274000,
+        2377
+      ],
+      "wildFlash": [
+        278000,
+        2627
+      ],
+      "wildHighlight": [
+        282000,
+        2557
+      ],
+      "wildLand01": [
+        286000,
+        1733
+      ],
+      "wildLand02": [
+        289000,
+        1998
+      ],
+      "wildLand03": [
+        292000,
+        1953
+      ],
+      "wildLand04": [
+        295000,
+        1954
+      ],
+      "wildNudge1": [
+        298000,
+        2051
+      ],
+      "wildNudge2": [
+        302000,
+        1815
+      ],
+      "wildNudge3": [
+        305000,
+        1955
+      ],
+      "wildNudgeFast": [
+        308000,
+        2377
+      ],
+      "wildNudgeFinal1": [
+        312000,
+        2973
+      ],
+      "wildNudgeFinal2": [
+        316000,
+        2973
+      ],
+      "wildNudgeFinal3": [
+        320000,
+        2973
+      ],
+      "wildNudgeFinal4": [
+        324000,
+        2978
+      ],
+      "winCountup": [
+        328000,
+        3874
+      ],
+      "winExplosion01": [
+        333000,
+        1933
+      ],
+      "winExplosion02": [
+        336000,
+        1933
+      ],
+      "winExplosion03": [
+        339000,
+        1933
+      ],
+      "winExplosion04": [
+        342000,
+        1933
+      ],
+      "winExplosion05": [
+        345000,
+        1830
+      ],
+      "winExplosion06": [
+        348000,
+        1933
+      ],
+      "winExplosionSingle": [
+        351000,
+        1697
+      ],
+      "winHighlightHigh01": [
+        354000,
+        1124
+      ],
+      "winHighlightHigh02": [
+        357000,
+        1124
+      ],
+      "winHighlightHigh03": [
+        360000,
+        1124
+      ],
+      "winHighlightHighSym01": [
+        363000,
+        1596
+      ],
+      "winHighlightHighSym02": [
+        366000,
+        1596
+      ],
+      "winHighlightHighSym03": [
+        369000,
+        1596
+      ],
+      "winHighlightLow01": [
+        372000,
+        985
+      ],
+      "winHighlightLow02": [
+        374000,
+        985
+      ],
+      "winHighlightLow03": [
+        376000,
+        985
+      ],
+      "winLarge": [
+        378000,
+        4826
+      ],
+      "winMedium": [
+        384000,
+        3830
+      ],
+      "winSmall": [
+        389000,
+        1654
+      ],
+      "winTiny": [
+        392000,
+        1371
+      ],
+      "xbetOff": [
+        395000,
+        2355
+      ],
+      "xbetOn": [
+        399000,
+        2433
+      ],
+      "xwaysExpandNoWin": [
+        403000,
+        1656
+      ],
+      "xwaysExpandWin": [
+        406000,
+        2394
+      ],
+      "xwaysLand01": [
+        410000,
+        1697
+      ],
+      "xwaysLand02": [
+        413000,
+        1697
+      ],
+      "xwaysLand03": [
+        416000,
+        1697
+      ]
+    }
+  },
+  {
+    "name": "keypad",
+    "src": [
+      "keypad.mp4"
+    ],
+    "sprite": {
+      "click": [
+        0,
+        173
+      ],
+      "disabled": [
+        2000,
+        173
+      ],
+      "fast-spin-off": [
+        4000,
+        173
+      ],
+      "fast-spin-on": [
+        6000,
+        173
+      ],
+      "spin-start": [
+        8000,
+        4232
+      ],
+      "spin-stop": [
+        14000,
+        4232
+      ]
+    }
+  },
+  {
+    "name": "loops",
+    "src": [
+      "loops.mp4"
+    ],
+    "sprite": {
+      "background-music-main": [
+        0,
+        96000
+      ],
+      "fs1": [
+        97000,
+        129960
+      ],
+      "fs2": [
+        228000,
+        129960
+      ],
+      "fsIntroLoop": [
+        359000,
+        16991
+      ]
+    }
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "skeleton": {
+    "hash": "MgQ97Afbdj/6hkyKaX2YRjCxBrU",
+    "spine": "3.8.97",
+    "x": -840,
+    "y": -22.5,
+    "width": 3360,
+    "height": 45,
+    "images": "../../resources/sources/",
+    "audio": ""
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "master",
+      "parent": "root"
+    },
+    {
+      "name": "pngHigh/reelArea/conveyorBelt1680",
+      "parent": "master"
+    },
+    {
+      "name": "pngHigh/reelArea/conveyorBelt1681",
+      "parent": "master",
+      "x": 1680
+    }
+  ],
+  "slots": [
+    {
+      "name": "pngHigh/reelArea/conveyorBelt1681",
+      "bone": "pngHigh/reelArea/conveyorBelt1681",
+      "attachment": "pngHigh/reelArea/conveyorBelt1680"
+    },
+    {
+      "name": "pngHigh/reelArea/conveyorBelt1680",
+      "bone": "pngHigh/reelArea/conveyorBelt1680",
+      "attachment": "pngHigh/reelArea/conveyorBelt1680"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "pngHigh/reelArea/conveyorBelt1680": {
+          "pngHigh/reelArea/conveyorBelt1680": {
+            "width": 1680,
+            "height": 45
+          }
+        },
+        "pngHigh/reelArea/conveyorBelt1681": {
+          "pngHigh/reelArea/conveyorBelt1680": {
+            "width": 1680,
+            "height": 45
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "animation": {
+      "bones": {
+        "master": {
+          "translate": [
+            {},
+            {
+              "time": 8,
+              "x": -1680
+            }
+          ]
+        }
+      }
+    },
+    "static": {
+
+    }
+  }
+}

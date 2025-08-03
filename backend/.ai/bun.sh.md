@@ -1,0 +1,1908 @@
+========================
+CODE SNIPPETS
+========================
+TITLE: Define a Start Script in package.json
+DESCRIPTION: This `package.json` snippet defines a `start` script that executes `index.ts` using `bun run`, allowing for easy project startup via `bun run start`.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: JSON
+CODE:
+
+```
+{
+  "name": "quickstart",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}
+```
+
+---
+
+TITLE: Install a Package with Bun
+DESCRIPTION: This command installs the `figlet` package, a utility for converting strings to ASCII art, into the project's dependencies using Bun's package manager.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun add figlet
+```
+
+---
+
+TITLE: Install Bun Runtime via Native Script, npm, or Homebrew
+DESCRIPTION: Instructions for installing a release build of Bun, which is required for building Bun from source. Options include a native installation script, npm, or Homebrew for macOS users.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+curl -fsSL https://bun.sh/install | bash
+```
+
+LANGUAGE: npm
+CODE:
+
+```
+npm install -g bun
+```
+
+LANGUAGE: Homebrew
+CODE:
+
+```
+brew tap oven-sh/bun
+```
+
+LANGUAGE: Homebrew
+CODE:
+
+```
+brew install bun
+```
+
+---
+
+TITLE: Run a Script Defined in package.json
+DESCRIPTION: This command executes the `start` script defined in `package.json` using Bun, which in turn runs the `index.ts` file.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun run start
+```
+
+---
+
+TITLE: Integrate Bun Install into GitHub Actions CI/CD Pipeline
+DESCRIPTION: This snippet provides a GitHub Actions workflow example for installing Bun and its dependencies in a CI/CD pipeline. It outlines steps for checking out the repository, setting up Bun using `oven-sh/setup-bun`, installing project dependencies, and building the application.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: yaml
+CODE:
+
+```
+name: bun-types
+jobs:
+  build:
+    name: build-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun install
+      - name: Build app
+        run: bun run build
+```
+
+---
+
+TITLE: Expected Server Startup Output
+DESCRIPTION: This snippet shows the console output indicating that the Bun HTTP server has successfully started and is listening on `http://localhost:3000`.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+Listening on http://localhost:3000 ...
+```
+
+---
+
+TITLE: Bun.serve HTTP Server Example
+DESCRIPTION: Demonstrates how to start a basic HTTP server using Bun.serve to handle incoming requests and return a simple response. This is Bun's native way to create an HTTP server.
+
+SOURCE: https://bun.sh/docs/runtime/bun-apis
+
+LANGUAGE: ts
+CODE:
+
+```
+Bun.serve({
+  fetch(req: Request) {
+    return new Response("Success!");
+  },
+});
+```
+
+---
+
+TITLE: Real-World Bun Catalog Example: App package.json
+DESCRIPTION: Example of an application package's `package.json` referencing dependencies from both singular and named catalogs, as well as internal workspace packages, demonstrating a typical setup.
+
+SOURCE: https://bun.sh/docs/install/catalogs
+
+LANGUAGE: json
+CODE:
+
+```
+{
+  "name": "app",
+  "dependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-router-dom": "catalog:",
+    "@monorepo/ui": "workspace:*",
+    "@monorepo/utils": "workspace:*"
+  },
+  "devDependencies": {
+    "webpack": "catalog:build",
+    "babel": "catalog:build",
+    "jest": "catalog:testing",
+    "react-testing-library": "catalog:testing"
+  }
+}
+```
+
+---
+
+TITLE: Install TypeScript Type Declarations for Figlet
+DESCRIPTION: For TypeScript users, this command installs the type declarations for the `figlet` package as a development dependency, enabling proper type checking when using `figlet`.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun add -d @types/figlet
+```
+
+---
+
+TITLE: Execute a TypeScript File with Bun
+DESCRIPTION: This shell command runs the `index.ts` file using the Bun runtime, starting the HTTP server defined within it.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun index.ts
+```
+
+---
+
+TITLE: Install Bun TypeScript Type Declarations
+DESCRIPTION: To resolve TypeScript errors related to the Bun global in existing projects, this command installs the `@types/bun` package as a development dependency.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun add -d @types/bun
+```
+
+---
+
+TITLE: Example Output of Cowsay Command
+DESCRIPTION: This snippet shows the typical ASCII art output generated by the `cowsay` command, illustrating its visual effect.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: text
+CODE:
+
+```
+ ______
+< Bun! >
+ ------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+---
+
+TITLE: Bun Plugin onStart Hook Implementation
+DESCRIPTION: Example demonstrating how to use the `onStart` hook within a Bun plugin to execute code at the very beginning of the bundling process. This snippet shows a simple console log when the bundle starts.
+
+SOURCE: https://bun.sh/docs/bundler/plugins
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+import { plugin } from "bun";
+
+plugin({
+  name: "onStart example",
+
+  setup(build) {
+    build.onStart(() => {
+      console.log("Bundle started!");
+    });
+  },
+});
+```
+
+---
+
+TITLE: Navigate into the new project directory
+DESCRIPTION: Changes the current working directory to the newly created 'quickstart' directory, preparing the environment for project initialization with Bun.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+cd quickstart
+```
+
+---
+
+TITLE: Install Bun TypeScript Definitions
+DESCRIPTION: This command installs the `@types/bun` package as a development dependency. This package provides TypeScript definitions for Bun's built-in APIs, allowing TypeScript files to correctly reference the `Bun` global without editor errors.
+
+SOURCE: https://bun.sh/docs/runtime/typescript
+
+LANGUAGE: sh
+CODE:
+
+```
+$ bun add -d @types/bun # dev dependency
+```
+
+---
+
+TITLE: Bun Build Command Examples
+DESCRIPTION: This section provides practical examples demonstrating how to use the `bun build` command for common development scenarios. These examples cover bundling frontend web applications, optimizing code for Bun's runtime, and creating standalone executables.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: shell
+CODE:
+
+```
+bun build --outfile=bundle.js ./src/index.ts
+```
+
+LANGUAGE: shell
+CODE:
+
+```
+bun build --minify --splitting --outdir=out ./index.jsx ./lib/worker.ts
+```
+
+LANGUAGE: shell
+CODE:
+
+```
+bun build --target=bun --outfile=server.js ./server.ts
+```
+
+LANGUAGE: shell
+CODE:
+
+```
+bun build --compile --outfile=my-app ./cli.ts
+```
+
+---
+
+TITLE: Install Bun via Scoop (Windows)
+DESCRIPTION: Installs Bun on Windows using the Scoop command-line installer.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: cmd
+CODE:
+
+```
+scoop install bun
+```
+
+---
+
+TITLE: Bun.serve() Configuration for HTML Routes and API Endpoints
+DESCRIPTION: Illustrates a complete `Bun.serve()` setup, demonstrating how to import and route HTML files, and define API endpoints (GET, POST) with database interaction using `bun:sql`. It also shows enabling development mode.
+
+SOURCE: https://bun.sh/docs/bundler/fullstack
+
+LANGUAGE: ts
+CODE:
+
+```
+import { sql, serve } from "bun";
+import dashboard from "./dashboard.html";
+import homepage from "./index.html";
+
+const server = serve({
+  routes: {
+    // ** HTML imports **
+    // Bundle & route index.html to "/". This uses HTMLRewriter to scan the HTML for `<script>` and `<link>` tags, run's Bun's JavaScript & CSS bundler on them, transpiles any TypeScript, JSX, and TSX, downlevels CSS with Bun's CSS parser and serves the result.
+    "/": homepage,
+    // Bundle & route dashboard.html to "/dashboard"
+    "/dashboard": dashboard,
+
+    // ** API endpoints ** (Bun v1.2.3+ required)
+    "/api/users": {
+      async GET(req) {
+        const users = await sql`SELECT * FROM users`;
+        return Response.json(users);
+      },
+      async POST(req) {
+        const { name, email } = await req.json();
+        const [user] =
+          await sql`INSERT INTO users (name, email) VALUES (${name}, ${email})`;
+        return Response.json(user);
+      }
+    },
+    "/api/users/:id": async req => {
+      const { id } = req.params;
+      const [user] = await sql`SELECT * FROM users WHERE id = ${id}`;
+      return Response.json(user);
+    }
+  },
+
+  // Enable development mode for:
+  // - Detailed error messages
+  // - Hot reloading (Bun v1.2.3+ required)
+  development: true,
+
+  // Prior to v1.2.3, the `fetch` option was used to handle all API requests. It is now optional.
+  // async fetch(req) {
+  //   // Return 404 for unmatched routes
+  //   return new Response("Not Found", { status: 404 });
+  // },
+});
+
+console.log(`Listening on ${server.url}`);
+```
+
+---
+
+TITLE: Integrate Bun Tests in GitHub Actions
+DESCRIPTION: Example GitHub Actions workflow demonstrating how to set up Bun, install dependencies, and run tests within a CI/CD pipeline. Bun automatically emits GitHub Actions annotations.
+
+SOURCE: https://bun.sh/docs/cli/test
+
+LANGUAGE: YAML
+CODE:
+
+```
+jobs:
+  build:
+    name: build-app
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
+      - name: Install dependencies # (assuming your project has dependencies)
+        run: bun install # You can use npm/yarn/pnpm instead if you prefer
+      - name: Run tests
+        run: bun test
+```
+
+---
+
+TITLE: Add Ubuntu Toolchain Test Repository for Newer GCC
+DESCRIPTION: Adds the `ubuntu-toolchain-r/test` PPA to APT sources. This repository provides newer GCC/G++ versions, necessary if `apt install gcc-11` fails due to package unavailability.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+```
+
+---
+
+TITLE: Install Core Build Dependencies (Node.js, Go, Rust, NASM, Ruby, Perl, Ccache, LLVM) using Scoop
+DESCRIPTION: These commands first install Scoop, then use it to install essential build tools like Node.js, Go, Rust, NASM, Ruby, Perl, and Ccache. LLVM 19.1.7 is installed separately due to potential Scoop issues. These tools are critical for the Bun build process.
+
+SOURCE: https://bun.sh/docs/project/building-windows
+
+LANGUAGE: ps1
+CODE:
+
+```
+irm https://get.scoop.sh | iex
+scoop install nodejs-lts go rust nasm ruby perl ccache
+scoop install llvm@19.1.7
+```
+
+---
+
+TITLE: Install Project Dependencies with Bun
+DESCRIPTION: The `bun install` command installs all project dependencies, including `dependencies`, `devDependencies`, `optionalDependencies`, and `peerDependencies`. It also runs pre/post install/prepare scripts and writes a `bun.lock` file.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install
+```
+
+---
+
+TITLE: Create a Simple HTTP Server with Bun.serve
+DESCRIPTION: This TypeScript code snippet demonstrates how to set up a basic HTTP server using Bun.serve, listening on port 3000 and returning 'Bun!' as the response. It's the core of a simple web application.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+const server = Bun.serve({
+  port: 3000,
+  fetch(req) {
+    return new Response("Bun!");
+  },
+});
+
+console.log(`Listening on http://localhost:${server.port} ...`);
+```
+
+---
+
+TITLE: Create a new project directory for Bun
+DESCRIPTION: Creates a new directory named 'quickstart' to house the project files for the Bun application. This is the first step in setting up a new project.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+mkdir quickstart
+```
+
+---
+
+TITLE: Check Bun Version and Revision
+DESCRIPTION: Commands to verify the installed Bun version and display the precise commit hash of the oven-sh/bun repository. Includes example outputs.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: bash
+CODE:
+
+```
+bun --version
+```
+
+LANGUAGE: text
+CODE:
+
+```
+1.x.y
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+bun --revision
+```
+
+LANGUAGE: text
+CODE:
+
+```
+1.x.y+b7982ac13189
+```
+
+---
+
+TITLE: Initialize a new Bun project using bun init
+DESCRIPTION: Runs the `bun init` command to scaffold a new Bun project. This interactive tool prompts for project details (like package name and entry point) and generates essential files such as `package.json`, `index.ts`, `.gitignore`, `tsconfig.json` (for TypeScript), and `README.md`.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun init
+
+bun init helps you get started with a minimal project and tries to
+guess sensible defaults. Press ^C anytime to quit.
+
+package name (quickstart):
+entry point (index.ts):
+
+Done! A package.json file was saved in the current directory.
+ + index.ts
+ + .gitignore
+ + tsconfig.json (for editor auto-complete)
+ + README.md
+
+To get started, run:
+  bun run index.ts
+```
+
+---
+
+TITLE: Bun CLI: Project Initialization and Creation
+DESCRIPTION: Commands for initializing new Bun projects with default configurations and creating projects from predefined templates or boilerplates.
+
+SOURCE: https://bun.sh/docs/cli/test
+
+LANGUAGE: CLI
+CODE:
+
+```
+bun init
+```
+
+LANGUAGE: CLI
+CODE:
+
+```
+bun create
+```
+
+---
+
+TITLE: Install Bun Monorepo Dependencies with Filters
+DESCRIPTION: Provides examples of using `bun install` with the `--filter` flag to selectively install dependencies for specific workspaces. It demonstrates filtering by glob patterns and excluding certain packages, as well as using relative paths.
+
+SOURCE: https://bun.sh/docs/install/workspaces
+
+LANGUAGE: bash
+CODE:
+
+```
+# Install dependencies for all workspaces starting with `pkg-` except for `pkg-c`
+$ bun install --filter "pkg-*" --filter "!pkg-c"
+
+# Paths can also be used. This is equivalent to the command above.
+$ bun install --filter "./packages/pkg-*" --filter "!./packages/pkg-c" # or --filter "!./packages/pkg-c"
+```
+
+---
+
+TITLE: Bun Auto-Installation Example
+DESCRIPTION: This snippet demonstrates Bun's core auto-installation feature. When this script is run for the first time, Bun automatically installs the 'foo' package into its global cache. Subsequent runs will use the cached version, eliminating the need for manual installation commands like 'bun install' or 'npm install'.
+
+SOURCE: https://bun.sh/docs/runtime/autoimport
+
+LANGUAGE: ts
+CODE:
+
+```
+import { foo } from "foo"; // install `latest` version
+
+foo();
+```
+
+---
+
+TITLE: Install pkg-config on macOS for libarchive Compilation
+DESCRIPTION: Installs `pkg-config` using Homebrew on macOS. This resolves compilation errors specifically related to the `libarchive` library, ensuring its dependencies are met.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+brew install pkg-config
+```
+
+---
+
+TITLE: Bun: Install Packages Globally
+DESCRIPTION: Explains how to install packages globally using `bun add --global` or `-g`, noting that it does not modify the project's `package.json` and is typically used for command-line tools. It also shows a basic usage example of a globally installed tool.
+
+SOURCE: https://bun.sh/docs/cli/add
+
+LANGUAGE: bun
+CODE:
+
+```
+bun add --global cowsay # or `bun add -g cowsay`
+```
+
+LANGUAGE: shell
+CODE:
+
+```
+cowsay "Bun!"
+```
+
+---
+
+TITLE: Get Nanoseconds Since Process Start with Bun.nanoseconds()
+DESCRIPTION: Returns the number of nanoseconds that have elapsed since the current Bun process started. This function is useful for high-precision timing and benchmarking purposes.
+
+SOURCE: https://bun.sh/docs/api/utils
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+Bun.nanoseconds();
+// => 7288958
+```
+
+---
+
+TITLE: Install Xcode Command Line Tools on macOS
+DESCRIPTION: Installs the Xcode Command Line Tools on macOS. This resolves the `library not found for -lSystem` error during compilation by providing essential system libraries and headers.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+xcode-select --install
+```
+
+---
+
+TITLE: Bundle Entrypoints with Bun's Native Bundler
+DESCRIPTION: Demonstrates how to use Bun's high-performance native bundler. This snippet provides examples for both programmatic bundling using the `Bun.build` JavaScript API and command-line bundling via `bun build`, showing how to specify entrypoints and an output directory.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+await Bun.build({
+  entrypoints: ['./index.tsx'],
+  outdir: './build'
+});
+```
+
+LANGUAGE: CLI
+CODE:
+
+```
+bun build ./index.tsx --outdir ./build
+```
+
+---
+
+TITLE: Asynchronous Bun onStart Plugin Examples
+DESCRIPTION: This example showcases the asynchronous capabilities of `onStart` callbacks, where Bun waits for all promises returned by these callbacks to resolve before continuing the bundling process. It includes scenarios like introducing a delay and writing build-time information to a file, illustrating how multiple `onStart` hooks can coordinate.
+
+SOURCE: https://bun.sh/docs/runtime/plugins
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+const result = await Bun.build({
+  entrypoints: ["./app.ts"],
+  outdir: "./dist",
+  sourcemap: "external",
+  plugins: [
+    {
+      name: "Sleep for 10 seconds",
+      setup(build) {
+        build.onStart(async () => {
+          await Bunlog.sleep(10_000);
+        });
+      },
+    },
+    {
+      name: "Log bundle time to a file",
+      setup(build) {
+        build.onStart(async () => {
+          const now = Date.now();
+          await Bun.$`echo ${now} > bundle-time.txt`;
+        });
+      },
+    },
+  ],
+});
+```
+
+---
+
+TITLE: Install GCC 11 and G++ 11 on Ubuntu
+DESCRIPTION: Installs GCC and G++ version 11 on Ubuntu. This resolves 'span' file not found errors by providing C++20 features like `std::span`, which are absent in older GCC versions.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo apt install gcc-11 g++-11
+```
+
+---
+
+TITLE: Build Bun from Source Repository
+DESCRIPTION: Command to initiate the build process for Bun after cloning its repository. This process includes cloning submodules and building dependencies, and may take some time. The resulting debug binary will be located at `./build/debug/bun-debug`. Running `--version` on the debug binary should output something like `x.y.z_debug`.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+bun run build
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+build/debug/bun-debug --version
+```
+
+---
+
+TITLE: Install NAPI CLI and Bun Native Plugin
+DESCRIPTION: Commands to install the NAPI CLI for creating new NAPI projects and the `bun-native-plugin` crate for Rust native plugins.
+
+SOURCE: https://bun.sh/docs/bundler/plugins
+
+LANGUAGE: bash
+CODE:
+
+```
+bun add -g @napi-rs/cli
+napi new
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+cargo add bun-native-plugin
+```
+
+---
+
+TITLE: Serving the Bundled Application Locally
+DESCRIPTION: Steps to create an HTML file that loads the bundled JavaScript, and how to use `bunx serve` to quickly set up a local static file server to view the application in a browser.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: cli
+CODE:
+
+```
+touch out/index.html
+```
+
+LANGUAGE: html
+CODE:
+
+```
+<html>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>
+```
+
+LANGUAGE: cli
+CODE:
+
+```
+bunx serve out
+```
+
+---
+
+TITLE: Bun Build for Production (API)
+DESCRIPTION: Shows how to programmatically configure and run a production build using Bun's `Bun.build` API. It includes options for entry points, output directory, and detailed minification settings.
+
+SOURCE: https://bun.sh/docs/bundler/html
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+Bun.build({
+  entrypoints: ["./index.html"],
+  outdir: "./dist",
+  minify: {
+    whitespace: true,
+    identifiers: true,
+    syntax: true,
+  }
+});
+```
+
+---
+
+TITLE: Install LLVM 19 for Bun Development
+DESCRIPTION: Bun requires LLVM 19 to match WebKit's precompiled version, preventing memory allocation failures. This section provides commands to install LLVM 19 using system package managers or a dedicated script for Ubuntu.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+brew install llvm@19
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+wget https://apt.llvm.org/llvm.sh -O - | sudo bash -s -- 19 all
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo pacman -S llvm clang lld
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo dnf install llvm clang lld-devel
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo zypper install clang19 lld19 llvm19
+```
+
+---
+
+TITLE: Determine Current Shell (Linux/macOS)
+DESCRIPTION: Identifies the current shell being used (e.g., zsh, bash, fish) to guide users on which configuration file to modify for PATH settings.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: bash
+CODE:
+
+```
+echo $SHELL
+```
+
+LANGUAGE: text
+CODE:
+
+```
+/bin/zsh # or /bin/bash or /bin/fish
+```
+
+---
+
+TITLE: Bun.serve() HTTP Server with Routing
+DESCRIPTION: This snippet demonstrates how to start an HTTP server using `Bun.serve()`, showcasing various routing capabilities including static paths, dynamic parameters, HTTP method-specific handlers, wildcard routes, redirects, and serving files from memory. It highlights the `routes` option for defining server behavior.
+
+SOURCE: https://bun.sh/docs/api/http
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+Bun.serve({
+  // `routes` requires Bun v1.2.3+
+  routes: {
+    // Static routes
+    "/api/status": new Response("OK"),
+
+    // Dynamic routes
+    "/users/:id": req => {
+      return new Response(`Hello User ${req.params.id}!`);
+    },
+
+    // Per-HTTP method handlers
+    "/api/posts": {
+      GET: () => new Response("List posts"),
+      POST: async req => {
+        const body = await req.json();
+        return Response.json({ created: true, ...body });
+      }
+    },
+
+    // Wildcard route for all routes that start with "/api/" and aren't otherwise matched
+    "/api/*": Response.json({ message: "Not found" }, { status: 404 }),
+
+    // Redirect from /blog/hello to /blog/hello/world
+    "/blog/hello": Response.redirect("/blog/hello/world"),
+
+    // Serve a file by buffering it in memory
+    "/favicon.ico": new Response(await Bun.file("./favicon.ico").bytes(), {
+      headers: {
+        "Content-Type": "image/x-icon"
+      }
+    })
+  },
+
+  // (optional) fallback for unmatched routes:
+  // Required if Bun's version < 1.2.3
+  fetch(req) {
+    return new Response("Not Found", { status: 404 });
+  }
+});
+```
+
+---
+
+TITLE: Install Bun Build Dependencies on Linux and macOS
+DESCRIPTION: Instructions for installing the necessary build dependencies for Bun using native package managers across various Linux distributions and macOS. These dependencies include tools like automake, ccache, cmake, git, go, libtool, ninja, pkg-config, rust, and ruby.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+brew install automake ccache cmake coreutils gnu-sed go icu4c libiconv libtool ninja pkg-config rust ruby
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo apt install curl wget lsb-release software-properties-common cargo ccache cmake git golang libtool ninja-build pkg-config rustc ruby-full xz-utils
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo pacman -S base-devel ccache cmake git go libiconv libtool make ninja pkg-config python rust sed unzip ruby
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo dnf install cargo ccache cmake git golang libtool ninja-build pkg-config rustc ruby libatomic-static libstdc++-static sed unzip which libicu-devel 'perl(Math::BigInt)'
+```
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo zypper install go cmake ninja automake git icu rustup && rustup toolchain install stable
+```
+
+---
+
+TITLE: Basic Bun.serve() Setup with HTML Routes
+DESCRIPTION: A simplified `Bun.serve()` configuration focusing on mapping imported HTML files to specific URL paths, demonstrating the core mechanism for serving frontend entrypoints.
+
+SOURCE: https://bun.sh/docs/bundler/fullstack
+
+LANGUAGE: ts
+CODE:
+
+```
+Bun.serve({
+  routes: {
+    "/": homepage,
+    "/dashboard": dashboard
+  },
+
+  fetch(req) {
+    // ... api requests
+  }
+});
+```
+
+---
+
+TITLE: Scaffold a Basic Bun Project Interactively
+DESCRIPTION: Demonstrates the interactive `bun init` command, which guides users through creating a new Bun project by prompting for package name and entry point. It generates essential files like `package.json`, `index.ts`, `.gitignore`, `tsconfig.json`, and `README.md`. Users can press enter to accept defaults or use the `-y` flag for auto-acceptance.
+
+SOURCE: https://bun.sh/docs/cli/init
+
+LANGUAGE: bash
+CODE:
+
+```
+$ bun init
+bun init helps you get started with a minimal project and tries to
+guess sensible defaults. Press ^C anytime to quit.
+
+package name (quickstart):
+entry point (index.ts):
+
+Done! A package.json file was saved in the current directory.
+ + index.ts
+ + .gitignore
+ + tsconfig.json (for editor auto-complete)
+ + README.md
+
+To get started, run:
+  bun run index.ts
+```
+
+---
+
+TITLE: Bun Test Command Output
+DESCRIPTION: An example of the console output after successfully running `bun test` with the `happy-dom` setup. It shows the test summary, including passes, failures, and execution time.
+
+SOURCE: https://bun.sh/docs/test/dom
+
+LANGUAGE: Shell Output
+CODE:
+
+```
+bun test v1.2.17
+
+dom.test.ts:
+✓ dom test [0.82ms]
+
+ 1 pass
+ 0 fail
+ 1 expect() calls
+Ran 1 tests across 1 files. 1 total [125.00ms]
+```
+
+---
+
+TITLE: Create a simple web server with Bun
+DESCRIPTION: This TypeScript snippet demonstrates how to set up a basic web server using `Bun.serve`. It defines a fetch handler that logs the incoming request URL to the console and responds with 'Hello, world!'.
+
+SOURCE: https://bun.sh/docs/runtime/debugger
+
+LANGUAGE: ts
+CODE:
+
+```
+Bun.serve({
+  fetch(req){
+    console.log(req.url);
+    return new Response("Hello, world!");
+  }
+})
+```
+
+---
+
+TITLE: Update APT Package List on Ubuntu
+DESCRIPTION: Updates the package list for APT on Ubuntu. This is a prerequisite for installing or upgrading packages, ensuring access to the latest available software information.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+sudo apt update
+```
+
+---
+
+TITLE: Get Bun CLI Version
+DESCRIPTION: Retrieves the version string of the currently running Bun CLI. This property provides a quick way to check the installed Bun runtime version programmatically.
+
+SOURCE: https://bun.sh/docs/api/utils
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+Bun.version;
+// => "0.6.4"
+```
+
+---
+
+TITLE: Access Bun Global in TypeScript
+DESCRIPTION: After installing the TypeScript definitions, you can reference the 'Bun' global object directly in your TypeScript files. This example demonstrates accessing the 'version' property of the 'Bun' object to log the current Bun runtime version.
+
+SOURCE: https://bun.sh/docs/typescript
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+console.log(Bun.version);
+```
+
+---
+
+TITLE: Package.json Entry Example with Exact Version
+DESCRIPTION: Provides an example of how a `package.json` file's `dependencies` section is modified when using `bun add` with and without the `--exact` flag, showing the difference in version specifiers (caret vs. exact).
+
+SOURCE: https://bun.sh/docs/cli/add
+
+LANGUAGE: JSON
+CODE:
+
+```
+{
+  "dependencies": {
+    // without --exact
+    "react": "^18.2.0", // this matches >= 18.2.0 < 19.0.0
+
+    // with --exact
+    "react": "18.2.0" // this matches only 18.2.0 exactly
+  }
+}
+```
+
+---
+
+TITLE: Bun Redis Client Automatic Command Pipelining
+DESCRIPTION: Explains how the Bun Redis client automatically pipelines commands for improved performance by batching requests. It shows an example of concurrent `get` operations benefiting from pipelining.
+
+SOURCE: https://bun.sh/docs/api/redis
+
+LANGUAGE: ts
+CODE:
+
+```
+// Commands are automatically pipelined by default
+const [infoResult, listResult] = await Promise.all([
+  redis.get("user:1:name"),
+  redis.get("user:2:email")
+]);
+```
+
+---
+
+TITLE: Implement Basic Bun onStart Plugin
+DESCRIPTION: This code demonstrates a basic implementation of the `onStart` lifecycle hook within a Bun plugin. The registered callback logs a message to the console, indicating that the bundle process has begun.
+
+SOURCE: https://bun.sh/docs/runtime/plugins
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+import { plugin } from "bun";
+
+plugin({
+  name: "onStart example",
+
+  setup(build) {
+    build.onStart(() => {
+      console.log("Bundle started!");
+    });
+  },
+});
+```
+
+---
+
+TITLE: Access Bun Global in TypeScript
+DESCRIPTION: This TypeScript snippet demonstrates how to access the `Bun` global object, specifically retrieving its version. After installing `@types/bun`, the `Bun` global becomes available for type-safe usage in TypeScript files.
+
+SOURCE: https://bun.sh/docs/runtime/typescript
+
+LANGUAGE: ts
+CODE:
+
+```
+console.log(Bun.version);
+```
+
+---
+
+TITLE: Building a Bundle with Bun
+DESCRIPTION: Demonstrates how to use Bun's bundler API in JavaScript or via the command line to create a production bundle from an entrypoint. The output is directed to the specified `outdir`.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: javascript
+CODE:
+
+```
+await Bun.build({
+  entrypoints: ['./index.tsx'],
+  outdir: './out',
+})
+```
+
+LANGUAGE: cli
+CODE:
+
+```
+bun build ./index.tsx --outdir ./out
+```
+
+---
+
+TITLE: Example Entrypoint for External Imports
+DESCRIPTION: This `index.tsx` file serves as an example entrypoint to demonstrate how `lodash` and `zod` are imported. It's used in conjunction with the `external` build option to show how imports can be left unbundled.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+import _ from "lodash";
+import {z} from "zod";
+
+const value = z.string().parse("Hello world!")
+console.log(_.upperCase(value));
+```
+
+---
+
+TITLE: Run a package executable with bunx
+DESCRIPTION: Demonstrates the basic usage of `bunx` to automatically install and execute a package from npm, similar to `npx` or `yarn dlx`.
+
+SOURCE: https://bun.sh/docs/cli/bunx
+
+LANGUAGE: bash
+CODE:
+
+```
+$ bunx cowsay "Hello world!"
+```
+
+---
+
+TITLE: Bun Project: Adding shadcn/ui Components
+DESCRIPTION: When `bun create` detects imports to `shadcn/ui` components, it automatically executes `bunx shadcn@canary add` to install the required components, streamlining the setup for `shadcn/ui` projects.
+
+SOURCE: https://bun.sh/docs/cli/bun-create
+
+LANGUAGE: bash
+CODE:
+
+```
+$ bunx shadcn@canary add accordion button # and any other components
+```
+
+---
+
+TITLE: Bun Shell Quickstart: Basic Command with JavaScript Interop
+DESCRIPTION: Demonstrates a basic Bun Shell command using the `$` template literal tag, showing how to pipe the content of a `Response` object as stdin to a shell command.
+
+SOURCE: https://bun.sh/docs/runtime/shell
+
+LANGUAGE: JavaScript
+CODE:
+
+```
+import { $ } from "bun";
+
+const response = await fetch("https://example.com");
+
+// Use Response as stdin.
+await $`cat < ${response} | wc -c`; // 1256
+```
+
+---
+
+TITLE: Bun Macro to Get Git Commit Hash
+DESCRIPTION: This practical example shows a Bun macro that uses `Bun.spawnSync` to execute a shell command (`git rev-parse HEAD`) at bundle-time. The output (the current Git commit hash) is then returned by the macro and inlined into the final bundle.
+
+SOURCE: https://bun.sh/docs/bundler/macros
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+export function getGitCommitHash() {
+  const {stdout} = Bun.spawnSync({
+    cmd: ["git", "rev-parse", "HEAD"],
+    stdout: "pipe",
+  });
+
+  return stdout.toString();
+}
+```
+
+---
+
+TITLE: Bun Build for Production (CLI)
+DESCRIPTION: Command-line instruction to build a production-ready bundle using `bun build`. It demonstrates minification and output directory specification.
+
+SOURCE: https://bun.sh/docs/bundler/html
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun build ./index.html --minify --outdir=dist
+```
+
+---
+
+TITLE: Bun.CookieMap toSetCookieHeaders() Method
+DESCRIPTION: Shows how to use `toSetCookieHeaders()` to get an array of `Set-Cookie` header values. This is useful for non-Bun HTTP server implementations, as Bun automatically applies changes to `req.cookies`. The example uses Node.js `http` module.
+
+SOURCE: https://bun.sh/docs/api/cookie
+
+LANGUAGE: js
+CODE:
+
+```
+import { createServer } from "node:http";
+import { CookieMap } from "bun";
+
+const server = createServer((req, res) => {
+  const cookieHeader = req.headers.cookie || "";
+  const cookies = new CookieMap(cookieHeader);
+
+  cookies.set("view-count", Number(cookies.get("view-count") || "0") + 1);
+  cookies.delete("session");
+
+  res.writeHead(200, {
+    "Content-Type": "text/plain",
+    "Set-Cookie": cookies.toSetCookieHeaders()
+  });
+  res.end(`Found ${cookies.size} cookies`);
+});
+
+server.listen(3000, () => {
+  console.log("Server running at http://localhost:3000/");
+});
+```
+
+---
+
+TITLE: Create a Basic Bun WebSocket Server
+DESCRIPTION: Demonstrates how to set up a simple WebSocket server using `Bun.serve`, upgrading incoming HTTP requests to WebSocket connections in the `fetch` handler. It shows the minimal setup without explicit handlers.
+
+SOURCE: https://bun.sh/docs/api/websockets
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+Bun.serve({
+  fetch(req, server) {
+    // upgrade the request to a WebSocket
+    if (server.upgrade(req)) {
+      return; // do not return a Response
+    }
+    return new Response("Upgrade failed", { status: 500 });
+  },
+  websocket: {}, // handlers
+});
+```
+
+---
+
+TITLE: Running Bun Test Suite and Individual Files
+DESCRIPTION: This snippet provides commands to set up the Bun internal test package and run the entire test suite. It also shows how to execute individual test files using `bun-debug test`.
+
+SOURCE: https://bun.sh/docs/project/building-windows
+
+LANGUAGE: ps1
+CODE:
+
+```
+# Setup
+> bun i --cwd packages\bun-internal-test
+
+# Run the entire test suite with reporter
+# the package.json script "test" uses "build/debug/bun-debug.exe" by default
+> bun run test
+
+# Run an individual test file:
+> bun-debug test node\fs
+> bun-debug test "C:\bun\test\js\bun\resolve\import-meta.test.js"
+```
+
+---
+
+TITLE: Output of Error.captureStackTrace Demonstration
+DESCRIPTION: This shell output displays the console logs from the TypeScript example, showing the stack trace before and after `Error.captureStackTrace` is called. The first stack trace includes `myInner` and `fn`, while the second, modified stack trace, starts directly from the module code, demonstrating the effect of `Error.captureStackTrace`.
+
+SOURCE: https://bun.sh/docs/runtime/debugger
+
+LANGUAGE: sh
+CODE:
+
+```
+Error: here!
+    at myInner (file.js:4:15)
+    at fn (file.js:8:5)
+    at module code (file.js:17:1)
+    at moduleEvaluation (native)
+    at moduleEvaluation (native)
+    at <anonymous> (native)
+
+-- captureStackTrace --
+
+Error: here!
+    at module code (file.js:17:1)
+    at moduleEvaluation (native)
+    at moduleEvaluation (.native)
+    at <anonymous> (native)
+```
+
+---
+
+TITLE: Install Specific Bun Version via curl (Linux/macOS)
+DESCRIPTION: Installs a specific version of Bun on Linux or macOS by piping the install script to bash with the desired version tag.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: bash
+CODE:
+
+```
+curl -fsSL https://bun.sh/install | bash -s "bun-v1.2.17"
+```
+
+---
+
+TITLE: Uninstall Bun on macOS/Linux (curl installation)
+DESCRIPTION: This command removes Bun from macOS, Linux, and WSL systems by deleting the ~/.bun directory, which is where Bun is installed when using the curl installation script.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: bash
+CODE:
+
+```
+rm -rf ~/.bun
+```
+
+---
+
+TITLE: Disable Logging for Bun Install
+DESCRIPTION: This command executes `bun install` with silent logging, suppressing all output during the dependency installation process.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install --silent
+```
+
+---
+
+TITLE: Real-World Bun Catalog Example: Root package.json
+DESCRIPTION: A comprehensive example of a root `package.json` demonstrating both singular `catalog` and plural `catalogs` definitions for a React monorepo, including common development dependencies.
+
+SOURCE: https://bun.sh/docs/install/catalogs
+
+LANGUAGE: json
+CODE:
+
+```
+{
+  "name": "react-monorepo",
+  "workspaces": {
+    "packages": ["packages/*"],
+    "catalog": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "react-router-dom": "^6.15.0"
+    },
+    "catalogs": {
+      "build": {
+        "webpack": "5.88.2",
+        "babel": "7.22.10"
+      },
+      "testing": {
+        "jest": "29.6.2",
+        "react-testing-library": "14.0.0"
+      }
+    }
+  },
+  "devDependencies": {
+    "typescript": "5.1.6"
+  }
+}
+```
+
+---
+
+TITLE: Run Bun Debug Binary
+DESCRIPTION: Instructions for running the compiled debug build of Bun. It is recommended to add the `./build/debug` directory to your system's PATH for easier execution. The `bun-debug` command directly executes the debug binary.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: bash
+CODE:
+
+```
+bun-debug
+```
+
+---
+
+TITLE: Implement onResolve and onLoad Hooks in Bun Plugin
+DESCRIPTION: This example illustrates how to use the `onResolve` and `onLoad` methods provided by the `builder` object within a Bun plugin's `setup` function. These methods allow plugins to hook into the module resolution and loading phases of the bundling process, respectively.
+
+SOURCE: https://bun.sh/docs/bundler/vs-esbuild
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+import type { BunPlugin } from "bun";
+const myPlugin: BunPlugin = {
+  name: "my-plugin",
+  setup(builder) {
+    builder.onResolve(
+      {
+        /* onResolve.options */
+      },
+      args => {
+        return {
+          /* onResolve.results */
+        };
+      },
+    );
+    builder.onLoad(
+      {
+        /* onLoad.options */
+      },
+      args => {
+        return {
+          /* onLoad.results */
+        };
+      },
+    );
+  },
+};
+```
+
+---
+
+TITLE: Example React Application Source Files
+DESCRIPTION: These files represent a simple client-side rendered React application, demonstrating the input for the Bun bundler. `index.tsx` is the entrypoint, and `Component.tsx` is a reusable component.
+
+SOURCE: https://bun.sh/docs/bundler
+
+LANGUAGE: typescript
+CODE:
+
+```
+import * as ReactDOM from 'react-dom/client';
+import {Component} from "./Component"
+
+const root = ReactDOM.createRoot(document.getElementById('root')!);root.render(<Component message="Sup!" />)
+```
+
+LANGUAGE: typescript
+CODE:
+
+```
+export function Component(props: {message: string}) {
+  return <p>{props.message}</p>
+}
+```
+
+---
+
+TITLE: Expected Output from Running package.json Script
+DESCRIPTION: This shows the console output when running a script via `bun run`, indicating the command being executed and the server's listening message.
+
+SOURCE: https://bun.sh/docs/quickstart
+
+LANGUAGE: Shell
+CODE:
+
+```
+  $ bun run index.ts
+  Listening on http://localhost:3000 ...
+```
+
+---
+
+TITLE: Compile and Run Basic C Function in Bun JavaScript
+DESCRIPTION: This example demonstrates how to compile a simple C function that returns an integer using `bun:ffi`'s `cc` utility and call it from TypeScript. It shows the basic setup for importing C source and defining symbols.
+
+SOURCE: https://bun.sh/docs/api/cc
+
+LANGUAGE: typescript
+CODE:
+
+```
+import { cc } from "bun:ffi";
+import source from "./hello.c" with { type: "file" };
+
+const {
+  symbols: { hello },
+} = cc({
+  source,
+  symbols: {
+    hello: {
+      args: [],
+      returns: "int",
+    },
+  },
+});
+
+console.log("What is the answer to the universe?", hello());
+```
+
+LANGUAGE: c
+CODE:
+
+```
+int hello() {
+  return 42;
+}
+```
+
+LANGUAGE: sh
+CODE:
+
+```
+$ bun hello.js
+What is the answer to the universe? 42
+```
+
+---
+
+TITLE: Demonstrate Route Precedence in Bun.serve
+DESCRIPTION: Illustrates the route matching order in Bun.serve, from most specific to least specific. Shows examples of exact paths, parameter routes, wildcard routes, and a global catch-all, demonstrating how Bun prioritizes route resolution.
+
+SOURCE: https://bun.sh/docs/api/http
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+Bun.serve({
+  routes: {
+    // Most specific first
+    "/api/users/me": () => new Response("Current user"),
+    "/api/users/:id": req => new Response(`User ${req.params.id}`),
+    "/api/*": () => new Response("API catch-all"),
+    "/*": () => new Response("Global catch-all"),
+  },
+});
+```
+
+---
+
+TITLE: Omit Development Dependencies During Bun Install
+DESCRIPTION: This command excludes `devDependencies` from the installation process for both the root package and any workspaces, reducing the installed footprint.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install --omit dev
+```
+
+---
+
+TITLE: Bun Lockfile Example with Catalog References
+DESCRIPTION: Demonstrates an excerpt from a `bun.lock` file, showing the `lockfileVersion`, `workspaces`, `catalog`, and `catalogs` sections. It illustrates how `catalog:` references in `dependencies` are resolved against definitions in the `catalog` and `catalogs` sections, ensuring consistent dependency versions within a monorepo.
+
+SOURCE: https://bun.sh/docs/install/catalogs
+
+LANGUAGE: JSON
+CODE:
+
+```
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "react-monorepo"
+    },
+    "packages/app": {
+      "name": "app",
+      "dependencies": {
+        "react": "catalog:",
+        "react-dom": "catalog:"
+      }
+    }
+  },
+  "catalog": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "catalogs": {
+    "build": {
+      "webpack": "5.88.2"
+    }
+  },
+  "packages": {}
+}
+```
+
+---
+
+TITLE: Install Dependencies in Production Mode with Bun
+DESCRIPTION: This command installs project dependencies without `devDependencies` or `optionalDependencies`, optimizing the installation for production environments.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install --production
+```
+
+---
+
+TITLE: Real-World Bun Catalog Example: UI package.json
+DESCRIPTION: Example of a UI package's `package.json` referencing dependencies from the default singular catalog and named testing catalog, common for shared UI components.
+
+SOURCE: https://bun.sh/docs/install/catalogs
+
+LANGUAGE: json
+CODE:
+
+```
+{
+  "name": "@monorepo/ui",
+  "dependencies": {
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
+  "devDependencies": {
+  "jest": "catalog:testing",
+    "react-testing-library": "catalog:testing"
+  }
+}
+```
+
+---
+
+TITLE: Uninstall Bun using npm
+DESCRIPTION: This command removes the globally installed Bun package if Bun was installed using npm. It's useful for managing Bun installations that were set up through Node.js's package manager.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: npm
+CODE:
+
+```
+npm uninstall -g bun
+```
+
+---
+
+TITLE: Install NAPI CLI for Bun Native Plugin Development
+DESCRIPTION: This command sequence installs the NAPI CLI globally, which is essential for scaffolding and managing NAPI projects that serve as Bun native plugins. It sets up the basic project structure.
+
+SOURCE: https://bun.sh/docs/runtime/plugins
+
+LANGUAGE: bash
+CODE:
+
+```
+bun add -g @napi-rs/cli
+napi new
+```
+
+---
+
+TITLE: Enable Debug Logging for Bun Install
+DESCRIPTION: This command executes `bun install` with verbose logging, providing detailed debug information during the dependency installation process.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install --verbose
+```
+
+---
+
+TITLE: Example Bun Test File
+DESCRIPTION: A basic example of a test file written in TypeScript using Bun's Jest-like API, demonstrating a simple addition test.
+
+SOURCE: https://bun.sh/docs/cli/test
+
+LANGUAGE: TypeScript
+CODE:
+
+```
+import { expect, test } from "bun:test";
+
+test("2 + 2", () => {
+  expect(2 + 2).toBe(4);
+});
+```
+
+---
+
+TITLE: Install Bun via PowerShell (Windows)
+DESCRIPTION: Installs Bun on Windows systems by executing a remote PowerShell script.
+
+SOURCE: https://bun.sh/docs/installation
+
+LANGUAGE: powershell
+CODE:
+
+```
+powershell -c "irm bun.sh/install.ps1|iex"
+```
+
+---
+
+TITLE: Run Bun Development Server with Single HTML Entry
+DESCRIPTION: Command to start Bun's development server, serving a single HTML file. Bun automatically bundles and serves associated assets like JavaScript and CSS, providing a local development URL.
+
+SOURCE: https://bun.sh/docs/bundler/html
+
+LANGUAGE: Shell
+CODE:
+
+```
+bun ./index.html
+```
+
+---
+
+TITLE: Perform a Dry Run for Bun Install
+DESCRIPTION: This command simulates the `bun install` process without actually installing any packages, useful for previewing changes or validating configurations.
+
+SOURCE: https://bun.sh/docs/cli/install
+
+LANGUAGE: bash
+CODE:
+
+```
+bun install --dry-run
+```
+
+---
+
+TITLE: Clone WebKit for Local Bun Development
+DESCRIPTION: Command to clone the WebKit repository into `./vendor/WebKit`, which is necessary for building WebKit locally for Bun development.
+
+SOURCE: https://bun.sh/docs/project/contributing
+
+LANGUAGE: Shell
+CODE:
+
+```
+git clone https://github.com/oven-sh/WebKit vendor/WebKit
+```

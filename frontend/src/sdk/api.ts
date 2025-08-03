@@ -18,17 +18,29 @@ type ApiClient = {
     [key: string]: ApiMethod
 }
 
-// Helper to get auth token
+// Helper to get auth token from the same source as the app store
 const getAuthToken = (): string | null => {
     if (typeof window === 'undefined') return null
-
     try {
+        // Prefer live token from Pinia store if available to avoid stale localStorage
+        const at = useAuthStore().accessToken
+        if (at && typeof at === 'string') {
+            return at
+        }
+    } catch {
+        // ignore if store not available yet
+    }
+    try {
+        // Fallback: attempt a previously persisted token locations (kept for safety)
         const authData = localStorage.getItem('auth-store')
-        return authData ? JSON.parse(authData).accessToken : null
+        if (authData) {
+            const parsed = JSON.parse(authData)
+            return parsed?.accessToken ?? null
+        }
     } catch (e) {
         console.error('Failed to parse auth data from localStorage', e)
-        return null
     }
+    return null
 }
 
 // Handler for the API client proxy
@@ -37,12 +49,18 @@ const createApiHandler = (baseUrl: string) => {
         input: RequestInfo | URL,
         init: RequestInit = {}
     ): Promise<T> => {
+        // Pull token from localStorage fallback only; generated client handles pinia-based token.
         const token = getAuthToken()
         const headers = new Headers(init.headers)
 
         if (token) {
             headers.set('Authorization', `Bearer ${token}`)
+        } else {
+            headers.delete('Authorization')
         }
+        // Temporary debug
+         
+        console.debug('[fetch][request]', typeof input === 'string' ? input : (input as URL).toString?.() ?? 'req', 'authHeader=', !!token, 'credentials=include')
 
         let body: BodyInit | null = null
         if (init.body) {
@@ -50,7 +68,9 @@ const createApiHandler = (baseUrl: string) => {
                 typeof init.body === 'object' &&
                 !(init.body instanceof FormData)
             ) {
-                headers.set('Content-Type', 'application/json')
+                if (!headers.has('Content-Type')) {
+                    headers.set('Content-Type', 'application/json')
+                }
                 body = JSON.stringify(init.body)
             } else {
                 body = init.body as BodyInit
@@ -58,6 +78,8 @@ const createApiHandler = (baseUrl: string) => {
         }
 
         const response = await fetch(input, {
+            // Ensure cookie-backed sessions are sent for endpoints that require it
+            credentials: 'include',
             ...init,
             headers,
             body,
@@ -125,7 +147,7 @@ const createApiHandler = (baseUrl: string) => {
 
 // Create and export API client instance
 const api = createApiHandler(
-    import.meta.env.VITE_API_BASE_URL || 'http://localhost:9999'
+    import.meta.env.VITE_API_BASE_URL || 'https://api.cashflowcasino.com'
 )
 
 export { api }

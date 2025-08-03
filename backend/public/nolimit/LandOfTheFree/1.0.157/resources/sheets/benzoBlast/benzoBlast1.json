@@ -1,0 +1,173 @@
+{"frames": {
+
+"benzoBlast/benzoBlast_1":
+{
+	"frame": {"x":0,"y":896,"w":204,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":232,"w":204,"h":100},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_2":
+{
+	"frame": {"x":916,"y":260,"w":280,"h":140},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":48,"y":192,"w":280,"h":140},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_3":
+{
+	"frame": {"x":304,"y":832,"w":284,"h":176},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":44,"y":156,"w":284,"h":176},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_9":
+{
+	"frame": {"x":612,"y":772,"w":280,"h":216},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":116,"w":280,"h":216},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_10":
+{
+	"frame": {"x":0,"y":0,"w":296,"h":292},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":40,"w":296,"h":292},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_11":
+{
+	"frame": {"x":0,"y":300,"w":296,"h":292},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":40,"w":296,"h":292},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_14":
+{
+	"frame": {"x":304,"y":0,"w":296,"h":292},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":40,"w":296,"h":292},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_15":
+{
+	"frame": {"x":916,"y":0,"w":300,"h":252},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":80,"w":300,"h":252},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoBlast/benzoBlast_21":
+{
+	"frame": {"x":0,"y":600,"w":296,"h":288},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":44,"w":296,"h":288},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_2":
+{
+	"frame": {"x":1224,"y":0,"w":188,"h":172},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":72,"y":88,"w":188,"h":172},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_3":
+{
+	"frame": {"x":1204,"y":260,"w":212,"h":200},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":68,"y":68,"w":212,"h":200},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_4":
+{
+	"frame": {"x":1168,"y":700,"w":232,"h":216},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":60,"w":232,"h":216},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_5":
+{
+	"frame": {"x":1172,"y":468,"w":244,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":56,"w":244,"h":224},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_6":
+{
+	"frame": {"x":900,"y":648,"w":260,"h":228},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":48,"y":56,"w":260,"h":228},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_7":
+{
+	"frame": {"x":900,"y":408,"w":264,"h":232},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":44,"y":56,"w":264,"h":232},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_9":
+{
+	"frame": {"x":612,"y":524,"w":272,"h":240},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":36,"y":56,"w":272,"h":240},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_10":
+{
+	"frame": {"x":608,"y":264,"w":284,"h":252},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":48,"w":284,"h":252},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_11":
+{
+	"frame": {"x":304,"y":300,"w":292,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":40,"w":292,"h":264},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_23":
+{
+	"frame": {"x":304,"y":572,"w":300,"h":252},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":40,"w":300,"h":252},
+	"sourceSize": {"w":326,"h":330}
+},
+"benzoUWblast/benzoBearUWBlast_24":
+{
+	"frame": {"x":608,"y":0,"w":300,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":40,"w":300,"h":256},
+	"sourceSize": {"w":326,"h":330}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "benzoBlast1.png",
+	"format": "RGBA8888",
+	"size": {"w":1416,"h":1008},
+	"scale": "1",
+	"related_multi_packs": [ "benzoBlast0.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:369e3526695f8fd64556e073f471e45d:afcd48fbc8059a4ba518dda0e1a5d2e3:b8e7fff13288f2ec2043614bc81725f4$"
+}
+}

@@ -1,0 +1,272 @@
+{
+  "skeleton": {
+    "hash": "PmkGii/dQtngkIy6327+RGCYO64",
+    "spine": "3.8.76",
+    "x": -847.82,
+    "y": -306,
+    "width": 1868.74,
+    "height": 306.27,
+    "images": "../../resources/sources/",
+    "audio": "/Users/kit/Documents/GitHub/deadcanary/projectfiles/spine_raw"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "bone_all",
+      "parent": "root"
+    },
+    {
+      "name": "bone_eff",
+      "parent": "bone_all",
+      "y": -155.57
+    },
+    {
+      "name": "bone_text_WILD",
+      "parent": "bone_eff",
+      "x": -574.99,
+      "y": 59.84,
+      "color": "ffffffff"
+    },
+    {
+      "name": "bone_text_Minning",
+      "parent": "bone_eff",
+      "x": 650.5,
+      "y": -54.43,
+      "color": "ffffffff"
+    },
+    {
+      "name": "bone_text_WILD2",
+      "parent": "bone_text_WILD",
+      "color": "ffffffff"
+    },
+    {
+      "name": "bone_eff_line1",
+      "parent": "bone_text_WILD",
+      "x": -80.83,
+      "color": "ffffffff"
+    },
+    {
+      "name": "bone_text_Minning2",
+      "parent": "bone_text_Minning",
+      "color": "ffffffff"
+    },
+    {
+      "name": "bone_eff_line2",
+      "parent": "bone_text_Minning",
+      "x": 178.42,
+      "color": "ffffffff"
+    }
+  ],
+  "slots": [
+    {
+      "name": "mainJpeg/eff_line_01",
+      "bone": "bone_eff_line1",
+      "attachment": "mainJpeg/eff_line_01",
+      "blend": "screen"
+    },
+    {
+      "name": "mainJpeg/eff_line_1",
+      "bone": "bone_eff_line2",
+      "attachment": "mainJpeg/eff_line_01",
+      "blend": "screen"
+    },
+    {
+      "name": "main/textImg/Wild2",
+      "bone": "bone_text_WILD2",
+      "attachment": "main/textImg/Wild"
+    },
+    {
+      "name": "main/textImg/Minning",
+      "bone": "bone_text_Minning2",
+      "attachment": "main/textImg/Minning"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "main/textImg/Minning": {
+          "main/textImg/Minning": {
+            "width": 339,
+            "height": 124
+          }
+        },
+        "main/textImg/Wild2": {
+          "main/textImg/Wild": {
+            "width": 230,
+            "height": 110
+          }
+        },
+        "mainJpeg/eff_line_01": {
+          "mainJpeg/eff_line_01": {
+            "scaleX": 1.5,
+            "scaleY": 6,
+            "width": 256,
+            "height": 32
+          }
+        },
+        "mainJpeg/eff_line_1": {
+          "mainJpeg/eff_line_01": {
+            "scaleX": 1.5,
+            "scaleY": 6,
+            "width": 256,
+            "height": 32
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "base": {
+      "slots": {
+        "main/textImg/Minning": {
+          "color": [
+            {
+              "color": "00000000"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.8333,
+              "color": "00000000"
+            }
+          ]
+        },
+        "main/textImg/Wild2": {
+          "color": [
+            {
+              "color": "00000000"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.8333,
+              "color": "00000000"
+            }
+          ]
+        },
+        "mainJpeg/eff_line_01": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "mainJpeg/eff_line_1": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "bone_text_Minning": {
+          "translate": [
+            {},
+            {
+              "time": 0.1667,
+              "x": -570.13
+            },
+            {
+              "time": 0.6667,
+              "x": -610.53
+            },
+            {
+              "time": 0.8333,
+              "x": -878.47
+            }
+          ]
+        },
+        "bone_text_WILD": {
+          "translate": [
+            {},
+            {
+              "time": 0.1667,
+              "x": 439.27
+            },
+            {
+              "time": 0.6667,
+              "x": 467.39
+            },
+            {
+              "time": 0.8333,
+              "x": 797.39
+            }
+          ]
+        },
+        "bone_eff_line1": {
+          "translate": [
+            {
+              "time": 0.1667
+            },
+            {
+              "time": 0.6667,
+              "x": 47.77
+            }
+          ]
+        },
+        "bone_eff_line2": {
+          "translate": [
+            {
+              "time": 0.1667
+            },
+            {
+              "time": 0.6667,
+              "x": -55.96
+            }
+          ]
+        },
+        "root": {
+          "shear": [
+            {
+              "time": 2
+            }
+          ]
+        }
+      }
+    }
+  }
+}

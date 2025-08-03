@@ -13,14 +13,19 @@ export default antfu(
         },
         ignores: [
             '**/migrations/*',
+            '**/public/*',
+            '**/node_modules/*',
             '*.md',
             'src/routes/redtiger/data.ts',
             '**/scripts/*',
+            'src/routes/blackjack/**/*',
         ],
     },
     {
         rules: {
+            'style/no-multiple-empty-lines': ['off'],
             'no-console': ['off'],
+            'style/eol-last': ['off'],
             'antfu/if-newline': ['off'],
             'jsonc/sort-keys': ['off'],
             'style/member-delimiter-style': ['off'],

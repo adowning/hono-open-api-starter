@@ -7,115 +7,112 @@ import {
   formDataBodySerializer,
 } from "./client";
 import type {
-  PostAuthLoginData,
-  PostAuthLoginResponses,
-  PostAuthSignupData,
-  PostAuthSignupResponses,
-  PostAuthLogoutData,
-  PostAuthLogoutResponses,
-  GetAuthMeData,
-  GetAuthMeResponses,
-  GetData,
-  GetResponses,
-  PostUpdatesCheckData,
-  PostUpdatesCheckResponses,
-  PostUpdatesUploadData,
-  PostUpdatesUploadResponses,
-  PostUpdatesUploadErrors,
-  GetUpdatesDownloadByFilenameData,
-  GetUpdatesDownloadByFilenameResponses,
-  GetUpdatesDownloadByFilenameErrors,
-  GetUpdatesVersionsByAppIdByPlatformData,
-  GetUpdatesVersionsByAppIdByPlatformResponses,
-  GetUpdatesVersionsByAppIdByPlatformErrors,
-  GetUsersData,
-  GetUsersResponses,
-  PostEnterGameData,
-  PostEnterGameResponses,
-  PostGamesData,
-  PostGamesResponses,
-  PostSetupGameData,
-  PostSetupGameResponses,
-  GetSpinpageData,
-  GetSpinpageResponses,
-  PostSpinData,
-  PostSpinResponses,
-  GetFavoriteGameData,
-  GetFavoriteGameResponses,
-  PostEndGameSessionData,
-  PostEndGameSessionResponses,
-  PostEndGameSessionErrors,
-  DeleteUsersByIdData,
-  DeleteUsersByIdResponses,
-  DeleteUsersByIdErrors,
-  GetUsersByIdData,
-  GetUsersByIdResponses,
-  GetUsersByIdErrors,
-  PatchUsersByIdData,
-  PatchUsersByIdResponses,
-  PatchUsersByIdErrors,
-  GetUsersByIdCheckData,
-  GetUsersByIdCheckResponses,
-  GetUsersByIdCheckErrors,
-  PostUsersByIdVerifyEmailData,
-  PostUsersByIdVerifyEmailResponses,
-  GetUsersByIdInfoData,
-  GetUsersByIdInfoResponses,
-  GetUsersByIdInfoErrors,
-  GetUsersByIdVipinfoData,
-  GetUsersByIdVipinfoResponses,
-  GetUserAmountData,
-  GetUserAmountResponses,
-  PostUserChangeData,
-  PostUserChangeResponses,
-  PostUserEmailData,
-  PostUserEmailResponses,
-  PostUserPasswordData,
-  PostUserPasswordResponses,
-  PostUserSuspendData,
-  PostUserSuspendResponses,
-  PostRedtigerGameSettingsData,
-  PostRedtigerGameSettingsResponses,
-  PostRedtigerGameSettingsErrors,
-  PostRedtigerGameSpinData,
-  PostRedtigerGameSpinResponses,
-  PostRedtigerGameSpinErrors,
-  PostBalanceData,
-  PostBalanceResponses,
-  PostBalanceErrors,
-  GetVipMeData,
-  GetVipMeResponses,
-  GetVipMeErrors,
-  GetVipLevelsData,
-  GetVipLevelsResponses,
-  GetVipRanksData,
-  GetVipRanksResponses,
-  GetOperatorsData,
-  GetOperatorsResponses,
-  GetOperatorsErrors,
-  GetOperatorsProductsData,
-  GetOperatorsProductsResponses,
-  GetOperatorsProductsErrors,
-  GetGamesAllData,
-  GetGamesAllResponses,
-  GetGamesCategoriesData,
-  GetGamesCategoriesResponses,
-  GetGamesSearchData,
-  GetGamesSearchResponses,
-  GetUserGamesData,
-  GetUserGamesResponses,
-  PostUserGamesFavoriteData,
-  PostUserGamesFavoriteResponses,
-  GetUserGamesFavoritesData,
-  GetUserGamesFavoritesResponses,
-  PostGamesByIdEnterData,
-  PostGamesByIdEnterResponses,
-  PostGamesByIdEnterErrors,
-  PostGamesLeaveData,
-  PostGamesLeaveResponses,
-  GetGamespinsTopwinsData,
-  GetGamespinsTopwinsResponses,
-  GetGamespinsTopwinsErrors,
+  PostApiAuthLoginData,
+  PostApiAuthLoginResponses,
+  PostApiAuthLoginErrors,
+  PostApiAuthSignupData,
+  PostApiAuthSignupResponses,
+  PostApiAuthSignupErrors,
+  PostApiAuthLogoutData,
+  PostApiAuthLogoutResponses,
+  PostApiAuthLogoutErrors,
+  GetApiAuthMeData,
+  GetApiAuthMeResponses,
+  GetApiAuthMeErrors,
+  GetApiData,
+  GetApiResponses,
+  PostApiUpdatesCheckData,
+  PostApiUpdatesCheckResponses,
+  PostApiUpdatesUploadData,
+  PostApiUpdatesUploadResponses,
+  PostApiUpdatesUploadErrors,
+  GetApiUpdatesDownloadByFilenameData,
+  GetApiUpdatesDownloadByFilenameResponses,
+  GetApiUpdatesDownloadByFilenameErrors,
+  GetApiUpdatesVersionsByAppIdByPlatformData,
+  GetApiUpdatesVersionsByAppIdByPlatformResponses,
+  GetApiUpdatesVersionsByAppIdByPlatformErrors,
+  GetApiUsersData,
+  GetApiUsersResponses,
+  PostApiEnterGameData,
+  PostApiEnterGameResponses,
+  PostApiGamesData,
+  PostApiGamesResponses,
+  PostApiSetupGameData,
+  PostApiSetupGameResponses,
+  GetApiSpinpageData,
+  GetApiSpinpageResponses,
+  PostApiSpinData,
+  PostApiSpinResponses,
+  GetApiFavoriteGameData,
+  GetApiFavoriteGameResponses,
+  PostApiEndGameSessionData,
+  PostApiEndGameSessionResponses,
+  PostApiEndGameSessionErrors,
+  DeleteApiUsersByIdData,
+  DeleteApiUsersByIdResponses,
+  DeleteApiUsersByIdErrors,
+  GetApiUsersByIdData,
+  GetApiUsersByIdResponses,
+  GetApiUsersByIdErrors,
+  PatchApiUsersByIdData,
+  PatchApiUsersByIdResponses,
+  PatchApiUsersByIdErrors,
+  GetApiUsersByIdCheckData,
+  GetApiUsersByIdCheckResponses,
+  GetApiUsersByIdCheckErrors,
+  PostApiUsersByIdVerifyEmailData,
+  PostApiUsersByIdVerifyEmailResponses,
+  GetApiUsersByIdInfoData,
+  GetApiUsersByIdInfoResponses,
+  GetApiUsersByIdInfoErrors,
+  GetApiUsersByIdVipinfoData,
+  GetApiUsersByIdVipinfoResponses,
+  GetApiUserAmountData,
+  GetApiUserAmountResponses,
+  PostApiUserChangeData,
+  PostApiUserChangeResponses,
+  PostApiUserEmailData,
+  PostApiUserEmailResponses,
+  PostApiUserPasswordData,
+  PostApiUserPasswordResponses,
+  PostApiUserSuspendData,
+  PostApiUserSuspendResponses,
+  PostApiRedtigerGameSettingsData,
+  PostApiRedtigerGameSettingsResponses,
+  PostApiRedtigerGameSettingsErrors,
+  PostApiRedtigerGameSpinData,
+  PostApiRedtigerGameSpinResponses,
+  PostApiRedtigerGameSpinErrors,
+  GetApiGamesAllData,
+  GetApiGamesAllResponses,
+  GetApiGamesCategoriesData,
+  GetApiGamesCategoriesResponses,
+  GetApiGamesSearchData,
+  GetApiGamesSearchResponses,
+  GetApiUserGamesData,
+  GetApiUserGamesResponses,
+  PostApiUserGamesFavoriteData,
+  PostApiUserGamesFavoriteResponses,
+  GetApiUserGamesFavoritesData,
+  GetApiUserGamesFavoritesResponses,
+  PostApiGamesByIdEnterData,
+  PostApiGamesByIdEnterResponses,
+  PostApiGamesByIdEnterErrors,
+  PostApiGamesLeaveData,
+  PostApiGamesLeaveResponses,
+  GetApiVipMeData,
+  GetApiVipMeResponses,
+  GetApiVipMeErrors,
+  GetApiVipLevelsData,
+  GetApiVipLevelsResponses,
+  GetApiVipRanksData,
+  GetApiVipRanksResponses,
+  GetApiGamespinsTopwinsData,
+  GetApiGamespinsTopwinsResponses,
+  GetApiGamespinsTopwinsErrors,
+  GetGs2cGeV3GameServiceData,
+  GetGs2cGeV3GameServiceResponses,
 } from "./types.gen";
 import { client as _heyApiClient } from "./client.gen";
 
@@ -136,16 +133,16 @@ export type Options<
   meta?: Record<string, unknown>;
 };
 
-export const postAuthLogin = <ThrowOnError extends boolean = true>(
-  options: Options<PostAuthLoginData, ThrowOnError>,
+export const postApiAuthLogin = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiAuthLoginData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostAuthLoginResponses,
-    unknown,
+    PostApiAuthLoginResponses,
+    PostApiAuthLoginErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/auth/login",
+    url: "/api/auth/login",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -154,16 +151,16 @@ export const postAuthLogin = <ThrowOnError extends boolean = true>(
   });
 };
 
-export const postAuthSignup = <ThrowOnError extends boolean = true>(
-  options: Options<PostAuthSignupData, ThrowOnError>,
+export const postApiAuthSignup = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiAuthSignupData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostAuthSignupResponses,
-    unknown,
+    PostApiAuthSignupResponses,
+    PostApiAuthSignupErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/auth/signup",
+    url: "/api/auth/signup",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -175,16 +172,16 @@ export const postAuthSignup = <ThrowOnError extends boolean = true>(
 /**
  * Logout current user
  */
-export const postAuthLogout = <ThrowOnError extends boolean = true>(
-  options?: Options<PostAuthLogoutData, ThrowOnError>,
+export const postApiAuthLogout = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiAuthLogoutData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostAuthLogoutResponses,
-    unknown,
+    PostApiAuthLogoutResponses,
+    PostApiAuthLogoutErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/auth/logout",
+    url: "/api/auth/logout",
     ...options,
   });
 };
@@ -192,44 +189,44 @@ export const postAuthLogout = <ThrowOnError extends boolean = true>(
 /**
  * Get current user session
  */
-export const getAuthMe = <ThrowOnError extends boolean = true>(
-  options?: Options<GetAuthMeData, ThrowOnError>,
+export const getApiAuthMe = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiAuthMeData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetAuthMeResponses,
-    unknown,
+    GetApiAuthMeResponses,
+    GetApiAuthMeErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/auth/me",
+    url: "/api/auth/me",
     ...options,
   });
 };
 
-export const get = <ThrowOnError extends boolean = true>(
-  options?: Options<GetData, ThrowOnError>,
+export const getApi = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetResponses,
+    GetApiResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/",
+    url: "/api/",
     ...options,
   });
 };
 
-export const postUpdatesCheck = <ThrowOnError extends boolean = true>(
-  options: Options<PostUpdatesCheckData, ThrowOnError>,
+export const postApiUpdatesCheck = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiUpdatesCheckData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostUpdatesCheckResponses,
+    PostApiUpdatesCheckResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/updates/check",
+    url: "/api/updates/check",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -241,17 +238,17 @@ export const postUpdatesCheck = <ThrowOnError extends boolean = true>(
 /**
  * Upload a new application version (APK or OTA bundle)
  */
-export const postUpdatesUpload = <ThrowOnError extends boolean = true>(
-  options?: Options<PostUpdatesUploadData, ThrowOnError>,
+export const postApiUpdatesUpload = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiUpdatesUploadData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostUpdatesUploadResponses,
-    PostUpdatesUploadErrors,
+    PostApiUpdatesUploadResponses,
+    PostApiUpdatesUploadErrors,
     ThrowOnError
   >({
     ...formDataBodySerializer,
     responseType: "json",
-    url: "/updates/upload",
+    url: "/api/updates/upload",
     ...options,
     headers: {
       "Content-Type": null,
@@ -263,17 +260,17 @@ export const postUpdatesUpload = <ThrowOnError extends boolean = true>(
 /**
  * Download an update file (for local development only)
  */
-export const getUpdatesDownloadByFilename = <
+export const getApiUpdatesDownloadByFilename = <
   ThrowOnError extends boolean = true,
 >(
-  options: Options<GetUpdatesDownloadByFilenameData, ThrowOnError>,
+  options: Options<GetApiUpdatesDownloadByFilenameData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUpdatesDownloadByFilenameResponses,
-    GetUpdatesDownloadByFilenameErrors,
+    GetApiUpdatesDownloadByFilenameResponses,
+    GetApiUpdatesDownloadByFilenameErrors,
     ThrowOnError
   >({
-    url: "/updates/download/{filename}",
+    url: "/api/updates/download/{filename}",
     ...options,
   });
 };
@@ -281,110 +278,110 @@ export const getUpdatesDownloadByFilename = <
 /**
  * List all available versions for an app and platform
  */
-export const getUpdatesVersionsByAppIdByPlatform = <
+export const getApiUpdatesVersionsByAppIdByPlatform = <
   ThrowOnError extends boolean = true,
 >(
-  options: Options<GetUpdatesVersionsByAppIdByPlatformData, ThrowOnError>,
+  options: Options<GetApiUpdatesVersionsByAppIdByPlatformData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUpdatesVersionsByAppIdByPlatformResponses,
-    GetUpdatesVersionsByAppIdByPlatformErrors,
+    GetApiUpdatesVersionsByAppIdByPlatformResponses,
+    GetApiUpdatesVersionsByAppIdByPlatformErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/updates/versions/{appId}/{platform}",
+    url: "/api/updates/versions/{appId}/{platform}",
     ...options,
   });
 };
 
-export const getUsers = <ThrowOnError extends boolean = true>(
-  options?: Options<GetUsersData, ThrowOnError>,
+export const getApiUsers = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiUsersData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetUsersResponses,
+    GetApiUsersResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users",
+    url: "/api/users",
     ...options,
   });
 };
 
-export const postEnterGame = <ThrowOnError extends boolean = true>(
-  options?: Options<PostEnterGameData, ThrowOnError>,
+export const postApiEnterGame = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiEnterGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostEnterGameResponses,
+    PostApiEnterGameResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/enter/game",
+    url: "/api/enter/game",
     ...options,
   });
 };
 
-export const postGames = <ThrowOnError extends boolean = true>(
-  options?: Options<PostGamesData, ThrowOnError>,
+export const postApiGames = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiGamesData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostGamesResponses,
+    PostApiGamesResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/games",
+    url: "/api/games",
     ...options,
   });
 };
 
-export const postSetupGame = <ThrowOnError extends boolean = true>(
-  options?: Options<PostSetupGameData, ThrowOnError>,
+export const postApiSetupGame = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiSetupGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostSetupGameResponses,
+    PostApiSetupGameResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/setup/game",
+    url: "/api/setup/game",
     ...options,
   });
 };
 
-export const getSpinpage = <ThrowOnError extends boolean = true>(
-  options?: Options<GetSpinpageData, ThrowOnError>,
+export const getApiSpinpage = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiSpinpageData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetSpinpageResponses,
+    GetApiSpinpageResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/spinpage",
+    url: "/api/spinpage",
     ...options,
   });
 };
 
-export const postSpin = <ThrowOnError extends boolean = true>(
-  options?: Options<PostSpinData, ThrowOnError>,
+export const postApiSpin = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiSpinData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostSpinResponses,
+    PostApiSpinResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/spin",
+    url: "/api/spin",
     ...options,
   });
 };
 
-export const getFavoriteGame = <ThrowOnError extends boolean = true>(
-  options?: Options<GetFavoriteGameData, ThrowOnError>,
+export const getApiFavoriteGame = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiFavoriteGameData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetFavoriteGameResponses,
+    GetApiFavoriteGameResponses,
     unknown,
     ThrowOnError
   >({
-    url: "/favorite/game",
+    url: "/api/favorite/game",
     ...options,
   });
 };
@@ -392,57 +389,57 @@ export const getFavoriteGame = <ThrowOnError extends boolean = true>(
 /**
  * End the current game session
  */
-export const postEndGameSession = <ThrowOnError extends boolean = true>(
-  options?: Options<PostEndGameSessionData, ThrowOnError>,
+export const postApiEndGameSession = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiEndGameSessionData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostEndGameSessionResponses,
-    PostEndGameSessionErrors,
+    PostApiEndGameSessionResponses,
+    PostApiEndGameSessionErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/end-game-session",
+    url: "/api/end-game-session",
     ...options,
   });
 };
 
-export const deleteUsersById = <ThrowOnError extends boolean = true>(
-  options: Options<DeleteUsersByIdData, ThrowOnError>,
+export const deleteApiUsersById = <ThrowOnError extends boolean = true>(
+  options: Options<DeleteApiUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).delete<
-    DeleteUsersByIdResponses,
-    DeleteUsersByIdErrors,
+    DeleteApiUsersByIdResponses,
+    DeleteApiUsersByIdErrors,
     ThrowOnError
   >({
-    url: "/users/{id}",
+    url: "/api/users/{id}",
     ...options,
   });
 };
 
-export const getUsersById = <ThrowOnError extends boolean = true>(
-  options: Options<GetUsersByIdData, ThrowOnError>,
+export const getApiUsersById = <ThrowOnError extends boolean = true>(
+  options: Options<GetApiUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUsersByIdResponses,
-    GetUsersByIdErrors,
+    GetApiUsersByIdResponses,
+    GetApiUsersByIdErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}",
+    url: "/api/users/{id}",
     ...options,
   });
 };
 
-export const patchUsersById = <ThrowOnError extends boolean = true>(
-  options: Options<PatchUsersByIdData, ThrowOnError>,
+export const patchApiUsersById = <ThrowOnError extends boolean = true>(
+  options: Options<PatchApiUsersByIdData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).patch<
-    PatchUsersByIdResponses,
-    PatchUsersByIdErrors,
+    PatchApiUsersByIdResponses,
+    PatchApiUsersByIdErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}",
+    url: "/api/users/{id}",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -454,16 +451,16 @@ export const patchUsersById = <ThrowOnError extends boolean = true>(
 /**
  * Check if a user exists
  */
-export const getUsersByIdCheck = <ThrowOnError extends boolean = true>(
-  options: Options<GetUsersByIdCheckData, ThrowOnError>,
+export const getApiUsersByIdCheck = <ThrowOnError extends boolean = true>(
+  options: Options<GetApiUsersByIdCheckData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUsersByIdCheckResponses,
-    GetUsersByIdCheckErrors,
+    GetApiUsersByIdCheckResponses,
+    GetApiUsersByIdCheckErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}/check",
+    url: "/api/users/{id}/check",
     ...options,
   });
 };
@@ -471,16 +468,18 @@ export const getUsersByIdCheck = <ThrowOnError extends boolean = true>(
 /**
  * Send email verification
  */
-export const postUsersByIdVerifyEmail = <ThrowOnError extends boolean = true>(
-  options: Options<PostUsersByIdVerifyEmailData, ThrowOnError>,
+export const postApiUsersByIdVerifyEmail = <
+  ThrowOnError extends boolean = true,
+>(
+  options: Options<PostApiUsersByIdVerifyEmailData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostUsersByIdVerifyEmailResponses,
+    PostApiUsersByIdVerifyEmailResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}/verify-email",
+    url: "/api/users/{id}/verify-email",
     ...options,
   });
 };
@@ -488,16 +487,16 @@ export const postUsersByIdVerifyEmail = <ThrowOnError extends boolean = true>(
 /**
  * Get user info
  */
-export const getUsersByIdInfo = <ThrowOnError extends boolean = true>(
-  options: Options<GetUsersByIdInfoData, ThrowOnError>,
+export const getApiUsersByIdInfo = <ThrowOnError extends boolean = true>(
+  options: Options<GetApiUsersByIdInfoData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUsersByIdInfoResponses,
-    GetUsersByIdInfoErrors,
+    GetApiUsersByIdInfoResponses,
+    GetApiUsersByIdInfoErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}/info",
+    url: "/api/users/{id}/info",
     ...options,
   });
 };
@@ -505,62 +504,44 @@ export const getUsersByIdInfo = <ThrowOnError extends boolean = true>(
 /**
  * Get user VIP info
  */
-export const getUsersByIdVipinfo = <ThrowOnError extends boolean = true>(
-  options: Options<GetUsersByIdVipinfoData, ThrowOnError>,
+export const getApiUsersByIdVipinfo = <ThrowOnError extends boolean = true>(
+  options: Options<GetApiUsersByIdVipinfoData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).get<
-    GetUsersByIdVipinfoResponses,
+    GetApiUsersByIdVipinfoResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/users/{id}/vipinfo",
+    url: "/api/users/{id}/vipinfo",
     ...options,
   });
 };
 
-export const getUserAmount = <ThrowOnError extends boolean = true>(
-  options?: Options<GetUserAmountData, ThrowOnError>,
+export const getApiUserAmount = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiUserAmountData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetUserAmountResponses,
+    GetApiUserAmountResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/user/amount",
+    url: "/api/user/amount",
     ...options,
   });
 };
 
-export const postUserChange = <ThrowOnError extends boolean = true>(
-  options: Options<PostUserChangeData, ThrowOnError>,
+export const postApiUserChange = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiUserChangeData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostUserChangeResponses,
+    PostApiUserChangeResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/user/change",
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...options.headers,
-    },
-  });
-};
-
-export const postUserEmail = <ThrowOnError extends boolean = true>(
-  options: Options<PostUserEmailData, ThrowOnError>,
-) => {
-  return (options.client ?? _heyApiClient).post<
-    PostUserEmailResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/user/email",
+    url: "/api/user/change",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -569,16 +550,16 @@ export const postUserEmail = <ThrowOnError extends boolean = true>(
   });
 };
 
-export const postUserPassword = <ThrowOnError extends boolean = true>(
-  options: Options<PostUserPasswordData, ThrowOnError>,
+export const postApiUserEmail = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiUserEmailData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostUserPasswordResponses,
+    PostApiUserEmailResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/user/password",
+    url: "/api/user/email",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -587,16 +568,34 @@ export const postUserPassword = <ThrowOnError extends boolean = true>(
   });
 };
 
-export const postUserSuspend = <ThrowOnError extends boolean = true>(
-  options: Options<PostUserSuspendData, ThrowOnError>,
+export const postApiUserPassword = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiUserPasswordData, ThrowOnError>,
 ) => {
   return (options.client ?? _heyApiClient).post<
-    PostUserSuspendResponses,
+    PostApiUserPasswordResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/user/suspend",
+    url: "/api/user/password",
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+  });
+};
+
+export const postApiUserSuspend = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiUserSuspendData, ThrowOnError>,
+) => {
+  return (options.client ?? _heyApiClient).post<
+    PostApiUserSuspendResponses,
+    unknown,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/user/suspend",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -608,16 +607,18 @@ export const postUserSuspend = <ThrowOnError extends boolean = true>(
 /**
  * Get redtiger settings for a game
  */
-export const postRedtigerGameSettings = <ThrowOnError extends boolean = true>(
-  options?: Options<PostRedtigerGameSettingsData, ThrowOnError>,
+export const postApiRedtigerGameSettings = <
+  ThrowOnError extends boolean = true,
+>(
+  options?: Options<PostApiRedtigerGameSettingsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostRedtigerGameSettingsResponses,
-    PostRedtigerGameSettingsErrors,
+    PostApiRedtigerGameSettingsResponses,
+    PostApiRedtigerGameSettingsErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/redtiger/game/settings",
+    url: "/api/redtiger/game/settings",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -629,16 +630,16 @@ export const postRedtigerGameSettings = <ThrowOnError extends boolean = true>(
 /**
  * Perform a spin in a redtiger game
  */
-export const postRedtigerGameSpin = <ThrowOnError extends boolean = true>(
-  options?: Options<PostRedtigerGameSpinData, ThrowOnError>,
+export const postApiRedtigerGameSpin = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiRedtigerGameSpinData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).post<
-    PostRedtigerGameSpinResponses,
-    PostRedtigerGameSpinErrors,
+    PostApiRedtigerGameSpinResponses,
+    PostApiRedtigerGameSpinErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/redtiger/game/spin",
+    url: "/api/redtiger/game/spin",
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -647,19 +648,116 @@ export const postRedtigerGameSpin = <ThrowOnError extends boolean = true>(
   });
 };
 
-/**
- * Update current user balance
- */
-export const postBalance = <ThrowOnError extends boolean = true>(
-  options?: Options<PostBalanceData, ThrowOnError>,
+export const getApiGamesAll = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiGamesAllData, ThrowOnError>,
 ) => {
-  return (options?.client ?? _heyApiClient).post<
-    PostBalanceResponses,
-    PostBalanceErrors,
+  return (options?.client ?? _heyApiClient).get<
+    GetApiGamesAllResponses,
+    unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/balance",
+    url: "/api/games/all",
+    ...options,
+  });
+};
+
+export const getApiGamesCategories = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiGamesCategoriesData, ThrowOnError>,
+) => {
+  return (options?.client ?? _heyApiClient).get<
+    GetApiGamesCategoriesResponses,
+    unknown,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/games/categories",
+    ...options,
+  });
+};
+
+export const getApiGamesSearch = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiGamesSearchData, ThrowOnError>,
+) => {
+  return (options?.client ?? _heyApiClient).get<
+    GetApiGamesSearchResponses,
+    unknown,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/games/search",
+    ...options,
+  });
+};
+
+export const getApiUserGames = <ThrowOnError extends boolean = true>(
+  options: Options<GetApiUserGamesData, ThrowOnError>,
+) => {
+  return (options.client ?? _heyApiClient).get<
+    GetApiUserGamesResponses,
+    unknown,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/user/games",
+    ...options,
+  });
+};
+
+export const postApiUserGamesFavorite = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiUserGamesFavoriteData, ThrowOnError>,
+) => {
+  return (options?.client ?? _heyApiClient).post<
+    PostApiUserGamesFavoriteResponses,
+    unknown,
+    ThrowOnError
+  >({
+    url: "/api/user/games/favorite",
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...options?.headers,
+    },
+  });
+};
+
+export const getApiUserGamesFavorites = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiUserGamesFavoritesData, ThrowOnError>,
+) => {
+  return (options?.client ?? _heyApiClient).get<
+    GetApiUserGamesFavoritesResponses,
+    unknown,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/user/games/favorites",
+    ...options,
+  });
+};
+
+export const postApiGamesByIdEnter = <ThrowOnError extends boolean = true>(
+  options: Options<PostApiGamesByIdEnterData, ThrowOnError>,
+) => {
+  return (options.client ?? _heyApiClient).post<
+    PostApiGamesByIdEnterResponses,
+    PostApiGamesByIdEnterErrors,
+    ThrowOnError
+  >({
+    responseType: "json",
+    url: "/api/games/{id}/enter",
+    ...options,
+  });
+};
+
+export const postApiGamesLeave = <ThrowOnError extends boolean = true>(
+  options?: Options<PostApiGamesLeaveData, ThrowOnError>,
+) => {
+  return (options?.client ?? _heyApiClient).post<
+    PostApiGamesLeaveResponses,
+    unknown,
+    ThrowOnError
+  >({
+    url: "/api/games/leave",
     ...options,
   });
 };
@@ -667,16 +765,16 @@ export const postBalance = <ThrowOnError extends boolean = true>(
 /**
  * Get the authenticated user VIP details
  */
-export const getVipMe = <ThrowOnError extends boolean = true>(
-  options?: Options<GetVipMeData, ThrowOnError>,
+export const getApiVipMe = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiVipMeData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetVipMeResponses,
-    GetVipMeErrors,
+    GetApiVipMeResponses,
+    GetApiVipMeErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/vip/me",
+    url: "/api/vip/me",
     ...options,
   });
 };
@@ -684,16 +782,16 @@ export const getVipMe = <ThrowOnError extends boolean = true>(
 /**
  * Get the configuration for all VIP levels
  */
-export const getVipLevels = <ThrowOnError extends boolean = true>(
-  options?: Options<GetVipLevelsData, ThrowOnError>,
+export const getApiVipLevels = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiVipLevelsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetVipLevelsResponses,
+    GetApiVipLevelsResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/vip/levels",
+    url: "/api/vip/levels",
     ...options,
   });
 };
@@ -701,178 +799,44 @@ export const getVipLevels = <ThrowOnError extends boolean = true>(
 /**
  * Get the configuration for all VIP ranks
  */
-export const getVipRanks = <ThrowOnError extends boolean = true>(
-  options?: Options<GetVipRanksData, ThrowOnError>,
+export const getApiVipRanks = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiVipRanksData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetVipRanksResponses,
+    GetApiVipRanksResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/vip/ranks",
+    url: "/api/vip/ranks",
     ...options,
   });
 };
 
-/**
- * Get all operators
- */
-export const getOperators = <ThrowOnError extends boolean = true>(
-  options?: Options<GetOperatorsData, ThrowOnError>,
+export const getApiGamespinsTopwins = <ThrowOnError extends boolean = true>(
+  options?: Options<GetApiGamespinsTopwinsData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetOperatorsResponses,
-    GetOperatorsErrors,
+    GetApiGamespinsTopwinsResponses,
+    GetApiGamespinsTopwinsErrors,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/operators",
+    url: "/api/gamespins/topwins",
     ...options,
   });
 };
 
-/**
- * Get all products for the current users operator
- */
-export const getOperatorsProducts = <ThrowOnError extends boolean = true>(
-  options?: Options<GetOperatorsProductsData, ThrowOnError>,
+export const getGs2cGeV3GameService = <ThrowOnError extends boolean = true>(
+  options?: Options<GetGs2cGeV3GameServiceData, ThrowOnError>,
 ) => {
   return (options?.client ?? _heyApiClient).get<
-    GetOperatorsProductsResponses,
-    GetOperatorsProductsErrors,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/operators/products",
-    ...options,
-  });
-};
-
-export const getGamesAll = <ThrowOnError extends boolean = true>(
-  options?: Options<GetGamesAllData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetGamesAllResponses,
+    GetGs2cGeV3GameServiceResponses,
     unknown,
     ThrowOnError
   >({
     responseType: "json",
-    url: "/games/all",
-    ...options,
-  });
-};
-
-export const getGamesCategories = <ThrowOnError extends boolean = true>(
-  options?: Options<GetGamesCategoriesData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetGamesCategoriesResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/games/categories",
-    ...options,
-  });
-};
-
-export const getGamesSearch = <ThrowOnError extends boolean = true>(
-  options?: Options<GetGamesSearchData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetGamesSearchResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/games/search",
-    ...options,
-  });
-};
-
-export const getUserGames = <ThrowOnError extends boolean = true>(
-  options: Options<GetUserGamesData, ThrowOnError>,
-) => {
-  return (options.client ?? _heyApiClient).get<
-    GetUserGamesResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/user/games",
-    ...options,
-  });
-};
-
-export const postUserGamesFavorite = <ThrowOnError extends boolean = true>(
-  options?: Options<PostUserGamesFavoriteData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).post<
-    PostUserGamesFavoriteResponses,
-    unknown,
-    ThrowOnError
-  >({
-    url: "/user/games/favorite",
-    ...options,
-    headers: {
-      "Content-Type": "application/json",
-      ...options?.headers,
-    },
-  });
-};
-
-export const getUserGamesFavorites = <ThrowOnError extends boolean = true>(
-  options?: Options<GetUserGamesFavoritesData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetUserGamesFavoritesResponses,
-    unknown,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/user/games/favorites",
-    ...options,
-  });
-};
-
-export const postGamesByIdEnter = <ThrowOnError extends boolean = true>(
-  options: Options<PostGamesByIdEnterData, ThrowOnError>,
-) => {
-  return (options.client ?? _heyApiClient).post<
-    PostGamesByIdEnterResponses,
-    PostGamesByIdEnterErrors,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/games/{id}/enter",
-    ...options,
-  });
-};
-
-export const postGamesLeave = <ThrowOnError extends boolean = true>(
-  options?: Options<PostGamesLeaveData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).post<
-    PostGamesLeaveResponses,
-    unknown,
-    ThrowOnError
-  >({
-    url: "/games/leave",
-    ...options,
-  });
-};
-
-export const getGamespinsTopwins = <ThrowOnError extends boolean = true>(
-  options?: Options<GetGamespinsTopwinsData, ThrowOnError>,
-) => {
-  return (options?.client ?? _heyApiClient).get<
-    GetGamespinsTopwinsResponses,
-    GetGamespinsTopwinsErrors,
-    ThrowOnError
-  >({
-    responseType: "json",
-    url: "/gamespins/topwins",
+    url: "/gs2c/ge/v3/gameService/",
     ...options,
   });
 };

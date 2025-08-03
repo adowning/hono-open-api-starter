@@ -1,4 +1,4 @@
-import { GameSpinResponseSchema } from '#/db'
+import { gameSpinResponseSchema } from '#/db'
 import { notFoundSchema } from '#/lib/constants'
 import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
@@ -18,7 +18,7 @@ const getTopWins = createRoute({
             description: 'A list of top winning game spins',
             content: {
                 'application/json': {
-                    schema: z.array(GameSpinResponseSchema.openapi('GameSpin')),
+                    schema: z.array(gameSpinResponseSchema.openapi('GameSpin')),
                 },
             },
         },
@@ -33,6 +33,17 @@ const getTopWins = createRoute({
     },
 })
 
+// const router = createRouter()
+
+// router.use('/gamespins/*', sessionMiddleware)
+// router.use('/gamespins/*', authMiddleware)
+
+// router.openapi(getTopWins, async (c) => {
+//     const spins = await controller.getTopWins(10)
+//     return c.json(spins, HttpStatusCodes.OK)
+// })
+
+// export default router
 const router = createRouter()
     .openapi(getTopWins, controller.getTopWins as any)
 

@@ -1,0 +1,26 @@
+{
+  "commitTime": "2024-03-15T18:10:11+01:00",
+  "commitShort": "5309084",
+  "commit": "53090843e6ded4788c168f00bdf6a7d62810a4cf",
+  "branch": "main",
+  "name": "FireInTheHole2",
+  "version": "1.0.146",
+  "date": "2024-03-15T17:11:11.161Z",
+  "dependencies": {
+    "@nolimit/core": "0.1.1",
+    "@nolimit/game-api": "1.1.18",
+    "@nolimit/game-communication": "0.2.1",
+    "@nolimit/game-tools": "0.3.8",
+    "@nolimit/google-analytics": "0.3.0",
+    "@nolimit/promo-panel": "0.8.30",
+    "@nolimit/slot-audio": "0.6.3",
+    "@nolimit/slot-game": "2.2.1",
+    "@nolimit/slot-keypad": "1.8.31",
+    "@nolimit/slot-launcher": "1.8.32",
+    "@nolimit/slot-translations": "1.0.67"
+  },
+  "size": {
+    "width": 1280,
+    "height": 720
+  }
+}

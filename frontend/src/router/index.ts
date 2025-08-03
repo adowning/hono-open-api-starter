@@ -1,4 +1,5 @@
 import { useAuthStore } from '@/stores/auth.store'
+import { useAppStore } from '@/stores/app.store'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
@@ -32,8 +33,27 @@ const router = createRouter({
     ],
 })
 
-router.beforeEach((_to, _from, next) => {
+router.beforeEach(async (_to, _from, next) => {
     const authStore = useAuthStore()
+    const appStore = useAppStore()
+
+    // Wait for auth initialization readiness to avoid redirect races
+    if (!authStore.authReady) {
+        await new Promise<void>((resolve) => {
+            const id = setInterval(() => {
+                if (authStore.authReady) {
+                    clearInterval(id)
+                    resolve()
+                }
+            }, 10)
+        })
+    }
+
+    // Ensure loader is not masking the login screen
+    if (_to.path === '/login') {
+        appStore.hideLoading()
+    }
+
     if (
         !authStore.isAuthenticated &&
         _to.path !== '/login' &&
@@ -43,7 +63,6 @@ router.beforeEach((_to, _from, next) => {
     } else {
         next()
     }
-    // globalStore.startLoading()
 })
 
 export default router

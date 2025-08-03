@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'; // Import storeToRefs
 import { onMounted, reactive, ref } from 'vue'; // Import necessary Vue 3 APIs
-import { useRouter } from 'vue-router'
 import AuthPanel from './AuthPanel.vue'
 
-const router = useRouter() // Router might still be needed for direct push in specific cases, but main auth nav is in App.vue
 const authStore = useAuthStore()
 const {
     isLoading: isAuthLoading, // Auth store's loading state
@@ -17,9 +15,10 @@ const formData = reactive({
     username: 'asdf', // For sign-up
 })
 const showError = ref<boolean>(false)
+const showPassword = ref<boolean>(false)
 
 const handleLogin = async () => {
-    await authStore.clearAuth()
+    // Do not clear auth here to avoid races; login handles tokens & session
     await authStore.login({
         username: formData.username,
         password: formData.password,
@@ -54,17 +53,47 @@ const handleLogin = async () => {
 onMounted(() => {
     if (isAuthenticated.value) {
         console.log('Already authenticated, redirecting from LoginView.')
-        // router.push({ name: 'home' }) // Assuming 'Home' is your main app route
+        // Optional: we rely on guard to route; no action needed here
     }
 })
 </script>
 <template>
     <AuthPanel title="Login">
         <form class="flip-card__form text-white flex mx-4 px-4 mt-5 overflow-hidden" @submit.prevent="handleLogin">
-            <input v-model="formData.username" type="username" placeholder="username" required class="flip-card__input"
+            <!-- Accessibility: include a (visually hidden) username label and input properly typed -->
+            <label for="username" class="sr-only">Username</label>
+            <input id="username" v-model="formData.username" type="text" name="username" inputmode="text"
+                autocomplete="username" placeholder="Username" required class="flip-card__input"
                 :disabled="isAuthLoading || showError" />
-            <input v-model="formData.password" type="password" placeholder="Password" required
-                autocomplete="current-password" class="flip-card__input" :disabled="isAuthLoading || showError" />
+            <label for="current-password" class="sr-only">Password</label>
+            <div class="password-field">
+                <input id="current-password" v-model="formData.password" :type="showPassword ? 'text' : 'password'"
+                    name="current-password" placeholder="Password" required autocomplete="current-password"
+                    class="flip-card__input pr-10" :disabled="isAuthLoading || showError"
+                    aria-describedby="toggle-password-visibility" />
+                <button id="toggle-password-visibility" type="button" class="toggle-password-btn"
+                    :aria-pressed="showPassword" :aria-label="showPassword ? 'Hide password' : 'Show password'"
+                    :title="showPassword ? 'Hide password' : 'Show password'" @click="showPassword = !showPassword">
+                    <span aria-hidden="true" class="eye-icon">
+                        <!-- Using simple SVGs for open/closed eye to avoid extra deps -->
+                        <svg v-if="!showPassword" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg v-else xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.94 10.94 0 0 1 12 20c-7 0-11-8-11-8a21.77 21.77 0 0 1 5.06-6.06">
+                            </path>
+                            <path d="M1 1l22 22"></path>
+                            <path d="M9.88 9.88A3 3 0 0 0 12 15a3 3 0 0 0 2.12-.88"></path>
+                            <path d="M14.12 14.12L9.88 9.88"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
             <GlassButton type="submit" class="flip-card__btn mt-3" :disabled="isAuthLoading || showError"
                 @click="handleLogin">
                 Let's Go!
@@ -84,6 +113,19 @@ onMounted(() => {
     <!-- </div> -->
 </template>
 <style scoped>
+/* Visually hidden utility for accessibility */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
 input[type='checkbox'] {
     height: 0;
     width: 0;
@@ -238,6 +280,40 @@ body {
     /* Adjusted weight */
     text-align: center;
     color: var(--font-color, #fefefe);
+}
+
+/* Password visibility toggle */
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: var(--font-color, #fefefe);
+    border: none;
+    padding: 4px 6px;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eye-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+}
+
+.toggle-password-btn:focus-visible {
+    outline: 2px solid var(--input-focus, #2d8cf0);
+    border-radius: 4px;
 }
 
 .flip-card__input {

@@ -1,0 +1,28 @@
+{"frames": {
+
+"Presentations/Dust_A":
+{
+	"frame": {"x":0,"y":0,"w":400,"h":416},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":416},
+	"sourceSize": {"w":398,"h":413}
+},
+"Presentations/Dust_B":
+{
+	"frame": {"x":408,"y":0,"w":304,"h":328},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":304,"h":328},
+	"sourceSize": {"w":302,"h":328}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "introJpeg0.jpg",
+	"format": "RGB888",
+	"size": {"w":712,"h":416},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:927222af6636bbdb784e059a968cda14:c8606c54555b7c27b1d4e1b48e01adbd:7f97588d3380990c9adf855f9d941df7$"
+}
+}

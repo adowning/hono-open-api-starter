@@ -3,14 +3,14 @@ import { ref } from 'vue'
 import { useMutation, useQueryClient } from '@tanstack/vue-query'
 import { useDebounceFn } from '@vueuse/core'
 import {
-    getGamesAll,
-    getGamesCategories,
-    postGamesLeave,
-    postUserGamesFavorite,
-    postGamesByIdEnter,
-    type PostGamesByIdEnterData,
+    getApiGamesAll,
+    getApiGamesCategories,
+    postApiGamesLeave,
+    postApiUserGamesFavorite,
+    postApiGamesByIdEnter,
+    type PostApiGamesByIdEnterData,
     type Game,
-    type PostGamesByIdEnterResponse,
+    type PostApiGamesByIdEnterResponse,
 } from '@/sdk/generated'
 import { useAppStore } from './app.store'
 import { useAuthStore } from './auth.store'
@@ -25,11 +25,11 @@ export const useGameStore = defineStore('game', () => {
     const currentGame = ref<string | null>(null)
     const gameSession = ref<unknown>(null)
     const favorites = ref<string[]>([])
-    const currentGameOptions = ref<PostGamesByIdEnterResponse | null>(null)
+    const currentGameOptions = ref<PostApiGamesByIdEnterResponse | null>(null)
     // Actions
     async function fetchAllGames() {
         try {
-            const response = await getGamesAll()
+            const response = await getApiGamesAll()
             if (response.data) {
                 // Transform the response to match our Game type
                 const uniqueGames = response.data.reduce<Game[]>(
@@ -56,7 +56,7 @@ export const useGameStore = defineStore('game', () => {
     }
     async function fetchAllGameCategories() {
         try {
-            const response = await getGamesCategories()
+            const response = await getApiGamesCategories()
             if (response.data) {
                 // Ensure categories is an array of strings
                 categories.value = Array.isArray(response.data)
@@ -82,7 +82,7 @@ export const useGameStore = defineStore('game', () => {
 
     const toggleFavoriteMutation = useMutation({
         mutationFn: (gameId: string) =>
-            postUserGamesFavorite({ body: { add_game: gameId } }),
+            postApiUserGamesFavorite({ body: { add_game: gameId } }),
         onMutate: () => appStore.showLoading(),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['favoriteGames'] })
@@ -93,11 +93,11 @@ export const useGameStore = defineStore('game', () => {
     const enterGame = useDebounceFn(
         async (id: string) => {
             const authStore = useAuthStore()
-            const data: PostGamesByIdEnterData = {
+            const data: PostApiGamesByIdEnterData = {
                 path: {
                     id,
                 },
-                url: '/games/{id}/enter',
+                url: '/api/games/{id}/enter',
             }
 
             if (currentGame.value === id) {
@@ -106,7 +106,7 @@ export const useGameStore = defineStore('game', () => {
             }
 
             try {
-                const response = await postGamesByIdEnter(data)
+                const response = await postApiGamesByIdEnter(data)
                 if (response.data) {
                     if (response.data.gameConfig && authStore.accessToken) {
                         response.data.gameConfig.authToken =
@@ -127,7 +127,7 @@ export const useGameStore = defineStore('game', () => {
     )
 
     const leaveGame = async () => {
-        const leaveGame = await postGamesLeave()
+        const leaveGame = await postApiGamesLeave()
         console.log(leaveGame)
     }
     // const spin = (params: any) => spinMutation.mutate(params)

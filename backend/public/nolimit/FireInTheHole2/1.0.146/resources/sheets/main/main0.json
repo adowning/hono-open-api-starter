@@ -1,0 +1,294 @@
+{"frames": {
+
+"BigWin/amount_bg":
+{
+	"frame": {"x":1784,"y":884,"w":260,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":260,"h":100},
+	"sourceSize": {"w":259,"h":100}
+},
+"BigWin/BigWin_Title2":
+{
+	"frame": {"x":1376,"y":1000,"w":392,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":64,"y":0,"w":392,"h":84},
+	"sourceSize": {"w":517,"h":84}
+},
+"BigWin/BigWin_Title3":
+{
+	"frame": {"x":0,"y":1944,"w":560,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":20,"y":0,"w":560,"h":76},
+	"sourceSize": {"w":600,"h":84}
+},
+"BigWin/BigWin_Title4":
+{
+	"frame": {"x":1456,"y":536,"w":592,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":592,"h":76},
+	"sourceSize": {"w":600,"h":84}
+},
+"BigWin/BigWin_Title5_it":
+{
+	"frame": {"x":1980,"y":1820,"w":60,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":0,"w":60,"h":76},
+	"sourceSize": {"w":80,"h":84}
+},
+"BigWin/cap_win/backpack":
+{
+	"frame": {"x":1352,"y":1092,"w":348,"h":368},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":348,"h":368},
+	"sourceSize": {"w":345,"h":366}
+},
+"BigWin/cap_win/beerdorado_shine":
+{
+	"frame": {"x":560,"y":1216,"w":376,"h":556},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":376,"h":556},
+	"sourceSize": {"w":374,"h":554}
+},
+"BigWin/cap_win/BigWin_theme":
+{
+	"frame": {"x":0,"y":0,"w":840,"h":600},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":840,"h":600},
+	"sourceSize": {"w":839,"h":600}
+},
+"BigWin/cap_win/cave_1":
+{
+	"frame": {"x":0,"y":608,"w":820,"h":600},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":820,"h":600},
+	"sourceSize": {"w":820,"h":600}
+},
+"BigWin/cap_win/cave_2":
+{
+	"frame": {"x":1456,"y":0,"w":564,"h":528},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":564,"h":528},
+	"sourceSize": {"w":562,"h":528}
+},
+"BigWin/cap_win/legs":
+{
+	"frame": {"x":1352,"y":1468,"w":356,"h":232},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":356,"h":232},
+	"sourceSize": {"w":356,"h":230}
+},
+"BigWin/cap_win/main_buildings":
+{
+	"frame": {"x":848,"y":0,"w":600,"h":560},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":600,"h":560},
+	"sourceSize": {"w":597,"h":558}
+},
+"BigWin/cap_win/road":
+{
+	"frame": {"x":0,"y":1216,"w":552,"h":720},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":552,"h":720},
+	"sourceSize": {"w":550,"h":720}
+},
+"BigWin/cap_win/road_dark":
+{
+	"frame": {"x":1708,"y":1092,"w":276,"h":360},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":276,"h":360},
+	"sourceSize": {"w":275,"h":360}
+},
+"BigWin/cap_win/t_fire":
+{
+	"frame": {"x":1716,"y":1460,"w":324,"h":352},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":324,"h":352},
+	"sourceSize": {"w":322,"h":349}
+},
+"BigWin/char_body":
+{
+	"frame": {"x":828,"y":1016,"w":476,"h":180},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":476,"h":180},
+	"sourceSize": {"w":476,"h":184}
+},
+"BigWin/char_BT_body":
+{
+	"frame": {"x":944,"y":1584,"w":400,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":212},
+	"sourceSize": {"w":397,"h":211}
+},
+"BigWin/char_hand":
+{
+	"frame": {"x":568,"y":1912,"w":292,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":124},
+	"sourceSize": {"w":291,"h":122}
+},
+"BigWin/char_head":
+{
+	"frame": {"x":1376,"y":620,"w":400,"h":372},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":372},
+	"sourceSize": {"w":400,"h":370}
+},
+"BigWin/char_head2":
+{
+	"frame": {"x":944,"y":1204,"w":400,"h":372},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":400,"h":372},
+	"sourceSize": {"w":400,"h":370}
+},
+"BigWin/char_lv2":
+{
+	"frame": {"x":848,"y":568,"w":520,"h":440},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":520,"h":440},
+	"sourceSize": {"w":520,"h":500}
+},
+"BigWin/char_tnt":
+{
+	"frame": {"x":1668,"y":1820,"w":304,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":304,"h":212},
+	"sourceSize": {"w":301,"h":210}
+},
+"BigWin/fireParticles/fire1":
+{
+	"frame": {"x":1656,"y":1708,"w":52,"h":72},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":72},
+	"sourceSize": {"w":50,"h":70}
+},
+"BigWin/fireParticles/fire2":
+{
+	"frame": {"x":868,"y":1912,"w":32,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":44},
+	"sourceSize": {"w":29,"h":41}
+},
+"BigWin/fireParticles/fire4":
+{
+	"frame": {"x":908,"y":1780,"w":20,"h":16},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":16},
+	"sourceSize": {"w":17,"h":16}
+},
+"BigWin/gold/gold_00012":
+{
+	"frame": {"x":1352,"y":1708,"w":88,"h":88},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":88,"h":88},
+	"sourceSize": {"w":100,"h":100}
+},
+"BigWin/gold/gold_00026":
+{
+	"frame": {"x":1776,"y":1000,"w":88,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":8,"w":88,"h":84},
+	"sourceSize": {"w":100,"h":100}
+},
+"broke_wood/broke_wood_009":
+{
+	"frame": {"x":908,"y":1804,"w":256,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":256,"h":244},
+	"sourceSize": {"w":255,"h":255}
+},
+"broke_wood/broke_wood_011":
+{
+	"frame": {"x":1784,"y":620,"w":256,"h":256},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":256,"h":256},
+	"sourceSize": {"w":255,"h":255}
+},
+"D_break/D_break_002":
+{
+	"frame": {"x":1436,"y":1820,"w":224,"h":228},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":16,"w":224,"h":228},
+	"sourceSize": {"w":256,"h":256}
+},
+"D_break/D_break_014":
+{
+	"frame": {"x":1172,"y":1804,"w":256,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":12,"w":256,"h":244},
+	"sourceSize": {"w":256,"h":256}
+},
+"textImg/Minning":
+{
+	"frame": {"x":560,"y":1780,"w":340,"h":124},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":340,"h":124},
+	"sourceSize": {"w":339,"h":124}
+},
+"textImg/waysWon":
+{
+	"frame": {"x":1872,"y":992,"w":132,"h":64},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":64},
+	"sourceSize": {"w":130,"h":64}
+},
+"utility/soft_gradient":
+{
+	"frame": {"x":1448,"y":1708,"w":200,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":100},
+	"sourceSize": {"w":198,"h":97}
+}},
+"animations": {
+	"BigWin/BigWin_Title": ["BigWin/BigWin_Title1","BigWin/BigWin_Title2","BigWin/BigWin_Title3","BigWin/BigWin_Title4"],
+	"BigWin/cap_win/cave": ["BigWin/cap_win/cave_1","BigWin/cap_win/cave_2"],
+	"BigWin/char_lv": ["BigWin/char_lv1","BigWin/char_lv2","BigWin/char_lv3","BigWin/char_lv4"],
+	"BigWin/fireParticles/fire": ["BigWin/fireParticles/fire1","BigWin/fireParticles/fire2","BigWin/fireParticles/fire3","BigWin/fireParticles/fire4"],
+	"BigWin/gold/gold": ["BigWin/gold/gold_00000","BigWin/gold/gold_00001","BigWin/gold/gold_00002","BigWin/gold/gold_00003","BigWin/gold/gold_00004","BigWin/gold/gold_00005","BigWin/gold/gold_00006","BigWin/gold/gold_00007","BigWin/gold/gold_00008","BigWin/gold/gold_00009","BigWin/gold/gold_00010","BigWin/gold/gold_00011","BigWin/gold/gold_00012","BigWin/gold/gold_00013","BigWin/gold/gold_00014","BigWin/gold/gold_00015","BigWin/gold/gold_00016","BigWin/gold/gold_00017","BigWin/gold/gold_00018","BigWin/gold/gold_00019","BigWin/gold/gold_00020","BigWin/gold/gold_00021","BigWin/gold/gold_00022","BigWin/gold/gold_00023","BigWin/gold/gold_00024","BigWin/gold/gold_00025","BigWin/gold/gold_00026","BigWin/gold/gold_00027","BigWin/gold/gold_00028","BigWin/gold/gold_00029"],
+	"D_break/D_break": ["D_break/D_break_000","D_break/D_break_001","D_break/D_break_002","D_break/D_break_003","D_break/D_break_004","D_break/D_break_005","D_break/D_break_006","D_break/D_break_007","D_break/D_break_008","D_break/D_break_009","D_break/D_break_010","D_break/D_break_011","D_break/D_break_012","D_break/D_break_013","D_break/D_break_014"],
+	"broke_wood/broke_wood": ["broke_wood/broke_wood_000","broke_wood/broke_wood_001","broke_wood/broke_wood_002","broke_wood/broke_wood_003","broke_wood/broke_wood_004","broke_wood/broke_wood_005","broke_wood/broke_wood_006","broke_wood/broke_wood_007","broke_wood/broke_wood_008","broke_wood/broke_wood_009","broke_wood/broke_wood_010","broke_wood/broke_wood_011","broke_wood/broke_wood_012","broke_wood/broke_wood_013","broke_wood/broke_wood_014","broke_wood/broke_wood_015","broke_wood/broke_wood_016","broke_wood/broke_wood_017","broke_wood/broke_wood_018","broke_wood/broke_wood_019"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "main0.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":2048},
+	"scale": "1",
+	"related_multi_packs": [ "main1.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:28933894d6aed658db770c349eb9d714:ed5434385782e7e2230e86e563552eb9:ad44d7897c2d185ae6c67ccb13176148$"
+}
+}

@@ -6,7 +6,7 @@ export type User = {
   email: string | null;
   currentGameSessionDataId: string | null;
   currentAuthSessionDataId: string | null;
-  avatar: string | null;
+  avatar_url: string | null;
   role: string;
   isActive: boolean;
   lastLoginAt: string | null;
@@ -16,12 +16,13 @@ export type User = {
   createdAt: string;
   updatedAt: string;
   deletedAt: string | null;
+  lastSeen: string | null;
 };
 
 export type AuthSession = {
   id: string;
   userId: string;
-  status: "ACTIVE" | "COMPLETED" | "EXPIRED";
+  status: "ACTIVE" | "COMPLETED" | "EXPIRED" | "ABANDONED" | "TIMEOUT";
   ipAddress: string | null;
   userAgent: string | null;
   deviceId: string | null;
@@ -35,14 +36,14 @@ export type GameSession = {
   authSessionId: string;
   userId: string;
   gameId: string | null;
-  status: "ACTIVE" | "COMPLETED" | "EXPIRED";
+  status: "ACTIVE" | "COMPLETED" | "EXPIRED" | "ABANDONED" | "TIMEOUT";
   totalWagered: number;
   totalWon: number;
   totalXpGained: number;
   rtp: string | null;
   duration: number;
   createdAt: string;
-  endedAt: string | null;
+  endAt: string | null;
 };
 
 export type Wallet = {
@@ -72,22 +73,17 @@ export type VipInfo = {
   updatedAt: string;
 };
 
-export type Operator = {
+export type Game = {
   id: string;
   name: string;
-  operatorSecret: string;
-  operatorAccess: string;
-  callbackUrl: string;
-  isActive: boolean;
-  allowedIps: Array<string>;
-  description: string | null;
-  balance: number;
-  netRevenue: number;
-  acceptedPayments: Array<string>;
-  ownerId: string | null;
-  lastUsedAt: string | null;
-  createdAt: string;
-  updatedAt: string;
+  title: string;
+  developer: string;
+  description?: string;
+  category: string;
+  tags: Array<string>;
+  thumbnailUrl?: string;
+  bannerUrl?: string;
+  isActive?: boolean;
 };
 
 export type VipRank = {
@@ -114,23 +110,10 @@ export type VipLevel = {
   xpForNext: number;
 };
 
-export type Game = {
-  id: string;
-  name: string;
-  title: string;
-  developer: string;
-  description?: string;
-  category: string;
-  tags: Array<string>;
-  thumbnailUrl?: string;
-  bannerUrl?: string;
-  isActive?: boolean;
-};
-
 export type GameSpin = {
   id: string;
   playerName?: string;
-  gameName?: string;
+  gamesName?: string;
   spinData?: {
     [key: string]: unknown;
   };
@@ -147,53 +130,62 @@ export type GameSpin = {
   sessionDataId?: string;
 };
 
-export type PostAuthLoginData = {
+export type PostApiAuthLoginData = {
   /**
-   * The user to login
+   * User credentials for login
    */
   body: {
-    username: string;
+    username?: string;
     password: string;
     uid?: string;
   };
   path?: never;
   query?: never;
-  url: "/auth/login";
+  url: "/api/auth/login";
 };
 
-export type PostAuthLoginResponses = {
+export type PostApiAuthLoginErrors = {
   /**
-   * The login token and user object
+   * Bad Request
    */
-  200: {
-    accessToken: string;
-    refreshToken: string;
-    user: {
-      id: string;
-      username: string;
-      email: string | null;
-      currentGameSessionDataId: string | null;
-      currentAuthSessionDataId: string | null;
-      avatar: string | null;
-      role: string;
-      isActive: boolean;
-      lastLoginAt: string | null;
-      totalXpGained: number;
-      activeWalletId: string | null;
-      vipInfoId: string | null;
-      createdAt: string;
-      updatedAt: string;
-      deletedAt: string | null;
-    };
+  400: {
+    message: string;
   };
 };
 
-export type PostAuthLoginResponse =
-  PostAuthLoginResponses[keyof PostAuthLoginResponses];
+export type PostApiAuthLoginError =
+  PostApiAuthLoginErrors[keyof PostApiAuthLoginErrors];
 
-export type PostAuthSignupData = {
+export type PostApiAuthLoginResponses = {
   /**
-   * The user to signup
+   * The user object and sets an access token cookie.
+   */
+  200: {
+    id: string;
+    username: string;
+    email: string | null;
+    currentGameSessionDataId: string | null;
+    currentAuthSessionDataId: string | null;
+    avatar_url: string | null;
+    role: string;
+    isActive: boolean;
+    lastLoginAt: string | null;
+    totalXpGained: number;
+    activeWalletId: string | null;
+    vipInfoId: string | null;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string | null;
+    lastSeen: string | null;
+  };
+};
+
+export type PostApiAuthLoginResponse =
+  PostApiAuthLoginResponses[keyof PostApiAuthLoginResponses];
+
+export type PostApiAuthSignupData = {
+  /**
+   * User credentials for signup
    */
   body: {
     username: string;
@@ -201,47 +193,68 @@ export type PostAuthSignupData = {
   };
   path?: never;
   query?: never;
-  url: "/auth/signup";
+  url: "/api/auth/signup";
 };
 
-export type PostAuthSignupResponses = {
+export type PostApiAuthSignupErrors = {
   /**
-   * The signup token and user object
+   * Bad Request
    */
-  200: {
-    accessToken: string;
-    refreshToken: string;
-    user: {
-      id: string;
-      username: string;
-      email: string | null;
-      currentGameSessionDataId: string | null;
-      currentAuthSessionDataId: string | null;
-      avatar: string | null;
-      role: string;
-      isActive: boolean;
-      lastLoginAt: string | null;
-      totalXpGained: number;
-      activeWalletId: string | null;
-      vipInfoId: string | null;
-      createdAt: string;
-      updatedAt: string;
-      deletedAt: string | null;
-    };
+  400: {
+    message: string;
   };
 };
 
-export type PostAuthSignupResponse =
-  PostAuthSignupResponses[keyof PostAuthSignupResponses];
+export type PostApiAuthSignupError =
+  PostApiAuthSignupErrors[keyof PostApiAuthSignupErrors];
 
-export type PostAuthLogoutData = {
+export type PostApiAuthSignupResponses = {
+  /**
+   * The created user object and sets an access token cookie.
+   */
+  201: {
+    id: string;
+    username: string;
+    email: string | null;
+    currentGameSessionDataId: string | null;
+    currentAuthSessionDataId: string | null;
+    avatar_url: string | null;
+    role: string;
+    isActive: boolean;
+    lastLoginAt: string | null;
+    totalXpGained: number;
+    activeWalletId: string | null;
+    vipInfoId: string | null;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string | null;
+    lastSeen: string | null;
+  };
+};
+
+export type PostApiAuthSignupResponse =
+  PostApiAuthSignupResponses[keyof PostApiAuthSignupResponses];
+
+export type PostApiAuthLogoutData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/auth/logout";
+  url: "/api/auth/logout";
 };
 
-export type PostAuthLogoutResponses = {
+export type PostApiAuthLogoutErrors = {
+  /**
+   * Unauthorized
+   */
+  401: {
+    error: string;
+  };
+};
+
+export type PostApiAuthLogoutError =
+  PostApiAuthLogoutErrors[keyof PostApiAuthLogoutErrors];
+
+export type PostApiAuthLogoutResponses = {
   /**
    * Logout successful
    */
@@ -250,17 +263,36 @@ export type PostAuthLogoutResponses = {
   };
 };
 
-export type PostAuthLogoutResponse =
-  PostAuthLogoutResponses[keyof PostAuthLogoutResponses];
+export type PostApiAuthLogoutResponse =
+  PostApiAuthLogoutResponses[keyof PostApiAuthLogoutResponses];
 
-export type GetAuthMeData = {
+export type GetApiAuthMeData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/auth/me";
+  url: "/api/auth/me";
 };
 
-export type GetAuthMeResponses = {
+export type GetApiAuthMeErrors = {
+  /**
+   * Invalid id error
+   */
+  401: {
+    success: boolean;
+    error: {
+      issues: Array<{
+        code: string;
+        path: Array<string | number>;
+        message?: string;
+      }>;
+      name: string;
+    };
+  };
+};
+
+export type GetApiAuthMeError = GetApiAuthMeErrors[keyof GetApiAuthMeErrors];
+
+export type GetApiAuthMeResponses = {
   /**
    * The current user session
    */
@@ -270,20 +302,20 @@ export type GetAuthMeResponses = {
     gameSession?: GameSession;
     wallet: Wallet;
     vipInfo: VipInfo;
-    operator: Operator;
   };
 };
 
-export type GetAuthMeResponse = GetAuthMeResponses[keyof GetAuthMeResponses];
+export type GetApiAuthMeResponse =
+  GetApiAuthMeResponses[keyof GetApiAuthMeResponses];
 
-export type GetData = {
+export type GetApiData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/";
+  url: "/api/";
 };
 
-export type GetResponses = {
+export type GetApiResponses = {
   /**
    * Cashino API Index
    */
@@ -292,9 +324,9 @@ export type GetResponses = {
   };
 };
 
-export type GetResponse = GetResponses[keyof GetResponses];
+export type GetApiResponse = GetApiResponses[keyof GetApiResponses];
 
-export type PostUpdatesCheckData = {
+export type PostApiUpdatesCheckData = {
   /**
    * The user to create
    */
@@ -306,10 +338,10 @@ export type PostUpdatesCheckData = {
   };
   path?: never;
   query?: never;
-  url: "/updates/check";
+  url: "/api/updates/check";
 };
 
-export type PostUpdatesCheckResponses = {
+export type PostApiUpdatesCheckResponses = {
   /**
    * The updated user
    */
@@ -327,19 +359,19 @@ export type PostUpdatesCheckResponses = {
   };
 };
 
-export type PostUpdatesCheckResponse =
-  PostUpdatesCheckResponses[keyof PostUpdatesCheckResponses];
+export type PostApiUpdatesCheckResponse =
+  PostApiUpdatesCheckResponses[keyof PostApiUpdatesCheckResponses];
 
-export type PostUpdatesUploadData = {
+export type PostApiUpdatesUploadData = {
   body?: {
     [key: string]: unknown;
   };
   path?: never;
   query?: never;
-  url: "/updates/upload";
+  url: "/api/updates/upload";
 };
 
-export type PostUpdatesUploadErrors = {
+export type PostApiUpdatesUploadErrors = {
   /**
    * Bad Request
    */
@@ -348,10 +380,10 @@ export type PostUpdatesUploadErrors = {
   };
 };
 
-export type PostUpdatesUploadError =
-  PostUpdatesUploadErrors[keyof PostUpdatesUploadErrors];
+export type PostApiUpdatesUploadError =
+  PostApiUpdatesUploadErrors[keyof PostApiUpdatesUploadErrors];
 
-export type PostUpdatesUploadResponses = {
+export type PostApiUpdatesUploadResponses = {
   /**
    * Upload success response
    */
@@ -372,19 +404,19 @@ export type PostUpdatesUploadResponses = {
   };
 };
 
-export type PostUpdatesUploadResponse =
-  PostUpdatesUploadResponses[keyof PostUpdatesUploadResponses];
+export type PostApiUpdatesUploadResponse =
+  PostApiUpdatesUploadResponses[keyof PostApiUpdatesUploadResponses];
 
-export type GetUpdatesDownloadByFilenameData = {
+export type GetApiUpdatesDownloadByFilenameData = {
   body?: never;
   path: {
     filename: string;
   };
   query?: never;
-  url: "/updates/download/{filename}";
+  url: "/api/updates/download/{filename}";
 };
 
-export type GetUpdatesDownloadByFilenameErrors = {
+export type GetApiUpdatesDownloadByFilenameErrors = {
   /**
    * Not Found
    */
@@ -393,27 +425,27 @@ export type GetUpdatesDownloadByFilenameErrors = {
   };
 };
 
-export type GetUpdatesDownloadByFilenameError =
-  GetUpdatesDownloadByFilenameErrors[keyof GetUpdatesDownloadByFilenameErrors];
+export type GetApiUpdatesDownloadByFilenameError =
+  GetApiUpdatesDownloadByFilenameErrors[keyof GetApiUpdatesDownloadByFilenameErrors];
 
-export type GetUpdatesDownloadByFilenameResponses = {
+export type GetApiUpdatesDownloadByFilenameResponses = {
   /**
    * Application file (APK or ZIP)
    */
   200: unknown;
 };
 
-export type GetUpdatesVersionsByAppIdByPlatformData = {
+export type GetApiUpdatesVersionsByAppIdByPlatformData = {
   body?: never;
   path: {
     appId: string;
     platform: string;
   };
   query?: never;
-  url: "/updates/versions/{appId}/{platform}";
+  url: "/api/updates/versions/{appId}/{platform}";
 };
 
-export type GetUpdatesVersionsByAppIdByPlatformErrors = {
+export type GetApiUpdatesVersionsByAppIdByPlatformErrors = {
   /**
    * Bad Request
    */
@@ -422,10 +454,10 @@ export type GetUpdatesVersionsByAppIdByPlatformErrors = {
   };
 };
 
-export type GetUpdatesVersionsByAppIdByPlatformError =
-  GetUpdatesVersionsByAppIdByPlatformErrors[keyof GetUpdatesVersionsByAppIdByPlatformErrors];
+export type GetApiUpdatesVersionsByAppIdByPlatformError =
+  GetApiUpdatesVersionsByAppIdByPlatformErrors[keyof GetApiUpdatesVersionsByAppIdByPlatformErrors];
 
-export type GetUpdatesVersionsByAppIdByPlatformResponses = {
+export type GetApiUpdatesVersionsByAppIdByPlatformResponses = {
   /**
    * List of versions
    */
@@ -446,17 +478,17 @@ export type GetUpdatesVersionsByAppIdByPlatformResponses = {
   };
 };
 
-export type GetUpdatesVersionsByAppIdByPlatformResponse =
-  GetUpdatesVersionsByAppIdByPlatformResponses[keyof GetUpdatesVersionsByAppIdByPlatformResponses];
+export type GetApiUpdatesVersionsByAppIdByPlatformResponse =
+  GetApiUpdatesVersionsByAppIdByPlatformResponses[keyof GetApiUpdatesVersionsByAppIdByPlatformResponses];
 
-export type GetUsersData = {
+export type GetApiUsersData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/users";
+  url: "/api/users";
 };
 
-export type GetUsersResponses = {
+export type GetApiUsersResponses = {
   /**
    * The list of users
    */
@@ -471,7 +503,7 @@ export type GetUsersResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -481,110 +513,112 @@ export type GetUsersResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   }>;
 };
 
-export type GetUsersResponse = GetUsersResponses[keyof GetUsersResponses];
+export type GetApiUsersResponse =
+  GetApiUsersResponses[keyof GetApiUsersResponses];
 
-export type PostEnterGameData = {
+export type PostApiEnterGameData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/enter/game";
+  url: "/api/enter/game";
 };
 
-export type PostEnterGameResponses = {
+export type PostApiEnterGameResponses = {
   /**
    * Enter game
    */
   200: unknown;
 };
 
-export type PostGamesData = {
+export type PostApiGamesData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/games";
+  url: "/api/games";
 };
 
-export type PostGamesResponses = {
+export type PostApiGamesResponses = {
   /**
    * User game
    */
   200: unknown;
 };
 
-export type PostSetupGameData = {
+export type PostApiSetupGameData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/setup/game";
+  url: "/api/setup/game";
 };
 
-export type PostSetupGameResponses = {
+export type PostApiSetupGameResponses = {
   /**
    * Favorite game
    */
   200: unknown;
 };
 
-export type GetSpinpageData = {
+export type GetApiSpinpageData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/spinpage";
+  url: "/api/spinpage";
 };
 
-export type GetSpinpageResponses = {
+export type GetApiSpinpageResponses = {
   /**
    * Spin page
    */
   200: unknown;
 };
 
-export type PostSpinData = {
+export type PostApiSpinData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/spin";
+  url: "/api/spin";
 };
 
-export type PostSpinResponses = {
+export type PostApiSpinResponses = {
   /**
    * Spin
    */
   200: unknown;
 };
 
-export type GetFavoriteGameData = {
+export type GetApiFavoriteGameData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/favorite/game";
+  url: "/api/favorite/game";
 };
 
-export type GetFavoriteGameResponses = {
+export type GetApiFavoriteGameResponses = {
   /**
    * Favorite game list
    */
   200: unknown;
 };
 
-export type PostEndGameSessionData = {
+export type PostApiEndGameSessionData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/end-game-session";
+  url: "/api/end-game-session";
 };
 
-export type PostEndGameSessionErrors = {
+export type PostApiEndGameSessionErrors = {
   /**
    * Unauthorized
    */
   401: unknown;
 };
 
-export type PostEndGameSessionResponses = {
+export type PostApiEndGameSessionResponses = {
   /**
    * Session ended response
    */
@@ -594,19 +628,19 @@ export type PostEndGameSessionResponses = {
   };
 };
 
-export type PostEndGameSessionResponse =
-  PostEndGameSessionResponses[keyof PostEndGameSessionResponses];
+export type PostApiEndGameSessionResponse =
+  PostApiEndGameSessionResponses[keyof PostApiEndGameSessionResponses];
 
-export type DeleteUsersByIdData = {
+export type DeleteApiUsersByIdData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}";
+  url: "/api/users/{id}";
 };
 
-export type DeleteUsersByIdErrors = {
+export type DeleteApiUsersByIdErrors = {
   /**
    * User not found
    */
@@ -629,29 +663,29 @@ export type DeleteUsersByIdErrors = {
   };
 };
 
-export type DeleteUsersByIdError =
-  DeleteUsersByIdErrors[keyof DeleteUsersByIdErrors];
+export type DeleteApiUsersByIdError =
+  DeleteApiUsersByIdErrors[keyof DeleteApiUsersByIdErrors];
 
-export type DeleteUsersByIdResponses = {
+export type DeleteApiUsersByIdResponses = {
   /**
    * User deleted
    */
   204: void;
 };
 
-export type DeleteUsersByIdResponse =
-  DeleteUsersByIdResponses[keyof DeleteUsersByIdResponses];
+export type DeleteApiUsersByIdResponse =
+  DeleteApiUsersByIdResponses[keyof DeleteApiUsersByIdResponses];
 
-export type GetUsersByIdData = {
+export type GetApiUsersByIdData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}";
+  url: "/api/users/{id}";
 };
 
-export type GetUsersByIdErrors = {
+export type GetApiUsersByIdErrors = {
   /**
    * User not found
    */
@@ -674,9 +708,10 @@ export type GetUsersByIdErrors = {
   };
 };
 
-export type GetUsersByIdError = GetUsersByIdErrors[keyof GetUsersByIdErrors];
+export type GetApiUsersByIdError =
+  GetApiUsersByIdErrors[keyof GetApiUsersByIdErrors];
 
-export type GetUsersByIdResponses = {
+export type GetApiUsersByIdResponses = {
   /**
    * The requested user
    */
@@ -691,7 +726,7 @@ export type GetUsersByIdResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -701,13 +736,14 @@ export type GetUsersByIdResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
 };
 
-export type GetUsersByIdResponse =
-  GetUsersByIdResponses[keyof GetUsersByIdResponses];
+export type GetApiUsersByIdResponse =
+  GetApiUsersByIdResponses[keyof GetApiUsersByIdResponses];
 
-export type PatchUsersByIdData = {
+export type PatchApiUsersByIdData = {
   /**
    * The user updates
    */
@@ -722,7 +758,7 @@ export type PatchUsersByIdData = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -732,15 +768,16 @@ export type PatchUsersByIdData = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}";
+  url: "/api/users/{id}";
 };
 
-export type PatchUsersByIdErrors = {
+export type PatchApiUsersByIdErrors = {
   /**
    * User not found
    */
@@ -749,10 +786,10 @@ export type PatchUsersByIdErrors = {
   };
 };
 
-export type PatchUsersByIdError =
-  PatchUsersByIdErrors[keyof PatchUsersByIdErrors];
+export type PatchApiUsersByIdError =
+  PatchApiUsersByIdErrors[keyof PatchApiUsersByIdErrors];
 
-export type PatchUsersByIdResponses = {
+export type PatchApiUsersByIdResponses = {
   /**
    * The updated user
    */
@@ -767,7 +804,7 @@ export type PatchUsersByIdResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -777,22 +814,23 @@ export type PatchUsersByIdResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
 };
 
-export type PatchUsersByIdResponse =
-  PatchUsersByIdResponses[keyof PatchUsersByIdResponses];
+export type PatchApiUsersByIdResponse =
+  PatchApiUsersByIdResponses[keyof PatchApiUsersByIdResponses];
 
-export type GetUsersByIdCheckData = {
+export type GetApiUsersByIdCheckData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}/check";
+  url: "/api/users/{id}/check";
 };
 
-export type GetUsersByIdCheckErrors = {
+export type GetApiUsersByIdCheckErrors = {
   /**
    * User not found
    */
@@ -801,10 +839,10 @@ export type GetUsersByIdCheckErrors = {
   };
 };
 
-export type GetUsersByIdCheckError =
-  GetUsersByIdCheckErrors[keyof GetUsersByIdCheckErrors];
+export type GetApiUsersByIdCheckError =
+  GetApiUsersByIdCheckErrors[keyof GetApiUsersByIdCheckErrors];
 
-export type GetUsersByIdCheckResponses = {
+export type GetApiUsersByIdCheckResponses = {
   /**
    * User status
    */
@@ -813,19 +851,19 @@ export type GetUsersByIdCheckResponses = {
   };
 };
 
-export type GetUsersByIdCheckResponse =
-  GetUsersByIdCheckResponses[keyof GetUsersByIdCheckResponses];
+export type GetApiUsersByIdCheckResponse =
+  GetApiUsersByIdCheckResponses[keyof GetApiUsersByIdCheckResponses];
 
-export type PostUsersByIdVerifyEmailData = {
+export type PostApiUsersByIdVerifyEmailData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}/verify-email";
+  url: "/api/users/{id}/verify-email";
 };
 
-export type PostUsersByIdVerifyEmailResponses = {
+export type PostApiUsersByIdVerifyEmailResponses = {
   /**
    * Verification sent
    */
@@ -835,19 +873,19 @@ export type PostUsersByIdVerifyEmailResponses = {
   };
 };
 
-export type PostUsersByIdVerifyEmailResponse =
-  PostUsersByIdVerifyEmailResponses[keyof PostUsersByIdVerifyEmailResponses];
+export type PostApiUsersByIdVerifyEmailResponse =
+  PostApiUsersByIdVerifyEmailResponses[keyof PostApiUsersByIdVerifyEmailResponses];
 
-export type GetUsersByIdInfoData = {
+export type GetApiUsersByIdInfoData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}/info";
+  url: "/api/users/{id}/info";
 };
 
-export type GetUsersByIdInfoErrors = {
+export type GetApiUsersByIdInfoErrors = {
   /**
    * User not found
    */
@@ -856,10 +894,10 @@ export type GetUsersByIdInfoErrors = {
   };
 };
 
-export type GetUsersByIdInfoError =
-  GetUsersByIdInfoErrors[keyof GetUsersByIdInfoErrors];
+export type GetApiUsersByIdInfoError =
+  GetApiUsersByIdInfoErrors[keyof GetApiUsersByIdInfoErrors];
 
-export type GetUsersByIdInfoResponses = {
+export type GetApiUsersByIdInfoResponses = {
   /**
    * User info
    */
@@ -874,7 +912,7 @@ export type GetUsersByIdInfoResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -884,22 +922,23 @@ export type GetUsersByIdInfoResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
 };
 
-export type GetUsersByIdInfoResponse =
-  GetUsersByIdInfoResponses[keyof GetUsersByIdInfoResponses];
+export type GetApiUsersByIdInfoResponse =
+  GetApiUsersByIdInfoResponses[keyof GetApiUsersByIdInfoResponses];
 
-export type GetUsersByIdVipinfoData = {
+export type GetApiUsersByIdVipinfoData = {
   body?: never;
   path: {
     id: number | null;
   };
   query?: never;
-  url: "/users/{id}/vipinfo";
+  url: "/api/users/{id}/vipinfo";
 };
 
-export type GetUsersByIdVipinfoResponses = {
+export type GetApiUsersByIdVipinfoResponses = {
   /**
    * VIP info
    */
@@ -908,17 +947,17 @@ export type GetUsersByIdVipinfoResponses = {
   };
 };
 
-export type GetUsersByIdVipinfoResponse =
-  GetUsersByIdVipinfoResponses[keyof GetUsersByIdVipinfoResponses];
+export type GetApiUsersByIdVipinfoResponse =
+  GetApiUsersByIdVipinfoResponses[keyof GetApiUsersByIdVipinfoResponses];
 
-export type GetUserAmountData = {
+export type GetApiUserAmountData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/user/amount";
+  url: "/api/user/amount";
 };
 
-export type GetUserAmountResponses = {
+export type GetApiUserAmountResponses = {
   /**
    * Get user amount
    */
@@ -935,15 +974,15 @@ export type GetUserAmountResponses = {
   };
 };
 
-export type GetUserAmountResponse =
-  GetUserAmountResponses[keyof GetUserAmountResponses];
+export type GetApiUserAmountResponse =
+  GetApiUserAmountResponses[keyof GetApiUserAmountResponses];
 
-export type PostUserChangeData = {
+export type PostApiUserChangeData = {
   /**
    * The user info to update
    */
   body: {
-    id?: string;
+    id: string;
     username: string;
     email?: string | null;
     passwordHash?: string | null;
@@ -953,7 +992,7 @@ export type PostUserChangeData = {
     refreshTokenExpiresAt?: string | null;
     currentGameSessionDataId?: string | null;
     currentAuthSessionDataId?: string | null;
-    avatar?: string | null;
+    avatar_url?: string | null;
     role?: string;
     isActive?: boolean;
     lastLoginAt?: string | null;
@@ -963,13 +1002,14 @@ export type PostUserChangeData = {
     createdAt?: string;
     updatedAt?: string;
     deletedAt?: string | null;
+    lastSeen?: string | null;
   };
   path?: never;
   query?: never;
-  url: "/user/change";
+  url: "/api/user/change";
 };
 
-export type PostUserChangeResponses = {
+export type PostApiUserChangeResponses = {
   /**
    * The updated user
    */
@@ -984,7 +1024,7 @@ export type PostUserChangeResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -994,13 +1034,14 @@ export type PostUserChangeResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
 };
 
-export type PostUserChangeResponse =
-  PostUserChangeResponses[keyof PostUserChangeResponses];
+export type PostApiUserChangeResponse =
+  PostApiUserChangeResponses[keyof PostApiUserChangeResponses];
 
-export type PostUserEmailData = {
+export type PostApiUserEmailData = {
   /**
    * The email to update
    */
@@ -1010,10 +1051,10 @@ export type PostUserEmailData = {
   };
   path?: never;
   query?: never;
-  url: "/user/email";
+  url: "/api/user/email";
 };
 
-export type PostUserEmailResponses = {
+export type PostApiUserEmailResponses = {
   /**
    * The updated user
    */
@@ -1028,7 +1069,7 @@ export type PostUserEmailResponses = {
     refreshTokenExpiresAt: string | null;
     currentGameSessionDataId: string | null;
     currentAuthSessionDataId: string | null;
-    avatar: string | null;
+    avatar_url: string | null;
     role: string;
     isActive: boolean;
     lastLoginAt: string | null;
@@ -1038,13 +1079,14 @@ export type PostUserEmailResponses = {
     createdAt: string;
     updatedAt: string;
     deletedAt: string | null;
+    lastSeen: string | null;
   };
 };
 
-export type PostUserEmailResponse =
-  PostUserEmailResponses[keyof PostUserEmailResponses];
+export type PostApiUserEmailResponse =
+  PostApiUserEmailResponses[keyof PostApiUserEmailResponses];
 
-export type PostUserPasswordData = {
+export type PostApiUserPasswordData = {
   /**
    * The password to update
    */
@@ -1054,10 +1096,10 @@ export type PostUserPasswordData = {
   };
   path?: never;
   query?: never;
-  url: "/user/password";
+  url: "/api/user/password";
 };
 
-export type PostUserPasswordResponses = {
+export type PostApiUserPasswordResponses = {
   /**
    * Password updated
    */
@@ -1066,10 +1108,10 @@ export type PostUserPasswordResponses = {
   };
 };
 
-export type PostUserPasswordResponse =
-  PostUserPasswordResponses[keyof PostUserPasswordResponses];
+export type PostApiUserPasswordResponse =
+  PostApiUserPasswordResponses[keyof PostApiUserPasswordResponses];
 
-export type PostUserSuspendData = {
+export type PostApiUserSuspendData = {
   /**
    * The suspension time
    */
@@ -1078,10 +1120,10 @@ export type PostUserSuspendData = {
   };
   path?: never;
   query?: never;
-  url: "/user/suspend";
+  url: "/api/user/suspend";
 };
 
-export type PostUserSuspendResponses = {
+export type PostApiUserSuspendResponses = {
   /**
    * User suspended
    */
@@ -1090,12 +1132,12 @@ export type PostUserSuspendResponses = {
   };
 };
 
-export type PostUserSuspendResponse =
-  PostUserSuspendResponses[keyof PostUserSuspendResponses];
+export type PostApiUserSuspendResponse =
+  PostApiUserSuspendResponses[keyof PostApiUserSuspendResponses];
 
-export type PostRedtigerGameSettingsData = {
+export type PostApiRedtigerGameSettingsData = {
   body?: {
-    gameId: string;
+    gamesId: string;
     token?: string | null;
     userId: string;
     currency: string;
@@ -1117,10 +1159,10 @@ export type PostRedtigerGameSettingsData = {
   };
   path?: never;
   query?: never;
-  url: "/redtiger/game/settings";
+  url: "/api/redtiger/game/settings";
 };
 
-export type PostRedtigerGameSettingsErrors = {
+export type PostApiRedtigerGameSettingsErrors = {
   /**
    * Internal Server Error
    */
@@ -1133,10 +1175,10 @@ export type PostRedtigerGameSettingsErrors = {
   };
 };
 
-export type PostRedtigerGameSettingsError =
-  PostRedtigerGameSettingsErrors[keyof PostRedtigerGameSettingsErrors];
+export type PostApiRedtigerGameSettingsError =
+  PostApiRedtigerGameSettingsErrors[keyof PostApiRedtigerGameSettingsErrors];
 
-export type PostRedtigerGameSettingsResponses = {
+export type PostApiRedtigerGameSettingsResponses = {
   /**
    * Redtiger game settings
    */
@@ -1163,9 +1205,9 @@ export type PostRedtigerGameSettingsResponses = {
         limits?: unknown;
         serverTime: string;
       };
-      game?: {
+      games?: {
         version?: string;
-        gameType?: string;
+        gamesType?: string;
       };
       launcher?: {
         version?: string;
@@ -1180,15 +1222,14 @@ export type PostRedtigerGameSettingsResponses = {
   };
 };
 
-export type PostRedtigerGameSettingsResponse =
-  PostRedtigerGameSettingsResponses[keyof PostRedtigerGameSettingsResponses];
+export type PostApiRedtigerGameSettingsResponse =
+  PostApiRedtigerGameSettingsResponses[keyof PostApiRedtigerGameSettingsResponses];
 
-export type PostRedtigerGameSpinData = {
-  body?: unknown;
-  path?: {
+export type PostApiRedtigerGameSpinData = {
+  body?: {
     token?: string;
     userId?: string;
-    gameId?: string;
+    gamesId?: string;
     stake?: number | string;
     currency?: string;
     sessionId?: string;
@@ -1218,11 +1259,12 @@ export type PostRedtigerGameSpinData = {
     roundId?: string | number;
     transactionId?: string | number;
   };
+  path?: never;
   query?: never;
-  url: "/redtiger/game/spin";
+  url: "/api/redtiger/game/spin";
 };
 
-export type PostRedtigerGameSpinErrors = {
+export type PostApiRedtigerGameSpinErrors = {
   /**
    * Internal Server Error
    */
@@ -1235,10 +1277,10 @@ export type PostRedtigerGameSpinErrors = {
   };
 };
 
-export type PostRedtigerGameSpinError =
-  PostRedtigerGameSpinErrors[keyof PostRedtigerGameSpinErrors];
+export type PostApiRedtigerGameSpinError =
+  PostApiRedtigerGameSpinErrors[keyof PostApiRedtigerGameSpinErrors];
 
-export type PostRedtigerGameSpinResponses = {
+export type PostApiRedtigerGameSpinResponses = {
   /**
    * Redtiger spin result
    */
@@ -1271,7 +1313,7 @@ export type PostRedtigerGameSpinResponses = {
       serverTime: string;
       canGamble?: boolean;
     };
-    game: {
+    games: {
       win: {
         instantWin?: string;
         lines?: string;
@@ -1281,231 +1323,55 @@ export type PostRedtigerGameSpinResponses = {
       multiplier?: number;
       winLines?: Array<unknown>;
       reelsBuffer?: Array<Array<Array<number>>>;
+      xpBreakdown?: {
+        baseXp: number;
+        bonusXp: number;
+        totalXp: number;
+      };
     };
     jackpots?: unknown;
     bonusChance?: unknown;
   };
 };
 
-export type PostRedtigerGameSpinResponse =
-  PostRedtigerGameSpinResponses[keyof PostRedtigerGameSpinResponses];
+export type PostApiRedtigerGameSpinResponse =
+  PostApiRedtigerGameSpinResponses[keyof PostApiRedtigerGameSpinResponses];
 
-export type PostBalanceData = {
+export type GetApiGamesAllData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/balance";
+  url: "/api/games/all";
 };
 
-export type PostBalanceErrors = {
-  /**
-   * Unauthorized
-   */
-  401: unknown;
-  /**
-   * Wallet Info not found
-   */
-  404: unknown;
-};
-
-export type PostBalanceResponses = {
-  /**
-   * Returns the user wallet balance.
-   */
-  200: {
-    id: string;
-    balance: number;
-    paymentMethod: string;
-    currency: string;
-    isActive: boolean;
-    isDefault: boolean;
-    address: string | null;
-    cashtag: string | null;
-    userId: string;
-    operatorId: string;
-    lastUsedAt: string | null;
-    createdAt: string;
-    updatedAt: string;
-  };
-};
-
-export type PostBalanceResponse =
-  PostBalanceResponses[keyof PostBalanceResponses];
-
-export type GetVipMeData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/vip/me";
-};
-
-export type GetVipMeErrors = {
-  /**
-   * Unauthorized
-   */
-  401: unknown;
-  /**
-   * VIP Info not found
-   */
-  404: unknown;
-};
-
-export type GetVipMeResponses = {
-  /**
-   * Returns the users VIP information, rank, and progress.
-   */
-  200: VipDetails;
-};
-
-export type GetVipMeResponse = GetVipMeResponses[keyof GetVipMeResponses];
-
-export type GetVipLevelsData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/vip/levels";
-};
-
-export type GetVipLevelsResponses = {
-  /**
-   * Returns the VIP level configuration table.
-   */
-  200: Array<VipLevel>;
-};
-
-export type GetVipLevelsResponse =
-  GetVipLevelsResponses[keyof GetVipLevelsResponses];
-
-export type GetVipRanksData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/vip/ranks";
-};
-
-export type GetVipRanksResponses = {
-  /**
-   * Returns the VIP rank configuration table.
-   */
-  200: Array<VipRank>;
-};
-
-export type GetVipRanksResponse =
-  GetVipRanksResponses[keyof GetVipRanksResponses];
-
-export type GetOperatorsData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/operators";
-};
-
-export type GetOperatorsErrors = {
-  /**
-   * Unauthorized
-   */
-  401: unknown;
-};
-
-export type GetOperatorsResponses = {
-  /**
-   * Returns a list of operators.
-   */
-  200: Array<{
-    id: string;
-    name: string;
-    callbackUrl: string;
-    isActive: boolean;
-    allowedIps: Array<string>;
-    description: string | null;
-    balance: number;
-    netRevenue: number;
-    acceptedPayments: Array<string>;
-    ownerId: string | null;
-    lastUsedAt: string | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
-};
-
-export type GetOperatorsResponse =
-  GetOperatorsResponses[keyof GetOperatorsResponses];
-
-export type GetOperatorsProductsData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/operators/products";
-};
-
-export type GetOperatorsProductsErrors = {
-  /**
-   * Unauthorized
-   */
-  401: unknown;
-};
-
-export type GetOperatorsProductsResponses = {
-  /**
-   * Returns a list of products.
-   */
-  200: Array<{
-    id: string;
-    title: string;
-    productType: string;
-    bonusTotalInCents: number;
-    isActive: boolean | null;
-    priceInCents: number;
-    amountToReceiveInCents: number;
-    bestValue: number;
-    discountInCents: number;
-    bonusSpins: number;
-    isPromo: boolean | null;
-    totalDiscountInCents: number;
-    operatorId: string | null;
-    createdAt: string;
-    updatedAt: string;
-  }>;
-};
-
-export type GetOperatorsProductsResponse =
-  GetOperatorsProductsResponses[keyof GetOperatorsProductsResponses];
-
-export type GetGamesAllData = {
-  body?: never;
-  path?: never;
-  query?: never;
-  url: "/games/all";
-};
-
-export type GetGamesAllResponses = {
+export type GetApiGamesAllResponses = {
   /**
    * A list of all games
    */
   200: Array<Game>;
 };
 
-export type GetGamesAllResponse =
-  GetGamesAllResponses[keyof GetGamesAllResponses];
+export type GetApiGamesAllResponse =
+  GetApiGamesAllResponses[keyof GetApiGamesAllResponses];
 
-export type GetGamesCategoriesData = {
+export type GetApiGamesCategoriesData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/games/categories";
+  url: "/api/games/categories";
 };
 
-export type GetGamesCategoriesResponses = {
+export type GetApiGamesCategoriesResponses = {
   /**
    * A list of game categories
    */
   200: Array<string>;
 };
 
-export type GetGamesCategoriesResponse =
-  GetGamesCategoriesResponses[keyof GetGamesCategoriesResponses];
+export type GetApiGamesCategoriesResponse =
+  GetApiGamesCategoriesResponses[keyof GetApiGamesCategoriesResponses];
 
-export type GetGamesSearchData = {
+export type GetApiGamesSearchData = {
   body?: never;
   path?: never;
   query?: {
@@ -1513,10 +1379,10 @@ export type GetGamesSearchData = {
     page?: string;
     limit?: string;
   };
-  url: "/games/search";
+  url: "/api/games/search";
 };
 
-export type GetGamesSearchResponses = {
+export type GetApiGamesSearchResponses = {
   /**
    * A list of games matching the search criteria
    */
@@ -1537,10 +1403,10 @@ export type GetGamesSearchResponses = {
   };
 };
 
-export type GetGamesSearchResponse =
-  GetGamesSearchResponses[keyof GetGamesSearchResponses];
+export type GetApiGamesSearchResponse =
+  GetApiGamesSearchResponses[keyof GetApiGamesSearchResponses];
 
-export type GetUserGamesData = {
+export type GetApiUserGamesData = {
   body?: never;
   path?: never;
   query: {
@@ -1548,10 +1414,10 @@ export type GetUserGamesData = {
     page?: string;
     limit?: string;
   };
-  url: "/user/games";
+  url: "/api/user/games";
 };
 
-export type GetUserGamesResponses = {
+export type GetApiUserGamesResponses = {
   /**
    * A list of games for the current user (e.g., favorites or history)
    */
@@ -1572,53 +1438,53 @@ export type GetUserGamesResponses = {
   };
 };
 
-export type GetUserGamesResponse =
-  GetUserGamesResponses[keyof GetUserGamesResponses];
+export type GetApiUserGamesResponse =
+  GetApiUserGamesResponses[keyof GetApiUserGamesResponses];
 
-export type PostUserGamesFavoriteData = {
+export type PostApiUserGamesFavoriteData = {
   body?: {
     add_game?: string;
     del_game?: string;
   };
   path?: never;
   query?: never;
-  url: "/user/games/favorite";
+  url: "/api/user/games/favorite";
 };
 
-export type PostUserGamesFavoriteResponses = {
+export type PostApiUserGamesFavoriteResponses = {
   /**
    * Success
    */
   200: unknown;
 };
 
-export type GetUserGamesFavoritesData = {
+export type GetApiUserGamesFavoritesData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/user/games/favorites";
+  url: "/api/user/games/favorites";
 };
 
-export type GetUserGamesFavoritesResponses = {
+export type GetApiUserGamesFavoritesResponses = {
   /**
    * A list of the user favorite game IDs
    */
   200: Array<string>;
 };
 
-export type GetUserGamesFavoritesResponse =
-  GetUserGamesFavoritesResponses[keyof GetUserGamesFavoritesResponses];
+export type GetApiUserGamesFavoritesResponse =
+  GetApiUserGamesFavoritesResponses[keyof GetApiUserGamesFavoritesResponses];
 
-export type PostGamesByIdEnterData = {
+export type PostApiGamesByIdEnterData = {
   body?: never;
   path: {
     id: string;
   };
   query?: never;
-  url: "/games/{id}/enter";
+  url: "/api/games/{id}/enter";
 };
 
-export type PostGamesByIdEnterErrors = {
+export type PostApiGamesByIdEnterErrors = {
   /**
    * Not Found
    */
@@ -1627,10 +1493,10 @@ export type PostGamesByIdEnterErrors = {
   };
 };
 
-export type PostGamesByIdEnterError =
-  PostGamesByIdEnterErrors[keyof PostGamesByIdEnterErrors];
+export type PostApiGamesByIdEnterError =
+  PostApiGamesByIdEnterErrors[keyof PostApiGamesByIdEnterErrors];
 
-export type PostGamesByIdEnterResponses = {
+export type PostApiGamesByIdEnterResponses = {
   /**
    * Game session details
    */
@@ -1655,31 +1521,93 @@ export type PostGamesByIdEnterResponses = {
   };
 };
 
-export type PostGamesByIdEnterResponse =
-  PostGamesByIdEnterResponses[keyof PostGamesByIdEnterResponses];
+export type PostApiGamesByIdEnterResponse =
+  PostApiGamesByIdEnterResponses[keyof PostApiGamesByIdEnterResponses];
 
-export type PostGamesLeaveData = {
+export type PostApiGamesLeaveData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/games/leave";
+  url: "/api/games/leave";
 };
 
-export type PostGamesLeaveResponses = {
+export type PostApiGamesLeaveResponses = {
   /**
    * Success
    */
   200: unknown;
 };
 
-export type GetGamespinsTopwinsData = {
+export type GetApiVipMeData = {
   body?: never;
   path?: never;
   query?: never;
-  url: "/gamespins/topwins";
+  url: "/api/vip/me";
 };
 
-export type GetGamespinsTopwinsErrors = {
+export type GetApiVipMeErrors = {
+  /**
+   * Unauthorized
+   */
+  401: unknown;
+  /**
+   * VIP Info not found
+   */
+  404: unknown;
+};
+
+export type GetApiVipMeResponses = {
+  /**
+   * Returns the users VIP information, rank, and progress.
+   */
+  200: VipDetails;
+};
+
+export type GetApiVipMeResponse =
+  GetApiVipMeResponses[keyof GetApiVipMeResponses];
+
+export type GetApiVipLevelsData = {
+  body?: never;
+  path?: never;
+  query?: never;
+  url: "/api/vip/levels";
+};
+
+export type GetApiVipLevelsResponses = {
+  /**
+   * Returns the VIP level configuration table.
+   */
+  200: Array<VipLevel>;
+};
+
+export type GetApiVipLevelsResponse =
+  GetApiVipLevelsResponses[keyof GetApiVipLevelsResponses];
+
+export type GetApiVipRanksData = {
+  body?: never;
+  path?: never;
+  query?: never;
+  url: "/api/vip/ranks";
+};
+
+export type GetApiVipRanksResponses = {
+  /**
+   * Returns the VIP rank configuration table.
+   */
+  200: Array<VipRank>;
+};
+
+export type GetApiVipRanksResponse =
+  GetApiVipRanksResponses[keyof GetApiVipRanksResponses];
+
+export type GetApiGamespinsTopwinsData = {
+  body?: never;
+  path?: never;
+  query?: never;
+  url: "/api/gamespins/topwins";
+};
+
+export type GetApiGamespinsTopwinsErrors = {
   /**
    * Unauthorized
    */
@@ -1688,19 +1616,38 @@ export type GetGamespinsTopwinsErrors = {
   };
 };
 
-export type GetGamespinsTopwinsError =
-  GetGamespinsTopwinsErrors[keyof GetGamespinsTopwinsErrors];
+export type GetApiGamespinsTopwinsError =
+  GetApiGamespinsTopwinsErrors[keyof GetApiGamespinsTopwinsErrors];
 
-export type GetGamespinsTopwinsResponses = {
+export type GetApiGamespinsTopwinsResponses = {
   /**
    * A list of top winning game spins
    */
   200: Array<GameSpin>;
 };
 
-export type GetGamespinsTopwinsResponse =
-  GetGamespinsTopwinsResponses[keyof GetGamespinsTopwinsResponses];
+export type GetApiGamespinsTopwinsResponse =
+  GetApiGamespinsTopwinsResponses[keyof GetApiGamespinsTopwinsResponses];
+
+export type GetGs2cGeV3GameServiceData = {
+  body?: never;
+  path?: never;
+  query?: never;
+  url: "/gs2c/ge/v3/gameService/";
+};
+
+export type GetGs2cGeV3GameServiceResponses = {
+  /**
+   * Cashino API Index
+   */
+  200: {
+    message: string;
+  };
+};
+
+export type GetGs2cGeV3GameServiceResponse =
+  GetGs2cGeV3GameServiceResponses[keyof GetGs2cGeV3GameServiceResponses];
 
 export type ClientOptions = {
-  baseURL: "http://localhost:9999" | (string & {});
+  baseURL: "https://api.cashflowcasino.com" | (string & {});
 };

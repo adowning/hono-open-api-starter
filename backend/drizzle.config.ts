@@ -11,11 +11,11 @@ import { defineConfig } from 'drizzle-kit'
 //   },
 // });
 export default defineConfig({
-    schema: './src/db/slim.schema.ts',
-    out: './src/db/migrations',
+    schema: './src/db/schema/index.ts',
+    out: './drizzle',
     dialect: 'postgresql',
     casing: 'camelCase',
     dbCredentials: {
-        url: 'postgres://user:password@localhost:5439/cleaner',
+        url: 'postgres://user:asdfasdf@localhost:5439/cashinin',
     },
 })

@@ -1,0 +1,1612 @@
+{
+    "skeleton": {
+        "hash": "FHtvDhBb4pL4/2e70f/3ks3BW1w",
+        "spine": "3.7.94",
+        "width": 300,
+        "height": 300,
+        "images": "../../sanquentin/resources/sources/",
+        "audio": ""
+    },
+    "bones": [
+        {
+            "name": "root"
+        },
+        {
+            "name": "Wild_1",
+            "parent": "root"
+        },
+        {
+            "name": "FX",
+            "parent": "root"
+        },
+        {
+            "name": "Wild_2",
+            "parent": "root"
+        },
+        {
+            "name": "Wild_3",
+            "parent": "root"
+        },
+        {
+            "name": "Wild_4",
+            "parent": "root"
+        },
+        {
+            "name": "Wild_5",
+            "parent": "root"
+        }
+    ],
+    "slots": [
+        {
+            "name": "main/Jumping_Wild/JW_4_Badge",
+            "bone": "Wild_1",
+            "attachment": "main/Jumping_Wild/JW_4_Badge"
+        },
+        {
+            "name": "FX",
+            "bone": "FX",
+            "attachment": "mainJpeg/JW_Idle/JW_Idle_00029",
+            "blend": "additive"
+        },
+        {
+            "name": "main/Jumping_Wild/JW_4_Badge2",
+            "bone": "Wild_2",
+            "attachment": "main/Jumping_Wild/JW_4_Badge"
+        },
+        {
+            "name": "main/Jumping_Wild/JW_4_Badge3",
+            "bone": "Wild_3",
+            "attachment": "main/Jumping_Wild/JW_4_Badge"
+        },
+        {
+            "name": "main/Jumping_Wild/JW_4_Badge4",
+            "bone": "Wild_4",
+            "attachment": "main/Jumping_Wild/JW_4_Badge"
+        },
+        {
+            "name": "main/Jumping_Wild/JW_4_Badge5",
+            "bone": "Wild_5",
+            "attachment": "main/Jumping_Wild/JW_4_Badge"
+        }
+    ],
+    "skins": {
+        "default": {
+            "FX": {
+                "mainJpeg/JW_Idle/JW_Idle_00000": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00001": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00002": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00003": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00004": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00005": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00006": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00007": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00008": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00009": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00010": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00011": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00012": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00013": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00014": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00015": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00016": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00017": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00018": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00019": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00020": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00021": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00022": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00023": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00024": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00025": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00026": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00027": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00028": {
+                    "width": 300,
+                    "height": 300
+                },
+                "mainJpeg/JW_Idle/JW_Idle_00029": {
+                    "width": 300,
+                    "height": 300
+                }
+            },
+            "main/Jumping_Wild/JW_4_Badge": {
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "width": 136,
+                    "height": 180
+                }
+            },
+            "main/Jumping_Wild/JW_4_Badge2": {
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "width": 136,
+                    "height": 180
+                }
+            },
+            "main/Jumping_Wild/JW_4_Badge3": {
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "width": 136,
+                    "height": 180
+                }
+            },
+            "main/Jumping_Wild/JW_4_Badge4": {
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "width": 136,
+                    "height": 180
+                }
+            },
+            "main/Jumping_Wild/JW_4_Badge5": {
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "width": 136,
+                    "height": 180
+                }
+            }
+        }
+    },
+    "animations": {
+        "Wild_1": {
+            "slots": {
+                "FX": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": null
+                        },
+                        {
+                            "time": 0.3333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00000"
+                        },
+                        {
+                            "time": 0.3667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00001"
+                        },
+                        {
+                            "time": 0.4,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00002"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00003"
+                        },
+                        {
+                            "time": 0.4667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00004"
+                        },
+                        {
+                            "time": 0.5,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00005"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00006"
+                        },
+                        {
+                            "time": 0.5667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00007"
+                        },
+                        {
+                            "time": 0.6,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00008"
+                        },
+                        {
+                            "time": 0.6333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00009"
+                        },
+                        {
+                            "time": 0.6667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00010"
+                        },
+                        {
+                            "time": 0.7,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00011"
+                        },
+                        {
+                            "time": 0.7333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00012"
+                        },
+                        {
+                            "time": 0.7667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00013"
+                        },
+                        {
+                            "time": 0.8,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00014"
+                        },
+                        {
+                            "time": 0.8333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00015"
+                        },
+                        {
+                            "time": 0.8667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00016"
+                        },
+                        {
+                            "time": 0.9,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00017"
+                        },
+                        {
+                            "time": 0.9333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00018"
+                        },
+                        {
+                            "time": 0.9667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00019"
+                        },
+                        {
+                            "time": 1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00020"
+                        },
+                        {
+                            "time": 1.0333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00021"
+                        },
+                        {
+                            "time": 1.0667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00022"
+                        },
+                        {
+                            "time": 1.1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00023"
+                        },
+                        {
+                            "time": 1.1333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00024"
+                        },
+                        {
+                            "time": 1.1667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00025"
+                        },
+                        {
+                            "time": 1.2,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00026"
+                        },
+                        {
+                            "time": 1.2333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00027"
+                        },
+                        {
+                            "time": 1.2667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00028"
+                        },
+                        {
+                            "time": 1.3,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00029"
+                        },
+                        {
+                            "time": 1.3333,
+                            "name": null
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge2": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge3": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge4": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Wild_1": {
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1,
+                            "y": 1,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild_2": {
+            "slots": {
+                "FX": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": null
+                        },
+                        {
+                            "time": 0.3333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00000"
+                        },
+                        {
+                            "time": 0.3667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00001"
+                        },
+                        {
+                            "time": 0.4,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00002"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00003"
+                        },
+                        {
+                            "time": 0.4667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00004"
+                        },
+                        {
+                            "time": 0.5,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00005"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00006"
+                        },
+                        {
+                            "time": 0.5667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00007"
+                        },
+                        {
+                            "time": 0.6,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00008"
+                        },
+                        {
+                            "time": 0.6333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00009"
+                        },
+                        {
+                            "time": 0.6667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00010"
+                        },
+                        {
+                            "time": 0.7,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00011"
+                        },
+                        {
+                            "time": 0.7333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00012"
+                        },
+                        {
+                            "time": 0.7667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00013"
+                        },
+                        {
+                            "time": 0.8,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00014"
+                        },
+                        {
+                            "time": 0.8333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00015"
+                        },
+                        {
+                            "time": 0.8667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00016"
+                        },
+                        {
+                            "time": 0.9,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00017"
+                        },
+                        {
+                            "time": 0.9333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00018"
+                        },
+                        {
+                            "time": 0.9667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00019"
+                        },
+                        {
+                            "time": 1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00020"
+                        },
+                        {
+                            "time": 1.0333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00021"
+                        },
+                        {
+                            "time": 1.0667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00022"
+                        },
+                        {
+                            "time": 1.1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00023"
+                        },
+                        {
+                            "time": 1.1333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00024"
+                        },
+                        {
+                            "time": 1.1667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00025"
+                        },
+                        {
+                            "time": 1.2,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00026"
+                        },
+                        {
+                            "time": 1.2333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00027"
+                        },
+                        {
+                            "time": 1.2667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00028"
+                        },
+                        {
+                            "time": 1.3,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00029"
+                        },
+                        {
+                            "time": 1.3333,
+                            "name": null
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge2": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1333,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge3": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge4": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Wild_1": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 25,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1,
+                            "y": 1,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                },
+                "FX": {
+                    "translate": [
+                        {
+                            "time": 0.3333,
+                            "x": 25,
+                            "y": 0
+                        }
+                    ]
+                },
+                "Wild_2": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 0,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": -37.65,
+                            "y": 0
+                        }
+                    ]
+                }
+            },
+            "drawOrder": [
+                {
+                    "time": 0,
+                    "offsets": [
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge2",
+                            "offset": -2
+                        }
+                    ]
+                }
+            ]
+        },
+        "Wild_3": {
+            "slots": {
+                "FX": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": null
+                        },
+                        {
+                            "time": 0.3333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00000"
+                        },
+                        {
+                            "time": 0.3667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00001"
+                        },
+                        {
+                            "time": 0.4,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00002"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00003"
+                        },
+                        {
+                            "time": 0.4667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00004"
+                        },
+                        {
+                            "time": 0.5,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00005"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00006"
+                        },
+                        {
+                            "time": 0.5667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00007"
+                        },
+                        {
+                            "time": 0.6,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00008"
+                        },
+                        {
+                            "time": 0.6333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00009"
+                        },
+                        {
+                            "time": 0.6667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00010"
+                        },
+                        {
+                            "time": 0.7,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00011"
+                        },
+                        {
+                            "time": 0.7333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00012"
+                        },
+                        {
+                            "time": 0.7667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00013"
+                        },
+                        {
+                            "time": 0.8,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00014"
+                        },
+                        {
+                            "time": 0.8333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00015"
+                        },
+                        {
+                            "time": 0.8667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00016"
+                        },
+                        {
+                            "time": 0.9,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00017"
+                        },
+                        {
+                            "time": 0.9333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00018"
+                        },
+                        {
+                            "time": 0.9667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00019"
+                        },
+                        {
+                            "time": 1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00020"
+                        },
+                        {
+                            "time": 1.0333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00021"
+                        },
+                        {
+                            "time": 1.0667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00022"
+                        },
+                        {
+                            "time": 1.1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00023"
+                        },
+                        {
+                            "time": 1.1333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00024"
+                        },
+                        {
+                            "time": 1.1667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00025"
+                        },
+                        {
+                            "time": 1.2,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00026"
+                        },
+                        {
+                            "time": 1.2333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00027"
+                        },
+                        {
+                            "time": 1.2667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00028"
+                        },
+                        {
+                            "time": 1.3,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00029"
+                        },
+                        {
+                            "time": 1.3333,
+                            "name": null
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge2": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge3": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge4": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Wild_1": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 20
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1,
+                            "y": 1,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                },
+                "FX": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 20
+                        }
+                    ]
+                },
+                "Wild_2": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": -50,
+                            "y": -20
+                        }
+                    ]
+                },
+                "Wild_3": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 50,
+                            "y": -20
+                        }
+                    ]
+                }
+            },
+            "drawOrder": [
+                {
+                    "time": 0,
+                    "offsets": [
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge2",
+                            "offset": -1
+                        },
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge3",
+                            "offset": -3
+                        }
+                    ]
+                }
+            ]
+        },
+        "Wild_4": {
+            "slots": {
+                "FX": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": null
+                        },
+                        {
+                            "time": 0.3333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00000"
+                        },
+                        {
+                            "time": 0.3667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00001"
+                        },
+                        {
+                            "time": 0.4,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00002"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00003"
+                        },
+                        {
+                            "time": 0.4667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00004"
+                        },
+                        {
+                            "time": 0.5,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00005"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00006"
+                        },
+                        {
+                            "time": 0.5667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00007"
+                        },
+                        {
+                            "time": 0.6,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00008"
+                        },
+                        {
+                            "time": 0.6333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00009"
+                        },
+                        {
+                            "time": 0.6667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00010"
+                        },
+                        {
+                            "time": 0.7,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00011"
+                        },
+                        {
+                            "time": 0.7333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00012"
+                        },
+                        {
+                            "time": 0.7667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00013"
+                        },
+                        {
+                            "time": 0.8,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00014"
+                        },
+                        {
+                            "time": 0.8333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00015"
+                        },
+                        {
+                            "time": 0.8667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00016"
+                        },
+                        {
+                            "time": 0.9,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00017"
+                        },
+                        {
+                            "time": 0.9333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00018"
+                        },
+                        {
+                            "time": 0.9667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00019"
+                        },
+                        {
+                            "time": 1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00020"
+                        },
+                        {
+                            "time": 1.0333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00021"
+                        },
+                        {
+                            "time": 1.0667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00022"
+                        },
+                        {
+                            "time": 1.1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00023"
+                        },
+                        {
+                            "time": 1.1333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00024"
+                        },
+                        {
+                            "time": 1.1667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00025"
+                        },
+                        {
+                            "time": 1.2,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00026"
+                        },
+                        {
+                            "time": 1.2333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00027"
+                        },
+                        {
+                            "time": 1.2667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00028"
+                        },
+                        {
+                            "time": 1.3,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00029"
+                        },
+                        {
+                            "time": 1.3333,
+                            "name": null
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge2": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge3": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge4": {
+                    "color": [
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Wild_1": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 20
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1,
+                            "y": 1,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                },
+                "FX": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 20
+                        }
+                    ]
+                },
+                "Wild_2": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": -50,
+                            "y": -10
+                        }
+                    ]
+                },
+                "Wild_3": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 50,
+                            "y": -10
+                        }
+                    ]
+                },
+                "Wild_4": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 0,
+                            "y": -40
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                }
+            },
+            "drawOrder": [
+                {
+                    "time": 0,
+                    "offsets": [
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge",
+                            "offset": 3
+                        },
+                        {
+                            "slot": "FX",
+                            "offset": 3
+                        },
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge2",
+                            "offset": -1
+                        }
+                    ]
+                }
+            ]
+        },
+        "Wild_5": {
+            "slots": {
+                "FX": {
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": null
+                        },
+                        {
+                            "time": 0.3333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00000"
+                        },
+                        {
+                            "time": 0.3667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00001"
+                        },
+                        {
+                            "time": 0.4,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00002"
+                        },
+                        {
+                            "time": 0.4333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00003"
+                        },
+                        {
+                            "time": 0.4667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00004"
+                        },
+                        {
+                            "time": 0.5,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00005"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00006"
+                        },
+                        {
+                            "time": 0.5667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00007"
+                        },
+                        {
+                            "time": 0.6,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00008"
+                        },
+                        {
+                            "time": 0.6333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00009"
+                        },
+                        {
+                            "time": 0.6667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00010"
+                        },
+                        {
+                            "time": 0.7,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00011"
+                        },
+                        {
+                            "time": 0.7333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00012"
+                        },
+                        {
+                            "time": 0.7667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00013"
+                        },
+                        {
+                            "time": 0.8,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00014"
+                        },
+                        {
+                            "time": 0.8333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00015"
+                        },
+                        {
+                            "time": 0.8667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00016"
+                        },
+                        {
+                            "time": 0.9,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00017"
+                        },
+                        {
+                            "time": 0.9333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00018"
+                        },
+                        {
+                            "time": 0.9667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00019"
+                        },
+                        {
+                            "time": 1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00020"
+                        },
+                        {
+                            "time": 1.0333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00021"
+                        },
+                        {
+                            "time": 1.0667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00022"
+                        },
+                        {
+                            "time": 1.1,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00023"
+                        },
+                        {
+                            "time": 1.1333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00024"
+                        },
+                        {
+                            "time": 1.1667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00025"
+                        },
+                        {
+                            "time": 1.2,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00026"
+                        },
+                        {
+                            "time": 1.2333,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00027"
+                        },
+                        {
+                            "time": 1.2667,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00028"
+                        },
+                        {
+                            "time": 1.3,
+                            "name": "mainJpeg/JW_Idle/JW_Idle_00029"
+                        },
+                        {
+                            "time": 1.3333,
+                            "name": null
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge2": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge3": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge4": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "main/Jumping_Wild/JW_4_Badge5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Wild_1": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1,
+                            "y": 1,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 1,
+                            "y": 1
+                        }
+                    ]
+                },
+                "Wild_2": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": -50,
+                            "y": -40
+                        }
+                    ]
+                },
+                "Wild_3": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 50,
+                            "y": -40
+                        }
+                    ]
+                },
+                "Wild_4": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 50,
+                            "y": 40
+                        }
+                    ]
+                },
+                "Wild_5": {
+                    "translate": [
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": -50,
+                            "y": 40
+                        }
+                    ]
+                }
+            },
+            "drawOrder": [
+                {
+                    "time": 0,
+                    "offsets": [
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge",
+                            "offset": 4
+                        },
+                        {
+                            "slot": "FX",
+                            "offset": 4
+                        },
+                        {
+                            "slot": "main/Jumping_Wild/JW_4_Badge3",
+                            "offset": -1
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

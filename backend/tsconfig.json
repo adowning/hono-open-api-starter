@@ -7,8 +7,17 @@
         "jsxImportSource": "hono/jsx",
         "baseUrl": ".",
         "paths": {
-            "#/*": ["./src/*"]
+            "#/*": [
+                "./src/*"
+            ]
         },
+        "types": [
+            "bun-types"
+        ],
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
         "outDir": "./dist",
         "esModuleInterop": true,
         "skipLibCheck": true,
@@ -25,6 +34,13 @@
         "isolatedModules": true,
         "noEmit": true
     },
-    "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"],
-    "exclude": ["node_modules", "dist"]
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.d.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
 }

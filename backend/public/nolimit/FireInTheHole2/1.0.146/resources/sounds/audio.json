@@ -1,0 +1,574 @@
+[
+  {
+    "name": "effects",
+    "src": [
+      "effects.mp4"
+    ],
+    "sprite": {
+      "asWin": [
+        0,
+        750
+      ],
+      "asWinBig": [
+        2000,
+        3000
+      ],
+      "bigwin1": [
+        7000,
+        7008
+      ],
+      "bigwin2": [
+        16000,
+        6667
+      ],
+      "bigwin3": [
+        24000,
+        6667
+      ],
+      "bigwin4": [
+        32000,
+        6667
+      ],
+      "bigwin5": [
+        40000,
+        7333
+      ],
+      "bigwinEnds": [
+        49000,
+        4000
+      ],
+      "capWinEnds": [
+        54000,
+        4375
+      ],
+      "capWinIntro": [
+        60000,
+        5500
+      ],
+      "capWinMusic": [
+        67000,
+        17455
+      ],
+      "capWinStart": [
+        86000,
+        10000
+      ],
+      "continueButton": [
+        97000,
+        3500
+      ],
+      "fs100xEnters": [
+        102000,
+        2250
+      ],
+      "fs25MultiEnters": [
+        106000,
+        1500
+      ],
+      "fsBeerReactivate": [
+        109000,
+        2000
+      ],
+      "fsCoinHighlight": [
+        112000,
+        2063
+      ],
+      "fsCoinLandingBeer": [
+        116000,
+        2500
+      ],
+      "fsCoinLandingDwarf": [
+        120000,
+        3125
+      ],
+      "fsCoinLandingLarge": [
+        125000,
+        1750
+      ],
+      "fsCoinLandingMedium": [
+        128000,
+        1000
+      ],
+      "fsCoinLandingSmall": [
+        130000,
+        1000
+      ],
+      "fsCoinLandingTiny": [
+        132000,
+        1000
+      ],
+      "fsCoinReactivated": [
+        134000,
+        1000
+      ],
+      "fsCoinReactivatedHighlight": [
+        136000,
+        4000
+      ],
+      "fsCoinSweep": [
+        141000,
+        1828
+      ],
+      "fsDwarfAnticipation": [
+        144000,
+        4875
+      ],
+      "fsDwarfCollect": [
+        150000,
+        3125
+      ],
+      "fsDwarfCollectPersistent": [
+        155000,
+        2005
+      ],
+      "fsDwarfEnters": [
+        159000,
+        2375
+      ],
+      "fsDwarfLands": [
+        163000,
+        2609
+      ],
+      "fsDwarfMultiLands": [
+        167000,
+        2594
+      ],
+      "fsDynamiteChest1": [
+        171000,
+        2500
+      ],
+      "fsDynamiteChest2": [
+        175000,
+        2125
+      ],
+      "fsDynamiteLandsOnCoin": [
+        179000,
+        1500
+      ],
+      "fsDynamiteStone1": [
+        182000,
+        2063
+      ],
+      "fsDynamiteStone2": [
+        186000,
+        2000
+      ],
+      "fsDynamiteStone3": [
+        189000,
+        2125
+      ],
+      "fsDynamiteThrow": [
+        193000,
+        1391
+      ],
+      "fsDynamiteWagonHighlight": [
+        196000,
+        1375
+      ],
+      "fsEmptyLand01": [
+        199000,
+        1000
+      ],
+      "fsEmptyLand02": [
+        201000,
+        1000
+      ],
+      "fsEmptyLand03": [
+        203000,
+        1000
+      ],
+      "fsEnds": [
+        205000,
+        3500
+      ],
+      "fsEndsCountupEnds": [
+        210000,
+        2250
+      ],
+      "fsIntro": [
+        214000,
+        4000
+      ],
+      "fsIntroText": [
+        219000,
+        3078
+      ],
+      "fsIntroWagonIn": [
+        224000,
+        2344
+      ],
+      "fsIntroWagonOut": [
+        228000,
+        4000
+      ],
+      "fsMultiDownToChest": [
+        233000,
+        1203
+      ],
+      "fsMultiDownToCoin": [
+        236000,
+        1313
+      ],
+      "fsMultiLandsInChest": [
+        239000,
+        2313
+      ],
+      "fsMultiLandsOnCoinLarge": [
+        243000,
+        3000
+      ],
+      "fsMultiLandsOnCoinMedium": [
+        247000,
+        2500
+      ],
+      "fsMultiLandsOnCoinSmall": [
+        251000,
+        2000
+      ],
+      "fsMultiLandsOnCoinTiny": [
+        254000,
+        375
+      ],
+      "fsMultiplierUp": [
+        256000,
+        2109
+      ],
+      "fsMultiToDwarf": [
+        260000,
+        2000
+      ],
+      "fsReelsLanding": [
+        263000,
+        2688
+      ],
+      "fsReelsSpinning": [
+        267000,
+        5075
+      ],
+      "fsRowExplode": [
+        274000,
+        3500
+      ],
+      "fsSpinsReset": [
+        279000,
+        2000
+      ],
+      "fsUpgradeBeer": [
+        282000,
+        3000
+      ],
+      "fsUpgradeDwarf": [
+        286000,
+        3000
+      ],
+      "fsUpgradeDynamite": [
+        290000,
+        3250
+      ],
+      "fsUpgradeLand": [
+        295000,
+        2000
+      ],
+      "fsWagonIn": [
+        298000,
+        2250
+      ],
+      "fsWagonOut": [
+        302000,
+        1938
+      ],
+      "gridDown": [
+        305000,
+        2000
+      ],
+      "gridReset": [
+        308000,
+        1500
+      ],
+      "reelLanding1": [
+        311000,
+        949
+      ],
+      "reelLanding10": [
+        313000,
+        1000
+      ],
+      "reelLanding11": [
+        315000,
+        1138
+      ],
+      "reelLanding2": [
+        318000,
+        1027
+      ],
+      "reelLanding3": [
+        321000,
+        997
+      ],
+      "reelLanding4": [
+        323000,
+        954
+      ],
+      "reelLanding5": [
+        325000,
+        615
+      ],
+      "reelLanding6": [
+        327000,
+        1000
+      ],
+      "reelLanding7": [
+        329000,
+        994
+      ],
+      "reelLanding8": [
+        331000,
+        931
+      ],
+      "reelLanding9": [
+        333000,
+        873
+      ],
+      "reelsSpinIn": [
+        335000,
+        2000
+      ],
+      "reelsSpinOut": [
+        339000,
+        1338
+      ],
+      "scatter1": [
+        342000,
+        1125
+      ],
+      "scatter2": [
+        345000,
+        1125
+      ],
+      "scatter3": [
+        348000,
+        2250
+      ],
+      "scatterAnticipation": [
+        352000,
+        10500
+      ],
+      "scatterAnticipationEnd": [
+        364000,
+        2000
+      ],
+      "scatterAnticipationLand01": [
+        368000,
+        1625
+      ],
+      "scatterAnticipationLand02": [
+        371000,
+        1625
+      ],
+      "scatterAnticipationLand03": [
+        374000,
+        1625
+      ],
+      "scatterFlash": [
+        377000,
+        1375
+      ],
+      "scatterLandExtra": [
+        380000,
+        2375
+      ],
+      "textSweep": [
+        384000,
+        5000
+      ],
+      "wildBuildup": [
+        390000,
+        1625
+      ],
+      "wildExplosion": [
+        393000,
+        3000
+      ],
+      "wildLand01": [
+        398000,
+        1000
+      ],
+      "wildLand02": [
+        401000,
+        1000
+      ],
+      "wildLand03": [
+        404000,
+        1000
+      ],
+      "wildLand04": [
+        406000,
+        1000
+      ],
+      "wildMultiplierUp": [
+        409000,
+        1625
+      ],
+      "winCountup": [
+        412000,
+        3000
+      ],
+      "winExplosion01": [
+        416000,
+        3000
+      ],
+      "winExplosion02": [
+        421000,
+        3375
+      ],
+      "winExplosion03": [
+        426000,
+        2875
+      ],
+      "winExplosion04": [
+        430000,
+        2750
+      ],
+      "winExplosion05": [
+        434000,
+        3000
+      ],
+      "winExplosion06": [
+        439000,
+        3500
+      ],
+      "winExplosionSingle": [
+        444000,
+        3500
+      ],
+      "winHighlightHigh01": [
+        449000,
+        1375
+      ],
+      "winHighlightHigh02": [
+        452000,
+        1500
+      ],
+      "winHighlightHigh03": [
+        455000,
+        1500
+      ],
+      "winHighlightLow01": [
+        458000,
+        1250
+      ],
+      "winHighlightLow02": [
+        461000,
+        1250
+      ],
+      "winHighlightLow03": [
+        464000,
+        1250
+      ],
+      "winLarge": [
+        467000,
+        3500
+      ],
+      "winMedium": [
+        472000,
+        2500
+      ],
+      "winSmall": [
+        476000,
+        1250
+      ],
+      "winTiny": [
+        479000,
+        1000
+      ],
+      "xbetOff": [
+        482000,
+        3000
+      ],
+      "xbetOn": [
+        486000,
+        3000
+      ],
+      "xsplitExpandNoWin": [
+        490000,
+        2125
+      ],
+      "xsplitExpandWin": [
+        494000,
+        2500
+      ],
+      "xsplitLand01": [
+        498000,
+        1500
+      ],
+      "xsplitLand02": [
+        501000,
+        1500
+      ],
+      "xsplitLand03": [
+        504000,
+        1500
+      ],
+      "xsplitTransform": [
+        507000,
+        1500
+      ]
+    }
+  },
+  {
+    "name": "keypad",
+    "src": [
+      "keypad.mp4"
+    ],
+    "sprite": {
+      "click": [
+        0,
+        173
+      ],
+      "disabled": [
+        2000,
+        173
+      ],
+      "fast-spin-off": [
+        4000,
+        173
+      ],
+      "fast-spin-on": [
+        6000,
+        173
+      ],
+      "spin-start": [
+        8000,
+        4232
+      ],
+      "spin-stop": [
+        14000,
+        4232
+      ]
+    }
+  },
+  {
+    "name": "loops",
+    "src": [
+      "loops.mp4"
+    ],
+    "sprite": {
+      "fs1": [
+        0,
+        61935
+      ],
+      "fs2": [
+        63000,
+        54857
+      ],
+      "fsIntroLoop": [
+        119000,
+        15484
+      ],
+      "main": [
+        136000,
+        85714
+      ]
+    }
+  }
+]

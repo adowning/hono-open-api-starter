@@ -44,31 +44,31 @@ cp .env.example .env
 Install dependencies
 
 ```sh
-pnpm install
+bun install
 ```
 
 Create sqlite db / push schema
 
 ```sh
-pnpm drizzle-kit push
+bun run push
 ```
 
 Run
 
 ```sh
-pnpm dev
+bun run dev
 ```
 
 Lint
 
 ```sh
-pnpm lint
+bun run lint
 ```
 
 Test
 
 ```sh
-pnpm test
+bun run test
 ```
 
 ## Code Tour

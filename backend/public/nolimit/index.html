@@ -1,0 +1,141 @@
+<!doctype html>
+
+<head>
+    <!-- <base href="https://slots.cashflowcasino.com/nolimit" target="_blank" /> -->
+    <!-- <base href="/nolimit" target="_blank" /> -->
+    <meta charset="utf-8" />
+    <title>Cashcow | Casino</title>
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <!-- <script type="text/javascript">
+    const pb = new PocketBase("https://pb.andrewscarpetcleaning.com");
+  </script> -->
+</head>
+
+<body>
+    <div id="addon"></div>
+    <script src="./nolimit-latest.min.js" nonce="MTMwODM2NzkyMywyMzk0MDIzMjI1"></script>
+    <script nonce="MTMwODM2NzkyMywyMzk0MDIzMjI1"></script>
+    <script type="module" nonce="MTMwODM2NzkyMywyMzk0MDIzMjI1">
+        const queryString = window.location.search
+        console.log(queryString)
+        const urlParams = new URLSearchParams(queryString)
+        // const gameName = urlParams.get('gameName')\
+        const gameName = 'FireInTheHole2'
+        // const user = JSON.parse(urlParams.get('user'))
+        const user = { id: '1' }
+        if (user.id !== undefined) {
+            console.log(window)
+            console.log('nolimit.js', nolimit.version)
+            window.axios = axios
+            window.userId = user.id
+            console.log(userId)
+            console.log(gameName)
+            alert(gameName)
+
+            var options = {}
+            var query = window.location.search.substring(1)
+            var pairs = query.split('&')
+            for (var i = 0; i < pairs.length; i++) {
+                var pair = pairs[i].split('=')
+                options[pair[0]] = decodeURIComponent(pair[1])
+                console.log(pair)
+            }
+            console.log(options)
+            options.game = gameName
+            options.device = options.device || 'mobile'
+            var extra = ''
+            console.log('Token: ' + options.token)
+            console.log('Options: ' + options)
+
+            //   if (sessionStorage.getItem("demo.username") != null && options.token) {
+            //     var data = {
+            //       operator: "HOMEPAGE_RESTRICTED",
+            //       environment: "demo",
+            //       game: options.game,
+            //       device: options.device,
+            //       extra: extra,
+            //       quality: "high",
+            //     };
+            //   } else {
+            var data = {
+                operator: 'HOMEPAGE_PUBLIC',
+                environment: 'demo',
+                game: options.game,
+                device: options.device,
+                extra: extra,
+                autoplay: true,
+                hideCurrency: true,
+                playForFunCurrency: 'USD',
+                hideExitButton: true,
+                useReplayLinkPopup: true,
+                googleAnalytics: false,
+                lobbyUrl: '/home/index',
+                depositUrl: '/game/deposit',
+                supportUrl: '/game/support',
+                depositEvent: true,
+                lobbyEvent: true,
+                accountHistoryUrl: '/game/account-history',
+                realityCheck: {
+                    enabled: false,
+                },
+                quality: 'high',
+            }
+
+            if (options.token) {
+                data.token = options.token
+                data.demo = options.demo
+            }
+            console.log(data)
+            var api = nolimit.load(data)
+            api.axios = window.axios
+
+            api.on('exit', function () {
+                if (sessionStorage.getItem('demo.username') != null) {
+                    parent.location.href = '/operator/'
+                } else {
+                    parent.location.href = '/'
+                }
+            })
+
+            api.on('ready', function () {
+                console.log(options.game, options.device, 'is loaded')
+                console.log(game)
+                console.log(window.axios)
+                const iframes = document.querySelectorAll('iframe')
+                iframes[0].contentWindow.axios = window.axios
+                console.log(iframes[0])
+                const tbl = window.document.querySelector('top-bar-left')
+                console.log(tbl)
+                window.parent.postMessage(JSON.stringify({ event: 'ready' }), '*')
+            })
+            api.on('*', function (x) {
+                console.log('some message')
+                //  window.postMessage('game_message', x)
+                window.parent.postMessage(JSON.stringify({ event: 'message' }), '*')
+            })
+            api.on('message', function (x) {
+                console.log('some messagex')
+                //  window.postMessage('game_message', x)
+                window.parent.postMessage(JSON.stringify({ event: 'message' }), '*')
+            })
+            api.on('balance', function updateBalance(balance) {
+                // console.log('some balance', balance);
+                window.parent.postMessage(JSON.stringify({ event: 'balance', data: balance }), '*')
+            })
+        }
+        // }, false);
+    </script>
+
+    <script defer="">
+        window.addEventListener('message', function (e) {
+            console.log(e) // busy, idle, ready
+        })
+        window.addEventListener('deposit', function (e) {
+            console.log(e) // busy, idle, ready
+        })
+
+        window.addEventListener('events', function (e) {
+            console.log(e) // busy, idle, ready
+        })
+    </script>
+</body>

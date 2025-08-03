@@ -1,33 +1,37 @@
 // src/middlewares/session.middleware.ts
 import type { Context, Next } from 'hono'
-
-import { SessionManager } from '#/lib/session.manager'
 import chalk from 'chalk'
 
+import { SessionManager } from '#/lib/session.manager'
+
 export async function sessionMiddleware(c: Context, next: Next) {
-    console.log(chalk.green('Session middleware called'))
+    console.log(chalk.cyan('--- Session Middleware Start ---'))
+
     const user = c.get('user')
-    if (c.req.url.includes('/updates/check')) {
-        return next()
-    } else {
-        console.log(user.currentGameSessionDataId)
-        if (!user || !user.currentGameSessionDataId) {
-            return next()
-            // return c.json({ error: 'User not authenticated' }, 401)
-        } else {
-            console.log('currentGameSessionDataId ')
-            console.log(user.currentGameSessionDataId)
-            await SessionManager.handleIdleSession(c)
-            const session = await SessionManager.getGameSession(
-                user.currentGameSessionDataId
-            )
-            console.log(session?.id)
-            if (!session) {
-                // return c.json({ error: 'Game session not found' }, 404)
-                return next()
-            }
-            // c.set('session', session)
-        }
-        return next()
+    if (!user) {
+        console.log(chalk.red('Error: User not found in context.'))
+        return c.json({ error: 'User not authenticated' }, 401)
     }
+
+    if (c.req.url.includes('/game/spin')) {
+        const sessionId = user.currentGameSessionDataId
+        if (!sessionId) {
+            console.log(
+                chalk.red('Error: No current game session ID found on user object.')
+            )
+            return c.json({ message: 'No active game session found.' }, 404)
+        }
+
+        const gameSession = await SessionManager.getGameSession(sessionId)
+        if (!gameSession) {
+            console.log(
+                chalk.red(`Error: Game session not found for ID: ${sessionId}`)
+            )
+            return c.json({ message: 'Game session has expired or is invalid.' }, 404)
+        }
+        c.set('gameSession', gameSession)
+    }
+
+    console.log(chalk.cyan('--- Session Middleware End ---'))
+    return next()
 }

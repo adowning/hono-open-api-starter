@@ -1,0 +1,25 @@
+<font>
+  <info face="NumbersOpenSans800" size="60" bold="0" italic="0" charset="" unicode="" stretchH="100" smooth="1" aa="1" padding="4,4,4,4" spacing="0,0" outline="0"/>
+  <common lineHeight="82" base="44" scaleW="512" scaleH="64" pages="1" packed="0"/>
+  <pages>
+    <page id="0" file="NumbersOpenSans800.png"/>
+  </pages>
+  <chars count="14">
+    <char id="48" x="3"   y="3" width="33" height="46" xoffset="2" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="49" x="38"  y="3" width="27" height="45" xoffset="2" yoffset="1" xadvance="35" page="0" chnl="15"/>
+    <char id="50" x="67"  y="3" width="34" height="46" xoffset="1" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="51" x="103" y="3" width="33" height="46" xoffset="2" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="52" x="138" y="3" width="36" height="45" xoffset="1" yoffset="1" xadvance="35" page="0" chnl="15"/>
+    <char id="53" x="176" y="3" width="32" height="46" xoffset="3" yoffset="1" xadvance="35" page="0" chnl="15"/>
+    <char id="54" x="210" y="3" width="34" height="46" xoffset="2" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="55" x="246" y="3" width="33" height="45" xoffset="2" yoffset="1" xadvance="35" page="0" chnl="15"/>
+    <char id="56" x="281" y="3" width="34" height="46" xoffset="2" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="57" x="317" y="3" width="34" height="46" xoffset="2" yoffset="0" xadvance="35" page="0" chnl="15"/>
+    <char id="59" x="353" y="3" width="16" height="44" xoffset="2" yoffset="10" xadvance="18" page="0" chnl="15"/>
+    <char id="58" x="371" y="3" width="15" height="37" xoffset="3" yoffset="10" xadvance="17" page="0" chnl="15"/>
+    <char id="44" x="388" y="3" width="16" height="19" xoffset="2" yoffset="35" xadvance="19" page="0" chnl="15"/>
+    <char id="46" x="406" y="3" width="15" height="14" xoffset="3" yoffset="33" xadvance="17" page="0" chnl="15"/>
+    <char id="32" x="0" y="0" width="0" height="0" xoffset="3" yoffset="33" xadvance="16" page="0" chnl="15"/>
+  </chars>
+  <kernings count="0"/>
+</font>

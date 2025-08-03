@@ -1,0 +1,28 @@
+{"frames": {
+
+"xbetbutton/X_Bet_Bubble":
+{
+	"frame": {"x":0,"y":0,"w":340,"h":204},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":340,"h":204},
+	"sourceSize": {"w":340,"h":201}
+},
+"xbetbutton/xbet":
+{
+	"frame": {"x":348,"y":0,"w":92,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":92,"h":100},
+	"sourceSize": {"w":100,"h":100}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "mainHigh0.png",
+	"format": "RGBA8888",
+	"size": {"w":440,"h":204},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:93ab82905e57b88b1cbf2669223d625b:26a7c91a95ec536893b9e676c47b9e92:e1eab14aacb51c269282a1d62fc7eff4$"
+}
+}

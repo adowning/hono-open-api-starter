@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Game Loader</title>
+        <style>
+            body,
+            html {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                height: 100%;
+                background-color: #000;
+            }
+            #game-container {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <!-- 1. Load the official Nolimit library -->
+        <script src="https://nolimitjs.nolimitcdn.com/dist/nolimit-latest.min.js"></script>
+    </head>
+    <body>
+        <div id="game-container"></div>
+        <!-- 2. Load our script to hijack and launch the game -->
+        <script src="./loader.js"></script>
+    </body>
+</html>

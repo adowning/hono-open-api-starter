@@ -1,53 +1,59 @@
 import { createRoute, z } from '@hono/zod-openapi'
 import * as HttpStatusCodes from 'stoker/http-status-codes'
 import { jsonContent, jsonContentRequired } from 'stoker/openapi/helpers'
-import { createMessageObjectSchema } from 'stoker/openapi/schemas' // Import the helper
+import { createErrorSchema, createMessageObjectSchema, } from 'stoker/openapi/schemas'
 
 import {
     selectAuthSessionSchema,
     selectGameSession,
-    selectOperatorSchema,
     selectVipInfoSchema,
     selectWalletSchema,
-    UserResponseSchema,
+    userResponseSchema,
 } from '#/db/schema'
 import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
 import { sessionMiddleware } from '#/middlewares/session.middleware'
 
+import { badRequestSchema } from '#/lib/constants'
 import * as controller from './auth.controller'
 
 const tags = ['Auth']
 
-// Use the Drizzle-Zod schema for the user object, but omit sensitive data for the response documentation
-
-const loginRoute = createRoute({
+export const login = createRoute({
     path: '/auth/login',
     method: 'post',
     request: {
         body: jsonContentRequired(
+            // Require password AND at least one identifier (username or uid)
             z.object({
-                username: z.string(),
                 password: z.string(),
-                uid: z.string().optional(),
-            }),
-            'The user to login'
+            }).and(
+                z.union([
+                    z.object({ username: z.string(), uid: z.undefined().optional() }),
+                    z.object({ uid: z.string(), username: z.undefined().optional() }),
+                ])
+            ),
+            'User credentials for login: provide password and either username or uid'
         ),
     },
     tags,
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
-            z.object({
-                accessToken: z.string(),
-                refreshToken: z.string(),
-                user: UserResponseSchema,
-            }),
-            'The login token and user object'
+            userResponseSchema,
+            'The user object and sets an access token cookie.'
         ),
+        [HttpStatusCodes.BAD_REQUEST]: jsonContent(
+            badRequestSchema,
+            'Bad Request',
+        ),
+        // [HttpStatusCodes.UNAUTHORIZED]: jsonContent(
+        //     createErrorSchema(userResponseSchema),
+        //     'Invalid id error',
+        // ),
     },
 })
 
-const signupRoute = createRoute({
+export const signup = createRoute({
     path: '/auth/signup',
     method: 'post',
     request: {
@@ -56,41 +62,45 @@ const signupRoute = createRoute({
                 username: z.string(),
                 password: z.string(),
             }),
-            'The user to signup'
+            'User credentials for signup'
         ),
     },
     tags,
     responses: {
-        [HttpStatusCodes.OK]: jsonContent(
-            z.object({
-                accessToken: z.string(),
-                refreshToken: z.string(),
-                user: UserResponseSchema,
-            }),
-            'The signup token and user object'
+        [HttpStatusCodes.CREATED]: jsonContent(
+            userResponseSchema,
+            'The created user object and sets an access token cookie.'
         ),
+        [HttpStatusCodes.BAD_REQUEST]: jsonContent(
+            badRequestSchema,
+            'Bad Request',
+        ),
+        // [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+        //     createErrorSchema(insertUserSchema),
+        //     'The validation error(s)',
+        // ),
     },
 })
 
-const sessionRoute = createRoute({
+export const sessionRoute = createRoute({
     method: 'get',
     path: '/auth/me',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Get current user session',
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
             z.object({
-                user: UserResponseSchema.openapi('User'),
+                user: userResponseSchema.openapi('User'),
                 authSession: selectAuthSessionSchema.openapi('AuthSession'),
-                gameSession: selectGameSession
-                    .optional()
-                    .openapi('GameSession'), // z.any().optional().openapi({ description: "The current game session, if any." }),
+                gameSession: selectGameSession.optional().openapi('GameSession'),
                 wallet: selectWalletSchema.openapi('Wallet'),
                 vipInfo: selectVipInfoSchema.openapi('VipInfo'),
-                operator: selectOperatorSchema.openapi('Operator'),
             }),
             'The current user session'
+        ),
+        [HttpStatusCodes.UNAUTHORIZED]: jsonContent(
+            createErrorSchema(userResponseSchema),
+            'Invalid id error',
         ),
     },
 })
@@ -105,13 +115,45 @@ const logoutRoute = createRoute({
             createMessageObjectSchema('Successfully logged out'),
             'Logout successful'
         ),
+        401: jsonContent(z.object({ error: z.string() }), 'Unauthorized'),
+    },
+})
+
+// Issue new 15m access token from a valid refresh cookie; rotates refresh every ~6h
+const refreshRoute = createRoute({
+    method: 'post',
+    path: '/auth/refresh',
+    tags,
+    summary: 'Mint a new access token using the refresh cookie',
+    responses: {
+        [HttpStatusCodes.OK]: jsonContent(
+            z.object({ accessToken: z.string() }),
+            'New access token'
+        ),
+        [HttpStatusCodes.UNAUTHORIZED]: jsonContent(
+            z.object({ error: z.string() }),
+            'Invalid or expired refresh token'
+        ),
     },
 })
 
 const router = createRouter()
-    .openapi(loginRoute, controller.login as any)
-    .openapi(signupRoute, controller.signup as any)
-    .openapi(logoutRoute, controller.logout as any)
-    .openapi(sessionRoute, controller.session as any)
+
+router.openapi(login, controller.login)
+router.openapi(signup, controller.signup)
+
+// Refresh uses only cookie, no authMiddleware
+router.openapi(refreshRoute, controller.refresh)
+
+router.use('/auth/logout', authMiddleware)
+router.openapi(logoutRoute, controller.logout)
+
+router.use('/auth/me', authMiddleware, sessionMiddleware)
+router.openapi(sessionRoute, controller.session)
 
 export default router
+
+export type LoginRoute = typeof login
+export type SignUpRoute = typeof signup
+export type SessionRoute = typeof sessionRoute
+export type RefreshRoute = typeof refreshRoute

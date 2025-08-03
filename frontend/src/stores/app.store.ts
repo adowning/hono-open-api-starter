@@ -1,34 +1,25 @@
 import { defineStore } from 'pinia'
 
-let instanceCount = 0
 
 export const useAppStore = defineStore('app', () => {
     const globalLoading = ref(false)
-    instanceCount++
-    console.log(`App store instance created. Total instances: ${instanceCount}`)
 
     function showLoading() {
         // console.log('showLoading called - stack:', new Error().stack)
         globalLoading.value = true
+        // production: removed debug logs
     }
 
     function hideLoading() {
-        // console.log('hideLoading called - stack:', new Error().stack)
         globalLoading.value = false
+        // production: removed debug logs
     }
 
-    // Add a debug method
-    function debugLoadingState() {
-        console.log('Current loading state:', {
-            globalLoading: globalLoading.value,
-            timestamp: new Date().toISOString(),
-        })
-    }
+    // removed debug helper for production
 
     return {
         globalLoading,
         showLoading,
         hideLoading,
-        debugLoadingState,
     }
 })

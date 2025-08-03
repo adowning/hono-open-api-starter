@@ -1,0 +1,237 @@
+{"frames": {
+
+"bottleshatter/bottleshatter_06":
+{
+	"frame": {"x":754,"y":296,"w":138,"h":198},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":2,"w":138,"h":198},
+	"sourceSize": {"w":158,"h":200}
+},
+"bottleshatter/bottleshatter_07":
+{
+	"frame": {"x":754,"y":92,"w":144,"h":200},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":12,"y":0,"w":144,"h":200},
+	"sourceSize": {"w":158,"h":200}
+},
+"chainsawBubbles/chainsawBubbles_0":
+{
+	"frame": {"x":854,"y":1012,"w":20,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":108,"w":20,"h":12},
+	"sourceSize": {"w":125,"h":125}
+},
+"chainsawBubbles/chainsawBubbles_3":
+{
+	"frame": {"x":774,"y":986,"w":44,"h":38},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":44,"y":80,"w":44,"h":38},
+	"sourceSize": {"w":125,"h":125}
+},
+"fsBg/water/water_00":
+{
+	"frame": {"x":0,"y":28,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_01":
+{
+	"frame": {"x":0,"y":88,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_02":
+{
+	"frame": {"x":0,"y":148,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_03":
+{
+	"frame": {"x":0,"y":208,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_04":
+{
+	"frame": {"x":0,"y":268,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_05":
+{
+	"frame": {"x":0,"y":328,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_06":
+{
+	"frame": {"x":0,"y":388,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_07":
+{
+	"frame": {"x":0,"y":448,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_08":
+{
+	"frame": {"x":0,"y":508,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_09":
+{
+	"frame": {"x":0,"y":568,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_10":
+{
+	"frame": {"x":0,"y":628,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsBg/water/water_30":
+{
+	"frame": {"x":0,"y":28,"w":750,"h":56},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":750,"h":56},
+	"sourceSize": {"w":750,"h":58}
+},
+"fsIntroCurtain/countUp/0":
+{
+	"frame": {"x":844,"y":0,"w":50,"h":86},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":50,"h":86},
+	"sourceSize": {"w":52,"h":85}
+},
+"kegJar/Cap":
+{
+	"frame": {"x":822,"y":1012,"w":28,"h":12},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":28,"h":12},
+	"sourceSize": {"w":28,"h":11}
+},
+"mainGameBG/sideTree":
+{
+	"frame": {"x":754,"y":498,"w":132,"h":432},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":132,"h":432},
+	"sourceSize": {"w":132,"h":431}
+},
+"maxWin/cloud16":
+{
+	"frame": {"x":0,"y":688,"w":620,"h":336},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":620,"h":336},
+	"sourceSize": {"w":619,"h":335}
+},
+"maxWin/neck":
+{
+	"frame": {"x":754,"y":28,"w":86,"h":60},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":60},
+	"sourceSize": {"w":85,"h":59}
+},
+"metalSpark/metalSpark_2":
+{
+	"frame": {"x":624,"y":818,"w":126,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":118},
+	"sourceSize": {"w":125,"h":125}
+},
+"metalSpark/metalSpark_3":
+{
+	"frame": {"x":624,"y":688,"w":126,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":126,"h":126},
+	"sourceSize": {"w":125,"h":125}
+},
+"reelArea/conveyorBelt1680":
+{
+	"frame": {"x":0,"y":0,"w":840,"h":24},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":840,"h":24},
+	"sourceSize": {"w":840,"h":23}
+},
+"titanSpins/outroStuff/spins":
+{
+	"frame": {"x":774,"y":934,"w":124,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":124,"h":48},
+	"sourceSize": {"w":124,"h":48}
+},
+"winFrame/glowLineHorizontal":
+{
+	"frame": {"x":822,"y":986,"w":78,"h":22},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":32,"w":78,"h":22},
+	"sourceSize": {"w":87,"h":87}
+},
+"winFrame/glowSonarSweep":
+{
+	"frame": {"x":690,"y":940,"w":80,"h":82},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":80,"h":82},
+	"sourceSize": {"w":87,"h":87}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_11":
+{
+	"frame": {"x":624,"y":940,"w":62,"h":84},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":204,"w":62,"h":84},
+	"sourceSize": {"w":110,"h":291}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "pngHigh3@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":900,"h":1024},
+	"scale": "0.5",
+	"related_multi_packs": [ "pngHigh0@0.5x.json", "pngHigh1@0.5x.json", "pngHigh2@0.5x.json", "pngHigh4@0.5x.json", "pngHigh5@0.5x.json", "pngHigh6@0.5x.json", "pngHigh7@0.5x.json", "pngHigh8@0.5x.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:d66dee28a2260bff3c41fe3fc9694060:272f11cb381124057041cce967009e9d:8796785d53fd6cc520c242744812d0d7$"
+}
+}

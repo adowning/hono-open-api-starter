@@ -1,0 +1,186 @@
+{
+"skeleton": {
+	"hash": "2nqgbiUz6Q9b5c2RfQUTTfDu09k",
+	"spine": "3.8.97",
+	"x": -71,
+	"y": -64,
+	"width": 142,
+	"height": 84,
+	"images": "../../resources/sources/",
+	"audio": "D:/GitHub_Projects/landofthefree/projectfiles/spine"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "global", "parent": "root" },
+	{ "name": "bubbles", "parent": "global", "rotation": 180, "y": -53.58 }
+],
+"slots": [
+	{ "name": "bubbles", "bone": "bubbles" },
+	{ "name": "bubbles2", "bone": "bubbles", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"bubbles": {
+				"pngHigh/chainsawBubbles/chainsawBubbles_0": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_1": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_2": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_3": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_4": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_5": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_6": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_7": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_8": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_9": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_10": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_11": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_12": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_13": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_14": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_15": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_16": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_17": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_18": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_19": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_20": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_21": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_22": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_23": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_24": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_25": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_26": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_27": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_28": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_29": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_30": { "y": 121.16, "width": 250, "height": 250 }
+			},
+			"bubbles2": {
+				"pngHigh/chainsawBubbles/chainsawBubbles_0": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_1": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_2": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_3": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_4": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_5": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_6": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_7": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_8": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_9": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_10": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_11": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_12": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_13": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_14": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_15": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_16": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_17": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_18": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_19": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_20": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_21": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_22": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_23": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_24": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_25": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_26": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_27": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_28": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_29": { "y": 121.16, "width": 250, "height": 250 },
+				"pngHigh/chainsawBubbles/chainsawBubbles_30": { "y": 121.16, "width": 250, "height": 250 }
+			}
+		}
+	}
+],
+"animations": {
+	"bubbles": {
+		"slots": {
+			"bubbles": {
+				"color": [
+					{ "time": 0.8333, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "pngHigh/chainsawBubbles/chainsawBubbles_0" },
+					{ "time": 0.0333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_1" },
+					{ "time": 0.0667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_2" },
+					{ "time": 0.1, "name": "pngHigh/chainsawBubbles/chainsawBubbles_3" },
+					{ "time": 0.1333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_4" },
+					{ "time": 0.1667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_5" },
+					{ "time": 0.2, "name": "pngHigh/chainsawBubbles/chainsawBubbles_6" },
+					{ "time": 0.2333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_7" },
+					{ "time": 0.2667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_8" },
+					{ "time": 0.3, "name": "pngHigh/chainsawBubbles/chainsawBubbles_9" },
+					{ "time": 0.3333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_10" },
+					{ "time": 0.3667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_11" },
+					{ "time": 0.4, "name": "pngHigh/chainsawBubbles/chainsawBubbles_12" },
+					{ "time": 0.4333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_13" },
+					{ "time": 0.4667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_14" },
+					{ "time": 0.5, "name": "pngHigh/chainsawBubbles/chainsawBubbles_15" },
+					{ "time": 0.5333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_16" },
+					{ "time": 0.5667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_17" },
+					{ "time": 0.6, "name": "pngHigh/chainsawBubbles/chainsawBubbles_18" },
+					{ "time": 0.6333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_19" },
+					{ "time": 0.6667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_20" },
+					{ "time": 0.7, "name": "pngHigh/chainsawBubbles/chainsawBubbles_21" },
+					{ "time": 0.7333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_22" },
+					{ "time": 0.7667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_23" },
+					{ "time": 0.8, "name": "pngHigh/chainsawBubbles/chainsawBubbles_24" },
+					{ "time": 0.8333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_25" },
+					{ "time": 0.8667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_26" },
+					{ "time": 0.9, "name": "pngHigh/chainsawBubbles/chainsawBubbles_27" },
+					{ "time": 0.9333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_28" },
+					{ "time": 0.9667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_29" },
+					{ "time": 1, "name": "pngHigh/chainsawBubbles/chainsawBubbles_30" }
+				]
+			},
+			"bubbles2": {
+				"color": [
+					{ "time": 0.8333, "color": "ffffffff" },
+					{ "time": 1, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "pngHigh/chainsawBubbles/chainsawBubbles_0" },
+					{ "time": 0.0333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_1" },
+					{ "time": 0.0667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_2" },
+					{ "time": 0.1, "name": "pngHigh/chainsawBubbles/chainsawBubbles_3" },
+					{ "time": 0.1333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_4" },
+					{ "time": 0.1667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_5" },
+					{ "time": 0.2, "name": "pngHigh/chainsawBubbles/chainsawBubbles_6" },
+					{ "time": 0.2333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_7" },
+					{ "time": 0.2667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_8" },
+					{ "time": 0.3, "name": "pngHigh/chainsawBubbles/chainsawBubbles_9" },
+					{ "time": 0.3333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_10" },
+					{ "time": 0.3667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_11" },
+					{ "time": 0.4, "name": "pngHigh/chainsawBubbles/chainsawBubbles_12" },
+					{ "time": 0.4333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_13" },
+					{ "time": 0.4667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_14" },
+					{ "time": 0.5, "name": "pngHigh/chainsawBubbles/chainsawBubbles_15" },
+					{ "time": 0.5333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_16" },
+					{ "time": 0.5667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_17" },
+					{ "time": 0.6, "name": "pngHigh/chainsawBubbles/chainsawBubbles_18" },
+					{ "time": 0.6333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_19" },
+					{ "time": 0.6667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_20" },
+					{ "time": 0.7, "name": "pngHigh/chainsawBubbles/chainsawBubbles_21" },
+					{ "time": 0.7333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_22" },
+					{ "time": 0.7667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_23" },
+					{ "time": 0.8, "name": "pngHigh/chainsawBubbles/chainsawBubbles_24" },
+					{ "time": 0.8333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_25" },
+					{ "time": 0.8667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_26" },
+					{ "time": 0.9, "name": "pngHigh/chainsawBubbles/chainsawBubbles_27" },
+					{ "time": 0.9333, "name": "pngHigh/chainsawBubbles/chainsawBubbles_28" },
+					{ "time": 0.9667, "name": "pngHigh/chainsawBubbles/chainsawBubbles_29" },
+					{ "time": 1, "name": "pngHigh/chainsawBubbles/chainsawBubbles_30" }
+				]
+			}
+		},
+		"bones": {
+			"bubbles": {
+				"translate": [
+					{ "y": 85.4, "curve": 0, "c2": 0.26, "c3": 0.516, "c4": 0.99 },
+					{ "time": 0.5, "y": -46.13 }
+				]
+			}
+		}
+	}
+}
+}

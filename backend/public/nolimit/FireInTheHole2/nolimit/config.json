@@ -1,0 +1,10 @@
+{
+  "size": {
+    "width": 1280,
+    "height": 720
+  },
+  "css": [
+    "css/blankslot.css"
+  ],
+  "translations": "translations.json"
+}

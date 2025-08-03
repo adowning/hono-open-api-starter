@@ -1,4 +1,5 @@
 import type { Context } from 'hono'
+import chalk from 'chalk'
 
 import type { UserWithRelations } from '#/db/schema'
 
@@ -12,25 +13,33 @@ import { createRedtigerSettings, createRedtigerSpin } from './redtiger.service'
 
 export const redtigerController = {
     settings: async (c: Context) => {
+        console.log(chalk.magenta('redtigerController gettingSettings'))
         const body = await c.req.json()
         const data = rtgSettingsRequestDtoSchema.parse(body)
         const user = c.get('user') as UserWithRelations
-        if (!user) {
+        const authSession = c.get('authSession')
+        if (!data.gamesId || !authSession) {
             return c.json({ message: 'not authenticated' }, 401)
         }
 
-        const gameName = `${data.gameId}RTG`
-        // Use the new SessionManager to start the game session
+        const gameName = `${data.gamesId}RTG`
+
         const gameSession = await SessionManager.startGameSession(c, gameName)
-        const newGameSessionId = gameSession.id
+
+        if (!gameSession) {
+            return c.json({ message: 'no gameSession' }, 404)
+        }
+        c.set('gameSession', gameSession)
 
         const settings = await createRedtigerSettings(
             user,
             gameName,
-            newGameSessionId,
-            c,
+            gameSession.id,
             data
         )
+        if (settings && settings.result && settings.result.user) {
+            settings.result.user.sessionId = gameSession.id
+        }
         return c.json(settings)
     },
     spin: async (c: Context) => {
@@ -40,18 +49,13 @@ export const redtigerController = {
         if (!user) {
             return c.json({ message: 'not authenticated' }, 401)
         }
-        if (!user.currentGameSessionDataId) {
-            return c.json({ message: 'no gameSession' }, 404)
-        }
-        // Use the new SessionManager to get the game session
-        const gameSession = await SessionManager.getGameSession(
-            user.currentGameSessionDataId
-        )
+
+        const gameSession = c.get('gameSession')
         if (!gameSession) {
-            return c.json({ message: 'no gameSession' }, 404)
+            return c.json({ message: 'no gameSession RT46' }, 404)
         }
 
-        const gameName = `${data.gameId}RTG`
+        const gameName = `${data.gamesId}RTG`
         if (!gameName) {
             return c.json({ message: 'no gameName' }, 404)
         }

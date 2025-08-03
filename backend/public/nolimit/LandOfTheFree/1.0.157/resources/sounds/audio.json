@@ -1,0 +1,422 @@
+[
+  {
+    "name": "effects",
+    "src": [
+      "effects.mp4"
+    ],
+    "sprite": {
+      "anticipation": [
+        0,
+        9500
+      ],
+      "anticipationBigWin": [
+        11000,
+        6333
+      ],
+      "anticipationBigWinEnd": [
+        19000,
+        1061
+      ],
+      "anticipationEnd": [
+        22000,
+        1923
+      ],
+      "anticipationReelLanding": [
+        25000,
+        998
+      ],
+      "anticipationSuccess": [
+        27000,
+        6564
+      ],
+      "asBigWin": [
+        35000,
+        1651
+      ],
+      "asWin": [
+        38000,
+        799
+      ],
+      "beerAddMultiplier": [
+        40000,
+        1267
+      ],
+      "beerMultiSplitOpen": [
+        43000,
+        830
+      ],
+      "beerStopping": [
+        45000,
+        344
+      ],
+      "beerThrown": [
+        47000,
+        755
+      ],
+      "beerTurnToWild": [
+        49000,
+        1699
+      ],
+      "benzoBearHalfStackedEntersMain": [
+        52000,
+        1401
+      ],
+      "benzoBearHalfStackedExplodes": [
+        55000,
+        2260
+      ],
+      "benzoBearStackedEntersMain": [
+        59000,
+        1333
+      ],
+      "benzoBearStackedExplodes": [
+        62000,
+        2522
+      ],
+      "bigWinEnd": [
+        66000,
+        2398
+      ],
+      "bigWinLevel1": [
+        70000,
+        6312
+      ],
+      "bigWinLevel2": [
+        78000,
+        6375
+      ],
+      "bigWinLevel3": [
+        86000,
+        6375
+      ],
+      "bigWinLevel4": [
+        94000,
+        6375
+      ],
+      "bigWinLevel5": [
+        102000,
+        7142
+      ],
+      "bigWinLevelChange": [
+        111000,
+        2018
+      ],
+      "continueButtonFsToMainHigh": [
+        115000,
+        2118
+      ],
+      "continueButtonFsToMainLow": [
+        119000,
+        1300
+      ],
+      "continueButtonStartFS": [
+        122000,
+        5505
+      ],
+      "curtainClose": [
+        129000,
+        1228
+      ],
+      "curtainOpen": [
+        132000,
+        2329
+      ],
+      "duckMoving": [
+        136000,
+        981
+      ],
+      "duckPlus2": [
+        138000,
+        801
+      ],
+      "fsCountUp": [
+        140000,
+        2500
+      ],
+      "fsCountUpEnd": [
+        144000,
+        4584
+      ],
+      "fsCountUpInitialImpact": [
+        150000,
+        1599
+      ],
+      "fsIntroLoop": [
+        153000,
+        13723
+      ],
+      "fsOutroLoop": [
+        168000,
+        5503
+      ],
+      "fsWaterLevel": [
+        175000,
+        1850
+      ],
+      "gameIntro": [
+        178000,
+        7514
+      ],
+      "gameIntro2": [
+        187000,
+        7500
+      ],
+      "gameSplashLoop": [
+        196000,
+        25500
+      ],
+      "idiotSpinPurchase": [
+        223000,
+        1055
+      ],
+      "kegGrow": [
+        226000,
+        1897
+      ],
+      "mrSplitDoorsSplit": [
+        229000,
+        850
+      ],
+      "mrSplitEnters": [
+        231000,
+        1353
+      ],
+      "mrSplitEntersFSSFS": [
+        234000,
+        1603
+      ],
+      "mrSplitExtraChainsawActivation": [
+        237000,
+        2099
+      ],
+      "mrSplitLeavesFSSFS": [
+        241000,
+        1820
+      ],
+      "mrSplitSplitDoorsOpen": [
+        244000,
+        1125
+      ],
+      "mrSplitStackedLiftingFoot": [
+        247000,
+        1428
+      ],
+      "mrSplitStartsChainsaw": [
+        250000,
+        2390
+      ],
+      "preBigWin1": [
+        254000,
+        3596
+      ],
+      "preBigWin2": [
+        259000,
+        3471
+      ],
+      "preBigWin3": [
+        264000,
+        3214
+      ],
+      "preBigWin4": [
+        269000,
+        4022
+      ],
+      "preBigWin5": [
+        275000,
+        3309
+      ],
+      "reelLanding1": [
+        280000,
+        833
+      ],
+      "reelLanding2": [
+        282000,
+        806
+      ],
+      "reelLanding3": [
+        284000,
+        806
+      ],
+      "reelLanding4": [
+        286000,
+        806
+      ],
+      "reelLanding5": [
+        288000,
+        806
+      ],
+      "reelLandingStacked": [
+        290000,
+        1503
+      ],
+      "reelsSpinning": [
+        293000,
+        5875
+      ],
+      "scatter1": [
+        300000,
+        1348
+      ],
+      "scatter2": [
+        303000,
+        1624
+      ],
+      "scatter3": [
+        306000,
+        2901
+      ],
+      "scatter4": [
+        310000,
+        1401
+      ],
+      "scatter5": [
+        313000,
+        2735
+      ],
+      "sfsIntroLoop": [
+        317000,
+        7111
+      ],
+      "titanEntersBonusGame": [
+        326000,
+        3356
+      ],
+      "titanEntersMainGame": [
+        331000,
+        2446
+      ],
+      "titanSpinsNoWinMainGame": [
+        335000,
+        3322
+      ],
+      "titanSpinsWin": [
+        340000,
+        7757
+      ],
+      "waysMeterCounting": [
+        349000,
+        514
+      ],
+      "wildFire": [
+        351000,
+        1176
+      ],
+      "wildLand": [
+        354000,
+        1259
+      ],
+      "winCapInitialCloud": [
+        357000,
+        4353
+      ],
+      "winCapJesusCountUp": [
+        363000,
+        3025
+      ],
+      "winCapJesusEnd": [
+        368000,
+        4001
+      ],
+      "winCapJesusLoop": [
+        374000,
+        15738
+      ],
+      "winCapJesusShooting": [
+        391000,
+        2406
+      ],
+      "winCapJesusStart": [
+        395000,
+        6875
+      ],
+      "winHighlight": [
+        403000,
+        900
+      ],
+      "winLargeCountUp": [
+        405000,
+        1500
+      ],
+      "winLargeEnd": [
+        408000,
+        2702
+      ],
+      "winMediumCountUp": [
+        412000,
+        1250
+      ],
+      "winMediumEnd": [
+        415000,
+        2402
+      ],
+      "winSmall": [
+        419000,
+        996
+      ],
+      "winTiny": [
+        421000,
+        500
+      ],
+      "xBetOff": [
+        423000,
+        450
+      ],
+      "xBetOn": [
+        425000,
+        414
+      ]
+    }
+  },
+  {
+    "name": "keypad",
+    "src": [
+      "keypad.mp4"
+    ],
+    "sprite": {
+      "click": [
+        0,
+        147
+      ],
+      "disabled": [
+        2000,
+        147
+      ],
+      "fast-spin-off": [
+        4000,
+        146
+      ],
+      "fast-spin-on": [
+        6000,
+        147
+      ],
+      "spin-start": [
+        8000,
+        1000
+      ],
+      "spin-stop": [
+        10000,
+        586
+      ]
+    }
+  },
+  {
+    "name": "loops",
+    "src": [
+      "loops.mp4"
+    ],
+    "sprite": {
+      "background-music-fs": [
+        0,
+        54865
+      ],
+      "background-music-main": [
+        56000,
+        102000
+      ],
+      "background-music-sfs": [
+        159000,
+        113783
+      ]
+    }
+  }
+]

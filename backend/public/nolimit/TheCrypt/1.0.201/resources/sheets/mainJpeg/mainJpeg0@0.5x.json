@@ -1,0 +1,209 @@
+{"frames": {
+
+"bigWin/bigWinLv1":
+{
+	"frame": {"x":4,"y":216,"w":390,"h":290},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":290},
+	"sourceSize": {"w":390,"h":290}
+},
+"bigWin/bigWinLv2":
+{
+	"frame": {"x":4,"y":518,"w":390,"h":290},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":290},
+	"sourceSize": {"w":390,"h":290}
+},
+"bigWin/bigWinLv3":
+{
+	"frame": {"x":406,"y":216,"w":390,"h":290},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":290},
+	"sourceSize": {"w":390,"h":290}
+},
+"bigWin/bigWinLv4":
+{
+	"frame": {"x":406,"y":518,"w":390,"h":290},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":390,"h":290},
+	"sourceSize": {"w":390,"h":290}
+},
+"effects/fs_win_swoosh/fs_win_swoosh_00000":
+{
+	"frame": {"x":456,"y":820,"w":226,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":54},
+	"sourceSize": {"w":226,"h":53}
+},
+"effects/fs_win_swoosh/fs_win_swoosh_00001":
+{
+	"frame": {"x":456,"y":886,"w":226,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":54},
+	"sourceSize": {"w":226,"h":53}
+},
+"effects/fs_win_swoosh/fs_win_swoosh_00002":
+{
+	"frame": {"x":456,"y":952,"w":226,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":54},
+	"sourceSize": {"w":226,"h":53}
+},
+"effects/fs_win_swoosh/fs_win_swoosh_00003":
+{
+	"frame": {"x":694,"y":820,"w":226,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":54},
+	"sourceSize": {"w":226,"h":53}
+},
+"effects/fs_win_swoosh/fs_win_swoosh_00004":
+{
+	"frame": {"x":694,"y":886,"w":226,"h":54},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":226,"h":54},
+	"sourceSize": {"w":226,"h":53}
+},
+"effects/sppok_eye/spook_eye00":
+{
+	"frame": {"x":758,"y":952,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"effects/xway_burn/xway_burn_00003":
+{
+	"frame": {"x":816,"y":4,"w":156,"h":188},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":156,"h":188},
+	"sourceSize": {"w":156,"h":187}
+},
+"FS/bg_color":
+{
+	"frame": {"x":820,"y":952,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"FS/FS_frontground":
+{
+	"frame": {"x":4,"y":4,"w":800,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":200},
+	"sourceSize": {"w":800,"h":200}
+},
+"utility/dirt":
+{
+	"frame": {"x":694,"y":952,"w":52,"h":68},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":68},
+	"sourceSize": {"w":51,"h":68}
+},
+"utility/dirt_small":
+{
+	"frame": {"x":902,"y":764,"w":46,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":42},
+	"sourceSize": {"w":45,"h":42}
+},
+"utility/glowSmoke":
+{
+	"frame": {"x":864,"y":952,"w":50,"h":14},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":14},
+	"sourceSize": {"w":50,"h":13}
+},
+"utility/holy_shine":
+{
+	"frame": {"x":266,"y":820,"w":178,"h":178},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":178},
+	"sourceSize": {"w":177,"h":177}
+},
+"utility/nudge_light":
+{
+	"frame": {"x":808,"y":764,"w":82,"h":42},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":42},
+	"sourceSize": {"w":81,"h":41}
+},
+"utility/searchlight":
+{
+	"frame": {"x":808,"y":434,"w":176,"h":318},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":318},
+	"sourceSize": {"w":176,"h":317}
+},
+"utility/spook_hand":
+{
+	"frame": {"x":932,"y":818,"w":40,"h":88},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":88},
+	"sourceSize": {"w":40,"h":88}
+},
+"utility/win_flare":
+{
+	"frame": {"x":808,"y":216,"w":206,"h":206},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":206,"h":206},
+	"sourceSize": {"w":206,"h":206}
+},
+"winCap/WinCapBG/WinCapBg_000":
+{
+	"frame": {"x":4,"y":820,"w":250,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":250,"h":200},
+	"sourceSize": {"w":250,"h":200}
+}},
+"animations": {
+	"X_Bet_Attention/X_Bet_Attention": ["X_Bet_Attention/X_Bet_Attention_00000","X_Bet_Attention/X_Bet_Attention_00001","X_Bet_Attention/X_Bet_Attention_00002","X_Bet_Attention/X_Bet_Attention_00003","X_Bet_Attention/X_Bet_Attention_00004","X_Bet_Attention/X_Bet_Attention_00005","X_Bet_Attention/X_Bet_Attention_00006","X_Bet_Attention/X_Bet_Attention_00007","X_Bet_Attention/X_Bet_Attention_00008","X_Bet_Attention/X_Bet_Attention_00009","X_Bet_Attention/X_Bet_Attention_00010","X_Bet_Attention/X_Bet_Attention_00011","X_Bet_Attention/X_Bet_Attention_00012","X_Bet_Attention/X_Bet_Attention_00013","X_Bet_Attention/X_Bet_Attention_00014","X_Bet_Attention/X_Bet_Attention_00015","X_Bet_Attention/X_Bet_Attention_00016","X_Bet_Attention/X_Bet_Attention_00017","X_Bet_Attention/X_Bet_Attention_00018","X_Bet_Attention/X_Bet_Attention_00019","X_Bet_Attention/X_Bet_Attention_00020","X_Bet_Attention/X_Bet_Attention_00021","X_Bet_Attention/X_Bet_Attention_00022","X_Bet_Attention/X_Bet_Attention_00023","X_Bet_Attention/X_Bet_Attention_00024","X_Bet_Attention/X_Bet_Attention_00025","X_Bet_Attention/X_Bet_Attention_00026","X_Bet_Attention/X_Bet_Attention_00027","X_Bet_Attention/X_Bet_Attention_00028","X_Bet_Attention/X_Bet_Attention_00029"],
+	"bg_smoke/bg_smoke": ["bg_smoke/bg_smoke_00","bg_smoke/bg_smoke_01","bg_smoke/bg_smoke_02","bg_smoke/bg_smoke_03","bg_smoke/bg_smoke_04","bg_smoke/bg_smoke_05","bg_smoke/bg_smoke_06","bg_smoke/bg_smoke_07","bg_smoke/bg_smoke_08","bg_smoke/bg_smoke_09","bg_smoke/bg_smoke_10","bg_smoke/bg_smoke_11","bg_smoke/bg_smoke_12","bg_smoke/bg_smoke_13","bg_smoke/bg_smoke_14","bg_smoke/bg_smoke_15","bg_smoke/bg_smoke_16","bg_smoke/bg_smoke_17","bg_smoke/bg_smoke_18","bg_smoke/bg_smoke_19","bg_smoke/bg_smoke_20","bg_smoke/bg_smoke_21","bg_smoke/bg_smoke_22","bg_smoke/bg_smoke_23","bg_smoke/bg_smoke_24","bg_smoke/bg_smoke_25","bg_smoke/bg_smoke_26","bg_smoke/bg_smoke_27","bg_smoke/bg_smoke_28","bg_smoke/bg_smoke_29","bg_smoke/bg_smoke_30","bg_smoke/bg_smoke_31","bg_smoke/bg_smoke_32","bg_smoke/bg_smoke_33","bg_smoke/bg_smoke_34","bg_smoke/bg_smoke_35","bg_smoke/bg_smoke_36","bg_smoke/bg_smoke_37","bg_smoke/bg_smoke_38","bg_smoke/bg_smoke_39","bg_smoke/bg_smoke_40","bg_smoke/bg_smoke_41","bg_smoke/bg_smoke_42","bg_smoke/bg_smoke_43","bg_smoke/bg_smoke_44","bg_smoke/bg_smoke_45","bg_smoke/bg_smoke_46","bg_smoke/bg_smoke_47","bg_smoke/bg_smoke_48","bg_smoke/bg_smoke_49","bg_smoke/bg_smoke_50","bg_smoke/bg_smoke_51","bg_smoke/bg_smoke_52","bg_smoke/bg_smoke_53","bg_smoke/bg_smoke_54","bg_smoke/bg_smoke_55","bg_smoke/bg_smoke_56","bg_smoke/bg_smoke_57","bg_smoke/bg_smoke_58","bg_smoke/bg_smoke_59"],
+	"bigWin/bigWinLv": ["bigWin/bigWinLv1","bigWin/bigWinLv2","bigWin/bigWinLv3","bigWin/bigWinLv4","bigWin/bigWinLv5"],
+	"bigWin/parts/lvl2/bw2fire/bw2_fire": ["bigWin/parts/lvl2/bw2fire/bw2_fire_00000","bigWin/parts/lvl2/bw2fire/bw2_fire_00001","bigWin/parts/lvl2/bw2fire/bw2_fire_00002","bigWin/parts/lvl2/bw2fire/bw2_fire_00003","bigWin/parts/lvl2/bw2fire/bw2_fire_00004","bigWin/parts/lvl2/bw2fire/bw2_fire_00005","bigWin/parts/lvl2/bw2fire/bw2_fire_00006","bigWin/parts/lvl2/bw2fire/bw2_fire_00007","bigWin/parts/lvl2/bw2fire/bw2_fire_00008","bigWin/parts/lvl2/bw2fire/bw2_fire_00009","bigWin/parts/lvl2/bw2fire/bw2_fire_00010","bigWin/parts/lvl2/bw2fire/bw2_fire_00011","bigWin/parts/lvl2/bw2fire/bw2_fire_00012","bigWin/parts/lvl2/bw2fire/bw2_fire_00013","bigWin/parts/lvl2/bw2fire/bw2_fire_00014","bigWin/parts/lvl2/bw2fire/bw2_fire_00015","bigWin/parts/lvl2/bw2fire/bw2_fire_00016","bigWin/parts/lvl2/bw2fire/bw2_fire_00017","bigWin/parts/lvl2/bw2fire/bw2_fire_00018","bigWin/parts/lvl2/bw2fire/bw2_fire_00019","bigWin/parts/lvl2/bw2fire/bw2_fire_00020","bigWin/parts/lvl2/bw2fire/bw2_fire_00021","bigWin/parts/lvl2/bw2fire/bw2_fire_00022","bigWin/parts/lvl2/bw2fire/bw2_fire_00023","bigWin/parts/lvl2/bw2fire/bw2_fire_00024","bigWin/parts/lvl2/bw2fire/bw2_fire_00025","bigWin/parts/lvl2/bw2fire/bw2_fire_00026","bigWin/parts/lvl2/bw2fire/bw2_fire_00027","bigWin/parts/lvl2/bw2fire/bw2_fire_00028","bigWin/parts/lvl2/bw2fire/bw2_fire_00029"],
+	"bigWin/parts/lvl3/bigWinLv5/axe_fire": ["bigWin/parts/lvl3/bigWinLv5/axe_fire_00000","bigWin/parts/lvl3/bigWinLv5/axe_fire_00001","bigWin/parts/lvl3/bigWinLv5/axe_fire_00002","bigWin/parts/lvl3/bigWinLv5/axe_fire_00003","bigWin/parts/lvl3/bigWinLv5/axe_fire_00004","bigWin/parts/lvl3/bigWinLv5/axe_fire_00005","bigWin/parts/lvl3/bigWinLv5/axe_fire_00006","bigWin/parts/lvl3/bigWinLv5/axe_fire_00007","bigWin/parts/lvl3/bigWinLv5/axe_fire_00008","bigWin/parts/lvl3/bigWinLv5/axe_fire_00009","bigWin/parts/lvl3/bigWinLv5/axe_fire_00010","bigWin/parts/lvl3/bigWinLv5/axe_fire_00011","bigWin/parts/lvl3/bigWinLv5/axe_fire_00012","bigWin/parts/lvl3/bigWinLv5/axe_fire_00013","bigWin/parts/lvl3/bigWinLv5/axe_fire_00014","bigWin/parts/lvl3/bigWinLv5/axe_fire_00015","bigWin/parts/lvl3/bigWinLv5/axe_fire_00016","bigWin/parts/lvl3/bigWinLv5/axe_fire_00017","bigWin/parts/lvl3/bigWinLv5/axe_fire_00018","bigWin/parts/lvl3/bigWinLv5/axe_fire_00019","bigWin/parts/lvl3/bigWinLv5/axe_fire_00020","bigWin/parts/lvl3/bigWinLv5/axe_fire_00021","bigWin/parts/lvl3/bigWinLv5/axe_fire_00022","bigWin/parts/lvl3/bigWinLv5/axe_fire_00023","bigWin/parts/lvl3/bigWinLv5/axe_fire_00024","bigWin/parts/lvl3/bigWinLv5/axe_fire_00025","bigWin/parts/lvl3/bigWinLv5/axe_fire_00026","bigWin/parts/lvl3/bigWinLv5/axe_fire_00027","bigWin/parts/lvl3/bigWinLv5/axe_fire_00028","bigWin/parts/lvl3/bigWinLv5/axe_fire_00029"],
+	"effects/fs_win_swoosh/fs_win_swoosh": ["effects/fs_win_swoosh/fs_win_swoosh_00000","effects/fs_win_swoosh/fs_win_swoosh_00001","effects/fs_win_swoosh/fs_win_swoosh_00002","effects/fs_win_swoosh/fs_win_swoosh_00003","effects/fs_win_swoosh/fs_win_swoosh_00004","effects/fs_win_swoosh/fs_win_swoosh_00005","effects/fs_win_swoosh/fs_win_swoosh_00006","effects/fs_win_swoosh/fs_win_swoosh_00007","effects/fs_win_swoosh/fs_win_swoosh_00008","effects/fs_win_swoosh/fs_win_swoosh_00009","effects/fs_win_swoosh/fs_win_swoosh_00010","effects/fs_win_swoosh/fs_win_swoosh_00011"],
+	"effects/fs_win_swoosh_m1/fs_win_swoosh": ["effects/fs_win_swoosh_m1/fs_win_swoosh_00000","effects/fs_win_swoosh_m1/fs_win_swoosh_00001","effects/fs_win_swoosh_m1/fs_win_swoosh_00002","effects/fs_win_swoosh_m1/fs_win_swoosh_00003","effects/fs_win_swoosh_m1/fs_win_swoosh_00004","effects/fs_win_swoosh_m1/fs_win_swoosh_00005","effects/fs_win_swoosh_m1/fs_win_swoosh_00006","effects/fs_win_swoosh_m1/fs_win_swoosh_00007","effects/fs_win_swoosh_m1/fs_win_swoosh_00008","effects/fs_win_swoosh_m1/fs_win_swoosh_00009","effects/fs_win_swoosh_m1/fs_win_swoosh_00010","effects/fs_win_swoosh_m1/fs_win_swoosh_00011"],
+	"effects/implode/implode": ["effects/implode/implode_00000","effects/implode/implode_00001","effects/implode/implode_00002","effects/implode/implode_00003","effects/implode/implode_00004","effects/implode/implode_00005","effects/implode/implode_00006","effects/implode/implode_00007","effects/implode/implode_00008","effects/implode/implode_00009","effects/implode/implode_00010","effects/implode/implode_00011","effects/implode/implode_00012","effects/implode/implode_00013","effects/implode/implode_00014","effects/implode/implode_00015","effects/implode/implode_00016","effects/implode/implode_00017"],
+	"effects/meter_ring/meter_ring": ["effects/meter_ring/meter_ring_00","effects/meter_ring/meter_ring_01","effects/meter_ring/meter_ring_02","effects/meter_ring/meter_ring_03","effects/meter_ring/meter_ring_04","effects/meter_ring/meter_ring_05","effects/meter_ring/meter_ring_06","effects/meter_ring/meter_ring_07","effects/meter_ring/meter_ring_08","effects/meter_ring/meter_ring_09","effects/meter_ring/meter_ring_10","effects/meter_ring/meter_ring_11","effects/meter_ring/meter_ring_12","effects/meter_ring/meter_ring_13","effects/meter_ring/meter_ring_14","effects/meter_ring/meter_ring_15","effects/meter_ring/meter_ring_16","effects/meter_ring/meter_ring_17","effects/meter_ring/meter_ring_18","effects/meter_ring/meter_ring_19","effects/meter_ring/meter_ring_20","effects/meter_ring/meter_ring_21","effects/meter_ring/meter_ring_22","effects/meter_ring/meter_ring_23","effects/meter_ring/meter_ring_24","effects/meter_ring/meter_ring_25","effects/meter_ring/meter_ring_26","effects/meter_ring/meter_ring_27","effects/meter_ring/meter_ring_28","effects/meter_ring/meter_ring_29"],
+	"effects/scatter_spook/scatter_spook": ["effects/scatter_spook/scatter_spook00","effects/scatter_spook/scatter_spook01","effects/scatter_spook/scatter_spook02","effects/scatter_spook/scatter_spook03","effects/scatter_spook/scatter_spook04","effects/scatter_spook/scatter_spook05","effects/scatter_spook/scatter_spook06","effects/scatter_spook/scatter_spook07","effects/scatter_spook/scatter_spook08","effects/scatter_spook/scatter_spook09","effects/scatter_spook/scatter_spook10","effects/scatter_spook/scatter_spook11","effects/scatter_spook/scatter_spook12","effects/scatter_spook/scatter_spook13","effects/scatter_spook/scatter_spook14","effects/scatter_spook/scatter_spook15","effects/scatter_spook/scatter_spook16","effects/scatter_spook/scatter_spook17","effects/scatter_spook/scatter_spook18","effects/scatter_spook/scatter_spook19","effects/scatter_spook/scatter_spook20"],
+	"effects/spin_flames/spin_flames": ["effects/spin_flames/spin_flames_00000","effects/spin_flames/spin_flames_00001","effects/spin_flames/spin_flames_00002","effects/spin_flames/spin_flames_00003","effects/spin_flames/spin_flames_00004","effects/spin_flames/spin_flames_00005","effects/spin_flames/spin_flames_00006","effects/spin_flames/spin_flames_00007","effects/spin_flames/spin_flames_00008","effects/spin_flames/spin_flames_00009","effects/spin_flames/spin_flames_00010","effects/spin_flames/spin_flames_00011","effects/spin_flames/spin_flames_00012","effects/spin_flames/spin_flames_00013","effects/spin_flames/spin_flames_00014","effects/spin_flames/spin_flames_00015","effects/spin_flames/spin_flames_00016","effects/spin_flames/spin_flames_00017","effects/spin_flames/spin_flames_00018","effects/spin_flames/spin_flames_00019","effects/spin_flames/spin_flames_00020","effects/spin_flames/spin_flames_00021","effects/spin_flames/spin_flames_00022","effects/spin_flames/spin_flames_00023","effects/spin_flames/spin_flames_00024","effects/spin_flames/spin_flames_00025"],
+	"effects/spook_bottom/spook_bottom": ["effects/spook_bottom/spook_bottom00","effects/spook_bottom/spook_bottom01","effects/spook_bottom/spook_bottom02","effects/spook_bottom/spook_bottom03","effects/spook_bottom/spook_bottom04","effects/spook_bottom/spook_bottom05","effects/spook_bottom/spook_bottom06","effects/spook_bottom/spook_bottom07","effects/spook_bottom/spook_bottom08","effects/spook_bottom/spook_bottom09","effects/spook_bottom/spook_bottom10","effects/spook_bottom/spook_bottom11","effects/spook_bottom/spook_bottom12","effects/spook_bottom/spook_bottom13","effects/spook_bottom/spook_bottom14","effects/spook_bottom/spook_bottom15","effects/spook_bottom/spook_bottom16","effects/spook_bottom/spook_bottom17","effects/spook_bottom/spook_bottom18","effects/spook_bottom/spook_bottom19"],
+	"effects/sppok_eye/spook_eye": ["effects/sppok_eye/spook_eye00","effects/sppok_eye/spook_eye01","effects/sppok_eye/spook_eye02","effects/sppok_eye/spook_eye03","effects/sppok_eye/spook_eye04","effects/sppok_eye/spook_eye05","effects/sppok_eye/spook_eye06","effects/sppok_eye/spook_eye07","effects/sppok_eye/spook_eye08","effects/sppok_eye/spook_eye09","effects/sppok_eye/spook_eye10","effects/sppok_eye/spook_eye11","effects/sppok_eye/spook_eye12","effects/sppok_eye/spook_eye13","effects/sppok_eye/spook_eye14","effects/sppok_eye/spook_eye15","effects/sppok_eye/spook_eye16","effects/sppok_eye/spook_eye17","effects/sppok_eye/spook_eye18","effects/sppok_eye/spook_eye19"],
+	"effects/xway_burn/xway_burn": ["effects/xway_burn/xway_burn_00003","effects/xway_burn/xway_burn_00004","effects/xway_burn/xway_burn_00005","effects/xway_burn/xway_burn_00006","effects/xway_burn/xway_burn_00007","effects/xway_burn/xway_burn_00008","effects/xway_burn/xway_burn_00009","effects/xway_burn/xway_burn_00010","effects/xway_burn/xway_burn_00011","effects/xway_burn/xway_burn_00012","effects/xway_burn/xway_burn_00013","effects/xway_burn/xway_burn_00014","effects/xway_burn/xway_burn_00015","effects/xway_burn/xway_burn_00016","effects/xway_burn/xway_burn_00017","effects/xway_burn/xway_burn_00018","effects/xway_burn/xway_burn_00019","effects/xway_burn/xway_burn_00020","effects/xway_burn/xway_burn_00021","effects/xway_burn/xway_burn_00022","effects/xway_burn/xway_burn_00023"],
+	"gem_add/FS_gem_add": ["gem_add/FS_gem_add_00","gem_add/FS_gem_add_01","gem_add/FS_gem_add_02","gem_add/FS_gem_add_03","gem_add/FS_gem_add_04","gem_add/FS_gem_add_05","gem_add/FS_gem_add_06","gem_add/FS_gem_add_07","gem_add/FS_gem_add_08","gem_add/FS_gem_add_09","gem_add/FS_gem_add_10","gem_add/FS_gem_add_11","gem_add/FS_gem_add_12","gem_add/FS_gem_add_13"],
+	"sparkle/sparkle": ["sparkle/sparkle_000","sparkle/sparkle_001","sparkle/sparkle_002","sparkle/sparkle_003","sparkle/sparkle_004","sparkle/sparkle_005","sparkle/sparkle_006","sparkle/sparkle_007","sparkle/sparkle_008","sparkle/sparkle_009","sparkle/sparkle_010","sparkle/sparkle_011","sparkle/sparkle_012","sparkle/sparkle_013","sparkle/sparkle_014"],
+	"utility/lightning": ["utility/lightning_1","utility/lightning_2","utility/lightning_3"],
+	"winCap/WinCapBG/WinCapBg": ["winCap/WinCapBG/WinCapBg_000","winCap/WinCapBG/WinCapBg_001","winCap/WinCapBG/WinCapBg_002","winCap/WinCapBG/WinCapBg_003","winCap/WinCapBG/WinCapBg_004","winCap/WinCapBG/WinCapBg_005","winCap/WinCapBG/WinCapBg_006","winCap/WinCapBG/WinCapBg_007","winCap/WinCapBG/WinCapBg_008","winCap/WinCapBG/WinCapBg_009"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "mainJpeg0@0.5x.jpg",
+	"format": "RGB888",
+	"size": {"w":1018,"h":1024},
+	"scale": "0.5",
+	"related_multi_packs": [ "mainJpeg1@0.5x.json", "mainJpeg2@0.5x.json", "mainJpeg3@0.5x.json", "mainJpeg4@0.5x.json", "mainJpeg5@0.5x.json", "mainJpeg6@0.5x.json", "mainJpeg7@0.5x.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:654c4a77b44ea812a73fe5bd71da9fb2:fc72124cf81b5404cee69b7bfaa7c8fd:64996bb393efb7bea9a5819f24dd0dc4$"
+}
+}

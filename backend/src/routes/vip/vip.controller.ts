@@ -12,7 +12,7 @@ export async function getMyVipDetails(c: Context) {
     }
 
     try {
-        const vipDetails = await service.getVipDetailsForUser(user.id)
+        const vipDetails = await service.getVipDetailsForusers(user.id)
         if (!vipDetails) {
             return c.json({ error: 'VIP information not found for user.' }, 404)
         }
@@ -29,7 +29,7 @@ export async function getMyVipDetails(c: Context) {
  */
 export async function getVipLevels(c: Context) {
     try {
-        const levels = await service.getAllVipLevels()
+        const levels = await service.getAllvipLevels()
         return c.json(levels)
     }
     catch (error) {
@@ -43,7 +43,7 @@ export async function getVipLevels(c: Context) {
  */
 export async function getVipRanks(c: Context) {
     try {
-        const ranks = await service.getAllVipRanks()
+        const ranks = await service.getAllvipRanks()
         return c.json(ranks)
     }
     catch (error) {

@@ -16,6 +16,9 @@ export const createClient = (config: Config = {}): Client => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { auth, ...configWithoutAuth } = _config;
   const instance = axios.create(configWithoutAuth);
+  // Ensure cookies are sent with all requests (needed for cookie-based auth)
+  // This propagates to request calls below unless explicitly overridden.
+  instance.defaults.withCredentials = true;
 
   const getConfig = (): Config => ({ ..._config });
 
@@ -24,13 +27,18 @@ export const createClient = (config: Config = {}): Client => {
     instance.defaults = {
       ...instance.defaults,
       ..._config,
-      // @ts-expect-error Awaiting headers type fix from Axios
+      // @ts-expect-error - axios types for defaults.headers don't match our merged header shape
       headers: mergeHeaders(instance.defaults.headers, _config.headers),
     };
+    // Preserve withCredentials default even after updating defaults
+    // unless user explicitly sets it differently in _config.
+    if (typeof instance.defaults.withCredentials === "undefined") {
+      instance.defaults.withCredentials = true;
+    }
     return getConfig();
   };
 
-  // @ts-expect-error Awaiting headers type fix from Axios
+  // @ts-expect-error
   const request: Client["request"] = async (options) => {
     const opts = {
       ..._config,
@@ -92,7 +100,7 @@ export const createClient = (config: Config = {}): Client => {
       if (opts.throwOnError) {
         throw e;
       }
-      // @ts-expect-error Awaiting headers type fix from Axios
+      // @ts-expect-error - attach parsed error payload for downstream handling
       e.error = e.response?.data ?? {};
       return e;
     }

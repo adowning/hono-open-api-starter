@@ -1,0 +1,26 @@
+{
+  "commitTime": "2023-12-04T09:42:39+05:30",
+  "commitShort": "58d5677",
+  "commit": "58d5677a035eefb31b885b8b3487b9a839c052ca",
+  "branch": "master",
+  "name": "SanQuentin",
+  "version": "1.2.39",
+  "date": "2023-12-04T04:18:55.136Z",
+  "dependencies": {
+    "@nolimit/core": "0.1.1",
+    "@nolimit/game-api": "1.1.17",
+    "@nolimit/game-communication": "0.2.1",
+    "@nolimit/game-tools": "0.3.3",
+    "@nolimit/google-analytics": "0.3.0",
+    "@nolimit/promo-panel": "0.8.21",
+    "@nolimit/slot-audio": "0.6.3",
+    "@nolimit/slot-game": "0.51.2",
+    "@nolimit/slot-keypad": "1.8.26",
+    "@nolimit/slot-launcher": "1.8.27",
+    "@nolimit/slot-translations": "1.0.64"
+  },
+  "size": {
+    "width": 1280,
+    "height": 720
+  }
+}

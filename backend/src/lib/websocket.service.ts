@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm'
 
 import db from '#/db'
-import { VipInfo, Wallet } from '#/db/schema'
+import { vipInfo, wallets } from '#/db/schema'
 import { server } from '#/index'
 
 interface NotificationPayload {
@@ -40,17 +40,17 @@ export async function triggerUserUpdate(userId: string) {
 
     try {
     // Fetch the latest data from the database
-        const wallet = await db.query.Wallet.findFirst({ where: eq(Wallet.userId, userId) })
-        const vipInfo = await db.query.VipInfo.findFirst({ where: eq(VipInfo.userId, userId) })
+        const wallet = await db.query.wallets.findFirst({ where: eq(wallets.userId, userId) })
+        const _vipInfo = await db.query.vipInfo.findFirst({ where: eq(vipInfo.userId, userId) })
 
         const payload = {
             wallet: {
                 balance: wallet?.balance,
             },
             vipInfo: {
-                level: vipInfo?.level,
-                xp: vipInfo?.xp,
-                totalXp: vipInfo?.totalXp,
+                level: _vipInfo?.level,
+                xp: _vipInfo?.xp,
+                totalXp: _vipInfo?.totalXp,
             },
         }
 

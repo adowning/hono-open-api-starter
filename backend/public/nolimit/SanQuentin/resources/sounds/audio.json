@@ -1,0 +1,338 @@
+[
+  {
+    "name": "effects",
+    "src": [
+      "effects.mp4"
+    ],
+    "sprite": {
+      "asWin": [
+        0,
+        1023
+      ],
+      "asWinBig": [
+        3000,
+        1502
+      ],
+      "betlineHighlight": [
+        6000,
+        1331
+      ],
+      "betlinesHighlightLarge": [
+        9000,
+        3599
+      ],
+      "betlinesHighlightMedium": [
+        14000,
+        2954
+      ],
+      "betlinesHighlightSmall": [
+        18000,
+        2162
+      ],
+      "bigwinAnticipation": [
+        22000,
+        2742
+      ],
+      "bigwinAnticipationDoor": [
+        26000,
+        2137
+      ],
+      "bigwinCountup": [
+        30000,
+        2231
+      ],
+      "bigwinEnds": [
+        34000,
+        3462
+      ],
+      "bigwinInitialCountup": [
+        39000,
+        2163
+      ],
+      "bigwinInitialWin": [
+        43000,
+        3371
+      ],
+      "bigwinLevel1": [
+        48000,
+        5048
+      ],
+      "bigwinLevel2": [
+        55000,
+        5048
+      ],
+      "bigwinLevel3": [
+        62000,
+        5048
+      ],
+      "bigwinLevel4": [
+        69000,
+        5048
+      ],
+      "bigwinLevel5": [
+        76000,
+        9231
+      ],
+      "bigwinLevel5Explode": [
+        87000,
+        2885
+      ],
+      "continueButton": [
+        91000,
+        806
+      ],
+      "countup": [
+        93000,
+        2581
+      ],
+      "fsBlackboard": [
+        97000,
+        403
+      ],
+      "fsCharacterIn": [
+        99000,
+        1371
+      ],
+      "fsCharacterInPolice": [
+        102000,
+        1774
+      ],
+      "fsDown": [
+        105000,
+        2863
+      ],
+      "fsEnds": [
+        109000,
+        6864
+      ],
+      "fsFire": [
+        117000,
+        1774
+      ],
+      "fsIntro": [
+        120000,
+        3387
+      ],
+      "fsJailDoorsClose": [
+        125000,
+        2258
+      ],
+      "fsJailDoorsOpen": [
+        129000,
+        1089
+      ],
+      "fsJumpingWildIn": [
+        132000,
+        1935
+      ],
+      "fsJumpingWildMove": [
+        135000,
+        1935
+      ],
+      "fsMultiplierCollect": [
+        138000,
+        638
+      ],
+      "fsMultiplierMoveDown": [
+        140000,
+        847
+      ],
+      "fsMultiplierTurn": [
+        142000,
+        2419
+      ],
+      "fsMultiplierUpgrade": [
+        146000,
+        2782
+      ],
+      "fsPlusSpins": [
+        150000,
+        2904
+      ],
+      "fsPoliceIn": [
+        154000,
+        5081
+      ],
+      "fsRevealSymbols": [
+        161000,
+        2379
+      ],
+      "fsTopBotReelLanding": [
+        165000,
+        605
+      ],
+      "fsTotalSpins": [
+        167000,
+        2097
+      ],
+      "fsUp": [
+        171000,
+        3710
+      ],
+      "introFolder": [
+        176000,
+        2419
+      ],
+      "jailDoorOpen": [
+        180000,
+        1048
+      ],
+      "razorbladeLands": [
+        183000,
+        968
+      ],
+      "reelLanding": [
+        185000,
+        413
+      ],
+      "reelsSpinning": [
+        187000,
+        1774
+      ],
+      "scatter1": [
+        190000,
+        726
+      ],
+      "scatter2": [
+        192000,
+        726
+      ],
+      "scatter3": [
+        194000,
+        2823
+      ],
+      "scatter4": [
+        198000,
+        3226
+      ],
+      "scatter5": [
+        203000,
+        3226
+      ],
+      "scatterAnticipation": [
+        208000,
+        9516
+      ],
+      "scatterAnticipationFail": [
+        219000,
+        1008
+      ],
+      "scatterFs": [
+        222000,
+        2581
+      ],
+      "scatterToWild": [
+        226000,
+        2460
+      ],
+      "scatterToWildFs": [
+        230000,
+        2525
+      ],
+      "wildExplode": [
+        234000,
+        1472
+      ],
+      "wildLanding": [
+        237000,
+        1850
+      ],
+      "wildSplit": [
+        240000,
+        1830
+      ],
+      "winLarge": [
+        243000,
+        3911
+      ],
+      "winMedium": [
+        248000,
+        3138
+      ],
+      "winSmall": [
+        253000,
+        1064
+      ],
+      "winTiny": [
+        256000,
+        1096
+      ],
+      "xWaysDouble": [
+        259000,
+        3322
+      ],
+      "xWaysDoubleReveal": [
+        264000,
+        1694
+      ],
+      "xWaysSingle": [
+        267000,
+        1653
+      ],
+      "xWaysSingleReveal": [
+        270000,
+        1694
+      ]
+    }
+  },
+  {
+    "name": "keypad",
+    "src": [
+      "keypad.mp4"
+    ],
+    "sprite": {
+      "click": [
+        0,
+        173
+      ],
+      "disabled": [
+        2000,
+        173
+      ],
+      "fast-spin-off": [
+        4000,
+        173
+      ],
+      "fast-spin-on": [
+        6000,
+        173
+      ],
+      "spin-start": [
+        8000,
+        1028
+      ],
+      "spin-stop": [
+        11000,
+        726
+      ]
+    }
+  },
+  {
+    "name": "loops",
+    "src": [
+      "loops.mp4"
+    ],
+    "sprite": {
+      "background-music-fs": [
+        0,
+        73220
+      ],
+      "background-music-main1": [
+        75000,
+        64516
+      ],
+      "background-music-main2": [
+        141000,
+        64516
+      ],
+      "psycho-manhunt1": [
+        207000,
+        15916
+      ],
+      "psycho-manhunt2": [
+        224000,
+        14657
+      ]
+    }
+  }
+]

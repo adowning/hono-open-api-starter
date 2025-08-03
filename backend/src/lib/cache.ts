@@ -1,84 +1,107 @@
-import type { Context } from 'hono'
+import { createStorage, prefixStorage } from 'unstorage'
+import chalk from 'chalk'
 
-import { KeyValueStore, SqliteAdapter } from '@bnk/kv-store'
+import type { AuthSessionType, GameSessionType, GameSpinType } from '#/db/schema'
 
-import type { GameSessionType, GameSpinType } from '#/db/types'
+const storage = createStorage()
 
-const adapter = new SqliteAdapter({
-    path: 'sessions.db',
-    tableName: 'sessions',
-})
-const cache = new KeyValueStore({ adapter })
-const SPINS_PREFIX = 'spins:'
+const authSessionCache = prefixStorage<AuthSessionType>(storage, 'sessions:auth')
+const gameSessionCache = prefixStorage<GameSessionType>(storage, 'sessions:game')
+const spinCache = prefixStorage<GameSpinType[]>(storage, 'spins')
 
-function normalizeCacheResult<T>(data: any): T {
-    if (Array.isArray(data)) {
-        return data.map((item) => normalizeCacheResult(item)) as T
-    }
-    if (typeof data === 'object' && data !== null) {
-        const normalizedData: { [key: string]: any } = {}
-        for (const key in data) {
-            if (Object.prototype.hasOwnProperty.call(data, key)) {
-                if (Array.isArray(data[key])) {
-                    normalizedData[key] = data[key][0]
-                } else {
-                    normalizedData[key] = data[key]
-                }
-            }
-        }
-        return normalizedData as T
-    }
-    return data as T
+// Replay cache for previous refresh token JTI values
+interface ReplayEntry { usedAt: number; expiresAt: number }
+const replayCache = prefixStorage<ReplayEntry>(storage, 'auth:refresh:replay')
+
+export async function getAuthSessionFromCache(
+    authSessionId: string
+): Promise<AuthSessionType | null> {
+    const item = await authSessionCache.getItem(authSessionId)
+    return item ? JSON.parse(JSON.stringify(item)) : null
 }
 
-export function getGameSessionFromCache(
+export async function saveAuthSessionToCache(
+    session: AuthSessionType
+): Promise<void> {
+    console.log(chalk.blue(`Saving auth session ${session.id} to cache.`))
+    await authSessionCache.setItem(session.id, session)
+}
+
+export async function deleteAuthSessionFromCache(
+    authSessionId: string
+): Promise<void> {
+    console.log(chalk.blue(`Deleting auth session ${authSessionId} from cache.`))
+    await authSessionCache.removeItem(authSessionId)
+}
+
+export async function getGameSessionFromCache(
     sessionId: string
-): GameSessionType | null {
-    const data = cache.get<any>(sessionId)
-    if (!data) {
-        return null
-    }
-    const normalizedData = normalizeCacheResult<GameSessionType>(data)
-    // The session ID MUST be a string. If it's corrupted, use the key we used to fetch it.
-    if (typeof normalizedData.id !== 'string' || !normalizedData.id) {
-        normalizedData.id = sessionId
-    }
-    return normalizedData
+): Promise<GameSessionType | null> {
+    const item = await gameSessionCache.getItem(sessionId)
+    return item ? JSON.parse(JSON.stringify(item)) : null
 }
 
 export async function saveGameSessionToCache(
-    session: GameSessionType,
-    c: Context
+    session: GameSessionType
 ): Promise<void> {
-    cache.set(session.id, session)
-    c.set('gameSession', session)
+    console.log(chalk.blue(`Saving game session ${session.id} to cache.`))
+    await gameSessionCache.setItem(session.id, session)
 }
 
 export async function deleteGameSessionFromCache(
     sessionId: string
 ): Promise<void> {
-    cache.delete(sessionId)
+    console.log(chalk.blue(`Deleting game session ${sessionId} from cache.`))
+    await gameSessionCache.removeItem(sessionId)
 }
 
 export async function getSpinsFromCache(
     sessionId: string
-): Promise<Partial<GameSpinType>[]> {
-    const spinsKey = `${SPINS_PREFIX}${sessionId}`
-    const spins = cache.get<Partial<GameSpinType>[]>(spinsKey) || []
-    return normalizeCacheResult(spins)
+): Promise<GameSpinType[]> {
+    return (await spinCache.getItem(sessionId)) || []
 }
 
 export async function addSpinToCache(
     sessionId: string,
-    spin: Partial<GameSpinType>
+    spin: GameSpinType
 ): Promise<void> {
-    const spinsKey = `${SPINS_PREFIX}${sessionId}`
     const spins = await getSpinsFromCache(sessionId)
     spins.push(spin)
-    cache.set(spinsKey, spins)
+    await spinCache.setItem(sessionId, spins)
 }
 
 export async function deleteSpinsFromCache(sessionId: string): Promise<void> {
-    const spinsKey = `${SPINS_PREFIX}${sessionId}`
-    cache.delete(spinsKey)
+    await spinCache.removeItem(sessionId)
+}
+
+/**
+ * Mark a previous refresh token jti as used to prevent replay.
+ * ttlSeconds is the remaining validity window for that previous token.
+ */
+export async function markPrevRefreshJtiUsed(
+    jti: string,
+    ttlSeconds: number
+): Promise<void> {
+    const now = Math.floor(Date.now() / 1000)
+    const entry: ReplayEntry = {
+        usedAt: now,
+        expiresAt: now + Math.max(1, ttlSeconds),
+    }
+    await replayCache.setItem(jti, entry)
+    // Optional: unstorage may not support TTL natively; rely on expiresAt checks in code.
+}
+
+/**
+ * Check if a previous refresh token jti has been used already.
+ */
+export async function isPrevRefreshJtiUsed(jti: string): Promise<boolean> {
+    const entry = await replayCache.getItem(jti)
+    if (!entry) return false
+    const now = Math.floor(Date.now() / 1000)
+    if (entry.expiresAt <= now) {
+        // Best-effort cleanup
+        await replayCache.removeItem(jti)
+        return false
+    }
+    return true
 }

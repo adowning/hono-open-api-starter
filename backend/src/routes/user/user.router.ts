@@ -11,8 +11,6 @@ import {
 } from '../../db/schema'
 import { notFoundSchema } from '../../lib/constants'
 import * as controller from './user.controller'
-import { authMiddleware } from '#/middlewares/auth.middleware'
-import { sessionMiddleware } from '#/middlewares/session.middleware'
 
 export const tags = ['User']
 
@@ -20,7 +18,6 @@ export const listUser = createRoute({
     path: '/users',
     method: 'get',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
             z.array(selectUserSchema),
@@ -36,7 +33,6 @@ export const createUser = createRoute({
         body: jsonContentRequired(insertUserSchema, 'The user to create'),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(selectUserSchema, 'The created user'),
         [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
@@ -53,7 +49,6 @@ export const getOneUser = createRoute({
         params: IdParamsSchema,
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(selectUserSchema, 'The requested user'),
         [HttpStatusCodes.NOT_FOUND]: jsonContent(notFoundSchema, 'User not found'),
@@ -72,14 +67,13 @@ export const updateUser = createRoute({
         body: jsonContentRequired(selectUserSchema, 'The user updates'),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(selectUserSchema, 'The updated user'),
         [HttpStatusCodes.NOT_FOUND]: jsonContent(notFoundSchema, 'User not found'),
-        // [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
-        //   createErrorSchema(User).or(createErrorSchema(IdParamsSchema)),
-        //   "The validation error(s)",
-        // ),
+    // [HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
+    //   createErrorSchema(User).or(createErrorSchema(IdParamsSchema)),
+    //   "The validation error(s)",
+    // ),
     },
 })
 
@@ -90,7 +84,6 @@ export const removeUser = createRoute({
         params: IdParamsSchema,
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.NO_CONTENT]: {
             description: 'User deleted',
@@ -107,7 +100,6 @@ export const checkUser = createRoute({
     method: 'get',
     path: '/users/{id}/check',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Check if a user exists',
     request: { params: IdParamsSchema },
     responses: {
@@ -158,7 +150,6 @@ export const verifyEmail = createRoute({
     method: 'post',
     path: '/users/{id}/verify-email',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Send email verification',
     request: { params: IdParamsSchema },
     responses: {
@@ -173,7 +164,6 @@ export const getInfo = createRoute({
     method: 'get',
     path: '/users/{id}/info',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Get user info',
     request: { params: IdParamsSchema },
     responses: {
@@ -186,7 +176,6 @@ export const getVipInfo = createRoute({
     method: 'get',
     path: '/users/{id}/vipinfo',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'Get user VIP info',
     request: { params: IdParamsSchema },
     responses: {
@@ -202,7 +191,6 @@ export const getUserAmount = createRoute({
     path: '/user/amount',
     method: 'get',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
             z.object({
@@ -228,7 +216,6 @@ export const updateUserInfo = createRoute({
         body: jsonContentRequired(insertUserSchema, 'The user info to update'),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(selectUserSchema, 'The updated user'),
     },
@@ -247,7 +234,6 @@ export const updateEmail = createRoute({
         ),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(selectUserSchema, 'The updated user'),
     },
@@ -266,7 +252,6 @@ export const updatePassword = createRoute({
         ),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
             z.object({ message: z.string() }),
@@ -287,7 +272,6 @@ export const suspendUser = createRoute({
         ),
     },
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
             z.object({ message: z.string() }),
@@ -312,7 +296,6 @@ export const enterGame = createRoute({
     method: 'post',
     path: '/enter/game',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Enter game' } },
 })
 
@@ -320,7 +303,6 @@ export const userGame = createRoute({
     method: 'post',
     path: '/games',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'User game' } },
 })
 
@@ -328,7 +310,6 @@ export const favoriteGame = createRoute({
     method: 'post',
     path: '/setup/game',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Favorite game' } },
 })
 
@@ -336,7 +317,6 @@ export const gameHistory = createRoute({
     method: 'get',
     path: '/gamehistory',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Game history' } },
 })
 
@@ -344,7 +324,6 @@ export const spinPage = createRoute({
     method: 'get',
     path: '/spinpage',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Spin page' } },
 })
 
@@ -352,7 +331,6 @@ export const spin = createRoute({
     method: 'post',
     path: '/spin',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Spin' } },
 })
 
@@ -360,7 +338,6 @@ export const favoriteGameList = createRoute({
     method: 'get',
     path: '/favorite/game',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     responses: { 200: { description: 'Favorite game list' } },
 })
 
@@ -368,7 +345,6 @@ export const endGameSession = createRoute({
     method: 'post',
     path: '/end-game-session',
     tags,
-    middleware: [authMiddleware, sessionMiddleware],
     summary: 'End the current game session',
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
@@ -380,31 +356,31 @@ export const endGameSession = createRoute({
 })
 
 export const router = createRouter()
-    // .openapi(createUser, controller.createUser)
+// .openapi(createUser, controller.createUser)
     .openapi(listUser, controller.listUser as any)
     .openapi(enterGame, controller.enterGame)
     .openapi(userGame, controller.userGame)
     .openapi(favoriteGame, controller.favoriteGame)
-    // .openapi(gameHistory, controller.gameHistory)
+// .openapi(gameHistory, controller.gameHistory)
     .openapi(spinPage, controller.spinPage)
     .openapi(spin, controller.spin)
     .openapi(favoriteGameList, controller.favoriteGameList)
     .openapi(endGameSession, controller.endSession as any)
 
-    // Basic CRUD
+// Basic CRUD
     .openapi(getOneUser, controller.getUserById as any)
     .openapi(updateUser, controller.updateUser as any)
     .openapi(removeUser, controller.deleteUser as any)
 
-    // From Pinia Store & HAR files
+// From Pinia Store & HAR files
     .openapi(checkUser, controller.checkUser as any)
-    // .openapi(getBalance, controller.getBalance)
-    // .openapi(setCurrency, controller.setCurrency)
+// .openapi(getBalance, controller.getBalance)
+// .openapi(setCurrency, controller.setCurrency)
     .openapi(verifyEmail, controller.verifyEmail)
     .openapi(getInfo, controller.getInfo as any)
     .openapi(getVipInfo, controller.getVipInfo as any)
 
-    // New Routes
+// New Routes
     .openapi(getUserAmount, controller.getUserAmount)
     .openapi(updateUserInfo, controller.updateUserInfo as any)
     .openapi(updateEmail, controller.updateEmail as any)

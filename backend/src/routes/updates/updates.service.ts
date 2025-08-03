@@ -7,7 +7,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import rclone from 'rclone.js'
 
-import type { AppVersion, UpdateMetadata, UpdateTypeZ } from '#/db/schema'
+import type { AppVersion } from '#/db'
 
 import env from '#/env'
 
@@ -26,7 +26,7 @@ const R2_BUCKET_NAME = env.R2_BUCKET_NAME || 'apkfiles'
 })()
 
 // --- Metadata Management (No changes) ---
-export async function loadMetadata(): Promise<UpdateMetadata> {
+export async function loadMetadata(): Promise<any> {
     try {
         if (existsSync(METADATA_FILE)) {
             const content = await readFile(METADATA_FILE, 'utf-8')
@@ -38,7 +38,7 @@ export async function loadMetadata(): Promise<UpdateMetadata> {
     return {}
 }
 
-export async function saveMetadata(metadata: UpdateMetadata): Promise<void> {
+export async function saveMetadata(metadata: any): Promise<void> {
     try {
         await writeFile(METADATA_FILE, JSON.stringify(metadata, null, 2))
     } catch (error) {
@@ -62,7 +62,7 @@ function compareVersions(v1: string, v2: string): number {
 
 export function getLatestVersion(
     versions: AppVersion[],
-    type: UpdateTypeZ
+    type: any
 ): AppVersion | null {
     const filteredVersions = versions.filter((v) => v.updateType === type)
     if (filteredVersions.length === 0) return null
@@ -73,14 +73,14 @@ export function getLatestVersion(
 }
 
 // --- File Storage Logic (Refactored for rclone) ---
-function getFileExtension(type: UpdateTypeZ): string {
+function getFileExtension(type: any): string {
     return type === 'BINARY' ? 'apk' : 'zip'
 }
 
 function generateR2Key(
     appId: string,
     platform: string,
-    type: UpdateTypeZ,
+    type: any,
     version: string
 ): string {
     const extension = getFileExtension(type)
@@ -90,7 +90,7 @@ function generateR2Key(
 export function generateDownloadUrl(
     appId: string,
     platform: string,
-    type: UpdateTypeZ,
+    type: any,
     version: string
 ): string {
     if (isProduction) {
@@ -113,7 +113,7 @@ export async function saveUpdateFile(
     file: File,
     appId: string,
     platform: string,
-    type: UpdateTypeZ,
+    type: any,
     version: string
 ): Promise<{ buffer: ArrayBuffer }> {
     const buffer = await file.arrayBuffer()

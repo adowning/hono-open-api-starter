@@ -1,21 +1,22 @@
 import { eq } from 'drizzle-orm'
 
 import db from '#/db'
-import { Transaction, User, Wallet } from '#/db/schema'
+import { transactions, users, wallets } from '#/db/schema'
 import { triggerUserUpdate } from '#/lib/websocket.service'
+import { nanoid } from 'nanoid'
 
 /**
  * Debits a specified amount from a user's active wallet.
  * Throws an error if the user or wallet is not found, or if funds are insufficient.
  */
-export async function debitFromWallet(userId: string, amountToDebit: number, description: string): Promise<void> {
+export async function debitFromwallets(userId: string, amountToDebit: number, description: string): Promise<void> {
     if (amountToDebit <= 0) {
         throw new Error('Debit amount must be positive.')
     }
 
     await db.transaction(async (tx) => {
-        const user = await tx.query.User.findFirst({
-            where: eq(User.id, userId),
+        const user = await tx.query.users.findFirst({
+            where: eq(users.id, userId),
             with: { activeWallet: true },
         })
 
@@ -31,9 +32,10 @@ export async function debitFromWallet(userId: string, amountToDebit: number, des
 
         const newBalance = wallet.balance - amountToDebit
 
-        await tx.update(Wallet).set({ balance: newBalance }).where(eq(Wallet.id, wallet.id))
-
-        await tx.insert(Transaction).values({
+        await tx.update(wallets).set({ balance: newBalance }).where(eq(wallets.id, wallet.id))
+        const id = nanoid()
+        await tx.insert(transactions).values({
+            id,
             walletId: wallet.id,
             userId,
             type: 'BET_PLACE',
@@ -51,14 +53,14 @@ export async function debitFromWallet(userId: string, amountToDebit: number, des
 /**
  * Credits a specified amount to a user's active wallet.
  */
-export async function creditToWallet(userId: string, amountToCredit: number, description: string): Promise<void> {
+export async function creditTowallets(userId: string, amountToCredit: number, description: string): Promise<void> {
     if (amountToCredit <= 0) {
         return // No need to process zero or negative credits.
     }
 
     await db.transaction(async (tx) => {
-        const user = await tx.query.User.findFirst({
-            where: eq(User.id, userId),
+        const user = await tx.query.users.findFirst({
+            where: eq(users.id, userId),
             with: { activeWallet: true },
         })
 
@@ -69,9 +71,11 @@ export async function creditToWallet(userId: string, amountToCredit: number, des
         const wallet = user.activeWallet
         const newBalance = wallet.balance + amountToCredit
 
-        await tx.update(Wallet).set({ balance: newBalance }).where(eq(Wallet.id, wallet.id))
+        await tx.update(wallets).set({ balance: newBalance }).where(eq(wallets.id, wallet.id))
+        const id = nanoid()
 
-        await tx.insert(Transaction).values({
+        await tx.insert(transactions).values({
+            id,
             walletId: wallet.id,
             userId,
             type: 'BET_WIN',

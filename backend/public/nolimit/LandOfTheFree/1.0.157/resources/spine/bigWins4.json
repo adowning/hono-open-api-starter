@@ -1,0 +1,51 @@
+{
+"skeleton": {
+	"hash": "4m8QH4s00Nq9MfQZBlTVLY4TGck",
+	"spine": "3.8.97",
+	"x": -392,
+	"y": -275,
+	"width": 783,
+	"height": 551,
+	"images": "../../resources/sources/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "level4", "parent": "root" }
+],
+"slots": [
+	{ "name": "level4", "bone": "level4", "attachment": "level4" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"level4": {
+				"level4": { "path": "pngNormal/bigWins/level4", "x": -0.5, "y": 0.5, "width": 783, "height": 551 }
+			}
+		}
+	}
+],
+"events": {
+	"bigWin4": { "audio": "bigWinLevel4.wav" }
+},
+"animations": {
+	"animation": {
+		"bones": {
+			"level4": {
+				"rotate": [
+					{ "angle": 11.57 },
+					{ "time": 0.1667 }
+				],
+				"scale": [
+					{ "x": 2, "y": 2, "curve": 1, "c2": 0.17, "c3": 0.819, "c4": 0.79 },
+					{ "time": 0.1667 }
+				]
+			}
+		},
+		"events": [
+			{ "name": "bigWin4" }
+		]
+	}
+}
+}

@@ -1,0 +1,292 @@
+<!--
+    ##READ ME :
+
+    There are two ways of formatting Symbol payout multipliers
+    1. (default) The multiplier values are to the right of the image.
+    2. The multiplier values are below the image.
+
+    To use the second option add the class "column" to the "Symbol-group" you would like to format this way.
+
+
+    Eg. Option 1
+     <div class="Symbol-group">
+        ...
+     </div>
+
+    Eg. Option 2
+     <div class="Symbol-group column">
+        ...
+     </div>
+
+
+     PLEASE refrain from adding your own CSS. Instead add an issue in the repo below with the changes you need and well find a solution.
+     https://github.com/nolimitcity/nolimit-slot-keypad
+
+-->
+
+<!--Pay outs-->
+<div class="section">
+    <h2>{{#tr}}PAYOUT{{/tr}}</h2>
+
+    <!--MID SYMBOLS-->
+    <div class="symbol-group column">
+        {{M1}}
+        {{M2}}
+        {{M3}}
+        {{M4}}
+        {{M5}}
+        {{M6}}
+    </div>
+    <!--LOW SYMBOLS-->
+    <div class="symbol-group column">
+        {{L1}}
+        {{L2}}
+        {{L3}}
+        {{L4}}
+        {{L5}}
+        {{L6}}
+    </div>
+</div>
+<!--Feature second 1-->
+<div class="section">
+    <h2>xNUDGE WILD</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_1.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}A Wild that lands will drop down to the bottom position and will increase a payout multiplier for every step it drops, then expand to cover the entire reel. Together with xWays symbol the payout multiplier can increase to x6. A xNudge Wild may land on reel 2 to 5.{{/tr}}</p>
+            <p>{{#tr}}Multiple consecutive xNudge Wild multipliers are added up to a total win multiplier. Example: x3+x1=x4.{{/tr}}</p>
+            <p>{{#tr}}A Wild symbol substitutes for any symbol except Scatter symbol.{{/tr}}</p>
+        </div>
+    </div>
+</div>
+<!--Feature second 2-->
+<div class="section">
+    <h2>xWAYS</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_2.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}A mystery symbol that can hold 2 to 3 of the same symbol inside and will expand the reels.{{/tr}}</p>
+            <p>{{#tr}}xWays symbols can land on all reels and expand a reel up to 6 symbols high. Multiple xWays symbols may land during one spin.{{/tr}}
+            <p>{{#tr}}Reels may be expanded up to 46656 win ways.{{/tr}}</p>
+       </div>
+    </div>
+</div>
+<!--Feature second 3-->
+<div class="section">
+    <h2>RESURRECTION SPINS</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_3.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}The bonus mode is activated by 3 Scatter symbols and awards 10 Resurrection Spins. Any additional Scatter symbols awards 3 additional Resurrection Spins.{{/tr}}</p>
+            <p>{{#tr}}Minimum of one xWays symbol is guaranteed on each initial cascade in the bonus mode.{{/tr}}</p>
+        </div>
+    </div>
+</div>
+<!--Feature second 4-->
+<div class="section">
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_4.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}In Resurrection Spins every fourth winning cascade will turn one of the five dead legends into Wilds for the rest of the bonus round and award +2 extra spins.{{/tr}}</p>
+            <p>{{#tr}}Any win on the highest paying symbol will award +1x multiplier on that symbol. Winning cascades on only the highest paying symbol will not count for turning the symbols to Wilds, but only towards the multiplier increase.{{/tr}}</p>
+        </div>
+    </div>
+</div>
+
+<!--Feature xBet-->
+<div class="section boostedBetAllowed">
+    <h2>xBet</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_6.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}At the cost of 3 times the base bet, the player is more than 5 times likely to activate Resurrection Spins.{{/tr}}
+            <p>{{#tr}}The payout for each symbol is not affected.{{/tr}}</p>
+        </div>
+    </div>
+</div>
+
+<!--Feature Win Cap-->
+{{^replaceWincapInfo}}
+    <div class="section">
+    <h2>DEAD RISING</h2>
+    <div class="content">
+        <div class="featureImg">
+            <img src="{{gamePath}}screens/images/pageImage_5.png">
+        </div>
+        <div class="featureInfo">
+            <p>{{#tr}}May the dead rise again, just one more time...{{/tr}}</p>
+            <p>{{#tr}}The max payout of the game is 27000 times the base bet.{{/tr}}</p>
+            <p>{{#tr}}When the total win exceeds this amount the game round will end and 27000 times the base bet is awarded.{{/tr}}</p>
+        </div>
+    </div>
+    </div>
+{{/replaceWincapInfo}}
+
+<div class="section">
+    <h2>{{#tr}}UP TO 46656 WIN WAYS{{/tr}}</h2>
+    <div class="betlines">
+        <div class="betlineNumber">{{#tr}}WIN{{/tr}}</div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="active"></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="active"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="betlineNumber">{{#tr}}NO WIN{{/tr}}</div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="noWin"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="noWin"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="betline">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="noWin"></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="noWin"></td>
+                    <td class="noWin"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--FOOTER -->
+<footer>
+    <p>{{#tr}}Winnings are calculated by multiplying the value of the symbol in paytable and the number of the ways of the winning symbol.{{/tr}} {{#tr}}Only the highest win per bet way is paid.{{/tr}}</p>
+    <p>{{#tr}}A winning combination of the same symbol pays from left to right on adjacent reels. A malfunction voids all winnings.{{/tr}}</p>
+</footer>

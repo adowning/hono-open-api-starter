@@ -2,8 +2,8 @@ import { computed, ref } from 'vue'
 // import { useEventManager } from '@/composables/EventManager'
 import { defineStore } from 'pinia'
 import {
-    getVipLevels,
-    getVipMe,
+    getApiVipLevels,
+    getApiVipMe,
     type VipInfo as ApiVipInfo,
     type VipLevel as ApiVipLevel,
 } from '@/sdk/generated'
@@ -43,7 +43,7 @@ export const useVipStore = defineStore(
         }
         async function fetchAllVipLevels() {
             try {
-                const response = await getVipLevels()
+                const response = await getApiVipLevels()
                 if (response.data) {
                     vipLevels.value = response.data
                 }
@@ -55,7 +55,7 @@ export const useVipStore = defineStore(
 
         async function fetchVipInfo() {
             try {
-                const response = await getVipMe()
+                const response = await getApiVipMe()
                 if (response.data?.vipInfo) {
                     setVipInfo(response.data.vipInfo)
                 }

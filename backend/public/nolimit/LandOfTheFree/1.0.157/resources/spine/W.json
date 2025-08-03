@@ -1,0 +1,5938 @@
+{
+  "skeleton": {
+    "hash": "/IgvUFgsgW+cW+HVZWPSMtjpoV8",
+    "spine": "3.8.97",
+    "images": "../../resources/sources",
+    "audio": ""
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "wildGrill",
+      "parent": "root",
+      "y": -62.78
+    },
+    {
+      "name": "fireGrill",
+      "parent": "wildGrill",
+      "y": 83.31,
+      "scaleX": 0.7093,
+      "scaleY": 0.3235
+    },
+    {
+      "name": "fire",
+      "parent": "wildGrill",
+      "rotation": 1.54,
+      "x": -2.1,
+      "y": 72.7,
+      "scaleX": 1.1,
+      "scaleY": 1.1
+    },
+    {
+      "name": "mainJpeg/highlightNeon",
+      "parent": "root",
+      "y": -0.59,
+      "scaleX": 1.0657,
+      "scaleY": 0.9281
+    },
+    {
+      "name": "wildText",
+      "parent": "root",
+      "y": -32.63
+    },
+    {
+      "name": "firParticles",
+      "parent": "wildGrill",
+      "x": -6.97,
+      "y": 134.94
+    },
+    {
+      "name": "firParticles2",
+      "parent": "wildGrill",
+      "x": 4.66,
+      "y": 134.94,
+      "scaleX": -1
+    },
+    {
+      "name": "mainJpeg/glow_st",
+      "parent": "root",
+      "y": 18.24,
+      "scaleX": 1.2965,
+      "scaleY": 0.7113
+    },
+    {
+      "name": "winToggle",
+      "parent": "root",
+      "scaleX": 1.0032,
+      "scaleY": 0.8926
+    },
+    {
+      "name": "xS_2",
+      "parent": "root"
+    },
+    {
+      "name": "xS_3",
+      "parent": "root"
+    },
+    {
+      "name": "xS_4",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "bg",
+      "bone": "root",
+      "attachment": "symbols/W/bg"
+    },
+    {
+      "name": "wildGrill",
+      "bone": "wildGrill",
+      "attachment": "wildGrill"
+    },
+    {
+      "name": "wildText",
+      "bone": "wildText",
+      "attachment": "wildText"
+    },
+    {
+      "name": "Wild_ash",
+      "bone": "wildGrill",
+      "color": "82501aff",
+      "attachment": "symbols/W/Wild_ash"
+    },
+    {
+      "name": "fireGrill",
+      "bone": "fireGrill",
+      "attachment": "mainJpeg/grillFire/grillInside_00",
+      "blend": "screen"
+    },
+    {
+      "name": "fireGrill2",
+      "bone": "fireGrill",
+      "attachment": "mainJpeg/grillFire/grillInside_00",
+      "blend": "screen"
+    },
+    {
+      "name": "grill",
+      "bone": "wildGrill",
+      "attachment": "symbols/W/grill"
+    },
+    {
+      "name": "frame",
+      "bone": "root",
+      "attachment": "symbols/W/frame"
+    },
+    {
+      "name": "frame2",
+      "bone": "root",
+      "color": "ffffff00",
+      "attachment": "symbols/W/frame",
+      "blend": "additive"
+    },
+    {
+      "name": "mainJpeg/glowWild",
+      "bone": "root",
+      "blend": "additive"
+    },
+    {
+      "name": "mainJpeg/highlightNeon",
+      "bone": "mainJpeg/highlightNeon",
+      "color": "ffa40000",
+      "attachment": "jpegNormal/highlightNeon",
+      "blend": "additive"
+    },
+    {
+      "name": "fire",
+      "bone": "fire",
+      "blend": "screen"
+    },
+    {
+      "name": "firParticles",
+      "bone": "firParticles",
+      "blend": "additive"
+    },
+    {
+      "name": "firParticles3",
+      "bone": "firParticles2",
+      "blend": "additive"
+    },
+    {
+      "name": "firParticles2",
+      "bone": "firParticles",
+      "blend": "additive"
+    },
+    {
+      "name": "firParticles5",
+      "bone": "firParticles",
+      "blend": "additive"
+    },
+    {
+      "name": "firParticles4",
+      "bone": "firParticles2",
+      "blend": "additive"
+    },
+    {
+      "name": "firParticles6",
+      "bone": "firParticles2",
+      "blend": "additive"
+    },
+    {
+      "name": "mainJpeg/glow_st",
+      "bone": "mainJpeg/glow_st",
+      "color": "ff890dff",
+      "blend": "additive"
+    },
+    {
+      "name": "symbols/W/W_spin",
+      "bone": "root"
+    },
+    {
+      "name": "xS_2",
+      "bone": "xS_2",
+      "attachment": "jpegHigh/symbols/W/xSplit/normal/2"
+    },
+    {
+      "name": "xS_3",
+      "bone": "xS_3",
+      "attachment": "jpegHigh/symbols/W/xSplit/normal/3"
+    },
+    {
+      "name": "xS_4",
+      "bone": "xS_4",
+      "attachment": "jpegHigh/symbols/W/xSplit/normal/4"
+    },
+    {
+      "name": "winToggle",
+      "bone": "winToggle",
+      "blend": "additive"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "Wild_ash": {
+          "symbols/W/Wild_ash": {
+            "x": -1.5,
+            "y": 82.28,
+            "width": 93,
+            "height": 29
+          }
+        },
+        "bg": {
+          "symbols/W/bg": {
+            "width": 146,
+            "height": 134
+          }
+        },
+        "firParticles": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "firParticles2": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "firParticles3": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "firParticles4": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "firParticles5": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "firParticles6": {
+          "mainJpeg/fireParticles/smokeBarbecue_0": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_0",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_01": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_01",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_02": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_02",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_03": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_03",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_04": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_04",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_05": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_05",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_06": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_06",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_07": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_07",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_08": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_08",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_09": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_09",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_10": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_10",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_11": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_11",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_12": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_12",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_13": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_13",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_14": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_14",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_15": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_15",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_16": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_16",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_17": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_17",
+            "width": 120,
+            "height": 120
+          },
+          "mainJpeg/fireParticles/smokeBarbecue_18": {
+            "path": "jpegNormal/fireParticles/smokeBarbecue_18",
+            "width": 120,
+            "height": 120
+          }
+        },
+        "fire": {
+          "mainJpeg/fire/Fire_01": {
+            "path": "jpegHigh/fire/Fire_01",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_03": {
+            "path": "jpegHigh/fire/Fire_03",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_05": {
+            "path": "jpegHigh/fire/Fire_05",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_07": {
+            "path": "jpegHigh/fire/Fire_07",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_09": {
+            "path": "jpegHigh/fire/Fire_09",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_11": {
+            "path": "jpegHigh/fire/Fire_11",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_13": {
+            "path": "jpegHigh/fire/Fire_13",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_15": {
+            "path": "jpegHigh/fire/Fire_15",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_17": {
+            "path": "jpegHigh/fire/Fire_17",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_19": {
+            "path": "jpegHigh/fire/Fire_19",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_21": {
+            "path": "jpegHigh/fire/Fire_21",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_23": {
+            "path": "jpegHigh/fire/Fire_23",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_25": {
+            "path": "jpegHigh/fire/Fire_25",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_27": {
+            "path": "jpegHigh/fire/Fire_27",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          },
+          "mainJpeg/fire/Fire_29": {
+            "path": "jpegHigh/fire/Fire_29",
+            "y": 86.74,
+            "width": 116,
+            "height": 191
+          }
+        },
+        "fireGrill": {
+          "mainJpeg/grillFire/grillInside_00": {
+            "path": "jpegHigh/grillFire/grillInside_00",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_02": {
+            "path": "jpegHigh/grillFire/grillInside_02",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_04": {
+            "path": "jpegHigh/grillFire/grillInside_04",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_06": {
+            "path": "jpegHigh/grillFire/grillInside_06",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_08": {
+            "path": "jpegHigh/grillFire/grillInside_08",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_10": {
+            "path": "jpegHigh/grillFire/grillInside_10",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_12": {
+            "path": "jpegHigh/grillFire/grillInside_12",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_14": {
+            "path": "jpegHigh/grillFire/grillInside_14",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_16": {
+            "path": "jpegHigh/grillFire/grillInside_16",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_18": {
+            "path": "jpegHigh/grillFire/grillInside_18",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_20": {
+            "path": "jpegHigh/grillFire/grillInside_20",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_22": {
+            "path": "jpegHigh/grillFire/grillInside_22",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_24": {
+            "path": "jpegHigh/grillFire/grillInside_24",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_26": {
+            "path": "jpegHigh/grillFire/grillInside_26",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_28": {
+            "path": "jpegHigh/grillFire/grillInside_28",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_30": {
+            "path": "jpegHigh/grillFire/grillInside_30",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_32": {
+            "path": "jpegHigh/grillFire/grillInside_32",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_34": {
+            "path": "jpegHigh/grillFire/grillInside_34",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_36": {
+            "path": "jpegHigh/grillFire/grillInside_36",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_38": {
+            "path": "jpegHigh/grillFire/grillInside_38",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_40": {
+            "path": "jpegHigh/grillFire/grillInside_40",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_42": {
+            "path": "jpegHigh/grillFire/grillInside_42",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_44": {
+            "path": "jpegHigh/grillFire/grillInside_44",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_46": {
+            "path": "jpegHigh/grillFire/grillInside_46",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_48": {
+            "path": "jpegHigh/grillFire/grillInside_48",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_50": {
+            "path": "jpegHigh/grillFire/grillInside_50",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_52": {
+            "path": "jpegHigh/grillFire/grillInside_52",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_54": {
+            "path": "jpegHigh/grillFire/grillInside_54",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_56": {
+            "path": "jpegHigh/grillFire/grillInside_56",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_58": {
+            "path": "jpegHigh/grillFire/grillInside_58",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          }
+        },
+        "fireGrill2": {
+          "mainJpeg/grillFire/grillInside_00": {
+            "path": "jpegHigh/grillFire/grillInside_00",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_02": {
+            "path": "jpegHigh/grillFire/grillInside_02",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_04": {
+            "path": "jpegHigh/grillFire/grillInside_04",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_06": {
+            "path": "jpegHigh/grillFire/grillInside_06",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_08": {
+            "path": "jpegHigh/grillFire/grillInside_08",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_10": {
+            "path": "jpegHigh/grillFire/grillInside_10",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_12": {
+            "path": "jpegHigh/grillFire/grillInside_12",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_14": {
+            "path": "jpegHigh/grillFire/grillInside_14",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_16": {
+            "path": "jpegHigh/grillFire/grillInside_16",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_18": {
+            "path": "jpegHigh/grillFire/grillInside_18",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_20": {
+            "path": "jpegHigh/grillFire/grillInside_20",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_22": {
+            "path": "jpegHigh/grillFire/grillInside_22",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_24": {
+            "path": "jpegHigh/grillFire/grillInside_24",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_26": {
+            "path": "jpegHigh/grillFire/grillInside_26",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_28": {
+            "path": "jpegHigh/grillFire/grillInside_28",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_30": {
+            "path": "jpegHigh/grillFire/grillInside_30",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_32": {
+            "path": "jpegHigh/grillFire/grillInside_32",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_34": {
+            "path": "jpegHigh/grillFire/grillInside_34",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_36": {
+            "path": "jpegHigh/grillFire/grillInside_36",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_38": {
+            "path": "jpegHigh/grillFire/grillInside_38",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_40": {
+            "path": "jpegHigh/grillFire/grillInside_40",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_42": {
+            "path": "jpegHigh/grillFire/grillInside_42",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_44": {
+            "path": "jpegHigh/grillFire/grillInside_44",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_46": {
+            "path": "jpegHigh/grillFire/grillInside_46",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_48": {
+            "path": "jpegHigh/grillFire/grillInside_48",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_50": {
+            "path": "jpegHigh/grillFire/grillInside_50",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_52": {
+            "path": "jpegHigh/grillFire/grillInside_52",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_54": {
+            "path": "jpegHigh/grillFire/grillInside_54",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_56": {
+            "path": "jpegHigh/grillFire/grillInside_56",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          },
+          "mainJpeg/grillFire/grillInside_58": {
+            "path": "jpegHigh/grillFire/grillInside_58",
+            "x": 0.5,
+            "y": 0.99,
+            "width": 179,
+            "height": 96
+          }
+        },
+        "frame": {
+          "symbols/W/frame": {
+            "width": 146,
+            "height": 134
+          }
+        },
+        "frame2": {
+          "symbols/W/frame": {
+            "width": 146,
+            "height": 134
+          }
+        },
+        "grill": {
+          "symbols/W/grill": {
+            "y": 82.78,
+            "width": 96,
+            "height": 30
+          }
+        },
+        "mainJpeg/glowWild": {
+          "jpegNormal/glowWild": {
+            "width": 144,
+            "height": 132
+          }
+        },
+        "mainJpeg/glow_st": {
+          "jpegNormal/glow_st": {
+            "width": 150,
+            "height": 150
+          }
+        },
+        "mainJpeg/highlightNeon": {
+          "jpegNormal/highlightNeon": {
+            "x": -1,
+            "y": -4.5,
+            "width": 312,
+            "height": 345
+          }
+        },
+        "symbols/W/W_spin": {
+          "symbols/W/W_spin": {
+            "width": 144,
+            "height": 180
+          }
+        },
+        "wildGrill": {
+          "wildGrill": {
+            "path": "symbols/W/wildGrill",
+            "x": 4.5,
+            "y": 57.78,
+            "width": 111,
+            "height": 124
+          }
+        },
+        "wildText": {
+          "wildText": {
+            "path": "symbols/W/wildText",
+            "x": -1,
+            "y": -1.87,
+            "width": 112,
+            "height": 45
+          }
+        }
+      }
+    },
+    {
+      "name": "3SymbolsWin",
+      "attachments": {
+        "winToggle": {
+          "jpegHigh/toggle_100%/toggleFx_00": {
+            "name": "jpegHigh/toggle_40%/toggleFx_00",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_01": {
+            "name": "jpegHigh/toggle_40%/toggleFx_01",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_02": {
+            "name": "jpegHigh/toggle_40%/toggleFx_02",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_03": {
+            "name": "jpegHigh/toggle_40%/toggleFx_03",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_04": {
+            "name": "jpegHigh/toggle_40%/toggleFx_04",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_05": {
+            "name": "jpegHigh/toggle_40%/toggleFx_05",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_06": {
+            "name": "jpegHigh/toggle_40%/toggleFx_06",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_07": {
+            "name": "jpegHigh/toggle_40%/toggleFx_07",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_08": {
+            "name": "jpegHigh/toggle_40%/toggleFx_08",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_09": {
+            "name": "jpegHigh/toggle_40%/toggleFx_09",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_10": {
+            "name": "jpegHigh/toggle_40%/toggleFx_10",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_11": {
+            "name": "jpegHigh/toggle_40%/toggleFx_11",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_12": {
+            "name": "jpegHigh/toggle_40%/toggleFx_12",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_13": {
+            "name": "jpegHigh/toggle_40%/toggleFx_13",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_14": {
+            "name": "jpegHigh/toggle_40%/toggleFx_14",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_15": {
+            "name": "jpegHigh/toggle_40%/toggleFx_15",
+            "width": 144,
+            "height": 148
+          }
+        }
+      }
+    },
+    {
+      "name": "4SymbolsWin",
+      "attachments": {
+        "winToggle": {
+          "jpegHigh/toggle_100%/toggleFx_00": {
+            "name": "jpegHigh/toggle_70%/toggleFx_00",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_01": {
+            "name": "jpegHigh/toggle_70%/toggleFx_01",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_02": {
+            "name": "jpegHigh/toggle_70%/toggleFx_02",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_03": {
+            "name": "jpegHigh/toggle_70%/toggleFx_03",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_04": {
+            "name": "jpegHigh/toggle_70%/toggleFx_04",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_05": {
+            "name": "jpegHigh/toggle_70%/toggleFx_05",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_06": {
+            "name": "jpegHigh/toggle_70%/toggleFx_06",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_07": {
+            "name": "jpegHigh/toggle_70%/toggleFx_07",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_08": {
+            "name": "jpegHigh/toggle_70%/toggleFx_08",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_09": {
+            "name": "jpegHigh/toggle_70%/toggleFx_09",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_10": {
+            "name": "jpegHigh/toggle_70%/toggleFx_10",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_11": {
+            "name": "jpegHigh/toggle_70%/toggleFx_11",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_12": {
+            "name": "jpegHigh/toggle_70%/toggleFx_12",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_13": {
+            "name": "jpegHigh/toggle_70%/toggleFx_13",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_14": {
+            "name": "jpegHigh/toggle_70%/toggleFx_14",
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_15": {
+            "name": "jpegHigh/toggle_70%/toggleFx_15",
+            "width": 144,
+            "height": 148
+          }
+        }
+      }
+    },
+    {
+      "name": "5SymbolsWin",
+      "attachments": {
+        "winToggle": {
+          "jpegHigh/toggle_100%/toggleFx_00": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_01": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_02": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_03": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_04": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_05": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_06": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_07": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_08": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_09": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_10": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_11": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_12": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_13": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_14": {
+            "width": 144,
+            "height": 148
+          },
+          "jpegHigh/toggle_100%/toggleFx_15": {
+            "width": 144,
+            "height": 148
+          }
+        }
+      }
+    },
+    {
+      "name": "xSplit_2",
+      "attachments": {
+        "xS_2": {
+          "jpegHigh/symbols/W/xSplit/normal/2": {
+            "width": 144,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "xSplit_3",
+      "attachments": {
+        "xS_3": {
+          "jpegHigh/symbols/W/xSplit/normal/3": {
+            "width": 144,
+            "height": 132
+          }
+        }
+      }
+    },
+    {
+      "name": "xSplit_4",
+      "attachments": {
+        "xS_4": {
+          "jpegHigh/symbols/W/xSplit/normal/4": {
+            "width": 144,
+            "height": 132
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "idleToggle": {
+      "slots": {
+        "firParticles": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles2": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles3": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles4": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles5": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles6": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "fire": {
+          "attachment": [
+            {
+              "name": "mainJpeg/fire/Fire_01"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fire/Fire_03"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/fire/Fire_05"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/fire/Fire_07"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fire/Fire_09"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fire/Fire_11"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fire/Fire_13"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/fire/Fire_15"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/fire/Fire_17"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fire/Fire_19"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fire/Fire_21"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fire/Fire_23"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fire/Fire_25"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/fire/Fire_27"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fire/Fire_29"
+            }
+          ]
+        },
+        "fireGrill": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "mainJpeg/glowWild": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.3333,
+              "color": "ffffff7d",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4667,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5333,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffff81",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.7333,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8667,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.9333,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffffff7d"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegNormal/glowWild"
+            }
+          ]
+        },
+        "mainJpeg/highlightNeon": {
+          "color": [
+            {
+              "color": "ffa40000",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "color": "ffa400ff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffa40000"
+            }
+          ]
+        },
+        "winToggle": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.2,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.8,
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegHigh/toggle_100%/toggleFx_00"
+            },
+            {
+              "time": 0.0667,
+              "name": "jpegHigh/toggle_100%/toggleFx_01"
+            },
+            {
+              "time": 0.1333,
+              "name": "jpegHigh/toggle_100%/toggleFx_02"
+            },
+            {
+              "time": 0.2,
+              "name": "jpegHigh/toggle_100%/toggleFx_03"
+            },
+            {
+              "time": 0.2667,
+              "name": "jpegHigh/toggle_100%/toggleFx_04"
+            },
+            {
+              "time": 0.3333,
+              "name": "jpegHigh/toggle_100%/toggleFx_05"
+            },
+            {
+              "time": 0.4,
+              "name": "jpegHigh/toggle_100%/toggleFx_06"
+            },
+            {
+              "time": 0.4667,
+              "name": "jpegHigh/toggle_100%/toggleFx_07"
+            },
+            {
+              "time": 0.5333,
+              "name": "jpegHigh/toggle_100%/toggleFx_08"
+            },
+            {
+              "time": 0.6,
+              "name": "jpegHigh/toggle_100%/toggleFx_09"
+            },
+            {
+              "time": 0.6667,
+              "name": "jpegHigh/toggle_100%/toggleFx_10"
+            },
+            {
+              "time": 0.7333,
+              "name": "jpegHigh/toggle_100%/toggleFx_11"
+            },
+            {
+              "time": 0.8,
+              "name": "jpegHigh/toggle_100%/toggleFx_12"
+            },
+            {
+              "time": 0.8667,
+              "name": "jpegHigh/toggle_100%/toggleFx_13"
+            },
+            {
+              "time": 0.9333,
+              "name": "jpegHigh/toggle_100%/toggleFx_14"
+            },
+            {
+              "time": 1,
+              "name": "jpegHigh/toggle_100%/toggleFx_15"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "wildText": {
+          "scale": [
+            {
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "x": 1.04,
+              "y": 1.04,
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1
+            }
+          ]
+        }
+      }
+    },
+    "landing": {
+      "slots": {
+        "firParticles": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles2": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles3": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles4": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles5": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles6": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.946,
+              "c2": 0.04,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8333,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "fireGrill": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "frame2": {
+          "color": [
+            {
+              "time": 0.1,
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "mainJpeg/glow_st": {
+          "color": [
+            {
+              "color": "ff890c00",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.1,
+              "color": "ff890c00",
+              "curve": 0.25,
+              "c3": 0.499,
+              "c4": 0.98
+            },
+            {
+              "time": 0.1667,
+              "color": "ff890bab",
+              "curve": 0.884,
+              "c2": 0.07,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6667,
+              "color": "ff890a00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegNormal/glow_st"
+            }
+          ]
+        },
+        "mainJpeg/highlightNeon": {
+          "color": [
+            {
+              "time": 0.1,
+              "color": "ffa40000",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffa400c7",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "color": "ffa40000"
+            }
+          ]
+        },
+        "xS_2": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "xS_3": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "xS_4": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        }
+      },
+      "bones": {
+        "wildGrill": {
+          "translate": [
+            {
+              "y": 8.58,
+              "curve": 0.752,
+              "c2": 0.1,
+              "c4": 0.75
+            },
+            {
+              "time": 0.1
+            }
+          ]
+        },
+        "wildText": {
+          "scale": [
+            {
+              "time": 0.1,
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "x": 1.063,
+              "y": 1.063,
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5
+            }
+          ]
+        }
+      }
+    },
+    "noWin": {},
+    "normal": {},
+    "spin": {
+      "slots": {
+        "Wild_ash": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "bg": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "fireGrill": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "fireGrill2": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "frame": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "frame2": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "grill": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "mainJpeg/highlightNeon": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "symbols/W/W_spin": {
+          "attachment": [
+            {
+              "name": "symbols/W/W_spin"
+            }
+          ]
+        },
+        "wildGrill": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "wildText": {
+          "attachment": [
+            {
+              "name": null
+            }
+          ]
+        },
+        "xS_2": {
+          "color": [
+            {
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "xS_3": {
+          "color": [
+            {
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "xS_4": {
+          "color": [
+            {
+              "color": "ffffff00"
+            }
+          ]
+        }
+      }
+    },
+    "spinIn": {
+      "slots": {
+        "Wild_ash": {
+          "color": [
+            {
+              "color": "82501aff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "82501a00"
+            }
+          ]
+        },
+        "bg": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "fireGrill": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "frame": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "grill": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "symbols/W/W_spin": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "symbols/W/W_spin"
+            }
+          ]
+        },
+        "wildGrill": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "wildText": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "xS_2": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "xS_3": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        },
+        "xS_4": {
+          "color": [
+            {
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ]
+        }
+      }
+    },
+    "spinOut": {
+      "slots": {
+        "Wild_ash": {
+          "color": [
+            {
+              "color": "82501a00"
+            },
+            {
+              "time": 0.1667,
+              "color": "82501aff"
+            }
+          ]
+        },
+        "bg": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0,
+              "c2": 0.25,
+              "c4": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "fireGrill": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "frame": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "grill": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "symbols/W/W_spin": {
+          "color": [
+            {
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "symbols/W/W_spin"
+            }
+          ]
+        },
+        "wildGrill": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "wildText": {
+          "color": [
+            {
+              "color": "ffffff00"
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "xS_2": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "xS_3": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "xS_4": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.1667,
+              "color": "ffffffff"
+            }
+          ]
+        }
+      }
+    },
+    "win": {
+      "slots": {
+        "firParticles": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles2": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles3": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles4": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles5": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles6": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "fire": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.2,
+              "color": "ffffffff"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "mainJpeg/fire/Fire_01"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fire/Fire_03"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/fire/Fire_05"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/fire/Fire_07"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fire/Fire_09"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fire/Fire_11"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fire/Fire_13"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/fire/Fire_15"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/fire/Fire_17"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fire/Fire_19"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fire/Fire_21"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fire/Fire_23"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fire/Fire_25"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/fire/Fire_27"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fire/Fire_29"
+            }
+          ]
+        },
+        "fireGrill": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "mainJpeg/glowWild": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.3333,
+              "color": "ffffff7d",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4667,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5333,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffff81",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.7333,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8667,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.9333,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffffff7d"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegNormal/glowWild"
+            }
+          ]
+        },
+        "mainJpeg/highlightNeon": {
+          "color": [
+            {
+              "time": 0.0667,
+              "color": "ffa40000",
+              "curve": 0.441,
+              "c2": 0.19,
+              "c3": 0.387,
+              "c4": 0.9
+            },
+            {
+              "time": 0.3,
+              "color": "ffa400ff"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "fire": {
+          "scale": [
+            {
+              "x": 0.811,
+              "y": 0,
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.2,
+              "x": 0.811,
+              "y": 0.909
+            }
+          ]
+        },
+        "wildText": {
+          "rotate": [
+            {
+              "time": 0.0667,
+              "curve": 0,
+              "c2": 0.5,
+              "c3": 0.311,
+              "c4": 0.9
+            },
+            {
+              "time": 0.3,
+              "angle": 1.97,
+              "curve": 0.702,
+              "c2": 0.04,
+              "c3": 0.344,
+              "c4": 0.94
+            },
+            {
+              "time": 1
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0667,
+              "curve": 0.281,
+              "c2": -0.57,
+              "c3": 0.229,
+              "c4": 0.98
+            },
+            {
+              "time": 0.3,
+              "x": 1.17,
+              "y": 1.17
+            },
+            {
+              "time": 1
+            }
+          ]
+        }
+      }
+    },
+    "winToggle": {
+      "slots": {
+        "firParticles": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles2": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles3": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles4": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles5": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6,
+              "name": null
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "firParticles6": {
+          "attachment": [
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_01"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_02"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_03"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_04"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_05"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_06"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_07"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_08"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_09"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_10"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_11"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_12"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_13"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_14"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_15"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_16"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_17"
+            },
+            {
+              "time": 1,
+              "name": "mainJpeg/fireParticles/smokeBarbecue_18"
+            }
+          ]
+        },
+        "fire": {
+          "attachment": [
+            {
+              "name": "mainJpeg/fire/Fire_01"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/fire/Fire_03"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/fire/Fire_05"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/fire/Fire_07"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/fire/Fire_09"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/fire/Fire_11"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/fire/Fire_13"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/fire/Fire_15"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/fire/Fire_17"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/fire/Fire_19"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/fire/Fire_21"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/fire/Fire_23"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/fire/Fire_25"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/fire/Fire_27"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/fire/Fire_29"
+            }
+          ]
+        },
+        "fireGrill": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "fireGrill2": {
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "mainJpeg/grillFire/grillInside_02"
+            },
+            {
+              "time": 0.0667,
+              "name": "mainJpeg/grillFire/grillInside_04"
+            },
+            {
+              "time": 0.1,
+              "name": "mainJpeg/grillFire/grillInside_06"
+            },
+            {
+              "time": 0.1333,
+              "name": "mainJpeg/grillFire/grillInside_08"
+            },
+            {
+              "time": 0.1667,
+              "name": "mainJpeg/grillFire/grillInside_10"
+            },
+            {
+              "time": 0.2,
+              "name": "mainJpeg/grillFire/grillInside_12"
+            },
+            {
+              "time": 0.2333,
+              "name": "mainJpeg/grillFire/grillInside_14"
+            },
+            {
+              "time": 0.2667,
+              "name": "mainJpeg/grillFire/grillInside_16"
+            },
+            {
+              "time": 0.3,
+              "name": "mainJpeg/grillFire/grillInside_18"
+            },
+            {
+              "time": 0.3333,
+              "name": "mainJpeg/grillFire/grillInside_20"
+            },
+            {
+              "time": 0.3667,
+              "name": "mainJpeg/grillFire/grillInside_22"
+            },
+            {
+              "time": 0.4,
+              "name": "mainJpeg/grillFire/grillInside_24"
+            },
+            {
+              "time": 0.4333,
+              "name": "mainJpeg/grillFire/grillInside_26"
+            },
+            {
+              "time": 0.4667,
+              "name": "mainJpeg/grillFire/grillInside_28"
+            },
+            {
+              "time": 0.5,
+              "name": "mainJpeg/grillFire/grillInside_30"
+            },
+            {
+              "time": 0.5333,
+              "name": "mainJpeg/grillFire/grillInside_32"
+            },
+            {
+              "time": 0.5667,
+              "name": "mainJpeg/grillFire/grillInside_34"
+            },
+            {
+              "time": 0.6,
+              "name": "mainJpeg/grillFire/grillInside_36"
+            },
+            {
+              "time": 0.6333,
+              "name": "mainJpeg/grillFire/grillInside_38"
+            },
+            {
+              "time": 0.6667,
+              "name": "mainJpeg/grillFire/grillInside_40"
+            },
+            {
+              "time": 0.7,
+              "name": "mainJpeg/grillFire/grillInside_42"
+            },
+            {
+              "time": 0.7333,
+              "name": "mainJpeg/grillFire/grillInside_44"
+            },
+            {
+              "time": 0.7667,
+              "name": "mainJpeg/grillFire/grillInside_46"
+            },
+            {
+              "time": 0.8,
+              "name": "mainJpeg/grillFire/grillInside_48"
+            },
+            {
+              "time": 0.8333,
+              "name": "mainJpeg/grillFire/grillInside_50"
+            },
+            {
+              "time": 0.8667,
+              "name": "mainJpeg/grillFire/grillInside_52"
+            },
+            {
+              "time": 0.9,
+              "name": "mainJpeg/grillFire/grillInside_54"
+            },
+            {
+              "time": 0.9333,
+              "name": "mainJpeg/grillFire/grillInside_56"
+            },
+            {
+              "time": 0.9667,
+              "name": "mainJpeg/grillFire/grillInside_58"
+            }
+          ]
+        },
+        "mainJpeg/glowWild": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.3333,
+              "color": "ffffff7d",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.4667,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5333,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.6667,
+              "color": "ffffff81",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.7333,
+              "color": "ffffff5a",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8,
+              "color": "ffffff7e",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.8667,
+              "color": "ffffff62",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.9333,
+              "color": "ffffff8c",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffffff7d"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegNormal/glowWild"
+            }
+          ]
+        },
+        "mainJpeg/highlightNeon": {
+          "color": [
+            {
+              "color": "ffa40000",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "color": "ffa400ff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffa40000"
+            }
+          ]
+        },
+        "winToggle": {
+          "color": [
+            {
+              "color": "ffffff00",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.2,
+              "color": "ffffffff",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.8,
+              "color": "ffffffff",
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "name": "jpegHigh/toggle_100%/toggleFx_00"
+            },
+            {
+              "time": 0.0667,
+              "name": "jpegHigh/toggle_100%/toggleFx_01"
+            },
+            {
+              "time": 0.1333,
+              "name": "jpegHigh/toggle_100%/toggleFx_02"
+            },
+            {
+              "time": 0.2,
+              "name": "jpegHigh/toggle_100%/toggleFx_03"
+            },
+            {
+              "time": 0.2667,
+              "name": "jpegHigh/toggle_100%/toggleFx_04"
+            },
+            {
+              "time": 0.3333,
+              "name": "jpegHigh/toggle_100%/toggleFx_05"
+            },
+            {
+              "time": 0.4,
+              "name": "jpegHigh/toggle_100%/toggleFx_06"
+            },
+            {
+              "time": 0.4667,
+              "name": "jpegHigh/toggle_100%/toggleFx_07"
+            },
+            {
+              "time": 0.5333,
+              "name": "jpegHigh/toggle_100%/toggleFx_08"
+            },
+            {
+              "time": 0.6,
+              "name": "jpegHigh/toggle_100%/toggleFx_09"
+            },
+            {
+              "time": 0.6667,
+              "name": "jpegHigh/toggle_100%/toggleFx_10"
+            },
+            {
+              "time": 0.7333,
+              "name": "jpegHigh/toggle_100%/toggleFx_11"
+            },
+            {
+              "time": 0.8,
+              "name": "jpegHigh/toggle_100%/toggleFx_12"
+            },
+            {
+              "time": 0.8667,
+              "name": "jpegHigh/toggle_100%/toggleFx_13"
+            },
+            {
+              "time": 0.9333,
+              "name": "jpegHigh/toggle_100%/toggleFx_14"
+            },
+            {
+              "time": 1,
+              "name": "jpegHigh/toggle_100%/toggleFx_15"
+            }
+          ]
+        }
+      },
+      "bones": {
+        "wildText": {
+          "scale": [
+            {
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 0.5,
+              "x": 1.04,
+              "y": 1.04,
+              "curve": 0.25,
+              "c3": 0.75
+            },
+            {
+              "time": 1
+            }
+          ]
+        }
+      }
+    }
+  }
+}

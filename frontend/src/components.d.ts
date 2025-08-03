@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AdCarousel: typeof import('./components/AdCarousel.vue')['default']
     AnimatedCircularProgressBar: typeof import('./components/ui/animated-circular-progressbar/AnimatedCircularProgressBar.vue')['default']
     AnimationLayer: typeof import('./components/AnimationLayer.vue')['default']
     AuroraText: typeof import('./components/AuroraText.vue')['default']
@@ -34,6 +35,8 @@ declare module 'vue' {
     IconEcosystem: typeof import('./components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./components/icons/IconTooling.vue')['default']
+    LiveWin: typeof import('./components/LiveWin.vue')['default']
+    LiveWinItem: typeof import('./components/LiveWinItem.vue')['default']
     Loading: typeof import('./components/Loading.vue')['default']
     LoginForm: typeof import('./components/auth/LoginForm.vue')['default']
     Logo: typeof import('./components/Logo.vue')['default']

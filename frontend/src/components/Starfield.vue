@@ -1,5 +1,5 @@
 <template>
-  <div class="starfield-wrapper bg-black/30 backdrop-blur-sm p-3 rounded-lg shadow-2xl border border-blue-500/20">
+  <div class="starfield-wrapper bg-black/30 backdrop-blur-sm rounded-lg  border border-blue-500/20">
     <!-- The main container for the starfield effect -->
     <div ref="starContainer" class="star-container w-full h-full rounded-md relative overflow-hidden bg-cover bg-center"
       style="background-image: url('/images/starsbg.png');">
@@ -228,8 +228,9 @@ onMounted(() => {
 <style>
 /* Styles are global, allowing JS to find the keyframes by name. */
 .starfield-wrapper {
-  width: 393px;
-  height: 852px;
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
 }
 
 .star-image {

@@ -1,0 +1,37 @@
+<ul>
+    {{#replaceSlotsInGameRules}}
+        <li>{{#tr}}Land Of The Free is a video instant game with following feature(s):{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    {{^replaceSlotsInGameRules}}
+        <li>{{#tr}}Land Of The Free  is a video slot with following feature(s):{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    <!-- using div instead of li so that it doesn't have bullet points -->
+  <div class="boostedBetAllowed">{{#tr}}- xBet: Asscar Mode{{/tr}}</div>
+  <div>{{#tr}}- Wild & Stacked Symbols{{/tr}}</div>
+  <div>{{#tr}}- Conveyor Belt{{/tr}}</div>
+  <div>{{#tr}}- Scatter{{/tr}}</div>
+  <div>{{#tr}}- Tsunami Spins{{/tr}}</div>
+  <div>{{#tr}}- Submerged Spins{{/tr}}</div>
+    {{^replaceWincapInfo}}<div>{{#tr}}- Pearly Gates{{/tr}}</div>{{/replaceWincapInfo}}
+    <li>{{#tr}}256 win ways by default (see pay table for more info).{{/tr}}</li>
+  <li class="rtp">{{#tr}}The theoretical return to the player for this game is <span class="rtp">-1%</span>.{{/tr}}</li>
+  <li class="rtp boostedBetAllowed">{{#tr}}The theoretical return to the player for xBet is <span class="rtp-BOOSTED_BET">-6%</span>.{{/tr}}</li>
+  <li class="rtp rtp-feature">{{#tr}}The theoretical return to the player for Tsunami Spins feature buy is <span class="rtp-FREESPIN_3_SCATTERS">-2%</span>.{{/tr}}</li>
+  <li class="rtp rtp-feature">{{#tr}}The theoretical return to the player for Submerged Spins feature buy is <span class="rtp-FREESPIN_5_SCATTERS">-3%</span>.{{/tr}}</li>
+  <li class="rtp rtp-feature">{{#tr}}The theoretical return to the player for Idiot Spin feature buy is <span class="rtp-TITAN_SPIN">-4%</span>.{{/tr}}</li>
+  <li class="rtp rtp-feature">{{#tr}}The theoretical return to the player for Lucky Draw feature buy is <span class="rtp-LUCKY_DRAW">-5%</span>.{{/tr}}</li>
+  <li>{{#tr}}A Wild symbol substitutes for any other symbol except Scatter.{{/tr}}</li>
+  <li>{{#tr}}A Wild symbol substitutes for the highest possible winning combination according to the pay table.{{/tr}}</li>
+  <li>{{#tr}}Coinciding wins on multiple combinations are paid out.{{/tr}}</li>
+    <li>{{#tr}}Features and spin results affect each other within a game round.{{/tr}}</li>
+    {{#replaceWincapInfo}}
+        <li>{{#tr}}When the total win exceeds 57000x, the game round will end and 57000 times the base bet is awarded.{{/tr}}</li>
+    {{/replaceWincapInfo}}
+  <li>{{#tr}}Winning combinations and pays are made according to the pay table.{{/tr}}</li>
+  <li>{{#tr}}Different reel configurations are used, depending on the game mode (main game or any of the bonus modes).{{/tr}}</li>
+  <li class="simulated-maximum-payout">{{#tr}}Simulated maximum payout is <span class="maxMultiplier">-1</span> times the bet (<span class="maxMultiplierProbability">-2</span> rounds).{{/tr}}</li>
+    {{#showBaseGameHighestWinInRules}}
+        <li>{{#tr}}The max win in the base game could be achieved with the below reelset. The probability is 1 in 1000000000 rounds simulated from 1000000000 rounds, higher wins may occur.{{/tr}}</li>
+        <img src="{{gamePath}}screens/images/land-of-the-free.png">
+    {{/showBaseGameHighestWinInRules}}
+</ul>

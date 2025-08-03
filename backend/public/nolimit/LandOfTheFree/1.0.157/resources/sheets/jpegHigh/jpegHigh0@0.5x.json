@@ -1,0 +1,206 @@
+{"frames": {
+
+"energyExplosion/energyExplosion_00":
+{
+	"frame": {"x":0,"y":846,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_01":
+{
+	"frame": {"x":180,"y":846,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_02":
+{
+	"frame": {"x":360,"y":846,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_03":
+{
+	"frame": {"x":540,"y":846,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_04":
+{
+	"frame": {"x":846,"y":0,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_05":
+{
+	"frame": {"x":846,"y":152,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_06":
+{
+	"frame": {"x":846,"y":304,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_07":
+{
+	"frame": {"x":846,"y":456,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"gameBackgrounds/sky":
+{
+	"frame": {"x":0,"y":0,"w":842,"h":842},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":842,"h":842},
+	"sourceSize": {"w":841,"h":841}
+},
+"grillFire/grillInside_00":
+{
+	"frame": {"x":720,"y":926,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_02":
+{
+	"frame": {"x":800,"y":848,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_04":
+{
+	"frame": {"x":894,"y":848,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_06":
+{
+	"frame": {"x":894,"y":900,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"X_Bet_Attention/X_Bet_Attention_00000":
+{
+	"frame": {"x":720,"y":846,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00001":
+{
+	"frame": {"x":846,"y":608,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00002":
+{
+	"frame": {"x":846,"y":688,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00003":
+{
+	"frame": {"x":926,"y":608,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00004":
+{
+	"frame": {"x":926,"y":688,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00005":
+{
+	"frame": {"x":846,"y":768,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00006":
+{
+	"frame": {"x":926,"y":768,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00007":
+{
+	"frame": {"x":814,"y":900,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+}},
+"animations": {
+	"X_Bet_Attention/X_Bet_Attention": ["X_Bet_Attention/X_Bet_Attention_00000","X_Bet_Attention/X_Bet_Attention_00001","X_Bet_Attention/X_Bet_Attention_00002","X_Bet_Attention/X_Bet_Attention_00003","X_Bet_Attention/X_Bet_Attention_00004","X_Bet_Attention/X_Bet_Attention_00005","X_Bet_Attention/X_Bet_Attention_00006","X_Bet_Attention/X_Bet_Attention_00007","X_Bet_Attention/X_Bet_Attention_00008","X_Bet_Attention/X_Bet_Attention_00009","X_Bet_Attention/X_Bet_Attention_00010","X_Bet_Attention/X_Bet_Attention_00011","X_Bet_Attention/X_Bet_Attention_00012","X_Bet_Attention/X_Bet_Attention_00013","X_Bet_Attention/X_Bet_Attention_00014","X_Bet_Attention/X_Bet_Attention_00015","X_Bet_Attention/X_Bet_Attention_00016","X_Bet_Attention/X_Bet_Attention_00017","X_Bet_Attention/X_Bet_Attention_00018","X_Bet_Attention/X_Bet_Attention_00019","X_Bet_Attention/X_Bet_Attention_00020","X_Bet_Attention/X_Bet_Attention_00021","X_Bet_Attention/X_Bet_Attention_00022","X_Bet_Attention/X_Bet_Attention_00023","X_Bet_Attention/X_Bet_Attention_00024","X_Bet_Attention/X_Bet_Attention_00025","X_Bet_Attention/X_Bet_Attention_00026","X_Bet_Attention/X_Bet_Attention_00027","X_Bet_Attention/X_Bet_Attention_00028","X_Bet_Attention/X_Bet_Attention_00029"],
+	"energyExplosion/energyExplosion": ["energyExplosion/energyExplosion_00","energyExplosion/energyExplosion_01","energyExplosion/energyExplosion_02","energyExplosion/energyExplosion_03","energyExplosion/energyExplosion_04","energyExplosion/energyExplosion_05","energyExplosion/energyExplosion_06","energyExplosion/energyExplosion_07","energyExplosion/energyExplosion_08","energyExplosion/energyExplosion_09","energyExplosion/energyExplosion_10","energyExplosion/energyExplosion_11","energyExplosion/energyExplosion_12","energyExplosion/energyExplosion_13","energyExplosion/energyExplosion_14","energyExplosion/energyExplosion_15"],
+	"fire/Fire": ["fire/Fire_00","fire/Fire_01","fire/Fire_02","fire/Fire_03","fire/Fire_04","fire/Fire_05","fire/Fire_06","fire/Fire_07","fire/Fire_08","fire/Fire_09","fire/Fire_10","fire/Fire_11","fire/Fire_12","fire/Fire_13","fire/Fire_14","fire/Fire_15","fire/Fire_16","fire/Fire_17","fire/Fire_18","fire/Fire_19","fire/Fire_20","fire/Fire_21","fire/Fire_22","fire/Fire_23","fire/Fire_24","fire/Fire_25","fire/Fire_26","fire/Fire_27","fire/Fire_28","fire/Fire_29","fire/Fire_30"],
+	"grillFire/grillInside": ["grillFire/grillInside_00","grillFire/grillInside_02","grillFire/grillInside_04","grillFire/grillInside_06","grillFire/grillInside_08","grillFire/grillInside_10","grillFire/grillInside_12","grillFire/grillInside_14","grillFire/grillInside_16","grillFire/grillInside_18","grillFire/grillInside_20","grillFire/grillInside_22","grillFire/grillInside_24","grillFire/grillInside_26","grillFire/grillInside_28","grillFire/grillInside_30","grillFire/grillInside_32","grillFire/grillInside_34","grillFire/grillInside_36","grillFire/grillInside_38","grillFire/grillInside_40","grillFire/grillInside_42","grillFire/grillInside_44","grillFire/grillInside_46","grillFire/grillInside_48","grillFire/grillInside_50","grillFire/grillInside_52","grillFire/grillInside_54","grillFire/grillInside_56","grillFire/grillInside_58"],
+	"symbols/M1/xSplit/normal": ["symbols/M1/xSplit/normal/2","symbols/M1/xSplit/normal/3","symbols/M1/xSplit/normal/4"],
+	"symbols/M1/xSplit/stacked": ["symbols/M1/xSplit/stacked/2","symbols/M1/xSplit/stacked/3","symbols/M1/xSplit/stacked/4"],
+	"symbols/M1/xSplit/stackedR": ["symbols/M1/xSplit/stackedR/2","symbols/M1/xSplit/stackedR/3","symbols/M1/xSplit/stackedR/4"],
+	"symbols/M2/xSplit/normal": ["symbols/M2/xSplit/normal/2","symbols/M2/xSplit/normal/3","symbols/M2/xSplit/normal/4"],
+	"symbols/M2/xSplit/stacked": ["symbols/M2/xSplit/stacked/2","symbols/M2/xSplit/stacked/3","symbols/M2/xSplit/stacked/4"],
+	"symbols/M2/xSplit/stackedR": ["symbols/M2/xSplit/stackedR/2","symbols/M2/xSplit/stackedR/3","symbols/M2/xSplit/stackedR/4"],
+	"symbols/M3/xSplit/normal": ["symbols/M3/xSplit/normal/2","symbols/M3/xSplit/normal/3","symbols/M3/xSplit/normal/4"],
+	"symbols/M3/xSplit/stacked": ["symbols/M3/xSplit/stacked/2","symbols/M3/xSplit/stacked/3","symbols/M3/xSplit/stacked/4"],
+	"symbols/M3/xSplit/stackedR": ["symbols/M3/xSplit/stackedR/2","symbols/M3/xSplit/stackedR/3","symbols/M3/xSplit/stackedR/4"],
+	"symbols/M4/xSplit/normal": ["symbols/M4/xSplit/normal/2","symbols/M4/xSplit/normal/3","symbols/M4/xSplit/normal/4"],
+	"symbols/M4/xSplit/stacked": ["symbols/M4/xSplit/stacked/2","symbols/M4/xSplit/stacked/3","symbols/M4/xSplit/stacked/4"],
+	"symbols/M4/xSplit/stackedR": ["symbols/M4/xSplit/stackedR/2","symbols/M4/xSplit/stackedR/3","symbols/M4/xSplit/stackedR/4"],
+	"symbols/M5/xSplit/normal": ["symbols/M5/xSplit/normal/2","symbols/M5/xSplit/normal/3","symbols/M5/xSplit/normal/4"],
+	"symbols/M5/xSplit/stacked": ["symbols/M5/xSplit/stacked/2","symbols/M5/xSplit/stacked/3","symbols/M5/xSplit/stacked/4"],
+	"symbols/M5/xSplit/stackedR": ["symbols/M5/xSplit/stackedR/2","symbols/M5/xSplit/stackedR/3","symbols/M5/xSplit/stackedR/4"],
+	"symbols/W/xSplit/normal": ["symbols/W/xSplit/normal/2","symbols/W/xSplit/normal/3","symbols/W/xSplit/normal/4"],
+	"toggle_100%/toggleFx": ["toggle_100%/toggleFx_00","toggle_100%/toggleFx_01","toggle_100%/toggleFx_02","toggle_100%/toggleFx_03","toggle_100%/toggleFx_04","toggle_100%/toggleFx_05","toggle_100%/toggleFx_06","toggle_100%/toggleFx_07","toggle_100%/toggleFx_08","toggle_100%/toggleFx_09","toggle_100%/toggleFx_10","toggle_100%/toggleFx_11","toggle_100%/toggleFx_12","toggle_100%/toggleFx_13","toggle_100%/toggleFx_14","toggle_100%/toggleFx_15"],
+	"toggle_40%/toggleFx": ["toggle_40%/toggleFx_00","toggle_40%/toggleFx_01","toggle_40%/toggleFx_02","toggle_40%/toggleFx_03","toggle_40%/toggleFx_04","toggle_40%/toggleFx_05","toggle_40%/toggleFx_06","toggle_40%/toggleFx_07","toggle_40%/toggleFx_08","toggle_40%/toggleFx_09","toggle_40%/toggleFx_10","toggle_40%/toggleFx_11","toggle_40%/toggleFx_12","toggle_40%/toggleFx_13","toggle_40%/toggleFx_14","toggle_40%/toggleFx_15"],
+	"toggle_70%/toggleFx": ["toggle_70%/toggleFx_00","toggle_70%/toggleFx_01","toggle_70%/toggleFx_02","toggle_70%/toggleFx_03","toggle_70%/toggleFx_04","toggle_70%/toggleFx_05","toggle_70%/toggleFx_06","toggle_70%/toggleFx_07","toggle_70%/toggleFx_08","toggle_70%/toggleFx_09","toggle_70%/toggleFx_10","toggle_70%/toggleFx_11","toggle_70%/toggleFx_12","toggle_70%/toggleFx_13","toggle_70%/toggleFx_14","toggle_70%/toggleFx_15"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "jpegHigh0@0.5x.jpg",
+	"format": "RGB888",
+	"size": {"w":1022,"h":994},
+	"scale": "0.5",
+	"related_multi_packs": [ "jpegHigh1@0.5x.json", "jpegHigh2@0.5x.json", "jpegHigh3@0.5x.json", "jpegHigh4@0.5x.json", "jpegHigh5@0.5x.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:1b42b3881c2df4672b732237b001195b:d04a586366f5d7310817abed3c2ef504:f20253cffa6fd8bc339afe0f6b39ae0d$"
+}
+}

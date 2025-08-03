@@ -1,0 +1,58 @@
+{
+"skeleton": {
+	"hash": "CN4ra83M0nN2U0Kt83tXxTep3Pg",
+	"spine": "3.8.97",
+	"x": -392,
+	"y": -275,
+	"width": 783,
+	"height": 551,
+	"images": "../../resources/sources/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "level5", "parent": "root" }
+],
+"slots": [
+	{ "name": "level5", "bone": "level5", "attachment": "pngNormal/bigWins/level5" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"level5": {
+				"pngNormal/bigWins/level5": { "x": -0.5, "y": 0.5, "width": 783, "height": 551 }
+			}
+		}
+	}
+],
+"events": {
+	"bigWin5": { "audio": "bigWinLevel5.wav" }
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"level5": {
+				"color": [
+					{ "time": 6, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"level5": {
+				"rotate": [
+					{ "angle": 12.78, "curve": 0.976, "c3": 0.71, "c4": 0.73 },
+					{ "time": 0.3333 }
+				],
+				"scale": [
+					{ "x": 2, "y": 2, "curve": 1, "c2": 0.17, "c3": 0.819, "c4": 0.79 },
+					{ "time": 0.3333 }
+				]
+			}
+		},
+		"events": [
+			{ "name": "bigWin5" }
+		]
+	}
+}
+}

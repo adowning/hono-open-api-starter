@@ -1,0 +1,699 @@
+[
+    {
+        "name": "Play With the Devil Megaways™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PlayWithTheDevilMegaWays/banners/small.jpg?t=1753346116340"
+    },
+    {
+        "name": "Touchdown Cash",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TouchdownCash/banners/small.jpg?t=1752823614974"
+    },
+    {
+        "name": "Thor's Rage",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ThorsRage/bannersChars/small.jpg?t=1751960822401"
+    },
+    {
+        "name": "Big Gains",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BigGains/banners/small.jpg?t=1750165969100",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BigGains"
+    },
+    {
+        "name": "Rise Of Cleopatra",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RiseOfCleopatra/bannersChars/small.jpg?t=1748940260550",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RiseOfCleopatra"
+    },
+    {
+        "name": "777 Diamond Strike",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/777DiamondStrike/banners/small.jpg?t=1748442413321",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/777DiamondStrike"
+    },
+    {
+        "name": "Cash Goddess",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CashGoddess/bannersChars/small.jpg?t=1747035652655",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CashGoddess"
+    },
+    {
+        "name": "Miami Rise",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MiamiRise/bannersChars/small.jpg?t=1746429324187",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MiamiRise"
+    },
+    {
+        "name": "Zillard King MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ZillardKingMegaWays/bannersChars/small.jpg?t=1753192833850",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ZillardKingMegaWays"
+    },
+    {
+        "name": "Jackrabbit Jackpots",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/JackrabbitJackpots/bannersChars/small.jpg?t=1745936371843",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/JackrabbitJackpots"
+    },
+    {
+        "name": "Farmtastic",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Farmtastic/bannersChars/small.jpg?t=1753192802258",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Farmtastic"
+    },
+    {
+        "name": "Bass Boss MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BassBossMegaWays/bannersChars/small.jpg?t=1743428379638",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BassBossMegaWays"
+    },
+    {
+        "name": "Gods Of Troy MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GodsOfTroyMegaWays/bannersChars/small.jpg?t=1743426035033",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GodsOfTroyMegaWays"
+    },
+    {
+        "name": "Serpent King",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SerpentKing/bannersChars/small.jpg?t=1743424648531",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SerpentKing"
+    },
+    {
+        "name": "Trillionaire MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TrillionaireMegaWays/bannersChars/small.jpg?t=1743491734854",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TrillionaireMegaWays"
+    },
+    {
+        "name": "Diamonds Up",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DiamondsUp/banners/small.jpg?t=1743425744595",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DiamondsUp"
+    },
+    {
+        "name": "Trophy Fish",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TrophyFish/banners/small.jpg?t=1743490461476",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TrophyFish"
+    },
+    {
+        "name": "Wolf Stacks MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WolfStacksMegaWays/bannersChars/small.jpg?t=1743489817625",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WolfStacksMegaWays"
+    },
+    {
+        "name": "7's Luck",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/7sLuck/banners/small.jpg?t=1743494980927",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/7sLuck"
+    },
+    {
+        "name": "Dragons' Lock",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DragonsLock/bannersChars/small.jpg?t=1743423793974",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DragonsLock"
+    },
+    {
+        "name": "Cash Explorer",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CashExplorer/bannersChars/small.jpg?t=1743489115690",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CashExplorer"
+    },
+    {
+        "name": "Wild Hot Chilli Reels 2",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WildHotChilliReels2/banners/small.jpg?t=1743489424122",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WildHotChilliReels2"
+    },
+    {
+        "name": "Wings Of Ra MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WingsOfRaMegaWays/banners/small.jpg?t=1746185274633",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WingsOfRaMegaWays"
+    },
+    {
+        "name": "Dear Santa",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DearSanta/bannersChars/small.jpg?t=1744122015531",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DearSanta"
+    },
+    {
+        "name": "Gladiator Ways",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GladiatorWays/bannersChars/small.jpg?t=1743507890539",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GladiatorWays"
+    },
+    {
+        "name": "Diamond Doggies",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DiamondDoggies/bannersChars/small.jpg?t=1744122751621",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DiamondDoggies"
+    },
+    {
+        "name": "The Good, The Bad and The Rich",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TheGoodTheBadAndTheRich/bannersChars/small.jpg?t=1743511972884",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TheGoodTheBadAndTheRich"
+    },
+    {
+        "name": "Zeus Lightning MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ZeusLightningMegaWays/bannersChars/small.jpg?t=1743425763023",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ZeusLightningMegaWays"
+    },
+    {
+        "name": "Savannah Pride",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SavannahPride/bannersChars/small.jpg?t=1743511191704",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SavannahPride"
+    },
+    {
+        "name": "Moon Spell",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MoonSpell/bannersChars/small.jpg?t=1743512609761",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MoonSpell"
+    },
+    {
+        "name": "Egypt Clusterbuster™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/EgyptClusterbuster/banners/small.jpg?t=1743512002603",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/EgyptClusterbuster"
+    },
+    {
+        "name": "Roman Emperors",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RomanEmperors/bannersChars/small.jpg?t=1743514041795",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RomanEmperors"
+    },
+    {
+        "name": "Turtle Paradise",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TurtleParadise/bannersChars/small.jpg?t=1743572845118",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TurtleParadise"
+    },
+    {
+        "name": "Diamond Blitz 2",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DiamondBlitz2/banners/small.jpg?t=1743573756177",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DiamondBlitz2"
+    },
+    {
+        "name": "Fa Fa Babies 2",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/FaFaBabies2/bannersChars/small.jpg?t=1743574816089",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/FaFaBabies2"
+    },
+    {
+        "name": "Buffalo Collector",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BuffaloCollector/bannersChars/small.jpg?t=1743576162273",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BuffaloCollector"
+    },
+    {
+        "name": "Ultra Rich",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/UltraRich/banners/small.jpg?t=1743577531565",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/UltraRich"
+    },
+    {
+        "name": "Emperor Of India",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/EmperorOfIndia/bannersChars/small.jpg?t=1743579065190",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/EmperorOfIndia"
+    },
+    {
+        "name": "Piggy Riches 2 MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PiggyRiches2MegaWays/bannersChars/small.jpg?t=1743579583897",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/PiggyRiches2MegaWays"
+    },
+    {
+        "name": "Cannonball Cash",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CannonballCash/bannersChars/small.jpg?t=1743581101816",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CannonballCash"
+    },
+    {
+        "name": "Rainbow Jackpots MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RainbowJackpotsMegaWays/bannersChars/small.jpg?t=1747387277067",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RainbowJackpotsMegaWays"
+    },
+    {
+        "name": "Fruit Flash",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/FruitFlash/banners/small.jpg?t=1743584215409",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/FruitFlash"
+    },
+    {
+        "name": "Viking’s Legacy EveryWay™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/VikingsLegacyEveryWay/bannersChars/small.jpg?t=1743586416389",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/VikingsLegacyEveryWay"
+    },
+    {
+        "name": "Gold Mine Mistress",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GoldMineMistress/bannersChars/small.jpg?t=1743595890964",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GoldMineMistress"
+    },
+    {
+        "name": "Primate King MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PrimateKingMegaWays/bannersChars/small.jpg?t=1746185264692",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/PrimateKingMegaWays"
+    },
+    {
+        "name": "Midnight Romance",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MidnightRomance/bannersChars/small.jpg?t=1743595390240",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MidnightRomance"
+    },
+    {
+        "name": "Fishtastic",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Fishtastic/bannersChars/small.jpg?t=1743596334953",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Fishtastic"
+    },
+    {
+        "name": "Play With The Devil",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PlayWithTheDevil/bannersChars/small.jpg?t=1743597501937",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/PlayWithTheDevil"
+    },
+    {
+        "name": "Sakura Masks",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SakuraMasks/bannersChars/small.jpg?t=1743597952412",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SakuraMasks"
+    },
+    {
+        "name": "The Wild Kiss",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TheWildKiss/bannersChars/small.jpg?t=1743598315867",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TheWildKiss"
+    },
+    {
+        "name": "Redline Rush",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RedlineRush/bannersChars/small.jpg?t=1743599951029",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RedlineRush"
+    },
+    {
+        "name": "777 Super Strike",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/777SuperStrike/banners/small.jpg?t=1743499936804",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/777SuperStrike"
+    },
+    {
+        "name": "Vault Cracker MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/VaultCrackerMegaWays/bannersChars/small.jpg?t=1743601201644",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/VaultCrackerMegaWays"
+    },
+    {
+        "name": "Clover Craze",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CloverCraze/banners/small.jpg?t=1743602770675",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CloverCraze"
+    },
+    {
+        "name": "Christmas Morning",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ChristmasMorning/banners/small.jpg?t=1743602763311",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ChristmasMorning"
+    },
+    {
+        "name": "Giga Blast",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GigaBlast/banners/small.jpg?t=1743603128573",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GigaBlast"
+    },
+    {
+        "name": "Steam Squad",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SteamSquad/bannersChars/small.jpg?t=1743603971830",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SteamSquad"
+    },
+    {
+        "name": "Sugarlicious EveryWay™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SugarliciousEveryWay/bannersChars/small.jpg?t=1743603586319",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SugarliciousEveryWay"
+    },
+    {
+        "name": "Dragon's Mirror",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DragonsMirror/bannersChars/small.jpg?t=1743604580600",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DragonsMirror"
+    },
+    {
+        "name": "Spooky Carnival",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SpookyCarnival/bannersChars/small.jpg?t=1743604553135",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SpookyCarnival"
+    },
+    {
+        "name": "Sirens' Riches",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SirensRiches/bannersChars/small.jpg?t=1743610237302",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SirensRiches"
+    },
+    {
+        "name": "Hansel & Gretel Candyhouse",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/HanselAndGretelCandyhouseLines/bannersChars/small.jpg?t=1744281634385",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/HanselAndGretelCandyhouseLines"
+    },
+    {
+        "name": "Year-Round Riches Clustebuster™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/YearRoundRichesClusterbuster/banners/small.jpg?t=1743618227300",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/YearRoundRichesClusterbuster"
+    },
+    {
+        "name": "Easy Gold",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/EasyGold/banners/small.jpg?t=1743622226342",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/EasyGold"
+    },
+    {
+        "name": "Case Closed",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CaseClosed/bannersChars/small.jpg?t=1743623325083",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CaseClosed"
+    },
+    {
+        "name": "Judgement Day MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/JudgementDayMegaWays/bannersChars/small.jpg?t=1746185211967",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/JudgementDayMegaWays"
+    },
+    {
+        "name": "Sugar Monster",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SugarMonster/bannersChars/small.jpg?t=1743660896855",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SugarMonster"
+    },
+    {
+        "name": "Bounty Raid 2",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BountyRaid2/bannersChars/small.jpg?t=1743662298919",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BountyRaid2"
+    },
+    {
+        "name": "Here Kitty Kitty",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/HereKittyKitty/bannersChars/small.jpg?t=1743662733039",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/HereKittyKitty"
+    },
+    {
+        "name": "Monsters Unchained",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MonstersUnchained/bannersChars/small.jpg?t=1743663340406",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MonstersUnchained"
+    },
+    {
+        "name": "London Tube",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/LondonTube/bannersChars/small.jpg?t=1743663228517",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/LondonTube"
+    },
+    {
+        "name": "Magic Tricks",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MagicTricks/bannersChars/small.jpg?t=1743663922395",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MagicTricks"
+    },
+    {
+        "name": "Cyber Attack",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CyberAttack/bannersChars/small.jpg?t=1743665583506",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CyberAttack"
+    },
+    {
+        "name": "Gems Inferno MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GemsInfernoMegaWays/banners/small.jpg?t=1746185201467",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GemsInfernoMegaWays"
+    },
+    {
+        "name": "Astronaut",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Astronaut/banners/small.jpg?t=1743668232459",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Astronaut"
+    },
+    {
+        "name": "Egypt MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/EgyptMegaWays/banners/small.jpg?t=1746185192789",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/EgyptMegaWays"
+    },
+    {
+        "name": "Alexander The Great: World Conqueror",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/AlexanderTheGreat/bannersChars/small.jpg?t=1743492302921",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/AlexanderTheGreat"
+    },
+    {
+        "name": "Wolfkin",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Wolfkin/bannersChars/small.jpg?t=1743667591216",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Wolfkin"
+    },
+    {
+        "name": "Knights of Avalon",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/KnightsOfAvalon/bannersChars/small.jpg?t=1743679199300",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/KnightsOfAvalon"
+    },
+    {
+        "name": "Magic Powers MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MagicPowersMegaWays/bannersChars/small.jpg?t=1746185224042",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MagicPowersMegaWays"
+    },
+    {
+        "name": "Red Hot BBQ",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RedHotBBQ/bannersChars/small.jpg?t=1743678890880",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RedHotBBQ"
+    },
+    {
+        "name": "Reel Keeper Power Reels™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ReelKeeperPowerReels/bannersChars/small.jpg?t=1743754672072",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ReelKeeperPowerReels"
+    },
+    {
+        "name": "Sheep Gone Wild",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SheepGoneWild/bannersChars/small.jpg?t=1743755358792",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SheepGoneWild"
+    },
+    {
+        "name": "Wrigley's World",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WrigleysWorld/bannersChars/small.jpg?t=1743755937261",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WrigleysWorld"
+    },
+    {
+        "name": "Transylvania: Night of Blood",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TransylvaniaNightOfBlood/bannersChars/small.jpg?t=1743758405367",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TransylvaniaNightOfBlood"
+    },
+    {
+        "name": "Happy Apples",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/HappyApples/bannersChars/small.jpg?t=1743765977570",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/HappyApples"
+    },
+    {
+        "name": "Bugsy's Bar",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BugsysBar/bannersChars/small.jpg?t=1743766565159",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BugsysBar"
+    },
+    {
+        "name": "Buffalo Mania MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BuffaloManiaMegaWays/bannersChars/small.jpg?t=1743767020562",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BuffaloManiaMegaWays"
+    },
+    {
+        "name": "Blobsters Clusterbuster™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BlobstersClusterbuster/bannersChars/small.jpg?t=1743773237084",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BlobstersClusterbuster"
+    },
+    {
+        "name": "Peggy Sweets",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PeggySweets/bannersChars/small.jpg?t=1743769692057",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/PeggySweets"
+    },
+    {
+        "name": "Blood Suckers™ MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BloodSuckersMegaWays/bannersChars/small.jpg?t=1743426284713",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BloodSuckersMegaWays"
+    },
+    {
+        "name": "Cai Shen 168",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CaiShen168/bannersChars/small.jpg?t=1743775827951",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CaiShen168"
+    },
+    {
+        "name": "Pinatas & Ponies",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/PinatasAndPonies/bannersChars/small.jpg?t=1747381554314",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/PinatasAndPonies"
+    },
+    {
+        "name": "Good Luck Clusterbuster™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GoodLuckClusterbuster/bannersChars/small.jpg?t=1743770529888",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GoodLuckClusterbuster"
+    },
+    {
+        "name": "Santa Spins",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/SantaSpins/bannersChars/small.jpg?t=1743771295264",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/SantaSpins"
+    },
+    {
+        "name": "Cake And Ice Cream",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CakeAndIceCream/banners/small.jpg?t=1743770075478",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CakeAndIceCream"
+    },
+    {
+        "name": "In the Rabbit Hole",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/InTheRabbitHole/banners/small.jpg?t=1743776113726",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/InTheRabbitHole"
+    },
+    {
+        "name": "Athens MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/AthensMegaWays/banners/small.jpg?t=1743674193581",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/AthensMegaWays"
+    },
+    {
+        "name": "Shadow Society",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ShadowSociety/bannersChars/small.jpg?t=1743772681954",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ShadowSociety"
+    },
+    {
+        "name": "Stolen Treasures",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/StolenTreasures/banners/small.jpg?t=1743772995745",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/StolenTreasures"
+    },
+    {
+        "name": "Tricks and Treats",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/TricksAndTreats/bannersChars/small.jpg?t=1743776084054",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/TricksAndTreats"
+    },
+    {
+        "name": "Mystery Reels Deluxe",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MysteryReelsDeluxe/banners/small.jpg?t=1746175407105",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MysteryReelsDeluxe"
+    },
+    {
+        "name": "Great Gold",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GreatGold/banners/small.jpg?t=1744893953466",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GreatGold"
+    },
+    {
+        "name": "Gonzita's Quest™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GonzitasQuest/bannersChars/small.jpg?t=1744874064188",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GonzitasQuest"
+    },
+    {
+        "name": "Rock'N'Lock",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RockNLock/bannersChars/small.jpg?t=1747413223240",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RockNLock"
+    },
+    {
+        "name": "Bass Boss",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BassBoss/bannersChars/small.jpg?t=1743675687852",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BassBoss"
+    },
+    {
+        "name": "Gods Of Troy",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GodsOfTroy/bannersChars/small.jpg?t=1744867824460",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GodsOfTroy"
+    },
+    {
+        "name": "10,001 Nights MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/10001NightsMegaWays/bannersChars/small.jpg?t=1743682490139",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/10001NightsMegaWays"
+    },
+    {
+        "name": "Majestic Mysteries Power Reels™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/MajesticMysteriesPowerReels/banners/small.jpg?t=1746167594762",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/MajesticMysteriesPowerReels"
+    },
+    {
+        "name": "Zaida's Fortune",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ZaidasFortune/bannersChars/small.jpg?t=1748871544014",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ZaidasFortune"
+    },
+    {
+        "name": "Risqué MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/RisqueMegaWays/bannersChars/small.jpg?t=1747410656038",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/RisqueMegaWays"
+    },
+    {
+        "name": "Flodder",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Flodder/bannersChars/small.jpg?t=1744696886685",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Flodder"
+    },
+    {
+        "name": "Diamond Royale",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DiamondRoyale/banners/small.jpg?t=1744123832572",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DiamondRoyale"
+    },
+    {
+        "name": "Big Cat Rescue MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BigCatRescueMegaWays/bannersChars/small.jpg?t=1743771944597",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BigCatRescueMegaWays"
+    },
+    {
+        "name": "Mayhem",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Mayhem/bannersChars/small.jpg?t=1746169111998",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Mayhem"
+    },
+    {
+        "name": "Bulls Run Wild",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BullsRunWild/bannersChars/small.jpg?t=1743775809214",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BullsRunWild"
+    },
+    {
+        "name": "Dragons Clusterbuster™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DragonsClusterbuster/banners/small.jpg?t=1744640221145",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DragonsClusterbuster"
+    },
+    {
+        "name": "Cash Or Nothing",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/CashOrNothing/banners/small.jpg?t=1743770863225",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/CashOrNothing"
+    },
+    {
+        "name": "Viral Spiral",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ViralSpiral/banners/small.jpg?t=1748871294674",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ViralSpiral"
+    },
+    {
+        "name": "Narcos Mexico",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/NarcosMexico/bannersChars/small.jpg?t=1746183724497",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/NarcosMexico"
+    },
+    {
+        "name": "Zillard King",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/ZillardKing/bannersChars/small.jpg?t=1743425718260",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/ZillardKing"
+    },
+    {
+        "name": "Genie Nights",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GenieNights/bannersChars/small.jpg?t=1744705056686",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GenieNights"
+    },
+    {
+        "name": "Doggy Riches MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DoggyRichesMegaWays/bannersChars/small.jpg?t=1744127258430",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DoggyRichesMegaWays"
+    },
+    {
+        "name": "Wild Tundra",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WildTundra/bannersChars/small.jpg?t=1748869803415",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WildTundra"
+    },
+    {
+        "name": "Last Chance Saloon",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/LastChanceSaloon/banners/small.jpg?t=1745846497061",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/LastChanceSaloon"
+    },
+    {
+        "name": "Fa Fa Babies",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/FaFaBabies/bannersChars/small.jpg?t=1744641203944",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/FaFaBabies"
+    },
+    {
+        "name": "Get the Gold INFINIREELS™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/GetTheGoldInfiniReels/banners/small.jpg?t=1744705616383",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/GetTheGoldInfiniReels"
+    },
+    {
+        "name": "Hustling",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Hustling/bannersChars/small.jpg?t=1744896306890",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Hustling"
+    },
+    {
+        "name": "Blazing Clusters",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/BlazingClusters/banners/small.jpg?t=1743772554161",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/BlazingClusters"
+    },
+    {
+        "name": "Jingle Ways MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/JingleWaysMegaWays/bannersChars/small.jpg?t=1745844393118",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/JingleWaysMegaWays"
+    },
+    {
+        "name": "1942: Sky Warrior",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/1942SkyWarrior/bannersChars/small.jpg?t=1743493611209",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/1942SkyWarrior"
+    },
+    {
+        "name": "Dracula Awakening",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DraculaAwakening/bannersChars/small.jpg?t=1744177448238",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DraculaAwakening"
+    },
+    {
+        "name": "Hot Hot Chilli Pot",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/HotHotChilliPot/banners/small.jpg?t=1744895840264",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/HotHotChilliPot"
+    },
+    {
+        "name": "Wild Expedition",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WildExpedition/bannersChars/small.jpg?t=1748867919856",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WildExpedition"
+    },
+    {
+        "name": "Hammer Gods",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/HammerGods/bannersChars/small.jpg?t=1744894313890",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/HammerGods"
+    },
+    {
+        "name": "Beriched",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/Beriched/banners/small.jpg?t=1743676030283",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/Beriched"
+    },
+    {
+        "name": "Fortune House Power Reels™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/FortuneHousePowerReels/banners/small.jpg?t=1744699518519",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/FortuneHousePowerReels"
+    },
+    {
+        "name": "Lion's Hoard",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/LionsHoard/banners/small.jpg?t=1745908811469",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/LionsHoard"
+    },
+    {
+        "name": "Well of Wilds MegaWays™",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/WellOfWildsMegaWays/banners/small.jpg?t=1748874531874",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/WellOfWildsMegaWays"
+    },
+    {
+        "name": "Dragon King Legend of the Seas",
+        "image": "https://cdn-eu.cloudedge.info/all/games/assets/games/DragonKingLegendOfTheSeas/banners/small.jpg?t=1744210930832",
+        "launcher_link": "https://gserver-rtg.redtiger.com/rtg/launcher/DragonKingLegendOfTheSeas"
+    }
+]

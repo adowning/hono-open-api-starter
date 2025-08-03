@@ -1,0 +1,260 @@
+{
+"skeleton": {
+	"hash": "7MB7t12rnjrFgFqfE2hHBH6FvvU",
+	"spine": "3.8.97",
+	"x": -73,
+	"y": -68,
+	"width": 148,
+	"height": 135,
+	"images": "/Users/nlci/Desktop/nolimit_games/landofthefree/resources/sources",
+	"audio": "C:/Users/Surender/Downloads/scatter"
+},
+"bones": [
+	{ "name": "root" },
+	{ "name": "FRAME", "parent": "root" },
+	{ "name": "text", "parent": "root", "y": -17.91 },
+	{ "name": "NOLEGE IS POWER", "parent": "root", "x": 1.59, "y": 32.28 },
+	{ "name": "particle", "parent": "root", "y": -17.85 },
+	{ "name": "IS REAL", "parent": "text", "y": -22.23 }
+],
+"slots": [
+	{ "name": "bg", "bone": "root", "attachment": "bg" },
+	{ "name": "bg2", "bone": "root", "color": "ffffff00", "attachment": "bg", "blend": "additive" },
+	{ "name": "NOLEGE IS POWER", "bone": "NOLEGE IS POWER", "attachment": "NOLEGE IS POWER" },
+	{ "name": "FRAME", "bone": "FRAME", "attachment": "FRAME" },
+	{ "name": "jpegNormal/highlightNeon", "bone": "FRAME", "color": "ff9a00ff", "blend": "additive" },
+	{ "name": "fAUX NEWS", "bone": "text", "attachment": "fAUX NEWS" },
+	{ "name": "IS REAL", "bone": "IS REAL", "attachment": "IS REAL" },
+	{ "name": "particle", "bone": "particle", "color": "ffb800ff", "blend": "additive" },
+	{ "name": "symbols/S3/S3_spin", "bone": "root" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"FRAME": {
+				"FRAME": { "path": "symbols/S3/FRAME", "width": 146, "height": 134 }
+			},
+			"IS REAL": {
+				"IS REAL": { "path": "symbols/S3/IS REAL", "x": -1.5, "y": 0.14, "width": 75, "height": 20 }
+			},
+			"NOLEGE IS POWER": {
+				"NOLEGE IS POWER": { "path": "symbols/S3/NOLEGE IS POWER", "x": -0.12, "y": -3.81, "width": 130, "height": 58 }
+			},
+			"bg": {
+				"bg": { "path": "symbols/S3/bg", "width": 146, "height": 134 }
+			},
+			"bg2": {
+				"bg": { "path": "symbols/S3/bg", "x": 2, "y": -1, "width": 146, "height": 134 }
+			},
+			"fAUX NEWS": {
+				"fAUX NEWS": { "path": "symbols/S3/fAUX NEWS", "x": -1, "y": 10.41, "width": 78, "height": 45 }
+			},
+			"jpegNormal/highlightNeon": {
+				"jpegNormal/highlightNeon": { "x": -0.24, "y": -5.16, "scaleX": 1.0567, "scaleY": 0.9272, "width": 312, "height": 345 }
+			},
+			"particle": {
+				"jpegNormal/M_Particales/M_Particales_00": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_01": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_02": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_03": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_04": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_05": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_06": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_07": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 },
+				"jpegNormal/M_Particales/M_Particales_08": { "x": 0.5, "y": 17.85, "width": 305, "height": 274 }
+			},
+			"symbols/S3/S3_spin": {
+				"symbols/S3/S3_spin": { "width": 144, "height": 180 }
+			}
+		}
+	}
+],
+"animations": {
+	"landing": {
+		"slots": {
+			"bg2": {
+				"color": [
+					{ "time": 0.1, "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "fbbd0082", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667, "color": "ffffff00" }
+				]
+			},
+			"jpegNormal/highlightNeon": {
+				"color": [
+					{ "color": "ff9a0000", "curve": "stepped" },
+					{ "time": 0.0667, "color": "ff9a0000", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ff9a00ff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.6667, "color": "ff9a0000" }
+				],
+				"attachment": [
+					{ "name": "jpegNormal/highlightNeon" }
+				]
+			},
+			"particle": {
+				"attachment": [
+					{ "time": 0.1667, "name": "jpegNormal/M_Particales/M_Particales_00" },
+					{ "time": 0.2333, "name": "jpegNormal/M_Particales/M_Particales_01" },
+					{ "time": 0.3, "name": "jpegNormal/M_Particales/M_Particales_02" },
+					{ "time": 0.3667, "name": "jpegNormal/M_Particales/M_Particales_03" },
+					{ "time": 0.4333, "name": "jpegNormal/M_Particales/M_Particales_04" },
+					{ "time": 0.5, "name": "jpegNormal/M_Particales/M_Particales_05" },
+					{ "time": 0.5667, "name": "jpegNormal/M_Particales/M_Particales_06" },
+					{ "time": 0.6333, "name": "jpegNormal/M_Particales/M_Particales_07" },
+					{ "time": 0.7, "name": "jpegNormal/M_Particales/M_Particales_08" },
+					{ "time": 0.7667, "name": null }
+				]
+			}
+		},
+		"bones": {
+			"particle": {
+				"scale": [
+					{ "x": 0.528, "y": 0.528, "curve": "stepped" },
+					{ "time": 0.1667, "x": 0.528, "y": 0.528, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3 }
+				]
+			},
+			"text": {
+				"scale": [
+					{ "x": 1.559, "y": 1.559, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667 }
+				]
+			},
+			"NOLEGE IS POWER": {
+				"rotate": [
+					{ "time": 0.1667, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2, "angle": -8.51, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2333, "angle": -6.25, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2667, "angle": -8.82, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.3667, "angle": -3.65, "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.5333, "angle": -8.82 }
+				]
+			}
+		}
+	},
+	"noWin": {},
+	"normal": {},
+	"spin": {
+		"slots": {
+			"FRAME": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"IS REAL": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"NOLEGE IS POWER": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"bg": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"fAUX NEWS": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"symbols/S3/S3_spin": {
+				"attachment": [
+					{ "name": "symbols/S3/S3_spin" }
+				]
+			}
+		}
+	},
+	"spinIn": {
+		"slots": {
+			"FRAME": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"IS REAL": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"NOLEGE IS POWER": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"bg": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"fAUX NEWS": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"symbols/S3/S3_spin": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "name": "symbols/S3/S3_spin" }
+				]
+			}
+		}
+	},
+	"spinOut": {
+		"slots": {
+			"FRAME": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"IS REAL": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"NOLEGE IS POWER": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"bg": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"fAUX NEWS": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"symbols/S3/S3_spin": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "symbols/S3/S3_spin" }
+				]
+			}
+		}
+	},
+	"win": {},
+	"winToggle": {}
+}
+}

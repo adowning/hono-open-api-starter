@@ -1,11 +1,5 @@
 import type { z } from 'zod'
 
-// declare module "zod" {
-//   interface ZodType {
-//     openapi?: OpenAPIMetadata;
-//   }
-// }
-
 const OPENAPI_METADATA = Symbol('openapi')
 
 interface OpenAPIMetadata {

@@ -1,0 +1,83 @@
+{
+"skeleton": {
+	"hash": "PhJY5t39ah8EKRMKnpAGb2LYwU8",
+	"spine": "3.8.97",
+	"x": -81.82,
+	"y": -48.77,
+	"width": 163.65,
+	"height": 97.53,
+	"images": "../../resources/sources/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "greenLight", "bone": "root", "attachment": "pngHigh/xBet/green_0" },
+	{ "name": "redLight", "bone": "root" },
+	{ "name": "glow", "bone": "root", "color": "56f91778", "attachment": "jpegNormal/glow_st", "blend": "additive" },
+	{ "name": "glow2", "bone": "root", "color": "f9161678", "attachment": "jpegNormal/glow_st", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"glow": {
+				"jpegNormal/glow_st": { "scaleX": 1.091, "scaleY": 0.6502, "width": 150, "height": 150 }
+			},
+			"glow2": {
+				"jpegNormal/glow_st": { "scaleX": 1.091, "scaleY": 0.6502, "width": 150, "height": 150 }
+			},
+			"greenLight": {
+				"pngHigh/xBet/green_0": { "width": 112, "height": 42 }
+			},
+			"redLight": {
+				"pngHigh/xBet/red_0": { "width": 112, "height": 42 }
+			}
+		}
+	}
+],
+"animations": {
+	"greenLight": {
+		"slots": {
+			"glow": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"glow2": {
+				"attachment": [
+					{ "name": null }
+				]
+			}
+		}
+	},
+	"redLight": {
+		"slots": {
+			"glow": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"glow2": {
+				"color": [
+					{ "color": "f915155d" }
+				],
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"greenLight": {
+				"attachment": [
+					{ "name": null }
+				]
+			},
+			"redLight": {
+				"attachment": [
+					{ "name": "pngHigh/xBet/red_0" }
+				]
+			}
+		}
+	}
+}
+}

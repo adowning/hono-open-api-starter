@@ -6,6 +6,7 @@ import { useEventManager } from '@/composables/EventManager'
 
 const eventBus = useEventManager()
 const gameStore = useGameStore();
+const gameSpinStore = useGameSpinStore();
 const authStore = useAuthStore();
 const settingsModal = ref(false);
 
@@ -40,6 +41,7 @@ onUnmounted(() => {
 onMounted(async () => {
   if (gameStore.games.length === 0) {
     await gameStore.fetchAllGames();
+    await gameSpinStore.fetchTopWins();
   }
 });
 </script>
@@ -49,8 +51,12 @@ onMounted(async () => {
     <!-- <div class="background-container"> -->
     <!-- <img src="/images/starsbg.png" alt="Background" class="background-image" /> -->
     <Starfield class="star-overlay" />
+    <div style="min-height: 80px"></div>
     <!-- <FlickeringGrid class="absolute left-0 top-0 w-full h-[900px] z-[9999]" /> -->
+    <LiveWin />
     <GameCarousel />
+    <AdCarousel />
+
     <RtgGameLauncher v-if="currentUser && gameActive" :gameId="'atlantis'" :sessionId="currentUser.id" />
     <SettingsView v-if="currentUser && settingsModal" />
     <!-- </div> -->

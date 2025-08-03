@@ -1,9 +1,10 @@
-import { GameResponseSchema, } from '#/db/schema'
+import { gameResponseSchema } from '#/db/schema'
 import { notFoundSchema } from '#/lib/constants'
 import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
 import { sessionMiddleware } from '#/middlewares/session.middleware'
 import { createRoute, z } from '@hono/zod-openapi'
+
 import * as controller from './games.controller'
 
 const tags = ['Games']
@@ -12,7 +13,6 @@ const getGameCategories = createRoute({
     method: 'get',
     path: '/games/categories',
     tags,
-    middleware: [authMiddleware],
     responses: {
         200: {
             description: 'A list of game categories',
@@ -29,13 +29,12 @@ const getAllGames = createRoute({
     method: 'get',
     path: '/games/all',
     tags,
-    middleware: [authMiddleware],
     responses: {
         200: {
             description: 'A list of all games',
             content: {
                 'application/json': {
-                    schema: z.array(GameResponseSchema.openapi('Game')),
+                    schema: z.array(gameResponseSchema.openapi('Game')),
                 },
             },
         },
@@ -46,7 +45,6 @@ const searchGames = createRoute({
     method: 'get',
     path: '/games/search',
     tags,
-    middleware: [authMiddleware],
     request: {
         query: z.object({
             game_categories_slug: z.string().optional(),
@@ -60,7 +58,7 @@ const searchGames = createRoute({
             content: {
                 'application/json': {
                     schema: z.object({
-                        games: z.array(GameResponseSchema),
+                        games: z.array(gameResponseSchema),
                         total: z.number(),
                     }),
                 },
@@ -73,8 +71,6 @@ const getUserGames = createRoute({
     method: 'get',
     path: '/user/games',
     tags,
-    middleware: [authMiddleware],
-
     request: {
         query: z.object({
             game_categories_slug: z.string(),
@@ -89,7 +85,7 @@ const getUserGames = createRoute({
             content: {
                 'application/json': {
                     schema: z.object({
-                        games: z.array(GameResponseSchema), // This might need to be adjusted for history
+                        games: z.array(gameResponseSchema), // This might need to be adjusted for history
                         total: z.number(),
                     }),
                 },
@@ -102,8 +98,6 @@ const favoriteGame = createRoute({
     method: 'post',
     path: '/user/games/favorite',
     tags,
-    middleware: [authMiddleware],
-
     request: {
         body: {
             content: {
@@ -127,8 +121,6 @@ const getFavoriteGames = createRoute({
     method: 'get',
     path: '/user/games/favorites',
     tags,
-    middleware: [authMiddleware],
-
     responses: {
         200: {
             description: 'A list of the user favorite game IDs',
@@ -144,7 +136,7 @@ const getFavoriteGames = createRoute({
 const enterGame = createRoute({
     method: 'post',
     path: '/games/{id}/enter',
-    middleware: [authMiddleware],
+    middleware: [authMiddleware, sessionMiddleware],
 
     tags,
     request: {

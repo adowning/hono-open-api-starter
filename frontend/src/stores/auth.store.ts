@@ -1,27 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import router from '@/router'
 import {
-    getAuthMe,
-    postAuthLogin,
-    postAuthSignup,
+    getApiAuthMe,
+    postApiAuthLogin,
     type User,
 } from '@/sdk/generated'
 import { client } from '@/sdk/generated/client.gen'
 import { webSocketService } from '@/services/websocket.service'
 import { pinia } from '@/stores'
-import localforage from 'localforage'
 import { defineStore } from 'pinia'
-import { computed, onUnmounted, ref } from 'vue'
-import { useNotificationStore } from './notification.store'
+import { computed, ref } from 'vue'
 import { useAppStore } from './app.store'
 import { useDepositStore } from './deposit.store'
 import { useGameStore } from './game.store'
 import { useGameSpinStore } from './gamespin.store'
+import { useNotificationStore } from './notification.store'
 import { useVipStore } from './vip.store'
 
 interface AuthTokens {
     accessToken: string
-    refreshToken: string
+    /**
+     * Optional refresh token used when third‑party cookies are blocked.
+     * When present, we will send it in Authorization for /api/auth/refresh.
+     */
+    refreshToken?: string | null
 }
 
 export const useAuthStore = defineStore('auth', () => {
@@ -29,28 +31,104 @@ export const useAuthStore = defineStore('auth', () => {
 
     const currentUser = ref<User | null>(null)
     const accessToken = ref<string | null>(null)
+    // Persist refresh token in sessionStorage to survive reloads but clear on browser close
     const refreshToken = ref<string | null>(null)
     const isLoading = ref(false)
     const error = ref<string | null>(null)
     const isSignUpMode = ref(false)
+    // readiness flag to coordinate guards/UI bootstrap
+    const authReady = ref(false)
     let interceptorId: number | null = null
 
-    // Set tokens in state and localforage
+    // Single-flight refresh tracking
+    let isRefreshing = false
+    let refreshPromise: Promise<string | null> | null = null
+    const pendingRequests: Array<() => void> = []
+
+    // Set tokens in state and (re)install interceptors
     const setTokens = async (tokens: AuthTokens) => {
         accessToken.value = tokens.accessToken
-        refreshToken.value = tokens.refreshToken
-        await localforage.setItem('accessToken', tokens.accessToken)
-        await localforage.setItem('refresh_token', tokens.refreshToken)
+        // Capture optional refresh token if provided by backend (cookie-less fallback)
+        if (typeof tokens.refreshToken === 'string' && tokens.refreshToken.length > 0) {
+            refreshToken.value = tokens.refreshToken
+            try {
+                sessionStorage.setItem('cfc_refresh_token', tokens.refreshToken)
+            } catch {}
+        }
 
         if (interceptorId !== null) {
             client.instance.interceptors.request.eject(interceptorId)
+            client.instance.interceptors.response.eject(interceptorId + 100000) // response id offset
         }
 
-        interceptorId = client.instance.interceptors.request.use((config) => {
-            config.headers.set('Authorization', `Bearer ${tokens.accessToken}`)
+        // Request interceptor: attach Authorization
+        const reqId = client.instance.interceptors.request.use((config) => {
+            try {
+                const url = config.url || ''
+                const isAuthEndpoint =
+                    url.includes('/api/auth/login') ||
+                    url.includes('/api/auth/signup') ||
+                    url.includes('/api/auth/refresh') ||
+                    url.includes('/auth/login') ||
+                    url.includes('/auth/signup') ||
+                    url.includes('/auth/refresh')
+
+                const at = accessToken.value || tokens.accessToken
+                if (!isAuthEndpoint && at) {
+                    config.headers.set('Authorization', `Bearer ${at}`)
+                } else {
+                    config.headers.delete?.('Authorization')
+                }
+                // ensure cookies are sent for refresh and same-site calls
+                ;(config as any).withCredentials = true
+            } catch (e) {
+                console.debug('[axios][request] interceptor error', e)
+            }
             return config
         })
-        console.log('Tokens set:', tokens)
+        interceptorId = reqId
+
+        // Response interceptor: single-flight 401 -> refresh -> retry
+        client.instance.interceptors.response.use(
+            (response) => response,
+            async (error: any) => {
+                const originalRequest = error?.config
+                const status = error?.response?.status
+
+                if (status === 401 && !originalRequest?._retry) {
+                    originalRequest._retry = true
+
+                    // Queue pending requests while refreshing
+                    if (!isRefreshing) {
+                        isRefreshing = true
+                        refreshPromise = refreshAccessToken()
+                            .catch(() => null)
+                            .finally(() => {
+                                isRefreshing = false
+                            })
+                    }
+
+                    const newToken = await refreshPromise
+                    if (newToken) {
+                        originalRequest.headers['Authorization'] = `Bearer ${newToken}`
+                        // drain queued resolvers
+                        pendingRequests.splice(0).forEach((resolve) => resolve())
+                        return client.instance(originalRequest)
+                    }
+
+                    // refresh failed
+                    pendingRequests.splice(0).forEach((resolve) => resolve())
+                    await clearAuth()
+                    router.push('/login')
+                    return Promise.reject(error)
+                }
+
+                return Promise.reject(error)
+            }
+        )
+        // Keep reference to request interceptor only
+        interceptorId = reqId
+        console.log('Access token set.')
     }
 
 
@@ -59,10 +137,15 @@ export const useAuthStore = defineStore('auth', () => {
         currentUser.value = null
         accessToken.value = null
         refreshToken.value = null
-        await localforage.removeItem('accessToken')
-        await localforage.removeItem('refresh_token')
+        try {
+            sessionStorage.removeItem('cfc_refresh_token')
+        } catch {}
         if (interceptorId !== null) {
             client.instance.interceptors.request.eject(interceptorId)
+            // Best effort: response interceptor ejection paired
+            try {
+                client.instance.interceptors.response.eject(interceptorId + 100000)
+            } catch {}
             interceptorId = null
         }
     }
@@ -76,7 +159,7 @@ export const useAuthStore = defineStore('auth', () => {
         error.value = null
 
         try {
-            const response = await postAuthSignup({
+            const response = await postApiAuthSignup({
                 body: {
                     username: credentials.username,
                     password: credentials.password,
@@ -84,18 +167,15 @@ export const useAuthStore = defineStore('auth', () => {
             })
 
             if (response.data) {
-                const {
-                    accessToken: at,
-                    refreshToken: rt,
-                    user: userData,
-                } = response.data
-                if (at && rt) {
-                    await setTokens({ accessToken: at, refreshToken: rt })
-                    currentUser.value = userData
+                const { accessToken: at } = response.data as any
+                if (at) {
+                    await setTokens({ accessToken: at })
+                    // optional: currentUser is loaded by getSession
                     notificationStore.addNotification({
                         type: 'success',
                         message: 'Registration successful!',
                     })
+                    await getSession()
                     return true
                 }
             }
@@ -127,56 +207,51 @@ export const useAuthStore = defineStore('auth', () => {
             isLoading.value = true
             error.value = null
 
-            // Use the API client to handle the login
-            const response = await postAuthLogin({
+            const response = await postApiAuthLogin({
                 body: {
                     username: credentials.username,
                     password: credentials.password,
                 },
             })
-
-            // The response should be the actual data, not a Response object
-            const responseData = response.data as any // Temporary any to access properties
+            const responseData = response.data as any
 
             if (!responseData) {
                 appStore.hideLoading()
                 throw new Error('No data received from server')
             }
-
             if (responseData.error) {
                 throw new Error(responseData.error.message || 'Login failed')
             }
 
-            // Set tokens if they exist in the response
             if (responseData.accessToken) {
+                // Accept optional refreshToken from server for cookie-less fallback
                 await setTokens({
                     accessToken: responseData.accessToken,
-                    refreshToken: responseData.refreshToken || '',
+                    refreshToken: responseData.refreshToken ?? null,
                 })
                 try {
+                    console.debug('[auth][login] tokens set; fetching bootstrap data...')
                     await Promise.all([
                         getSession(),
                         gameStore.fetchAllGames(),
-                        // gameStore.fetchAllGameCategories(),
                         gameSpinStore.fetchTopWins(),
                         vipStore.fetchAllVipLevels(),
                     ])
-                    // Initialize WebSocket connection after successful login
                     webSocketService.initConnection()
 
-
-                    // Redirect to home page
-                    router.push('/')
-
+                    try {
+                        router.push('/')
+                    } catch (e) {
+                        console.log(e)
+                    }
                     appStore.hideLoading()
 
                     return responseData
                 } catch (e) {
                     console.log(e)
                     appStore.hideLoading()
-                    clearAuth()
+                    await clearAuth()
                     router.push('/login')
-
                 }
             } else {
                 throw new Error('Invalid response from server')
@@ -204,9 +279,11 @@ export const useAuthStore = defineStore('auth', () => {
         if (!accessToken.value) return null
 
         try {
-            const response = await getAuthMe()
+            console.debug('[auth][getSession] requesting...')
+            const response = await getApiAuthMe()
+            console.debug('[auth][getSession] response ok=', !!response.data)
             if (response.data && response.data.wallet) {
-                currentUser.value = response.data.user // The response is already typed from the SDK
+                currentUser.value = response.data.user
                 vipStore.setVipInfo(response.data.vipInfo)
                 depositStore.setDepositInfo({
                     wallet: response.data.wallet as any,
@@ -216,14 +293,33 @@ export const useAuthStore = defineStore('auth', () => {
             }
             return null
         } catch (err: any) {
-            clearAuth()
+            console.debug('[auth][getSession] failed, attempting refresh', err?.message || err)
+            // Try a one-time refresh if session fetch failed
+            const newToken = await refreshAccessToken().catch(() => null)
+            if (newToken) {
+                try {
+                    const response = await getApiAuthMe()
+                    if (response.data && response.data.wallet) {
+                        currentUser.value = response.data.user
+                        vipStore.setVipInfo(response.data.vipInfo)
+                        depositStore.setDepositInfo({
+                            wallet: response.data.wallet as any,
+                            operator: response.data.operator as any,
+                        })
+                        return response.data
+                    }
+                } catch {
+                    // fallthrough to clear
+                }
+            }
+            await clearAuth()
             return err
         }
     }
 
     // Check if user is authenticated
     const isAuthenticated = computed(
-        () => !!accessToken.value && !!currentUser.value
+        () => !!currentUser.value
     )
 
     // Toggle sign up mode
@@ -234,7 +330,6 @@ export const useAuthStore = defineStore('auth', () => {
     // Logout
     const logout = () => {
         const router = useRouter()
-        // Close WebSocket connections before logging out
         webSocketService.closeConnections()
         clearAuth()
         router.push('/login')
@@ -253,24 +348,87 @@ export const useAuthStore = defineStore('auth', () => {
         webSocketService.closeConnections()
     }
 
+    // Refresh the access token using the refresh cookie
+    const refreshAccessToken = async (): Promise<string | null> => {
+        // Step 1: try cookie-based refresh (works when third-party cookies allowed)
+        try {
+            const res = await client.instance.post('/api/auth/refresh', null, {
+                withCredentials: true,
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    Pragma: 'no-cache',
+                },
+            })
+            const at = res?.data?.accessToken as string | undefined
+            if (at) {
+                await setTokens({ accessToken: at })
+                return at
+            }
+        } catch (e) {
+            console.debug('[auth][refresh][cookie] failed', e)
+        }
+
+        // Step 2: fallback to Authorization: Bearer <refreshToken> when cookies are blocked
+        try {
+            const rt =
+                refreshToken.value ||
+                (() => {
+                    try {
+                        return sessionStorage.getItem('cfc_refresh_token')
+                    } catch {
+                        return null
+                    }
+                })()
+
+            if (!rt) {
+                return null
+            }
+
+            const res2 = await client.instance.post('/api/auth/refresh', null, {
+                withCredentials: false,
+                headers: {
+                    Authorization: `Bearer ${rt}`,
+                    'Cache-Control': 'no-cache',
+                    Pragma: 'no-cache',
+                },
+            })
+            const at2 = res2?.data?.accessToken as string | undefined
+            if (at2) {
+                await setTokens({ accessToken: at2 })
+                return at2
+            }
+        } catch (e) {
+            console.debug('[auth][refresh][auth-fallback] failed', e)
+        }
+
+        return null
+    }
+
     // Initialize the store
     const init = async (): Promise<void> => {
-        const at = await localforage.getItem('accessToken') as string | null
-        const rt = await localforage.getItem('refresh_token') as string | null
+        try {
+            client.instance.defaults.withCredentials = true
 
-        if (at && rt) {
+            // Load refresh token from sessionStorage for fallback flow
             try {
-                await setTokens({ accessToken: at, refreshToken: rt })
+                const rt = sessionStorage.getItem('cfc_refresh_token')
+                if (rt) refreshToken.value = rt
+            } catch {}
+
+            // Attempt silent refresh to avoid weekly re-login
+            const at = await refreshAccessToken()
+            if (at) {
                 await getSession()
                 initWebSocket()
-            } catch (error) {
-                console.error('Failed to initialize session:', error)
-                // Clear invalid auth state
-                clearAuth()
             }
+        } catch (error) {
+            console.error('Failed to initialize session:', error)
+            await clearAuth()
+        } finally {
+            authReady.value = true
         }
     }
-    
+
 
     // // Call init on store creation
     init()
@@ -279,10 +437,10 @@ export const useAuthStore = defineStore('auth', () => {
         // State
         currentUser,
         accessToken,
-        refreshToken,
         isLoading,
         error,
         isSignUpMode,
+        authReady,
 
         // Getters
         isAuthenticated,

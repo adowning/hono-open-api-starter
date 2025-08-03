@@ -1,0 +1,157 @@
+{"frames": {
+
+"chainsawBubbles/chainsawBubbles_5":
+{
+	"frame": {"x":742,"y":964,"w":42,"h":58},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":42,"y":62,"w":42,"h":58},
+	"sourceSize": {"w":125,"h":125}
+},
+"curtain/flag":
+{
+	"frame": {"x":0,"y":458,"w":158,"h":566},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":158,"h":566},
+	"sourceSize": {"w":169,"h":572}
+},
+"fsIntroCurtain/board":
+{
+	"frame": {"x":162,"y":710,"w":312,"h":308},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":312,"h":308},
+	"sourceSize": {"w":311,"h":308}
+},
+"gameLogo":
+{
+	"frame": {"x":654,"y":710,"w":244,"h":250},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":244,"h":250},
+	"sourceSize": {"w":250,"h":250}
+},
+"maxWin/redCloth":
+{
+	"frame": {"x":712,"y":444,"w":172,"h":262},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":172,"h":262},
+	"sourceSize": {"w":171,"h":261}
+},
+"maxWin/ring":
+{
+	"frame": {"x":162,"y":458,"w":246,"h":246},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":246,"h":246},
+	"sourceSize": {"w":246,"h":246}
+},
+"metalSpark2/metalSpark_5":
+{
+	"frame": {"x":696,"y":964,"w":42,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":42,"h":36},
+	"sourceSize": {"w":45,"h":40}
+},
+"nuclearBalloon/nuclearBalloonFull":
+{
+	"frame": {"x":412,"y":458,"w":158,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":22,"y":0,"w":158,"h":244},
+	"sourceSize": {"w":200,"h":246}
+},
+"shitSplash/shitSplash_15":
+{
+	"frame": {"x":478,"y":1004,"w":84,"h":20},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":12,"w":84,"h":20},
+	"sourceSize": {"w":109,"h":73}
+},
+"shitSplash/shitSplash_16":
+{
+	"frame": {"x":566,"y":1004,"w":84,"h":20},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":12,"w":84,"h":20},
+	"sourceSize": {"w":109,"h":73}
+},
+"shitSplash/shitSplash_18":
+{
+	"frame": {"x":654,"y":1004,"w":84,"h":20},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":16,"y":12,"w":84,"h":20},
+	"sourceSize": {"w":109,"h":73}
+},
+"titanSpins/donald trump spin":
+{
+	"frame": {"x":478,"y":710,"w":160,"h":290},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":160,"h":290},
+	"sourceSize": {"w":160,"h":289}
+},
+"titanSpins/lincoln":
+{
+	"frame": {"x":712,"y":220,"w":174,"h":220},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":0,"w":174,"h":220},
+	"sourceSize": {"w":208,"h":220}
+},
+"titanSpins/nexon":
+{
+	"frame": {"x":712,"y":0,"w":176,"h":216},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":0,"w":176,"h":216},
+	"sourceSize": {"w":240,"h":216}
+},
+"titanSpins/outroStuff/bord":
+{
+	"frame": {"x":0,"y":0,"w":708,"h":454},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":708,"h":454},
+	"sourceSize": {"w":707,"h":454}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_23":
+{
+	"frame": {"x":574,"y":458,"w":110,"h":238},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":110,"h":238},
+	"sourceSize": {"w":110,"h":291}
+},
+"xBet/xBetCarAnimation/xBetCarAnimation_36":
+{
+	"frame": {"x":788,"y":964,"w":110,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":2,"w":110,"h":48},
+	"sourceSize": {"w":110,"h":291}
+},
+"xSplitShutter/xSplitLogo":
+{
+	"frame": {"x":642,"y":964,"w":50,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":36},
+	"sourceSize": {"w":50,"h":35}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "pngHigh6@0.5x.png",
+	"format": "RGBA8888",
+	"size": {"w":898,"h":1024},
+	"scale": "0.5",
+	"related_multi_packs": [ "pngHigh0@0.5x.json", "pngHigh1@0.5x.json", "pngHigh2@0.5x.json", "pngHigh3@0.5x.json", "pngHigh4@0.5x.json", "pngHigh5@0.5x.json", "pngHigh7@0.5x.json", "pngHigh8@0.5x.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:d66dee28a2260bff3c41fe3fc9694060:272f11cb381124057041cce967009e9d:8796785d53fd6cc520c242744812d0d7$"
+}
+}

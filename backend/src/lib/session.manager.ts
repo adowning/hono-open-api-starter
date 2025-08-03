@@ -8,12 +8,15 @@ import { and, eq } from 'drizzle-orm'
 import type { AuthSessionType, GameSessionType, UserType } from '#/db/schema'
 
 import db from '#/db'
-import { AuthSession, Game, GameSession, GameSpin, User } from '#/db/schema'
+import { authSessions, games, gameSessions, gameSpins, users } from '#/db/schema'
 import {
+    deleteAuthSessionFromCache,
     deleteGameSessionFromCache,
     deleteSpinsFromCache,
+    getAuthSessionFromCache,
     getGameSessionFromCache,
     getSpinsFromCache,
+    saveAuthSessionToCache,
     saveGameSessionToCache,
 } from '#/lib/cache'
 import { triggerUserUpdate } from '#/lib/websocket.service'
@@ -22,89 +25,105 @@ import { nanoid } from '#/utils/nanoid'
 const IDLE_TIMEOUT = 10 * 60 * 1000 // 10 minutes
 
 export class SessionManager {
-    // --- Auth Session Management ---
-    // --- Auth Session Management ---
+    static async startAuthSession(user: UserType): Promise<AuthSessionType> {
+        const id = nanoid()
+        console.log(chalk.cyan(`[SessionManager] Creating auth session id=${id} for user=${user.id}`))
 
-    static async startAuthSession(userId: string): Promise<AuthSessionType> {
-        const [authSession] = await db
-            .insert(AuthSession)
+        const inserted = await db
+            .insert(authSessions)
             .values({
-                userId,
+                id,
+                userId: user.id,
                 status: 'ACTIVE',
             })
             .returning()
-        return authSession
+
+        const authSession = inserted?.[0]
+        if (!authSession) {
+            console.error(chalk.red(`[SessionManager] Insert did not return row for id=${id}`))
+            throw new Error('Failed to create auth session')
+        }
+
+        // Post-insert verification to ensure persistence and ACTIVE status
+        const verified = await db.query.authSessions.findFirst({
+            where: and(eq(authSessions.id, authSession.id), eq(authSessions.status, 'ACTIVE')),
+        })
+
+        if (!verified) {
+            console.error(
+                chalk.red(
+                    `[SessionManager] Verification failed: session not found or not ACTIVE id=${authSession.id}`
+                )
+            )
+            // Best-effort: mark as expired to avoid dangling
+            try {
+                await db.update(authSessions).set({ status: 'EXPIRED' }).where(eq(authSessions.id, authSession.id))
+            } catch {}
+            throw new Error('Auth session was not persisted as ACTIVE')
+        }
+
+        await saveAuthSessionToCache(verified)
+        console.log(chalk.green(`[SessionManager] Auth session ACTIVE and cached id=${verified.id}`))
+        return verified as AuthSessionType
     }
 
     static async endAuthSession(
         authSessionId: string,
         userId: string
     ): Promise<void> {
-        try {
-            await db
-                .update(AuthSession)
-                .set({ status: 'EXPIRED' })
-                .where(eq(AuthSession.id, authSessionId))
-        } catch (error) {
-            console.error(`Failed to end auth session ${authSessionId}:`, error)
-            // Continue to end game session even if auth session update fails
-        }
-
-        try {
-            await this.endCurrentGameSession(userId)
-        } catch (error) {
-            console.error(
-                `Failed to end game session for user ${userId}:`,
-                error
-            )
-            // Continue even if game session end fails
-        }
+        await db
+            .update(authSessions)
+            .set({ status: 'EXPIRED' })
+            .where(eq(authSessions.id, authSessionId))
+        await deleteAuthSessionFromCache(authSessionId)
+        await this.endCurrentGameSession(userId)
     }
 
-    /**
-     * Ends all active sessions for a specific user. This is useful
-     * during login to ensure a clean state.
-     * @param userId - The ID of the user.
-     */
     static async endAllUserSessions(userId: string): Promise<void> {
         console.log(
             chalk.yellow(`Ending all previous sessions for user ${userId}...`)
         )
-
-        try {
-            // First, end any active game session, as its state might need to be persisted.
-            await this.endCurrentGameSession(userId)
-
-            // Get all active session IDs first
-            const activeSessions = await db
-                .select({ id: AuthSession.id })
-                .from(AuthSession)
-                .where(
-                    and(
-                        eq(AuthSession.userId, userId),
-                        eq(AuthSession.status, 'ACTIVE')
-                    )
+        await this.endCurrentGameSession(userId)
+        const activeSessions = await db
+            .select({ id: authSessions.id })
+            .from(authSessions)
+            .where(
+                and(
+                    eq(authSessions.userId, userId),
+                    eq(authSessions.status, 'ACTIVE')
                 )
+            )
 
-            // Update sessions one by one to avoid potential deadlocks
-            for (const session of activeSessions) {
-                try {
-                    await db
-                        .update(AuthSession)
-                        .set({ status: 'EXPIRED' })
-                        .where(eq(AuthSession.id, session.id))
-                } catch (error) {
-                    console.error(`Failed to end session ${session.id}:`, error)
-                    // Continue with other sessions even if one fails
-                }
-            }
-        } catch (error) {
-            console.error('Error in endAllUserSessions:', error)
-            throw error // Re-throw to be handled by the caller
+        for (const session of activeSessions) {
+            await db
+                .update(authSessions)
+                .set({ status: 'EXPIRED' })
+                .where(eq(authSessions.id, session.id))
+            await deleteAuthSessionFromCache(session.id)
         }
     }
 
-    // --- Game Session Management ---
+    static async getAuthSession(
+        sessionId: string
+    ): Promise<AuthSessionType | null> {
+        let session: any = await getAuthSessionFromCache(sessionId)
+        if (session) {
+            return session
+        }
+
+        session = await db.query.authSessions.findFirst({
+            where: and(
+                eq(authSessions.id, sessionId),
+                eq(authSessions.status, 'ACTIVE')
+            ),
+        })
+
+        if (session) {
+            await saveAuthSessionToCache(session)
+        }
+
+        return session || null
+    }
 
     static async startGameSession(
         c: Context,
@@ -119,8 +138,8 @@ export class SessionManager {
 
         await this.endCurrentGameSession(user.id)
 
-        const game = await db.query.Game.findFirst({
-            where: eq(Game.name, gameName),
+        const game = await db.query.games.findFirst({
+            where: eq(games.name, gameName),
         })
         if (!game) {
             throw new Error(`Game with name "${gameName}" not found.`)
@@ -132,50 +151,39 @@ export class SessionManager {
             authSessionId: authSession.id,
             gameId: game.id,
             status: 'ACTIVE',
-            createdAt: new Date(),
-            endedAt: null,
+            createdAt: new Date().toISOString(),
+            endAt: null,
             duration: 0,
             totalWagered: 0,
             totalWon: 0,
             rtp: null,
             totalXpGained: 0,
         }
-        console.log(
-            chalk.bgCyan('Starting new game session for user:', user.id)
-        )
-        await db.insert(GameSession).values(newSessionData)
-        await db
-            .update(User)
-            .set({ currentGameSessionDataId: newSessionData.id })
-            .where(eq(User.id, user.id))
 
-        await saveGameSessionToCache(newSessionData, c)
+        await db.insert(gameSessions).values(newSessionData)
+        await db
+            .update(users)
+            .set({ currentGameSessionDataId: newSessionData.id })
+            .where(eq(users.id, user.id))
+
+        await saveGameSessionToCache(newSessionData)
         c.set('user', { ...user, currentGameSessionDataId: newSessionData.id })
-        const u = c.get('user')
-        console.log('user', u)
         triggerUserUpdate(user.id)
 
         return newSessionData
     }
 
     static async endCurrentGameSession(userId: string): Promise<void> {
-        const activeSession = await db.query.GameSession.findFirst({
+        const activeSession = await db.query.gameSessions.findFirst({
             where: and(
-                eq(GameSession.userId, userId),
-                eq(GameSession.status, 'ACTIVE')
+                eq(gameSessions.userId, userId),
+                eq(gameSessions.status, 'ACTIVE')
             ),
         })
 
         if (!activeSession) {
             return
         }
-
-        console.log(
-            chalk.bgBlue(
-                'Ending session and persisting data for session:',
-                activeSession.id
-            )
-        )
 
         const sessionSpins = await getSpinsFromCache(activeSession.id)
         const sessionFromCache =
@@ -196,36 +204,36 @@ export class SessionManager {
             )
 
             await tx
-                .update(GameSession)
+                .update(gameSessions)
                 .set({
                     status: 'COMPLETED',
-                    endedAt: now,
+                    endAt: now.toISOString(),
                     duration,
                     totalWagered: sessionFromCache.totalWagered,
                     totalWon: sessionFromCache.totalWon,
                     totalXpGained: sessionFromCache.totalXpGained,
                     rtp: finalRtp.toFixed(2),
                 })
-                .where(eq(GameSession.id, activeSession.id))
+                .where(eq(gameSessions.id, activeSession.id))
 
             if (sessionSpins.length > 0) {
                 const spinsToCreate = sessionSpins.map((spin, i) => ({
                     ...spin,
-                    id: nanoid(),
-                    gameSessionId: activeSession.id,
+                    // The spin.id from the cache (provider's roundId) must be preserved
+                    // to maintain relations (e.g., to jackpot wins).
                     sessionId: activeSession.id,
                     spinNumber: i + 1,
                     grossWinAmount: spin.grossWinAmount ?? 0,
                     wagerAmount: spin.wagerAmount ?? 0,
-                    occurredAt: spin.createdAt ?? new Date(),
+                    occurredAt: spin.createdAt ?? new Date().toISOString(),
                 }))
-                await tx.insert(GameSpin).values(spinsToCreate)
+                await tx.insert(gameSpins).values(spinsToCreate)
             }
 
             await tx
-                .update(User)
+                .update(users)
                 .set({ currentGameSessionDataId: null })
-                .where(eq(User.id, userId))
+                .where(eq(users.id, userId))
         })
 
         await deleteGameSessionFromCache(activeSession.id)
@@ -236,7 +244,20 @@ export class SessionManager {
     static async getGameSession(
         sessionId: string
     ): Promise<GameSessionType | null> {
-        return getGameSessionFromCache(sessionId)
+        let session: any = await getGameSessionFromCache(sessionId)
+        if (session) {
+            return session
+        }
+
+        session = await db.query.gameSessions.findFirst({
+            where: eq(gameSessions.id, sessionId),
+        })
+
+        if (session) {
+            await saveGameSessionToCache(session)
+        }
+
+        return session || null
     }
 
     static async handleIdleSession(c: Context): Promise<void> {
@@ -245,7 +266,7 @@ export class SessionManager {
             return
         }
 
-        const gameSession = await getGameSessionFromCache(
+        const gameSession = await this.getGameSession(
             user.currentGameSessionDataId
         )
 
@@ -256,17 +277,11 @@ export class SessionManager {
             const timeDiff = now.getTime() - lastSeen.getTime()
 
             if (timeDiff > IDLE_TIMEOUT) {
-                console.log(
-                    chalk.yellow(
-                        `Session ${gameSession.id} timed out due to inactivity.`
-                    )
-                )
                 await this.endCurrentGameSession(user.id)
                 c.set('gameSession', null)
             } else {
                 ;(gameSession as any).lastSeen = now
-                console.log(chalk.yellow('game session time changed to ', now))
-                await saveGameSessionToCache(gameSession, c)
+                await saveGameSessionToCache(gameSession)
             }
         }
     }

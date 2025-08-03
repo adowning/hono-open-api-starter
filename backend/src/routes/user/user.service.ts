@@ -5,31 +5,31 @@ import type { createInsertSchema } from 'drizzle-zod'
 import { eq } from 'drizzle-orm'
 
 import db from '#/db'
-import { User } from '#/db/schema'
+import { users } from '#/db/schema'
 
 import type {
-    NewUser,
+    Newusers,
 } from '../../db/schema'
 
 export async function findManyUser() {
-    return await db.select().from(User)
+    return await db.select().from(users)
 }
 
 export async function createUser(data: z.infer<ReturnType<typeof createInsertSchema>>) {
-    return await db.insert(User).values(data).returning()
+    return await db.insert(users).values(data).returning()
 }
 
 export async function findUserById(id: string) {
-    return await db.select().from(User).where(eq(User.id, id))
+    return await db.select().from(users).where(eq(users.id, id))
 }
 
-export async function updateUser(id: string, data: Partial<NewUser>) {
+export async function updateUser(id: string, data: Partial<Newusers>) {
     // @ts-ignore
     return await db.update(User).set(data).where(eq(User.id, id)).returning()
 }
 
 export async function deleteUser(id: string) {
-    return await db.delete(User).where(eq(User.id, id)).returning()
+    return await db.delete(users).where(eq(users.id, id)).returning()
 }
 
 // From Pinia Store & HAR files
@@ -70,9 +70,9 @@ export async function getUserInfo(userId: string) {
 export async function getVipInfo(userId: string) {
     // Assuming vip info is part of the users table for now
     return await db
-        .select({ vipInfo: User.vipInfoId })
-        .from(User)
-        .where(eq(User.id, userId))
+        .select({ vipInfo: users.vipInfoId })
+        .from(users)
+        .where(eq(users.id, userId))
 }
 
 // New Routes
@@ -86,7 +86,7 @@ export async function getUserAmount() {
     }
 }
 
-export async function updateUserInfo(data: NewUser) {
+export async function updateUserInfo(data: Newusers) {
     // Placeholder, you will need to implement the actual logic
     return { data }
 }

@@ -1,0 +1,1805 @@
+{
+    "skeleton": {
+        "hash": "q1tHQQG5wpr85ffuCKV4+p4DZjA",
+        "spine": "3.7.94",
+        "width": 612.11,
+        "height": 424.16,
+        "images": "../../sanquentin/resources/sources/",
+        "audio": "/Users/000_ARTEM/San_Quentin/005_Screens/FS_Intro_Screen"
+    },
+    "bones": [
+        {
+            "name": "root"
+        },
+        {
+            "name": "BG",
+            "parent": "root"
+        },
+        {
+            "name": "Body",
+            "parent": "root"
+        },
+        {
+            "name": "Face",
+            "parent": "root"
+        },
+        {
+            "name": "X",
+            "parent": "root"
+        },
+        {
+            "name": "Body_Blur_A",
+            "parent": "root"
+        },
+        {
+            "name": "Body_Blur_B",
+            "parent": "root"
+        }
+    ],
+    "slots": [
+        {
+            "name": "FS_bg",
+            "bone": "BG",
+            "attachment": "mainJpeg/FS_Intro/FS_bg",
+            "blend": "additive"
+        },
+        {
+            "name": "Body",
+            "bone": "Body",
+            "attachment": "main/FS_Intro/Body_Wild"
+        },
+        {
+            "name": "main/FS_Intro/FS_Wild5",
+            "bone": "Face",
+            "attachment": "main/FS_Intro/Head_M5"
+        },
+        {
+            "name": "X",
+            "bone": "X",
+            "color": "ffffff00",
+            "attachment": "main/JW_Multiplier/X_8"
+        },
+        {
+            "name": "main/FS_Intro/Body_Wild_BlurA",
+            "bone": "Body_Blur_A",
+            "color": "ffffff00",
+            "attachment": "main/FS_Intro/Body_Wild_BlurA"
+        },
+        {
+            "name": "main/FS_Intro/Body_Wild_BlurB",
+            "bone": "Body_Blur_B",
+            "color": "ffffff00",
+            "attachment": "main/FS_Intro/Body_Wild_BlurB"
+        }
+    ],
+    "skins": {
+        "default": {
+            "Body": {
+                "main/FS_Intro/Body": {
+                    "x": 0.5,
+                    "width": 421,
+                    "height": 370
+                },
+                "main/FS_Intro/Body_Wild": {
+                    "width": 418,
+                    "height": 400
+                },
+                "main/FS_Intro/Body_Wild_2": {
+                    "y": 0.5,
+                    "width": 418,
+                    "height": 400
+                }
+            },
+            "FS_bg": {
+                "mainJpeg/FS_Intro/FS_bg": {
+                    "rotation": 0.01,
+                    "width": 612,
+                    "height": 424
+                }
+            },
+            "X": {
+                "main/JW_Multiplier/X_2": {
+                    "width": 136,
+                    "height": 180
+                },
+                "main/JW_Multiplier/X_4": {
+                    "width": 136,
+                    "height": 180
+                },
+                "main/JW_Multiplier/X_8": {
+                    "width": 136,
+                    "height": 180
+                }
+            },
+            "main/FS_Intro/Body_Wild_BlurA": {
+                "main/FS_Intro/Body_Wild_BlurA": {
+                    "x": 0.5,
+                    "width": 256,
+                    "height": 200
+                }
+            },
+            "main/FS_Intro/Body_Wild_BlurB": {
+                "main/FS_Intro/Body_Wild_BlurB": {
+                    "x": 0.5,
+                    "width": 229,
+                    "height": 200
+                }
+            },
+            "main/FS_Intro/FS_Wild5": {
+                "main/FS_Intro/Head_M1": {
+                    "x": 0.5,
+                    "y": 0.5,
+                    "width": 105,
+                    "height": 137
+                },
+                "main/FS_Intro/Head_M2": {
+                    "x": 0.5,
+                    "width": 109,
+                    "height": 156
+                },
+                "main/FS_Intro/Head_M3": {
+                    "x": 0.5,
+                    "width": 115,
+                    "height": 160
+                },
+                "main/FS_Intro/Head_M4": {
+                    "width": 118,
+                    "height": 150
+                },
+                "main/FS_Intro/Head_M5": {
+                    "x": 0.5,
+                    "width": 117,
+                    "height": 160
+                }
+            }
+        }
+    },
+    "animations": {
+        "Sym_1": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M1"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -206.18,
+                            "y": 23.65
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 8.87,
+                            "y": 23.65
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": 4.43,
+                            "y": 23.65
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 7.39,
+                            "y": 23.65
+                        }
+                    ]
+                }
+            }
+        },
+        "Sym_2": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M2"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -206.18,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 8.87,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": 4.43,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 7.39,
+                            "y": 35
+                        }
+                    ]
+                }
+            }
+        },
+        "Sym_3": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M3"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -206.18,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 8.87,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": 4.43,
+                            "y": 35
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 7.39,
+                            "y": 35
+                        }
+                    ]
+                }
+            }
+        },
+        "Sym_4": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M4"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 32
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 6.74,
+                            "y": 32
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": -1.23,
+                            "y": 32
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 4.56,
+                            "y": 32
+                        }
+                    ]
+                }
+            }
+        },
+        "Sym_5": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 6.74,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": -1.23,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 4.56,
+                            "y": 37
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Body_Wild_2"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild_Transform": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffffff"
+                        },
+                        {
+                            "time": 0.1333,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.2667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.3333,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0.1667,
+                            "name": "main/FS_Intro/Body_Wild_2"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff65"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.6667,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 1,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "X": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/JW_Multiplier/X_8"
+                        }
+                    ]
+                },
+                "main/FS_Intro/Body_Wild_BlurA": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.0667,
+                            "color": "ffffffff",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.2,
+                            "color": "ffffffff"
+                        },
+                        {
+                            "time": 0.2667,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/FS_Intro/Body_Wild_BlurB": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00",
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.2667,
+                            "color": "ffffffff"
+                        },
+                        {
+                            "time": 0.4,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.4667,
+                            "color": "ffffff93"
+                        },
+                        {
+                            "time": 1,
+                            "color": "ffffff00"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0.2,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.3333,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 0.4667,
+                            "x": 1.05,
+                            "y": 1.05
+                        },
+                        {
+                            "time": 0.5333,
+                            "x": 0.98,
+                            "y": 0.98
+                        },
+                        {
+                            "time": 3,
+                            "x": 1.05,
+                            "y": 1.05
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 37
+                        }
+                    ]
+                },
+                "X": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -16.99,
+                            "y": -120
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 1.9,
+                            "y": 1.9
+                        }
+                    ]
+                },
+                "Body_Blur_B": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": -50
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 2.696,
+                            "y": 2,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1,
+                            "x": 2.696,
+                            "y": 2,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": 2.696,
+                            "y": 2
+                        },
+                        {
+                            "time": 0.4,
+                            "x": 1,
+                            "y": 1
+                        },
+                        {
+                            "time": 0.4667,
+                            "x": 2.072,
+                            "y": 2.075
+                        },
+                        {
+                            "time": 1.3333,
+                            "x": 2.5,
+                            "y": 2.5
+                        }
+                    ]
+                },
+                "Body_Blur_A": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 0,
+                            "y": -50
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0.0667,
+                            "x": 2,
+                            "y": 2
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": 2.764,
+                            "y": 2
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild_X2": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "X": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/JW_Multiplier/X_2"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 6.74,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": -1.23,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 4.56,
+                            "y": 37
+                        }
+                    ]
+                },
+                "X": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -232.14,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": -9.09,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -24.85,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.5,
+                            "x": -19.24,
+                            "y": -120
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 1.7,
+                            "y": 1.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1.7,
+                            "y": 1.7
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild_X4": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "X": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/JW_Multiplier/X_4"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 6.74,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": -1.23,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 4.56,
+                            "y": 37
+                        }
+                    ]
+                },
+                "X": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -232.14,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": -9.09,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -24.85,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.5,
+                            "x": -19.24,
+                            "y": -120
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 1.7,
+                            "y": 1.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1.7,
+                            "y": 1.7
+                        }
+                    ]
+                }
+            }
+        },
+        "Wild_X8": {
+            "slots": {
+                "Body": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ]
+                },
+                "FS_bg": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffff65"
+                        }
+                    ]
+                },
+                "X": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        },
+                        {
+                            "time": 0.1667,
+                            "color": "ffffffff"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/JW_Multiplier/X_8"
+                        }
+                    ]
+                },
+                "main/FS_Intro/FS_Wild5": {
+                    "color": [
+                        {
+                            "time": 0,
+                            "color": "ffffff00"
+                        }
+                    ],
+                    "attachment": [
+                        {
+                            "time": 0,
+                            "name": "main/FS_Intro/Head_M5"
+                        }
+                    ]
+                }
+            },
+            "bones": {
+                "Body": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -213,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -5,
+                            "y": -48
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 0,
+                            "y": -48,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 3,
+                            "x": 0,
+                            "y": -48
+                        }
+                    ]
+                },
+                "BG": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": 75,
+                            "y": 0
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0,
+                            "y": 0
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 0.7,
+                            "y": 0.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 0.7,
+                            "y": 0.7
+                        },
+                        {
+                            "time": 3,
+                            "x": 0.6,
+                            "y": 0.6
+                        }
+                    ]
+                },
+                "Face": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -209.72,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 6.74,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.2667,
+                            "x": -1.23,
+                            "y": 37
+                        },
+                        {
+                            "time": 0.5,
+                            "x": 4.56,
+                            "y": 37
+                        }
+                    ]
+                },
+                "X": {
+                    "translate": [
+                        {
+                            "time": 0,
+                            "x": -232.14,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": -9.09,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.2333,
+                            "x": -24.85,
+                            "y": -120
+                        },
+                        {
+                            "time": 0.5,
+                            "x": -19.24,
+                            "y": -120
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 0,
+                            "x": 1.7,
+                            "y": 1.7,
+                            "curve": "stepped"
+                        },
+                        {
+                            "time": 0.1667,
+                            "x": 1.7,
+                            "y": 1.7
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -5,20 +5,21 @@ import type {
     JackpotContributionType,
     JackpotType,
     JackpotWinType,
-    NewJackpot,
+    Newjackpots,
 } from '#/db/schema'
 
 import db from '#/db'
 import {
-    GameSpin,
-    Jackpot,
-    JackpotContribution,
-    JackpotWin,
-    Transaction,
-    Wallet,
+    gameSpins,
+    jackpotContributions,
+    jackpots,
+    jackpotWins,
+    transactions,
+    wallets,
 } from '#/db/schema'
 import { coinsToDollars } from '#/utils/misc.utils'
 
+import { nanoid } from '#/utils/nanoid'
 import { triggerUserUpdate } from './websocket.service'
 
 export function dollarsToCoins(dollars: number): number {
@@ -84,12 +85,12 @@ export function generateRandomSeedAmount(baseSeedCoins: number): number {
 }
 
 export function canWinJackpot(
-    lastWonAt: Date | null,
+    lastWonAt: string | null,
     minimumTimeBetweenWinsMinutes: number
 ): boolean {
     if (!lastWonAt) return true
     const now = new Date()
-    const timeDiffMinutes = (now.getTime() - lastWonAt.getTime()) / (1000 * 60)
+    const timeDiffMinutes = (now.getTime() - new Date(lastWonAt).getTime()) / (1000 * 60)
     return timeDiffMinutes >= minimumTimeBetweenWinsMinutes
 }
 
@@ -100,16 +101,16 @@ export function checkJackpotWin(probabilityPerMillion: number): boolean {
 
 export async function findManyJackpot(): Promise<JackpotType[]> {
     try {
-        return await db.select().from(Jackpot)
+        return await db.select().from(jackpots)
     } catch (error) {
         console.error('Error fetching Jackpots:', error)
         throw new Error('Could not fetch Jackpots')
     }
 }
 
-export async function createJackpot(data: NewJackpot): Promise<JackpotType> {
+export async function createJackpot(data: Newjackpots): Promise<JackpotType> {
     try {
-        const [newJackpot] = await db.insert(Jackpot).values(data).returning()
+        const [newJackpot] = await db.insert(jackpots).values(data).returning()
         return newJackpot
     } catch (error) {
         console.error('Error creating Jackpot:', error)
@@ -123,8 +124,8 @@ export async function findJackpotById(
     try {
         const [jackpot] = await db
             .select()
-            .from(Jackpot)
-            .where(eq(Jackpot.id, id))
+            .from(jackpots)
+            .where(eq(jackpots.id, id))
         return jackpot
     } catch (error) {
         console.error(`Error fetching Jackpot by ID ${id}:`, error)
@@ -134,13 +135,13 @@ export async function findJackpotById(
 
 export async function updateJackpot(
     id: string,
-    data: Partial<NewJackpot>
+    data: Partial<Newjackpots>
 ): Promise<JackpotType> {
     try {
         const [updatedJackpot] = await db
-            .update(Jackpot)
+            .update(jackpots)
             .set(data)
-            .where(eq(Jackpot.id, id))
+            .where(eq(jackpots.id, id))
             .returning()
         return updatedJackpot
     } catch (error) {
@@ -152,8 +153,8 @@ export async function updateJackpot(
 export async function deleteJackpot(id: string): Promise<JackpotType> {
     try {
         const [deletedJackpot] = await db
-            .delete(Jackpot)
-            .where(eq(Jackpot.id, id))
+            .delete(jackpots)
+            .where(eq(jackpots.id, id))
             .returning()
         return deletedJackpot
     } catch (error) {
@@ -163,13 +164,14 @@ export async function deleteJackpot(id: string): Promise<JackpotType> {
 }
 
 export async function initializeJackpots(): Promise<void> {
-    const result = await db.select({ count: Jackpot.id }).from(Jackpot).limit(1)
+    const result = await db.select({ count: jackpots.id }).from(jackpots).limit(1)
     const existingJackpotsCount =
         result.length > 0 ? Number(result[0].count) : 0
 
     if (existingJackpotsCount === 0) {
         console.log(chalk.yellow('Initializing jackpots...'))
         const jackpotData = Object.values(JACKPOT_CONFIG).map((config) => ({
+            id: nanoid(),
             type: config.type,
             currentAmountCoins: config.seedAmountCoins,
             seedAmountCoins: config.seedAmountCoins,
@@ -180,7 +182,7 @@ export async function initializeJackpots(): Promise<void> {
             isActive: true,
         }))
 
-        await db.insert(Jackpot).values(jackpotData)
+        await db.insert(jackpots).values(jackpotData)
         console.log('Jackpots initialized successfully.')
     }
 }
@@ -209,11 +211,11 @@ export async function processJackpots(
 
     const activeJackpots = await db
         .select()
-        .from(Jackpot)
+        .from(jackpots)
         .where(
             and(
-                inArray(Jackpot.type, eligibleJackpotTypes),
-                eq(Jackpot.isActive, true)
+                inArray(jackpots.type, eligibleJackpotTypes),
+                eq(jackpots.isActive, true)
             )
         )
 
@@ -236,19 +238,20 @@ export async function processJackpots(
             )
 
             if (contributionAmount > 0) {
-                await tx.insert(JackpotContribution).values({
+                await tx.insert(jackpotContributions).values({
+                    id: nanoid(),
                     jackpotId: jackpot.id,
                     gameSpinId,
                     contributionAmountCoins: contributionAmount,
                 })
 
                 const [updatedJackpot] = await tx
-                    .update(Jackpot)
+                    .update(jackpots)
                     .set({
                         currentAmountCoins:
                             jackpot.currentAmountCoins + contributionAmount,
                     })
-                    .where(eq(Jackpot.id, jackpot.id))
+                    .where(eq(jackpots.id, jackpot.id))
                     .returning()
 
                 contributions.push({
@@ -271,17 +274,18 @@ export async function processJackpots(
                     )
 
                     await tx
-                        .update(Jackpot)
+                        .update(jackpots)
                         .set({
                             currentAmountCoins: newSeedAmount,
-                            lastWonAt: new Date(),
+                            lastWonAt: new Date().toISOString(),
                             lastWonBy: userId,
                         })
-                        .where(eq(Jackpot.id, jackpot.id))
+                        .where(eq(jackpots.id, jackpot.id))
 
                     const [win] = await tx
-                        .insert(JackpotWin)
+                        .insert(jackpotWins)
                         .values({
+                            id: nanoid(),
                             jackpotId: jackpot.id,
                             winnerId: userId,
                             winAmountCoins: winAmount,
@@ -299,10 +303,11 @@ export async function processJackpots(
 
 export async function getJackpotStats() {
     console.log(chalk.yellow('Getting jackpot stats'))
-    const allJackpots = await db.query.Jackpot.findMany({
-        where: eq(Jackpot.isActive, true),
+    const allJackpots = await db.query.jackpots.findMany({
+        where: eq(jackpots.isActive, true),
         with: {
-            lastWinner: {
+
+            user: {
                 columns: {
                     username: true,
                 },
@@ -323,7 +328,7 @@ export async function getJackpotStats() {
             currentAmountCoins: j.currentAmountCoins,
             currentAmountDollars: coinsToDollars(j.currentAmountCoins),
             lastWonAt: j.lastWonAt,
-            lastWinnerUsername: j.lastWinner?.username || null,
+            lastWinnerUsername: j.user?.username || null,
         })),
     }
 }
@@ -335,23 +340,23 @@ export type RecentJackpotWin = Awaited<
 
 export async function getRecentJackpotWins(limit: number = 10) {
     console.log(chalk.yellow('Getting recent jackpot wins'))
-    const jackpotWins = await db.query.JackpotWin.findMany({
+    const _jackpotWins = await db.query.jackpotWins.findMany({
         limit,
-        orderBy: [desc(JackpotWin.createdAt)],
+        orderBy: [desc(jackpotWins.createdAt)],
         with: {
-            winner: {
+            user: {
                 columns: {
                     username: true,
-                    avatar: true,
+                    avatar_url: true,
                 },
             },
         },
     })
 
     const result = await Promise.all(
-        jackpotWins.map(async (win) => {
-            const jackpot = await db.query.Jackpot.findFirst({
-                where: eq(Jackpot.id, win.jackpotId),
+        _jackpotWins.map(async (win) => {
+            const jackpot = await db.query.jackpots.findFirst({
+                where: eq(jackpots.id, win.jackpotId),
                 columns: {
                     type: true,
                 },
@@ -375,20 +380,20 @@ export async function getUserJackpotContributions(
     )
     return db
         .select({
-            id: JackpotContribution.id,
-            jackpotId: JackpotContribution.jackpotId,
-            jackpotType: Jackpot.type,
-            gameSpinId: JackpotContribution.gameSpinId,
+            id: jackpotContributions.id,
+            jackpotId: jackpotContributions.jackpotId,
+            jackpotType: jackpots.type,
+            gameSpinId: jackpotContributions.gameSpinId,
             contributionAmountCoins:
-                JackpotContribution.contributionAmountCoins,
-            createdAt: JackpotContribution.createdAt,
-            userId: GameSpin.userId,
+                jackpotContributions.contributionAmountCoins,
+            createdAt: jackpotContributions.createdAt,
+            userId: gameSpins.userId,
         })
-        .from(JackpotContribution)
-        .innerJoin(GameSpin, eq(JackpotContribution.gameSpinId, GameSpin.id))
-        .innerJoin(Jackpot, eq(JackpotContribution.jackpotId, Jackpot.id))
-        .where(eq(GameSpin.userId, userId))
-        .orderBy(desc(JackpotContribution.createdAt))
+        .from(jackpotContributions)
+        .innerJoin(gameSpins, eq(jackpotContributions.gameSpinId, gameSpins.id))
+        .innerJoin(jackpots, eq(jackpotContributions.jackpotId, jackpots.id))
+        .where(eq(gameSpins.userId, userId))
+        .orderBy(desc(jackpotContributions.createdAt))
         .limit(limit)
 }
 
@@ -398,20 +403,20 @@ export async function getUserJackpotWins(
     console.log(chalk.yellow('Getting user jackpot wins for user:', userId))
     return db
         .select()
-        .from(JackpotWin)
-        .where(eq(JackpotWin.winnerId, userId))
-        .orderBy(desc(JackpotWin.createdAt))
+        .from(jackpotWins)
+        .where(eq(jackpotWins.winnerId, userId))
+        .orderBy(desc(jackpotWins.createdAt))
 }
 
 export async function getJackpotById(id: string) {
     console.log(chalk.yellow('Getting jackpot by id:', id))
-    return db.query.Jackpot.findFirst({
-        where: eq(Jackpot.id, id),
+    return db.query.jackpots.findFirst({
+        where: eq(jackpots.id, id),
         with: {
-            lastWinner: {
+            user: {
                 columns: {
                     username: true,
-                    avatar: true,
+                    avatar_url: true,
                 },
             },
         },
@@ -440,9 +445,9 @@ export async function handleJackpotWin({
     return await db
         .transaction(async (tx) => {
             const [wallet] = await tx
-                .select({ balance: Wallet.balance })
-                .from(Wallet)
-                .where(eq(Wallet.id, walletId))
+                .select({ balance: wallets.balance })
+                .from(wallets)
+                .where(eq(wallets.id, walletId))
 
             if (!wallet) {
                 throw new Error('Wallet not found')
@@ -450,7 +455,8 @@ export async function handleJackpotWin({
 
             const newBalance = wallet.balance + amount
 
-            await tx.insert(Transaction).values({
+            await tx.insert(transactions).values({
+                id: nanoid(),
                 type: 'JACKPOT_WIN',
                 amount,
                 userId,
@@ -462,9 +468,9 @@ export async function handleJackpotWin({
             })
 
             await tx
-                .update(Wallet)
+                .update(wallets)
                 .set({ balance: newBalance })
-                .where(eq(Wallet.id, walletId))
+                .where(eq(wallets.id, walletId))
 
             console.log(`Jackpot win processed: ${amount} for user ${userId}`)
 

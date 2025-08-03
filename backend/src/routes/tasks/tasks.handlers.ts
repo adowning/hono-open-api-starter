@@ -15,15 +15,16 @@ import type {
     PatchRoute,
     RemoveRoute,
 } from './tasks.routes'
+import { nanoid } from '#/utils/nanoid'
 
 export const list: AppRouteHandler<ListRoute> = async (c) => {
-    const tasks = await db.query.tasks.findMany()
-    return c.json(tasks)
+    const tasksData = await db.query.tasks.findMany()
+    return c.json(tasksData)
 }
 
 export const create: AppRouteHandler<CreateRoute> = async (c) => {
     const task = c.req.valid('json')
-    const [inserted] = await db.insert(tasks).values(task).returning()
+    const [inserted] = await db.insert(tasks).values({ ...task, id: nanoid() }).returning()
     return c.json(inserted, HttpStatusCodes.OK)
 }
 

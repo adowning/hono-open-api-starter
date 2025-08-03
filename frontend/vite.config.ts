@@ -34,4 +34,8 @@ export default defineConfig({
 
         // Other build options...
     },
+    server:{
+        allowedHosts: ['app.cashflowcasino.com',]
+
+    }
 })

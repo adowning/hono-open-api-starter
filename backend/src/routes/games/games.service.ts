@@ -1,7 +1,7 @@
 import { and, desc, eq, inArray, sql } from 'drizzle-orm'
 import type { Context } from 'hono'
 
-import { GameCategory, Game, FavoriteGame, GameHistory } from '#/db/schema'
+import { GameCategory, games, favoriteGames, gameHistory } from '#/db/schema'
 import db from '#/db'
 import { nanoid } from '#/utils/nanoid'
 import type { AuthSessionType, UserType } from '#/db/schema'
@@ -12,7 +12,7 @@ export function findGameCategories() {
 }
 
 export async function findAllGames() {
-    return db.query.Game.findMany({
+    return db.query.games.findMany({
         columns: {
             id: true,
             name: true,
@@ -24,7 +24,7 @@ export async function findAllGames() {
             createdAt: true,
             updatedAt: true,
         },
-        orderBy: desc(Game.name),
+        orderBy: desc(games.name),
     })
 }
 
@@ -34,18 +34,18 @@ export async function searchGames(params: {
     limit: number
 }) {
     const where = params.game_categories_slug
-        ? eq(Game.category, params.game_categories_slug)
+        ? eq(games.category, params.game_categories_slug)
         : undefined
-    const games = await db.query.Game.findMany({
+    const _games = await db.query.games.findMany({
         where,
         limit: params.limit,
         offset: (params.page - 1) * params.limit,
     })
     const totalCount = await db
         .select({ count: sql<number>`count(*)` })
-        .from(Game)
+        .from(games)
         .where(where)
-    return { games, total: totalCount[0].count }
+    return { games: _games, total: totalCount[0].count }
 }
 
 export async function findUserGames(
@@ -57,8 +57,8 @@ export async function findUserGames(
     const offset = (page - 1) * limit
 
     if (params.game_categories_slug === 'favorite') {
-        const favoriteGameIds = await db.query.FavoriteGame.findMany({
-            where: eq(FavoriteGame.userId, userId),
+        const favoriteGameIds = await db.query.favoriteGames.findMany({
+            where: eq(favoriteGames.userId, userId),
             columns: { gameId: true },
         })
 
@@ -66,24 +66,24 @@ export async function findUserGames(
 
         const gameIds = favoriteGameIds.map((f) => f.gameId)
 
-        const favGames = await db.query.Game.findMany({
-            where: inArray(Game.id, gameIds),
+        const favGames = await db.query.games.findMany({
+            where: inArray(games.id, gameIds),
             limit,
             offset,
         })
         return { games: favGames, total: gameIds.length }
     } else if (params.game_categories_slug === 'history') {
-        const history = await db.query.GameHistory.findMany({
-            where: eq(GameHistory.userId, userId),
-            orderBy: desc(GameHistory.createdAt),
+        const history = await db.query.gameHistory.findMany({
+            where: eq(gameHistory.userId, userId),
+            orderBy: desc(gameHistory.createdAt),
             limit,
             offset,
         })
 
         const totalCount = await db
             .select({ count: sql<number>`count(*)` })
-            .from(GameHistory)
-            .where(eq(GameHistory.userId, userId))
+            .from(gameHistory)
+            .where(eq(gameHistory.userId, userId))
 
         return { games: history, total: totalCount[0].count }
     }
@@ -92,27 +92,27 @@ export async function findUserGames(
 
 export async function addFavoriteGame(userId: string, gameId: string) {
     await db
-        .insert(FavoriteGame)
-        .values({ userId, gameId })
+        .insert(favoriteGames)
+        .values({ id: nanoid(), userId, gameId })
         .onConflictDoNothing()
 }
 
 export async function removeFavoriteGame(userId: string, gameId: string) {
     await db
-        .delete(FavoriteGame)
+        .delete(favoriteGames)
         .where(
             and(
-                eq(FavoriteGame.userId, userId),
-                eq(FavoriteGame.gameId, gameId)
+                eq(favoriteGames.userId, userId),
+                eq(favoriteGames.gameId, gameId)
             )
         )
 }
 
 export async function findFavoriteGames(userId: string): Promise<string[]> {
     const favorites = await db
-        .select({ gameId: FavoriteGame.gameId })
-        .from(FavoriteGame)
-        .where(eq(FavoriteGame.userId, userId))
+        .select({ gameId: favoriteGames.gameId })
+        .from(favoriteGames)
+        .where(eq(favoriteGames.userId, userId))
     return favorites.map((f) => f.gameId)
 }
 
@@ -123,7 +123,7 @@ export async function enterGame(
     gameId: string,
     token: string
 ) {
-    const game = await db.query.Game.findFirst({ where: eq(Game.id, gameId) })
+    const game = await db.query.games.findFirst({ where: eq(games.id, gameId) })
     if (!game) {
         throw new Error('Game not found')
     }
@@ -173,15 +173,15 @@ export async function leaveGame(authSessionId: string) {
 }
 
 export async function findGameHistory(userId: string) {
-    const records = await db.query.GameHistory.findMany({
-        where: eq(GameHistory.userId, userId),
-        orderBy: desc(GameHistory.createdAt),
+    const records = await db.query.gameHistory.findMany({
+        where: eq(gameHistory.userId, userId),
+        orderBy: desc(gameHistory.createdAt),
     })
 
     const totalCountResult = await db
         .select({ count: sql<number>`count(*)` })
-        .from(GameHistory)
-        .where(eq(GameHistory.userId, userId))
+        .from(gameHistory)
+        .where(eq(gameHistory.userId, userId))
     const totalCount = totalCountResult[0].count
 
     return {
@@ -190,13 +190,13 @@ export async function findGameHistory(userId: string) {
     }
 }
 export async function findTopWins() {
-    const records = await db.query.Game.findMany({
-        orderBy: desc(Game.totalWon),
+    const records = await db.query.games.findMany({
+        orderBy: desc(games.totalWon),
     })
 
     const totalCountResult = await db
         .select({ count: sql<number>`count(*)` })
-        .from(Game)
+        .from(games)
     // .where(eq(Game.id, userId))
     const totalCount = totalCountResult[0].count
 

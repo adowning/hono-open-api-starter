@@ -1,0 +1,271 @@
+{
+"skeleton": {
+	"hash": "QSaHY5EDsXJ+kRZMtIskY7aRp2A",
+	"spine": "3.8.97",
+	"x": -72.02,
+	"y": -66.03,
+	"width": 144.05,
+	"height": 132.05,
+	"images": "../../resources/sources",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root", "rotation": -0.02 },
+	{ "name": "winToggle", "parent": "root", "scaleX": 1.0032, "scaleY": 0.8926 },
+	{ "name": "xS_2", "parent": "root" },
+	{ "name": "xS_3", "parent": "root" },
+	{ "name": "xS_4", "parent": "root" }
+],
+"slots": [
+	{ "name": "symbols/L1/L1", "bone": "root", "attachment": "symbols/L1/L1" },
+	{ "name": "symbols/L1/L1_spin", "bone": "root" },
+	{ "name": "xS_2", "bone": "xS_2", "attachment": "symbols/L1/xSplit/normal/2" },
+	{ "name": "xS_3", "bone": "xS_3", "attachment": "symbols/L1/xSplit/normal/3" },
+	{ "name": "xS_4", "bone": "xS_4", "attachment": "symbols/L1/xSplit/normal/4" },
+	{ "name": "winToggle", "bone": "winToggle", "color": "fff9a0ff", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"symbols/L1/L1": {
+				"symbols/L1/L1": { "width": 144, "height": 132 }
+			},
+			"symbols/L1/L1_spin": {
+				"symbols/L1/L1_spin": { "width": 144, "height": 179 }
+			}
+		}
+	},
+	{
+		"name": "3SymbolsWin",
+		"attachments": {
+			"winToggle": {
+				"jpegNormal/toggle_40%/toggleFx_00": { "path": "jpegHigh/toggle_40%/toggleFx_00", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_01": { "path": "jpegHigh/toggle_40%/toggleFx_01", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_02": { "path": "jpegHigh/toggle_40%/toggleFx_02", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_03": { "path": "jpegHigh/toggle_40%/toggleFx_03", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_04": { "path": "jpegHigh/toggle_40%/toggleFx_04", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_05": { "path": "jpegHigh/toggle_40%/toggleFx_05", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_06": { "path": "jpegHigh/toggle_40%/toggleFx_06", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_07": { "path": "jpegHigh/toggle_40%/toggleFx_07", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_08": { "path": "jpegHigh/toggle_40%/toggleFx_08", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_09": { "path": "jpegHigh/toggle_40%/toggleFx_09", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_10": { "path": "jpegHigh/toggle_40%/toggleFx_10", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_11": { "path": "jpegHigh/toggle_40%/toggleFx_11", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_12": { "path": "jpegHigh/toggle_40%/toggleFx_12", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_13": { "path": "jpegHigh/toggle_40%/toggleFx_13", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_14": { "path": "jpegHigh/toggle_40%/toggleFx_14", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_15": { "path": "jpegHigh/toggle_40%/toggleFx_15", "width": 144, "height": 148 }
+			}
+		}
+	},
+	{
+		"name": "4SymbolsWin",
+		"attachments": {
+			"winToggle": {
+				"jpegNormal/toggle_40%/toggleFx_00": { "path": "jpegHigh/toggle_70%/toggleFx_00", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_01": { "path": "jpegHigh/toggle_70%/toggleFx_01", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_02": { "path": "jpegHigh/toggle_70%/toggleFx_02", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_03": { "path": "jpegHigh/toggle_70%/toggleFx_03", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_04": { "path": "jpegHigh/toggle_70%/toggleFx_04", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_05": { "path": "jpegHigh/toggle_70%/toggleFx_05", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_06": { "path": "jpegHigh/toggle_70%/toggleFx_06", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_07": { "path": "jpegHigh/toggle_70%/toggleFx_07", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_08": { "path": "jpegHigh/toggle_70%/toggleFx_08", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_09": { "path": "jpegHigh/toggle_70%/toggleFx_09", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_10": { "path": "jpegHigh/toggle_70%/toggleFx_10", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_11": { "path": "jpegHigh/toggle_70%/toggleFx_11", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_12": { "path": "jpegHigh/toggle_70%/toggleFx_12", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_13": { "path": "jpegHigh/toggle_70%/toggleFx_13", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_14": { "path": "jpegHigh/toggle_70%/toggleFx_14", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_15": { "path": "jpegHigh/toggle_70%/toggleFx_15", "width": 144, "height": 148 }
+			}
+		}
+	},
+	{
+		"name": "5SymbolsWin",
+		"attachments": {
+			"winToggle": {
+				"jpegNormal/toggle_40%/toggleFx_00": { "path": "jpegHigh/toggle_100%/toggleFx_00", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_01": { "path": "jpegHigh/toggle_100%/toggleFx_01", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_02": { "path": "jpegHigh/toggle_100%/toggleFx_02", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_03": { "path": "jpegHigh/toggle_100%/toggleFx_03", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_04": { "path": "jpegHigh/toggle_100%/toggleFx_04", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_05": { "path": "jpegHigh/toggle_100%/toggleFx_05", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_06": { "path": "jpegHigh/toggle_100%/toggleFx_06", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_07": { "path": "jpegHigh/toggle_100%/toggleFx_07", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_08": { "path": "jpegHigh/toggle_100%/toggleFx_08", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_09": { "path": "jpegHigh/toggle_100%/toggleFx_09", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_10": { "path": "jpegHigh/toggle_100%/toggleFx_10", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_11": { "path": "jpegHigh/toggle_100%/toggleFx_11", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_12": { "path": "jpegHigh/toggle_100%/toggleFx_12", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_13": { "path": "jpegHigh/toggle_100%/toggleFx_13", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_14": { "path": "jpegHigh/toggle_100%/toggleFx_14", "width": 144, "height": 148 },
+				"jpegNormal/toggle_40%/toggleFx_15": { "path": "jpegHigh/toggle_100%/toggleFx_15", "width": 144, "height": 148 }
+			}
+		}
+	},
+	{
+		"name": "xSplit_2",
+		"attachments": {
+			"xS_2": {
+				"symbols/L1/xSplit/normal/2": { "width": 144, "height": 132 }
+			}
+		}
+	},
+	{
+		"name": "xSplit_3",
+		"attachments": {
+			"xS_3": {
+				"symbols/L1/xSplit/normal/3": { "width": 144, "height": 132 }
+			}
+		}
+	},
+	{
+		"name": "xSplit_4",
+		"attachments": {
+			"xS_4": {
+				"symbols/L1/xSplit/normal/4": { "width": 144, "height": 132 }
+			}
+		}
+	}
+],
+"animations": {
+	"noWin": {},
+	"normal": {},
+	"spin": {
+		"slots": {
+			"symbols/L1/L1": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"symbols/L1/L1_spin": {
+				"attachment": [
+					{ "name": "symbols/L1/L1_spin" }
+				]
+			},
+			"xS_2": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"xS_3": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			},
+			"xS_4": {
+				"color": [
+					{ "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"spinIn": {
+		"slots": {
+			"symbols/L1/L1": {
+				"color": [
+					{ "time": 0.0333, "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"symbols/L1/L1_spin": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1333, "color": "ffffffff" }
+				],
+				"attachment": [
+					{ "name": "symbols/L1/L1_spin" }
+				]
+			},
+			"xS_2": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"xS_3": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			},
+			"xS_4": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				]
+			}
+		}
+	},
+	"spinOut": {
+		"slots": {
+			"symbols/L1/L1": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"symbols/L1/L1_spin": {
+				"color": [
+					{ "color": "ffffffff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "name": "symbols/L1/L1_spin" }
+				]
+			},
+			"xS_2": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"xS_3": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			},
+			"xS_4": {
+				"color": [
+					{ "color": "ffffff00", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.1667, "color": "ffffffff" }
+				]
+			}
+		}
+	},
+	"win": {},
+	"winToggle": {
+		"slots": {
+			"winToggle": {
+				"color": [
+					{ "color": "fff9a000", "curve": 0.25, "c3": 0.75 },
+					{ "time": 0.2, "color": "fff9a0ff", "curve": "stepped" },
+					{ "time": 0.8, "color": "fff9a0ff", "curve": 0.25, "c3": 0.75 },
+					{ "time": 1, "color": "fff9a000" }
+				],
+				"attachment": [
+					{ "name": "jpegNormal/toggle_40%/toggleFx_00" },
+					{ "time": 0.0667, "name": "jpegNormal/toggle_40%/toggleFx_01" },
+					{ "time": 0.1333, "name": "jpegNormal/toggle_40%/toggleFx_02" },
+					{ "time": 0.2, "name": "jpegNormal/toggle_40%/toggleFx_03" },
+					{ "time": 0.2667, "name": "jpegNormal/toggle_40%/toggleFx_04" },
+					{ "time": 0.3333, "name": "jpegNormal/toggle_40%/toggleFx_05" },
+					{ "time": 0.4, "name": "jpegNormal/toggle_40%/toggleFx_06" },
+					{ "time": 0.4667, "name": "jpegNormal/toggle_40%/toggleFx_07" },
+					{ "time": 0.5333, "name": "jpegNormal/toggle_40%/toggleFx_08" },
+					{ "time": 0.6, "name": "jpegNormal/toggle_40%/toggleFx_09" },
+					{ "time": 0.6667, "name": "jpegNormal/toggle_40%/toggleFx_10" },
+					{ "time": 0.7333, "name": "jpegNormal/toggle_40%/toggleFx_11" },
+					{ "time": 0.8, "name": "jpegNormal/toggle_40%/toggleFx_12" },
+					{ "time": 0.8667, "name": "jpegNormal/toggle_40%/toggleFx_13" },
+					{ "time": 0.9333, "name": "jpegNormal/toggle_40%/toggleFx_14" },
+					{ "time": 1, "name": "jpegNormal/toggle_40%/toggleFx_15" }
+				]
+			}
+		}
+	}
+}
+}

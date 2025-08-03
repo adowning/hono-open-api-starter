@@ -3,13 +3,12 @@ import { createRoute, z } from '@hono/zod-openapi'
 import {
     selectVipLevelSchema,
     selectVipRankSchema,
-    VipInfoResponseSchema,
+    vipInfoResponseSchema,
 } from '#/db'
 import { createRouter } from '#/lib/create-app'
 import { authMiddleware } from '#/middlewares/auth.middleware'
 
 import * as controller from './vip.controller'
-import { sessionMiddleware } from '#/middlewares/session.middleware'
 
 const tags = ['VIP']
 
@@ -17,7 +16,7 @@ const tags = ['VIP']
 const getMyVipDetails = createRoute({
     method: 'get',
     path: '/vip/me',
-    middleware: [authMiddleware, sessionMiddleware],
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the authenticated user VIP details',
     responses: {
@@ -28,7 +27,7 @@ const getMyVipDetails = createRoute({
                 'application/json': {
                     schema: z
                         .object({
-                            vipInfo: VipInfoResponseSchema.openapi('VipInfo'),
+                            vipInfo: vipInfoResponseSchema.openapi('VipInfo'),
                             vipRank: selectVipRankSchema.openapi('VipRank'),
                             xpForNextLevel: z.number(),
                         })
@@ -44,7 +43,7 @@ const getMyVipDetails = createRoute({
 const getVipLevels = createRoute({
     method: 'get',
     path: '/vip/levels',
-    middleware: [authMiddleware, sessionMiddleware],
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the configuration for all VIP levels',
     responses: {
@@ -62,7 +61,7 @@ const getVipLevels = createRoute({
 const getVipRanks = createRoute({
     method: 'get',
     path: '/vip/ranks',
-    middleware: [authMiddleware, sessionMiddleware],
+    middleware: [authMiddleware],
     tags,
     summary: 'Get the configuration for all VIP ranks',
     responses: {

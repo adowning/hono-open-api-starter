@@ -1,0 +1,253 @@
+{"frames": {
+
+"energyExplosion/energyExplosion_08":
+{
+	"frame": {"x":844,"y":0,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_09":
+{
+	"frame": {"x":844,"y":152,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_10":
+{
+	"frame": {"x":844,"y":304,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_11":
+{
+	"frame": {"x":844,"y":456,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_12":
+{
+	"frame": {"x":844,"y":608,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_13":
+{
+	"frame": {"x":844,"y":760,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"energyExplosion/energyExplosion_14":
+{
+	"frame": {"x":564,"y":844,"w":176,"h":148},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":148},
+	"sourceSize": {"w":176,"h":147}
+},
+"gameBackgrounds/curtain":
+{
+	"frame": {"x":0,"y":0,"w":840,"h":840},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":840,"h":840},
+	"sourceSize": {"w":840,"h":840}
+},
+"grillFire/grillInside_08":
+{
+	"frame": {"x":0,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_10":
+{
+	"frame": {"x":94,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_12":
+{
+	"frame": {"x":80,"y":976,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_14":
+{
+	"frame": {"x":188,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_16":
+{
+	"frame": {"x":174,"y":976,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_18":
+{
+	"frame": {"x":282,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_20":
+{
+	"frame": {"x":268,"y":976,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_22":
+{
+	"frame": {"x":376,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_24":
+{
+	"frame": {"x":362,"y":976,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_26":
+{
+	"frame": {"x":470,"y":844,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"grillFire/grillInside_28":
+{
+	"frame": {"x":456,"y":976,"w":90,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":48},
+	"sourceSize": {"w":90,"h":48}
+},
+"X_Bet_Attention/X_Bet_Attention_00008":
+{
+	"frame": {"x":0,"y":912,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00009":
+{
+	"frame": {"x":80,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00010":
+{
+	"frame": {"x":160,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00011":
+{
+	"frame": {"x":240,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00012":
+{
+	"frame": {"x":320,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00013":
+{
+	"frame": {"x":400,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00014":
+{
+	"frame": {"x":480,"y":896,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00015":
+{
+	"frame": {"x":744,"y":844,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00016":
+{
+	"frame": {"x":824,"y":912,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00017":
+{
+	"frame": {"x":744,"y":924,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+},
+"X_Bet_Attention/X_Bet_Attention_00018":
+{
+	"frame": {"x":904,"y":912,"w":76,"h":76},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":76},
+	"sourceSize": {"w":75,"h":75}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "jpegHigh1@0.5x.jpg",
+	"format": "RGB888",
+	"size": {"w":1020,"h":1024},
+	"scale": "0.5",
+	"related_multi_packs": [ "jpegHigh0@0.5x.json", "jpegHigh2@0.5x.json", "jpegHigh3@0.5x.json", "jpegHigh4@0.5x.json", "jpegHigh5@0.5x.json" ],
+	"smartupdate": "$TexturePacker:SmartUpdate:1b42b3881c2df4672b732237b001195b:d04a586366f5d7310817abed3c2ef504:f20253cffa6fd8bc339afe0f6b39ae0d$"
+}
+}

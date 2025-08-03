@@ -1,0 +1,37 @@
+<ul>
+    {{#replaceSlotsInGameRules}}
+        <li>{{#tr}}San Quentin xWays is a video instant game with following feature(s):{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    {{^replaceSlotsInGameRules}}
+        <li>{{#tr}}San Quentin xWays is a video slot with following feature(s):{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    <div>{{#tr}}- Split Wilds{{/tr}}</div>
+    <div>{{#tr}}- Enhancer Cells{{/tr}}</div>
+    <div>{{#tr}}- Lockdown Spins{{/tr}}</div>
+    {{#replaceSlotsInGameRules}}
+        <li>{{#tr}}A 5-reel, 3-row video instant game with 16 symbols.{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    {{^replaceSlotsInGameRules}}
+        <li>{{#tr}}A 5-reel, 3-row video slot with 16 symbols.{{/tr}}</li>
+    {{/replaceSlotsInGameRules}}
+    <li>{{#tr}}243 win ways by default (see pay table for more info).{{/tr}}</li>
+    <li>{{#tr}}A Wild symbol substitutes for any symbol except Bonus.{{/tr}}</li>
+    <li>{{#tr}}A Wild symbol substitutes for the highest possible winning combination according to the pay table.{{/tr}}</li>
+    <li>{{#tr}}A winning combination of the same symbol pays from left to right on adjacent reels.{{/tr}}</li>
+    <li>{{#tr}}Coinciding wins on multiple combinations are paid out.{{/tr}}</li>
+    <li>{{#tr}}Winning combinations and pays are made according to the pay table.{{/tr}}</li>
+    <li>{{#tr}}Different reel configurations are used, depending on the game mode (main game or any of the bonus modes).{{/tr}}</li>
+    <li class="rtp">{{#tr}}The theoretical return to the player for this game is <span class="rtp">-1%</span>.{{/tr}}</li>
+    <li class="rtp rtp-feature FREESPIN_3_SCATTERS">{{#tr}}The theoretical return to the player for 3 BONUS feature buy is <span class="rtp-FREESPIN_3_SCATTERS">-2%</span>.{{/tr}}</li>
+    <li class="rtp rtp-feature FREESPIN_4_SCATTERS">{{#tr}}The theoretical return to the player for 4 BONUS feature buy is <span class="rtp-FREESPIN_4_SCATTERS">-3%</span>.{{/tr}}</li>
+    <li class="rtp rtp-feature FREESPIN_5_SCATTERS">{{#tr}}The theoretical return to the player for 5 BONUS feature buy is <span class="rtp-FREESPIN_5_SCATTERS">-4%</span>.{{/tr}}</li>
+    <li class="simulated-maximum-payout">{{#tr}}Simulated maximum payout is <span class="maxMultiplier">-1</span> times the bet (<span class="maxMultiplierProbability">-2</span> rounds).{{/tr}} {{#showBaseGameHighestWinInRules}}{{#tr}}This can be achieved by accumulating wins from multiple spins in the game.{{/tr}}{{/showBaseGameHighestWinInRules}}</li>
+    {{#showBaseGameHighestWinInRules}}
+        <li>{{#tr}}The max win in the base game could be achieved with the below reelset. The probability is 1 in 1000000000 rounds simulated from 1000000000 rounds, higher wins may occur.{{/tr}}</li>
+        <img src="{{gamePath}}screens/images/max-win.png">
+    {{/showBaseGameHighestWinInRules}}
+    {{#replaceWincapInfo}}
+    <li>{{#tr}}When the total win exceeds 150000x, the Lockdown Spins will end and 150 000 times the base bet is awarded.{{/tr}}</li>
+    {{/replaceWincapInfo}}
+    <li>{{#tr}}Features and spin results affect each other within a game round.{{/tr}}</li>
+</ul>

@@ -4,13 +4,13 @@ import type { Context } from 'hono'
 import * as crypto from 'node:crypto'
 import { z } from 'zod'
 
-import type { AppVersion } from '#/db/schema'
+import type { AppVersion } from '#/db'
 
 import {
     AppVersionSchema,
     CheckUpdateRequestSchema,
-    UpdateTypeSchema,
-} from '#/db/schema'
+    updateTypeSchema,
+} from '#/db/schema/zod'
 import env from '#/env'
 
 import * as service from './updates.service'
@@ -86,7 +86,7 @@ export async function handleUploadUpdate(c: Context) {
         }
 
         // Validate update type
-        const updateTypeResult = UpdateTypeSchema.safeParse(updateTypeRaw)
+        const updateTypeResult = updateTypeSchema.safeParse(updateTypeRaw)
         if (!updateTypeResult.success) {
             return c.json({ error: 'Invalid update type' }, 400)
         }
@@ -138,6 +138,8 @@ export async function handleUploadUpdate(c: Context) {
             releaseDate: new Date().toISOString(),
             fileSize: buffer.byteLength,
             checksum,
+            appId: '',
+            id: 0,
         }
 
         metadata[appId][platform] = metadata[appId][platform].filter(
@@ -171,7 +173,7 @@ export async function handleDownloadLocalUpdate(c: Context) {
             return c.json({ error: 'File not found' }, 404)
         }
 
-        return new Response(result.file, {
+        return new Response(result.file.toString(), {
             headers: {
                 'Content-Type': result.contentType,
                 'Content-Disposition': `attachment; filename="${filename}"`,
