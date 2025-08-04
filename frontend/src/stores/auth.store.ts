@@ -7,6 +7,9 @@ import {
 } from '@/sdk/generated'
 import { client } from '@/sdk/generated/client.gen'
 import { webSocketService } from '@/services/websocket.service'
+import { userWsBridge } from '@/services/ws.user'
+import { notificationsWsBridge } from '@/services/ws.notifications'
+import { notificationsWsBridge } from '@/services/ws.notifications'
 import { pinia } from '@/stores'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
@@ -330,7 +333,12 @@ export const useAuthStore = defineStore('auth', () => {
     // Logout
     const logout = () => {
         const router = useRouter()
-        webSocketService.closeConnections()
+        try {
+            webSocketService.closeConnections()
+        } finally {
+            userWsBridge.close()
+            notificationsWsBridge.close()
+        }
         clearAuth()
         router.push('/login')
     }
@@ -338,14 +346,23 @@ export const useAuthStore = defineStore('auth', () => {
     // Initialize auth state
     // Initialize WebSocket connection
     const initWebSocket = (): void => {
-        if (accessToken.value && !webSocketService.isConnected()) {
-            webSocketService.initConnection()
+        if (accessToken.value) {
+            if (!webSocketService.isConnected()) {
+                webSocketService.initConnection()
+            }
+            userWsBridge.connect(accessToken.value)
+            notificationsWsBridge.connect(accessToken.value)
         }
     }
 
     // Close WebSocket connection
     const closeWebSocket = (): void => {
-        webSocketService.closeConnections()
+        try {
+            webSocketService.closeConnections()
+        } finally {
+            userWsBridge.close()
+            notificationsWsBridge.close()
+        }
     }
 
     // Refresh the access token using the refresh cookie

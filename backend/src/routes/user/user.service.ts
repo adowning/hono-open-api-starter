@@ -2,7 +2,7 @@
 import type { z } from '@hono/zod-openapi'
 import type { createInsertSchema } from 'drizzle-zod'
 
-import { eq } from 'drizzle-orm'
+import { eq, ilike, or } from 'drizzle-orm'
 
 import db from '#/db'
 import { users } from '#/db/schema'
@@ -11,8 +11,34 @@ import type {
     Newusers,
 } from '../../db/schema'
 
-export async function findManyUser() {
-    return await db.select().from(users)
+export async function findManyUser(
+    limit?: number,
+    offset?: number,
+    filter?: { username?: string; email?: string },
+) {
+    const query = db.select().from(users)
+
+    if (filter) {
+        const { username, email } = filter
+        if (username || email) {
+            query.where(
+                or(
+                    username ? ilike(users.username, `%${username}%`) : undefined,
+                    email ? ilike(users.email, `%${email}%`) : undefined,
+                ),
+            )
+        }
+    }
+
+    if (limit) {
+        query.limit(limit)
+    }
+
+    if (offset) {
+        query.offset(offset)
+    }
+
+    return await query
 }
 
 export async function createUser(data: z.infer<ReturnType<typeof createInsertSchema>>) {

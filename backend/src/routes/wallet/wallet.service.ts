@@ -2,7 +2,7 @@ import { eq } from 'drizzle-orm'
 
 import db from '#/db'
 import { transactions, users, wallets } from '#/db/schema'
-import { triggerUserUpdate } from '#/lib/websocket.service'
+import { publishUserUpdated } from '#/lib/websocket.service'
 import { nanoid } from 'nanoid'
 
 /**
@@ -46,8 +46,13 @@ export async function debitFromwallets(userId: string, amountToDebit: number, de
         })
     })
 
-    // After the transaction is successful, notify the client.
-    await triggerUserUpdate(userId)
+    // After the transaction is successful, notify the client with a wallet patch.
+    publishUserUpdated(userId, {
+        wallet: {
+            // We do not know exact balance here without another query; client will refresh via snapshot if needed.
+            // If you prefer an exact number, fetch the updated balance and include it.
+        },
+    })
 }
 
 /**
@@ -87,5 +92,9 @@ export async function creditTowallets(userId: string, amountToCredit: number, de
     })
 
     // After crediting, send an update to the client.
-    await triggerUserUpdate(userId)
+    publishUserUpdated(userId, {
+        wallet: {
+            // Optionally include balance or last transaction info
+        },
+    })
 }

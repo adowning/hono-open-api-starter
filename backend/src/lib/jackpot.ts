@@ -20,7 +20,7 @@ import {
 import { coinsToDollars } from '#/utils/misc.utils'
 
 import { nanoid } from '#/utils/nanoid'
-import { triggerUserUpdate } from './websocket.service'
+import { publishUserUpdated } from './websocket.service'
 
 export function dollarsToCoins(dollars: number): number {
     return Math.round(dollars * 100)
@@ -478,7 +478,12 @@ export async function handleJackpotWin({
         })
         .then((result) => {
             if (result.success) {
-                triggerUserUpdate(userId)
+                // Notify client with a wallet patch after jackpot credit.
+                publishUserUpdated(userId, {
+                    wallet: {
+                        // Optionally include balance after win if available to avoid extra fetch.
+                    },
+                })
             }
             return result
         })

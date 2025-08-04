@@ -6,7 +6,14 @@ import * as service from './user.service'
 
 // Basic CRUD
 export async function listUser(c: Context) {
-    const data = await service.findManyUser()
+    const { limit, offset, username, email } = c.req.query()
+    const limitNum = limit ? parseInt(limit, 10) : undefined
+    const offsetNum = offset ? parseInt(offset, 10) : undefined
+    const filter = {
+        username: username || undefined,
+        email: email || undefined,
+    }
+    const data = await service.findManyUser(limitNum, offsetNum, filter)
     return c.json(data, 200)
 }
 

@@ -19,7 +19,7 @@ import {
     saveAuthSessionToCache,
     saveGameSessionToCache,
 } from '#/lib/cache'
-import { triggerUserUpdate } from '#/lib/websocket.service'
+import { publishUserSnapshot } from '#/lib/websocket.service'
 import { nanoid } from '#/utils/nanoid'
 
 const IDLE_TIMEOUT = 10 * 60 * 1000 // 10 minutes
@@ -168,7 +168,11 @@ export class SessionManager {
 
         await saveGameSessionToCache(newSessionData)
         c.set('user', { ...user, currentGameSessionDataId: newSessionData.id })
-        triggerUserUpdate(user.id)
+        // Push a lightweight snapshot so client updates user.currentGameSessionDataId
+        publishUserSnapshot({
+            userId: user.id,
+            user: { currentGameSessionDataId: newSessionData.id },
+        })
 
         return newSessionData
     }
@@ -238,7 +242,11 @@ export class SessionManager {
 
         await deleteGameSessionFromCache(activeSession.id)
         await deleteSpinsFromCache(activeSession.id)
-        triggerUserUpdate(userId)
+        // Notify client that current game session ended
+        publishUserSnapshot({
+            userId,
+            user: { currentGameSessionDataId: null },
+        })
     }
 
     static async getGameSession(

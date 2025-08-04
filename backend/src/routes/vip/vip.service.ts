@@ -7,7 +7,7 @@ import { eq } from 'drizzle-orm'
 import type { VipInfoType, VipRankType, } from '#/db'
 import db, { users, vipInfo, vipRank } from '#/db'
 import type * as schema from '#/db/schema'
-import { triggerUserUpdate } from '#/lib/websocket.service'
+import { publishUserUpdated } from '#/lib/websocket.service'
 
 import { nanoid } from 'nanoid'
 import { getAllVipLevelConfigurations, getVipLevelByTotalXp, getVipLevelConfiguration } from './vip.config' // Ensure the function is imported
@@ -149,7 +149,16 @@ export async function addXpTousers(userId: string, xpAmount: number): Promise<Xp
 
         return result
     }).then((result) => {
-        triggerUserUpdate(userId)
+        // Notify client with a VIP patch. Include minimal fields; client can refetch snapshot if needed.
+        publishUserUpdated(userId, {
+            vipInfo: result
+                ? {
+                        level: result.newLevel,
+                        totalXp: result.newTotalXp,
+                        xp: result.newCurrentLevelXp,
+                    }
+                : {},
+        })
         return result
     })
 }

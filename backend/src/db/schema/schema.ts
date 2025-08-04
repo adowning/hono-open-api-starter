@@ -285,11 +285,14 @@ export const wallets = pgTable('wallets', {
     createdAt: timestamp('created_at', { precision: 3, mode: 'string' }).defaultNow().notNull(),
     updatedAt: timestamp('updated_at', { precision: 3, mode: 'string' }).defaultNow().notNull(),
 }, (table) => [
+    // Correct FK direction: wallets.userId -> users.id
     foreignKey({
         columns: [table.userId],
-        foreignColumns: [users.activeWalletId],
+        foreignColumns: [users.id],
         name: 'wallets_user_id_users_id_fk'
     }).onDelete('cascade'),
+    // One wallet per (user, operator)
+    unique('wallets_user_operator_unique').on(table.userId, table.operatorId),
     unique('wallets_address_unique').on(table.address),
     unique('wallets_cashtag_unique').on(table.cashtag),
 ])
@@ -539,8 +542,14 @@ export const users = pgTable('users', {
     unique('users_email_unique').on(table.email),
     unique('users_current_game_session_data_id_unique').on(table.currentGameSessionDataId),
     unique('users_current_auth_session_data_id_unique').on(table.currentAuthSessionDataId),
+    // activeWalletId is nullable but must be unique when set; add FK to wallets.id
     unique('users_active_wallet_id_unique').on(table.activeWalletId),
     unique('users_vip_info_id_unique').on(table.vipInfoId),
+    foreignKey({
+        columns: [table.activeWalletId],
+        foreignColumns: [wallets.id],
+        name: 'users_active_wallet_id_wallets_id_fk'
+    }).onDelete('set null').onUpdate('cascade'),
 ])
 
 export const operators = pgTable('operators', {
