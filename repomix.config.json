@@ -1,0 +1,42 @@
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "input": {
+    "maxFileSize": 50000000
+  },
+  "output": {
+    "filePath": "project.xml",
+    "style": "xml",
+    "parsableStyle": false,
+    "compress": false,
+    "fileSummary": true,
+    "directoryStructure": true,
+    "files": true,
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "topFilesLength": 5,
+    "showLineNumbers": false,
+    "copyToClipboard": false,
+    "includeEmptyDirectories": false,
+    "git": {
+      "sortByChanges": true,
+      "sortByChangesMaxCommits": 100,
+      "includeDiffs": false
+    }
+  },
+  "include": ["./frontend/src/**", "./frontend/*.ts", "./frontend/*.json",  "./backend/src/**", "./backend/*.ts", "./backend/*.json", "./backend/scripts/**", "./shared/**","GEMINI.md","tsconfig.json","package.json", "openapi.config.js" ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true
+    // Patterns can also be specified in .repomixignore
+    // "customPatterns": [
+    //   "additional-folder",
+    //   "**/*.log"
+    // ],
+  },
+  "security": {
+    "enableSecurityCheck": true
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  }
+}

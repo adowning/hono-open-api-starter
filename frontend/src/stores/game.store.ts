@@ -35,7 +35,6 @@ export const useGameStore = defineStore('game', () => {
                 const uniqueGames = response.data.reduce<Game[]>(
                     (acc, game) => {
                         if (!acc.some((g) => g.id === game.id)) {
-                            game.developer = game.developer.toLowerCase()
                             acc.push({
                                 ...game,
                                 // Ensure all required fields are present

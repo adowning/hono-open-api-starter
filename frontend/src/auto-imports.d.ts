@@ -6,6 +6,7 @@
 // biome-ignore lint: disable
 export {}
 declare global {
+  const DEFAULT_MEDIA: typeof import('./composables/useGameImageLoader')['DEFAULT_MEDIA']
   const EffectScope: typeof import('vue')['EffectScope']
   const acceptHMRUpdate: typeof import('pinia')['acceptHMRUpdate']
   const computed: typeof import('vue')['computed']
@@ -78,6 +79,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useDepositStore: typeof import('./stores/deposit.store')['useDepositStore']
   const useEventManager: typeof import('./composables/EventManager')['useEventManager']
+  const useGameImageLoader: typeof import('./composables/useGameImageLoader')['useGameImageLoader']
   const useGameSpinStore: typeof import('./stores/gamespin.store')['useGameSpinStore']
   const useGameStore: typeof import('./stores/game.store')['useGameStore']
   const useId: typeof import('vue')['useId']
@@ -108,6 +110,12 @@ declare global {
   // @ts-ignore
   export type { AnimationInstance } from './composables/useAnimationLayer'
   import('./composables/useAnimationLayer')
+  // @ts-ignore
+  export type { ImageState, ImageDimensions } from './composables/useGameImageLoader'
+  import('./composables/useGameImageLoader')
+  // @ts-ignore
+  export type { PreloadState, ImageAsset, JsonAsset, GenericAsset, PreloadManifest } from './composables/useImagePreloader'
+  import('./composables/useImagePreloader')
 }
 
 // for vue template auto import
@@ -115,6 +123,7 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
+    readonly DEFAULT_MEDIA: UnwrapRef<typeof import('./composables/useGameImageLoader')['DEFAULT_MEDIA']>
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
     readonly acceptHMRUpdate: UnwrapRef<typeof import('pinia')['acceptHMRUpdate']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
@@ -187,6 +196,7 @@ declare module 'vue' {
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
     readonly useDepositStore: UnwrapRef<typeof import('./stores/deposit.store')['useDepositStore']>
     readonly useEventManager: UnwrapRef<typeof import('./composables/EventManager')['useEventManager']>
+    readonly useGameImageLoader: UnwrapRef<typeof import('./composables/useGameImageLoader')['useGameImageLoader']>
     readonly useGameSpinStore: UnwrapRef<typeof import('./stores/gamespin.store')['useGameSpinStore']>
     readonly useGameStore: UnwrapRef<typeof import('./stores/game.store')['useGameStore']>
     readonly useId: UnwrapRef<typeof import('vue')['useId']>

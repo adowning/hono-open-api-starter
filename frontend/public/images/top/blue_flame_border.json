@@ -1,0 +1,172 @@
+{"frames": [
+
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow1",
+	"frame": {"x":0,"y":0,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow2",
+	"frame": {"x":348,"y":116,"w":118,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":118,"h":116},
+	"sourceSize": {"w":118,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow3",
+	"frame": {"x":116,"y":232,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow4",
+	"frame": {"x":232,"y":350,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow5",
+	"frame": {"x":348,"y":350,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow6",
+	"frame": {"x":0,"y":466,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow7",
+	"frame": {"x":232,"y":468,"w":118,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":118,"h":118},
+	"sourceSize": {"w":118,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow8",
+	"frame": {"x":116,"y":466,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow9",
+	"frame": {"x":350,"y":468,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow10",
+	"frame": {"x":232,"y":232,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow11",
+	"frame": {"x":348,"y":232,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow12",
+	"frame": {"x":0,"y":348,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow13",
+	"frame": {"x":116,"y":348,"w":116,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":118},
+	"sourceSize": {"w":116,"h":118}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow14",
+	"frame": {"x":116,"y":0,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow15",
+	"frame": {"x":232,"y":0,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow16",
+	"frame": {"x":348,"y":0,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow17",
+	"frame": {"x":0,"y":116,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow18",
+	"frame": {"x":116,"y":116,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow19",
+	"frame": {"x":232,"y":116,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+},
+{
+	"filename": "sparkle-lobby___bonusTab___animations___vaults___idleVaults___assets___glow20",
+	"frame": {"x":0,"y":232,"w":116,"h":116},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":116},
+	"sourceSize": {"w":116,"h":116}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "blue_flame_border.png",
+	"format": "RGBA8888",
+	"size": {"w":466,"h":586},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6933096078efd7156a972c45a072e394:5d4791ef6d43574b9740af2f86b3c704:71fdba9402fe3f81591e0ea601aa748a$"
+}
+}

@@ -3,12 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Lock viewport horizontally and prevent horizontal pan/zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>Cashflow Casino</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <style>
+      /* Prevent any horizontal drag/scroll and clamp layout to viewport width */
+      html, body, #app {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+        overflow-x: hidden;             /* hide any accidental overflow */
+        overscroll-behavior-x: contain; /* stop rubber-banding horizontally */
+        touch-action: pan-y;            /* disable horizontal pan gestures */
+      }
+      body {
+        position: relative;
+      }
+      #app {
+        position: relative;
+      }
+    </style>
   </head>
   <body style="background: black">
     <div id="app"></div>

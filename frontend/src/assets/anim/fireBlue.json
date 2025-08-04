@@ -1,6 +1,7 @@
 {
-    "frames": {
-        "Logo 7 instance 10000": {
+    "frames": [
+        {
+            "filename": "Logo 7 instance 10000",
             "frame": {
                 "x": 0,
                 "y": 0,
@@ -20,7 +21,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10001": {
+        {
+            "filename": "Logo 7 instance 10001",
             "frame": {
                 "x": 0,
                 "y": 82,
@@ -40,7 +42,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10002": {
+        {
+            "filename": "Logo 7 instance 10002",
             "frame": {
                 "x": 0,
                 "y": 164,
@@ -60,7 +63,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10003": {
+        {
+            "filename": "Logo 7 instance 10003",
             "frame": {
                 "x": 0,
                 "y": 246,
@@ -80,7 +84,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10004": {
+        {
+            "filename": "Logo 7 instance 10004",
             "frame": {
                 "x": 0,
                 "y": 328,
@@ -100,7 +105,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10005": {
+        {
+            "filename": "Logo 7 instance 10005",
             "frame": {
                 "x": 0,
                 "y": 410,
@@ -120,7 +126,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10006": {
+        {
+            "filename": "Logo 7 instance 10006",
             "frame": {
                 "x": 83,
                 "y": 0,
@@ -140,7 +147,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10007": {
+        {
+            "filename": "Logo 7 instance 10007",
             "frame": {
                 "x": 83,
                 "y": 82,
@@ -160,7 +168,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10008": {
+        {
+            "filename": "Logo 7 instance 10008",
             "frame": {
                 "x": 83,
                 "y": 164,
@@ -180,7 +189,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10009": {
+        {
+            "filename": "Logo 7 instance 10009",
             "frame": {
                 "x": 83,
                 "y": 246,
@@ -200,7 +210,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10010": {
+        {
+            "filename": "Logo 7 instance 10010",
             "frame": {
                 "x": 83,
                 "y": 328,
@@ -220,7 +231,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10011": {
+        {
+            "filename": "Logo 7 instance 10011",
             "frame": {
                 "x": 83,
                 "y": 410,
@@ -240,7 +252,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10012": {
+        {
+            "filename": "Logo 7 instance 10012",
             "frame": {
                 "x": 166,
                 "y": 0,
@@ -260,7 +273,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10013": {
+        {
+            "filename": "Logo 7 instance 10013",
             "frame": {
                 "x": 166,
                 "y": 82,
@@ -280,7 +294,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10014": {
+        {
+            "filename": "Logo 7 instance 10014",
             "frame": {
                 "x": 166,
                 "y": 164,
@@ -300,7 +315,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10015": {
+        {
+            "filename": "Logo 7 instance 10015",
             "frame": {
                 "x": 166,
                 "y": 246,
@@ -320,7 +336,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10016": {
+        {
+            "filename": "Logo 7 instance 10016",
             "frame": {
                 "x": 166,
                 "y": 328,
@@ -340,7 +357,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10017": {
+        {
+            "filename": "Logo 7 instance 10017",
             "frame": {
                 "x": 166,
                 "y": 410,
@@ -360,7 +378,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10018": {
+        {
+            "filename": "Logo 7 instance 10018",
             "frame": {
                 "x": 249,
                 "y": 0,
@@ -380,7 +399,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10019": {
+        {
+            "filename": "Logo 7 instance 10019",
             "frame": {
                 "x": 249,
                 "y": 82,
@@ -400,7 +420,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10020": {
+        {
+            "filename": "Logo 7 instance 10020",
             "frame": {
                 "x": 249,
                 "y": 164,
@@ -420,7 +441,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10021": {
+        {
+            "filename": "Logo 7 instance 10021",
             "frame": {
                 "x": 249,
                 "y": 246,
@@ -440,7 +462,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10022": {
+        {
+            "filename": "Logo 7 instance 10022",
             "frame": {
                 "x": 249,
                 "y": 328,
@@ -460,7 +483,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10023": {
+        {
+            "filename": "Logo 7 instance 10023",
             "frame": {
                 "x": 249,
                 "y": 410,
@@ -480,7 +504,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10024": {
+        {
+            "filename": "Logo 7 instance 10024",
             "frame": {
                 "x": 332,
                 "y": 0,
@@ -500,7 +525,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10025": {
+        {
+            "filename": "Logo 7 instance 10025",
             "frame": {
                 "x": 332,
                 "y": 82,
@@ -520,7 +546,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10026": {
+        {
+            "filename": "Logo 7 instance 10026",
             "frame": {
                 "x": 332,
                 "y": 164,
@@ -540,7 +567,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10027": {
+        {
+            "filename": "Logo 7 instance 10027",
             "frame": {
                 "x": 332,
                 "y": 246,
@@ -560,7 +588,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10028": {
+        {
+            "filename": "Logo 7 instance 10028",
             "frame": {
                 "x": 332,
                 "y": 328,
@@ -580,7 +609,8 @@
                 "h": 82
             }
         },
-        "Logo 7 instance 10029": {
+        {
+            "filename": "Logo 7 instance 10029",
             "frame": {
                 "x": 332,
                 "y": 410,
@@ -600,16 +630,5 @@
                 "h": 82
             }
         }
-    },
-    "meta": {
-        "app": "Adobe Animate",
-        "version": "20.5.1.31044",
-        "image": "fireBlue.png",
-        "format": "RGBA8888",
-        "size": {
-            "w": 512,
-            "h": 512
-        },
-        "scale": "1"
-    }
+    ]
 }

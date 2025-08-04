@@ -211,8 +211,8 @@ class UserWsBridge {
       }, timeoutMs)
 
       // Wrap resolve to 'unknown' to align with inflight map signature
-      const wrappedResolve = (value: TResult) => resolve(value as unknown)
-      this.inflight.set(id, { resolve: wrappedResolve, reject, timer })
+      const wrappedResolve = (value: unknown) => resolve(value as TResult)
+      this.inflight.set(id, { resolve: wrappedResolve as (value: unknown) => void, reject, timer })
       try {
         this.socket.send(JSON.stringify(payload))
       } catch (err) {

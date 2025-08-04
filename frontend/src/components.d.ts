@@ -17,8 +17,8 @@ declare module 'vue' {
     ChatMessageList: typeof import('./components/chat/ChatMessageList.vue')['default']
     ChatPanel: typeof import('./components/chat/ChatPanel.vue')['default']
     CloseButton: typeof import('./components/CloseButton.vue')['default']
-    copy: typeof import('./components/SettingsView copy.vue')['default']
     CPanel: typeof import('./components/chat/CPanel.vue')['default']
+    FilterBar: typeof import('./components/FilterBar.vue')['default']
     FlickeringGrid: typeof import('./components/ui/flickering-grid/FlickeringGrid.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     FormCheckRadio: typeof import('./components/FormCheckRadio.vue')['default']
@@ -41,7 +41,6 @@ declare module 'vue' {
     LoginForm: typeof import('./components/auth/LoginForm.vue')['default']
     Logo: typeof import('./components/Logo.vue')['default']
     MessageList: typeof import('./components/chat/MessageList.vue')['default']
-    MyPanel: typeof import('./components/auth/AuthPanel.vue')['default']
     Notification: typeof import('./components/common/Notification.vue')['default']
     OverlayLayer: typeof import('./components/OverlayLayer.vue')['default']
     PlayerAvatar: typeof import('./components/PlayerAvatar.vue')['default']
@@ -56,7 +55,5 @@ declare module 'vue' {
     SpriteAnimator: typeof import('./components/SpriteAnimator.vue')['default']
     StarBurst: typeof import('./components/StarBurst.vue')['default']
     Starfield: typeof import('./components/Starfield.vue')['default']
-    TheWelcome: typeof import('./components/TheWelcome.vue')['default']
-    WelcomeItem: typeof import('./components/WelcomeItem.vue')['default']
   }
 }

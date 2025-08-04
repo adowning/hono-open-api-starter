@@ -3,12 +3,12 @@ import router from '@/router'
 import {
     getApiAuthMe,
     postApiAuthLogin,
+    postApiAuthSignup,
     type User,
 } from '@/sdk/generated'
 import { client } from '@/sdk/generated/client.gen'
 import { webSocketService } from '@/services/websocket.service'
 import { userWsBridge } from '@/services/ws.user'
-import { notificationsWsBridge } from '@/services/ws.notifications'
 import { notificationsWsBridge } from '@/services/ws.notifications'
 import { pinia } from '@/stores'
 import { defineStore } from 'pinia'
@@ -290,7 +290,6 @@ export const useAuthStore = defineStore('auth', () => {
                 vipStore.setVipInfo(response.data.vipInfo)
                 depositStore.setDepositInfo({
                     wallet: response.data.wallet as any,
-                    operator: response.data.operator as any,
                 })
                 return response.data
             }
@@ -307,7 +306,6 @@ export const useAuthStore = defineStore('auth', () => {
                         vipStore.setVipInfo(response.data.vipInfo)
                         depositStore.setDepositInfo({
                             wallet: response.data.wallet as any,
-                            operator: response.data.operator as any,
                         })
                         return response.data
                     }

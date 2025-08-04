@@ -16,5 +16,5 @@ export const createClientConfig: CreateClientConfig = (config: any) => ({
     },
     auth: () =>
         useAuthStore().accessToken || '',
-    baseUrl: API_BASE_URL,
+    baseURL: API_BASE_URL,
 })

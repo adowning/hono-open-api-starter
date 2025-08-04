@@ -5,7 +5,7 @@ import { useGameStore } from '@/stores/game.store'
 import { useGameSpinStore } from '@/stores/gamespin.store'
 import { useVipStore } from '@/stores/vip.store'
 import { useMutation } from '@tanstack/vue-query'
-import { postAuthLogin } from './generated/sdk.gen'
+import { postApiAuthLogin } from './generated/sdk.gen'
 
 type LoginRequest = {
     username: string
@@ -33,7 +33,7 @@ export function useLogin() {
         mutationFn: async (
             credentials: LoginRequest
         ): Promise<LoginResponse> => {
-            const response: any = await postAuthLogin({
+            const response: any = await postApiAuthLogin({
                 body: credentials,
             })
             if (!response?.ok) {
@@ -49,14 +49,14 @@ export function useLogin() {
             console.log(data)
             if (data) {
                 // Set the core auth data immediately
-                authStore.setAccessToken(data.accessToken)
+                authStore.accessToken = data.accessToken
 
                 // Now, fetch supplemental user and game data concurrently
                 await Promise.all([
                     authStore.getSession(),
                     gameStore.fetchAllGames(),
                     gameStore.fetchAllGameCategories(),
-                    gameSpinStore.getTopWins(),
+                    gameSpinStore.fetchTopWins(),
                     vipStore.fetchAllVipLevels(),
                 ])
             }

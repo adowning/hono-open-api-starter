@@ -27,19 +27,21 @@ export const login = createRoute({
             // Require password AND at least one identifier (username or uid)
             z.object({
                 password: z.string(),
-            }).and(
-                z.union([
-                    z.object({ username: z.string(), uid: z.undefined().optional() }),
-                    z.object({ uid: z.string(), username: z.undefined().optional() }),
-                ])
-            ),
+                username: z.string(),
+            }),
+            // }).and(
+            //     z.union([
+            //         z.object({ username: z.string(), uid: z.undefined().optional() }),
+            //         z.object({ uid: z.string(), username: z.undefined().optional() }),
+            //     ]).openapi('LoginRequest')
+            // ),
             'User credentials for login: provide password and either username or uid'
         ),
     },
     tags,
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
-            userResponseSchema,
+            userResponseSchema.openapi('User'),
             'The user object and sets an access token cookie.'
         ),
         [HttpStatusCodes.BAD_REQUEST]: jsonContent(
@@ -68,7 +70,7 @@ export const signup = createRoute({
     tags,
     responses: {
         [HttpStatusCodes.CREATED]: jsonContent(
-            userResponseSchema,
+            userResponseSchema.openapi('User'),
             'The created user object and sets an access token cookie.'
         ),
         [HttpStatusCodes.BAD_REQUEST]: jsonContent(
@@ -95,6 +97,7 @@ export const sessionRoute = createRoute({
                 gameSession: selectGameSession.optional().openapi('GameSession'),
                 wallet: selectWalletSchema.openapi('Wallet'),
                 vipInfo: selectVipInfoSchema.openapi('VipInfo'),
+                operator: selectVipInfoSchema.openapi('Operator'),
             }),
             'The current user session'
         ),
@@ -127,11 +130,11 @@ const refreshRoute = createRoute({
     summary: 'Mint a new access token using the refresh cookie',
     responses: {
         [HttpStatusCodes.OK]: jsonContent(
-            z.object({ accessToken: z.string() }),
+            z.object({ accessToken: z.string() }).openapi('AccessToken'),
             'New access token'
         ),
         [HttpStatusCodes.UNAUTHORIZED]: jsonContent(
-            z.object({ error: z.string() }),
+            z.object({ error: z.string() }).openapi('refreshToken'),
             'Invalid or expired refresh token'
         ),
     },

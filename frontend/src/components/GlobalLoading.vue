@@ -1,12 +1,16 @@
 <template>
   <teleport to="body">
-    <Transition name="fade">
-      <div v-if="isVisible" ref="loadingElement" class="loading-container" data-testid="global-loading"
-        :style="{ zIndex: 9999 }">
+    <!-- Use named transition to control timings via CSS below -->
+    <Transition name="global-loading-fade" appear>
+      <div
+        v-if="isVisible"
+        ref="loadingElement"
+        class="loading-container"
+        data-testid="global-loading"
+        :style="{ zIndex: 9999 }"
+      >
         <div class="loading-content">
           <img src="/images/logo.png" alt="Loading..." class="w-48 h-auto mb-8 animate-pulse">
-          <!-- <SpriteAnimator :animation-data="LogoJson" image-url="/images/bottom/logo_shine_trans.png" :width="80"
-        :height="80" :frame-count="LogoJson.frames.length" :initial-delay-max="5" :loop-delay="7" />-->
         </div>
         <img class="w-16 h-16" src="/images/loading.svg" alt="Loading spinner">
       </div>
@@ -75,20 +79,25 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity 140ms ease-out; /* ensures container has baseline transition too */
   z-index: 9999;
   pointer-events: auto;
   /* Ensure it's above everything except modals */
   isolation: isolate;
 }
 
-/* Update transition styles */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+/* Quick fade-in, slower fade-out */
+.global-loading-fade-enter-active {
+  transition: opacity 140ms ease-out;
+  will-change: opacity;
 }
-
-.fade-enter-from,
-.fade-leave-to {
+.global-loading-fade-leave-active {
+  /* Start fading sooner with a quicker start, then ease out */
+  transition: opacity 220ms cubic-bezier(0.2, 0.0, 0.2, 1);
+  will-change: opacity;
+}
+.global-loading-fade-enter-from,
+.global-loading-fade-leave-to {
   opacity: 0;
 }
 

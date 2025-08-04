@@ -156,7 +156,6 @@ onMounted(async () => {
     // if (!vipStore.getVipLevels.length) {
       // await vipStore.fetchAllVipLevels()
     // }
-    console.log(vipStore.getVipLevels)
     // Initialize XP display
     const result = vipStore.getPercentOfCurrentLevel()
     if (result) {
@@ -185,7 +184,7 @@ onMounted(async () => {
         :class="{ glow: sparkle }">
         <div class="absolute inset-[3px] bg-cover bg-center rounded-full z-999 "
           style=" z-index: 9999; background-size: cover "
-          :style="`background-image: url('/images/avatars/${currentUser.avatar}')`" />
+          :style="`background-image: url('/images/avatars/${currentUser.avatar_url}')`" />
         <AnimatedCircularProgressBar :gaugePrimaryColor="'red'" :duration="3" :gaugeSecondaryColor="'yellow'"
           :gaugeWidth="10" :max="100" :showPercentage="false" :circle-stroke-width="10" :min="0" :value="currentXp / 2"
           class="absolute inset-[-2px] w-[calc(100%+4px)] h-[calc(100%+4px)] z-[1] -rotate-70" />

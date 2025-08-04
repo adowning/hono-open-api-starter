@@ -36,6 +36,7 @@ Your operational behavior is the most critical aspect of our collaboration.
 
 - **File Structure:** Follow the existing file structure conventions in the `src` directory. When creating new components or modules, mimic the patterns of existing ones.
 
+
 ## 4. Project Commands
 
 These are the standard commands for this project. Use them as needed.

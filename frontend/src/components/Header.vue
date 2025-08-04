@@ -120,8 +120,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <!-- <div class=" animate__animated animate__slideInDown flex"> -->
-  <div ref="target" class="tbar flex flex-row justify-stretch animate__animated animate__slideInDown animate__delay-2s">
+  <!-- Remove entrance slide to avoid whole page dropping in -->
+    <div ref="target" class="tbar flex flex-row justify-stretch">
     <div class="w-100 flex flex-row justify-start">
       <!-- <PlayerAvatar @click="router.push('/client/profile')" style="z-index: 99; max-height: 60px" /> -->
       <PlayerAvatar style="z-index: 99; width: 55px" current-exp="1000" :sparkle="sparkle" :max-exp="100" />

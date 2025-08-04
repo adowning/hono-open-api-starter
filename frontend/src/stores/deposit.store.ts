@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { Operator, Wallet } from '@/sdk/generated'
+import { Operator } from '@/sdk/generated/operator.gen'
+import { Wallet } from '@/sdk/generated'
 
 // type Operator = InferResponseType<typeof api.operators.$get>[0]
 // export type Wallet = InferResponseType<typeof api.me.$get>['wallet']
@@ -11,7 +12,7 @@ export const useDepositStore = defineStore('deposit', () => {
     const operator = ref<Operator>()
 
     // Actions
-    function setDepositInfo(data: { wallet: Wallet; operator: Operator }) {
+    function setDepositInfo(data: { wallet: Wallet; operator?: Operator }) {
         wallet.value = data.wallet
         operator.value = data.operator
     }

@@ -18,7 +18,10 @@ const props = defineProps<{
   imageUrl: string;
   width: number;
   height: number;
+  /** Deprecated: use framerate instead (same meaning, fps). */
   frameRate?: number;
+  /** Frames per second. If omitted, falls back to frameRate, then to 60. */
+  framerate?: number;
   initialDelayMax?: number; // in seconds
   loopDelay?: number; // in seconds
 }>();
@@ -84,7 +87,9 @@ const drawFrame = (index: number) => {
 
 
 const animate = (timestamp: number) => {
-  const frameInterval = 1000 / (props.frameRate || 60);
+  // Prefer new 'framerate', then fallback to deprecated 'frameRate', else 60fps
+  const fps = props.framerate ?? props.frameRate ?? 60;
+  const frameInterval = 1000 / (fps > 0 ? fps : 60);
   if (!lastFrameTime) lastFrameTime = timestamp;
   const deltaTime = timestamp - lastFrameTime;
 
@@ -136,7 +141,13 @@ onUnmounted(() => {
   clearTimeout(loopTimeoutId);
 });
 
-watch(() => [props.animationData, props.imageUrl], () => {
+watch(() => [props.animationData, props.imageUrl, props.framerate, props.frameRate, props.width, props.height], () => {
+  // If sheet or sizing or timing changes, restart cycle to reflect new params
   image.src = props.imageUrl; // onload will handle the rest
+  // Restart the animation loop so new fps/size takes effect cleanly
+  cancelAnimationFrame(animationFrameId);
+  clearTimeout(startTimeoutId);
+  clearTimeout(loopTimeoutId);
+  startAnimationCycle();
 });
 </script>

@@ -7,6 +7,7 @@ import gameSpin from '#/routes/gamespins/gamespins.router'
 import index from '#/routes/index.route'
 import redtiger from '#/routes/redtiger/redtiger.router'
 import updates from '#/routes/updates/updates.router'
+import wallet from '#/routes/wallet/wallet.router'
 import users from '#/routes/user/user.router'
 import vip from '#/routes/vip/vip.router'
 import { serveStatic } from 'hono/bun'
@@ -22,6 +23,7 @@ const app = createApp()
 const allowedOrigins = new Set<string>([
     'http://localhost',
     'http://localhost:5173',
+    'http://localhost:5174',
     'http://localhost:9999',
     'http://localhost:3001',
     'http://localhost:3000',
@@ -30,32 +32,33 @@ const allowedOrigins = new Set<string>([
     'https://api.cashflowcasino.com',
 ])
 
-app.use('*', async (c, next) => {
-    const origin = c.req.header('Origin') || ''
-    const isAllowed = allowedOrigins.has(origin)
-
-    // Apply CORS headers reflecting the incoming allowed origin
-    if (isAllowed) {
-        c.header('Access-Control-Allow-Origin', origin)
-        c.header('Vary', 'Origin')
-        c.header('Access-Control-Allow-Credentials', 'true')
-        c.header(
-            'Access-Control-Allow-Headers',
-            // Include headers used by the frontend during refresh/token flows
-            'Authorization, Content-Type, X-Requested-With, Upgrade-Insecure-Requests, Cache-Control, Pragma'
-        )
-        c.header('Access-Control-Expose-Headers', 'Content-Length, X-Kuma-Revision')
-        c.header('Access-Control-Max-Age', '600')
-        c.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS')
-    }
-
-    // Handle preflight
-    if (c.req.method === 'OPTIONS') {
-        return c.body(null, 204)
-    }
-
-    return next()
-})
+app.use('*', cors({
+    origin: (origin,) => {
+        if (allowedOrigins.has(origin)) {
+            return origin
+        }
+        return '' // Block by returning an empty string
+    },
+    allowMethods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowHeaders: [
+        'Authorization',
+        'Content-Type',
+        'X-Requested-With',
+        'Upgrade-Insecure-Requests',
+        'Cache-Control',
+        'Pragma'
+    ],
+    exposeHeaders: [
+        'Content-Length',
+        'X-Kuma-Revision'
+    ],
+    credentials: true,
+    maxAge: 600,
+    // preflight: (c) => {
+    //     // Hono's cors middleware handles the 204 response for OPTIONS requests automatically
+    //     return c.text('', 204)
+    // }
+}))
 configureOpenAPI(app)
 
 app.use('/*', serveStatic({ root: './public' }))
@@ -68,7 +71,8 @@ const routes = [
     redtiger,
     game,
     vip,
-    gameSpin
+    gameSpin,
+    wallet,
 ] as const
 
 routes.forEach((route) => {

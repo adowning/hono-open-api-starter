@@ -9,15 +9,28 @@ const start = async () => {
   const app = createApp(App)
 
   // Install Pinia and Router BEFORE mounting so components using stores can render
+  let piniaInstalled = false
   try {
-    const [{ plugin: pinia }, { default: router }] = await Promise.all([
+    const [{ plugin: piniaPlugin }, { default: router }] = await Promise.all([
       import('./stores'),
       import('./router'),
     ])
-    app.use(pinia)
+    app.use(piniaPlugin)
     app.use(router)
+    piniaInstalled = true
   } catch (e) {
     console.error('Failed to install core plugins (pinia/router):', e)
+  }
+
+  // Set GlobalLoading splash flag BEFORE mounting (ensures overlay is visible on hard refresh)
+  try {
+    if (piniaInstalled) {
+      const { useAppStore } = await import('./stores/app.store')
+      const appStore = useAppStore()
+      appStore.globalLoading = true
+    }
+  } catch (e) {
+    console.error('Failed to prime global loading flag before mount:', e)
   }
 
   // Mount ASAP after core plugins

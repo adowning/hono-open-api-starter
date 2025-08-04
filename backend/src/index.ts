@@ -7,7 +7,7 @@ import app from './app'
 import db from './db'
 import { authSessions, users } from './db/schema'
 import env from './env'
-import { decrypt, lzwDecode, rc42, rc4Api, s } from './lzw'
+import { decrypt, lzwDecode, } from './utils/lzw'
 import { websocketHandler } from './routes/websocket/websocket.handler'
 
 

@@ -95,7 +95,7 @@ onMounted(() => {
 
 <template>
   <div
-    style="width: 100vw; max-width: 600px; height: 28vh"
+    style="width: 100vw; max-width: 600px; height: 22vh"
     class="justify-start items-start flex grow-0"
   >
     <div v-if="height > 700" id="AdCarousel" class="adcarousel max-w-[700px]">

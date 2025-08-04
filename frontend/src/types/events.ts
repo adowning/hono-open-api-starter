@@ -1,5 +1,6 @@
 // PATH: frontend/src/types/events.ts
-import { User, Operator, Wallet, VipInfo } from '@/sdk/generated'
+import { User, Wallet, VipInfo } from '@/sdk/generated'
+import { Operator } from '@/sdk/generated/operator.gen'
 
 /**
  * Defines the payload structure for the 'balance:update' event.

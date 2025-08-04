@@ -35,7 +35,6 @@ export const useVipStore = defineStore(
         const getVipInfo = computed(() => vipInfo.value)
         const getVipLevelsComputed = computed(() => vipLevels.value)
         const setVipInfo = (info: VipInfo) => {
-            console.log(info)
             vipInfo.value = info
             if (info) {
                 totalXp.value = info.betExp || 0 // Update totalXp based on vipInfo
