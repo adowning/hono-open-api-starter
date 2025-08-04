@@ -79,6 +79,45 @@ onMounted(() => {
       onMessage: handleMessageFromGame,
     });
 
+    // Ensure we send SET_AUTH_TOKEN regardless of loader ready timing.
+    // 1) Proactively send INIT_GAME immediately (contains authToken via props.launchOptions.launch_options)
+    try {
+      const cfg = (props.launchOptions as any)?.launch_options ?? {}
+      if (launcher && Object.keys(cfg).length > 0) {
+        launcher.sendMessage({
+          type: 'INIT_GAME',
+          config: cfg,
+        })
+      }
+    } catch (e) {
+      console.warn('[GameLoader] proactive INIT_GAME send failed', e)
+    }
+
+    // 2) Also attach a short-lived retry to send SET_AUTH_TOKEN after a brief delay,
+    // in case loader did not yet finish initializing postMessage listeners.
+    try {
+      const cfg = (props.launchOptions as any)?.launch_options ?? {}
+      const payload = cfg?.authToken || cfg?.token ? {
+        type: 'SET_AUTH_TOKEN',
+        token: cfg.authToken ?? cfg.token,
+        gameSessionId: cfg.gameSessionId,
+        userId: cfg.userId,
+      } : null
+
+      if (payload && launcher) {
+        // send once after 200ms
+        setTimeout(() => {
+          try { launcher?.sendMessage(payload) } catch {}
+        }, 200)
+        // send again after 1000ms as a backup
+        setTimeout(() => {
+          try { launcher?.sendMessage(payload) } catch {}
+        }, 1000)
+      }
+    } catch (e) {
+      console.warn('[GameLoader] proactive SET_AUTH_TOKEN send failed', e)
+    }
+
     launcher.launch(props.launchOptions);
   }
 });

@@ -96,7 +96,7 @@ onMounted(() => {
 <template>
   <div
     style="width: 100vw; max-width: 600px; height: 22vh"
-    class="justify-start items-start flex grow-0"
+    class="justify-start items-start flex grow-0 mb-12"
   >
     <div v-if="height > 700" id="AdCarousel" class="adcarousel max-w-[700px]">
       <div ref="emblaRef" class="embla">
@@ -151,7 +151,7 @@ onMounted(() => {
     justify-content: center;
 
     /* Keep enough room for the dock */
-    min-height: 220px;
+    min-height: 180px;
     overflow: hidden;
   }
 

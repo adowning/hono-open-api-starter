@@ -154,7 +154,7 @@
   .filter-item {
     cursor: pointer;
     width: 85px;
-    height: 85px;
+    height: px;
     display: flex;
     justify-content: center;
     align-items: center;

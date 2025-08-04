@@ -1,15 +1,15 @@
 import configureOpenAPI from '#/lib/configure-open-api'
 import createApp from '#/lib/create-app'
-import auth from '#/routes/auth/auth.router'
-import game from '#/routes/games/games.router'
-import gameService from '#/routes/gameService.route'
-import gameSpin from '#/routes/gamespins/gamespins.router'
-import index from '#/routes/index.route'
-import redtiger from '#/routes/redtiger/redtiger.router'
-import updates from '#/routes/updates/updates.router'
-import wallet from '#/routes/wallet/wallet.router'
-import users from '#/routes/user/user.router'
-import vip from '#/routes/vip/vip.router'
+import auth from '#/modules/auth/auth.router'
+import game from '#/modules/games/games.router'
+import gameService from '#/modules/gameService.route'
+import gameSpin from '#/modules/gamespins/gamespins.router'
+import index from '#/modules/index.route'
+import redtiger from '#/modules/redtiger/redtiger.router'
+import updates from '#/modules/updates/updates.router'
+import wallet from '#/modules/wallet/wallet.router'
+import users from '#/modules/user/user.router'
+import vip from '#/modules/vip/vip.router'
 import { serveStatic } from 'hono/bun'
 import { cors } from 'hono/cors'
 
@@ -63,7 +63,7 @@ configureOpenAPI(app)
 
 app.use('/*', serveStatic({ root: './public' }))
 
-const routes = [
+const modules = [
     auth,
     index,
     updates,
@@ -75,7 +75,7 @@ const routes = [
     wallet,
 ] as const
 
-routes.forEach((route) => {
+modules.forEach((route) => {
     app.route('/api/', route)
 })
 
@@ -83,6 +83,6 @@ app.route('/gs2c/ge/v3/gameService/', gameService)
 
 
 
-export type AppType = (typeof routes)[number]
+export type AppType = (typeof modules)[number]
 
 export default app

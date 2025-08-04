@@ -35,90 +35,331 @@
   </head>
   <body>
     <img class="loading-icon" src="https://placehold.co/80x80/000000/ffffff?text=..." />
-<script type="text/javascript">
-			window.com = window.com || {};
-			window.com.casino = window.com.casino || {};
-			com.casino.cdn = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/';
-			com.casino.baseCdn = 'https://cdn-eu.cloudedge.info/all/games/';
-			com.casino.barsPath = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/';
-			com.casino.bridgePath = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/';
-		</script>
-    <script type="text/javascript" crossorigin="" src="https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/bridge.min.js?t=1753092943667"></script>
-    <!-- <script id="bridgeScript" type="text/javascript" crossorigin="">
 
-    </script> -->
+    <script>
+      // Register SW early so it controls fetch/XHR within this directory scope
+      (function registerSW(){
+        if (!('serviceWorker' in navigator)) return;
+        try {
+          const scope = location.pathname.replace(/[^/]+$/, ''); // current directory as scope
+          // Only register for /games/redtiger/ path
+          if (!/\/games\/redtiger\/$/i.test(scope)) {
+            // If the URL does not end with /games/redtiger/, compute directory anyway
+          }
+          navigator.serviceWorker.register('./sw.js', { scope })
+            .then(reg => {
+              // Optional: Immediately claim clients on update
+              if (reg && reg.active) {
+                // nop
+              }
+            })
+            .catch(err => console.warn('[Loader] SW register failed', err));
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
 
     <script type="text/javascript">
+      // 1) Notify parent we are ready to receive config and tokens
+      (function notifyReady() {
+        try { window.parent && window.parent.postMessage('RTG_LOADER_READY', '*'); } catch (e) {}
+      })();
 
-
-
-     (function () {
-      'use strict';
-            const urlParams = new URLSearchParams(window.location.search);
-          console.log(urlParams)
-            if (com.casino.debug) com.casino.debug.onlyGaff = true;
-
-      var get = com.casino.utils.getURLParams();
-      const gameSessionId = 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJvd3RpYTM1NTh2ZTBsMGVhb2xvcTN0bTAiLCJpYXQiOjE3NTMxNzA0MjAsImV4cCI6MTc1Mzc3NTIyMH0.x5ObeN1W7TdOLeCzsJmxDeeAsQ1rj2qGCj0t9-SYfGI'
-      com.casino.preconfig = {
-        bridge: {
-			postParams: [],
-                    feedUrl: 'https://feed-rtg.redtiger.com',
-          provider: 'kronos',
-          operator: 'redtiger',
-          timestamp: '?t=1753092943667',
-                    notifications: {
-                        inRealPlay: true,
-                        inDemoPlay: false,
-                        showUnfinishedWins: true,
-                        showUnfinishedNoWins: false
-                    },
-                    bridgeLaunch: true
-        },
-        server: {
-          rgsApi: 'http://localhost:9999/rpc/spin-data/redtiger/platform' + `/${gameSessionId}/Atlantis/` || `/rpc/spin-data/${localPreconfig.bridge.operator}/platform`,
-          launchParams: {
-            gameId: 'Atlantis'
-          }
-        },
-        game: {
-          namespace: 'com.casino.game',
-          preconfig: {
-            cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
-            delayedBalanceUpdate: false,
-            defaultLang: 'en',
-            splash: true,
-            hideCurrency: get['hideCurrency'] === 'true',
-            disclaimer: '',
-            skin: 'next-name-payouts',
-            skinURL: get['skinURL'],
-            gameType: 'slot',
-                        gameAppId: 'Atlantis',
-                        responsive: true,
-                        addedAnticipation: get['addedAnticipation'] === 'false' ? false : true
-          }
-        },
-        bars: {
-          basePath: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/',
-          options: {
-            historySrc: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../history/',
-            hasGamble: true
-          }
-        },
-        bonusWheel: {
-                    cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
-                    basePath: '../../scenes/bonus-wheels/{skin}/',
-                    skin: get['bonusWheelSkin'] || 'base-wheel',
-                    enabled: true,
-                },
-                analytics: {
-                    gaTrackingIds: ["G-5YV4BNS2LW"]
-                }
+      // 2) Maintain auth/config received from parent via postMessage
+      const LOADER_STATE = {
+        token: null,
+        gameSessionId: null,
+        userId: null,
+        config: {},
       };
 
-      com.casino.bridge.init(com.casino.preconfig);
+      // 3) Always include Authorization and credentials on fetch
+      (function patchFetch() {
+        if (!window.fetch) return;
+        const originalFetch = window.fetch.bind(window);
+        window.fetch = async function patchedFetch(input, init = {}) {
+          try {
+            const headers = new Headers((init && init.headers) || {});
+            if (LOADER_STATE.token && !headers.has('Authorization')) {
+              headers.set('Authorization', `Bearer ${LOADER_STATE.token}`);
+            }
+            const finalInit = {
+              credentials: 'include',
+              mode: 'cors',
+              ...init,
+              headers,
+            };
+            return originalFetch(input, finalInit);
+          } catch (err) {
+            console.error('[Loader] fetch patch error', err);
+            return originalFetch(input, init);
+          }
+        };
+      })();
 
-    })();
+      // 4) If axios is used by embedded game code, ensure withCredentials and Authorization
+      (function patchAxios() {
+        try {
+          if (window.axios) {
+            window.axios.defaults.withCredentials = true;
+            window.axios.interceptors.request.use((config) => {
+              if (!config.headers) config.headers = {};
+              if (LOADER_STATE.token && !config.headers['Authorization']) {
+                config.headers['Authorization'] = `Bearer ${LOADER_STATE.token}`;
+              }
+              config.withCredentials = true;
+              return config;
+            });
+          }
+        } catch (e) {}
+      })();
+
+      // 5) Receive INIT_GAME and SET_AUTH_TOKEN from parent
+      window.addEventListener('message', (event) => {
+        const data = (typeof event.data === 'string') ? safeParse(event.data) : event.data;
+        if (!data) return;
+
+        if (data.type === 'INIT_GAME' && data.config) {
+          LOADER_STATE.config = { ...data.config };
+          if (!LOADER_STATE.token && data.config.authToken) {
+            LOADER_STATE.token = data.config.authToken;
+          }
+          if (data.config.gameSessionId) LOADER_STATE.gameSessionId = data.config.gameSessionId;
+          if (data.config.userId) LOADER_STATE.userId = data.config.userId;
+          console.log('[Loader] INIT_GAME received', { hasToken: !!LOADER_STATE.token });
+        }
+        if (data.type === 'SET_AUTH_TOKEN') {
+          LOADER_STATE.token = data.token || LOADER_STATE.token;
+          LOADER_STATE.gameSessionId = data.gameSessionId || LOADER_STATE.gameSessionId;
+          LOADER_STATE.userId = data.userId || LOADER_STATE.userId;
+          console.log('[Loader] SET_AUTH_TOKEN received', { hasToken: !!LOADER_STATE.token });
+        }
+      });
+
+      function safeParse(str) { try { return JSON.parse(str); } catch { return null; } }
+    </script>
+    <script id="bridgeScript" type="text/javascript" crossorigin=""></script>
+
+    <script type="text/javascript">
+      // Existing vendor bootstrap (kept) — now relies on patched fetch/axios to include auth + cookies.
+
+      window.com = window.com || {};
+      window.com.casino = window.com.casino || {};
+      com.casino.cdn = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/';
+      com.casino.baseCdn = 'https://cdn-eu.cloudedge.info/all/games/';
+      com.casino.barsPath = 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/';
+      <!-- Point the bridgePath to our local controlled directory to ensure dynamic loads use local bridge -->
+      // com.casino.bridgePath = '/games/redtiger/';
+      com.casino.bridgePath ='https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/';
+
+      // BEGIN: Authorization + credentials plumbing for all requests the vendor code performs
+      (function authPlumbing() {
+        // Keep token/config received from parent
+        const LOADER_STATE = (window.__LOADER_STATE__ = window.__LOADER_STATE__ || {
+          token: null,
+          gameSessionId: null,
+          userId: null,
+          config: {},
+        });
+
+        // Helper to extract hostname for selective credentials handling
+        function getHostname(input) {
+          try { return new URL(input, window.location.origin).hostname; } catch { return ''; }
+        }
+
+        // Patch fetch if vendor uses it
+        if (window.fetch && !window.__FETCH_PATCHED__) {
+          const originalFetch = window.fetch.bind(window);
+          window.fetch = async function patchedFetch(input, init = {}) {
+            try {
+              const urlStr = typeof input === 'string' ? input : (input && input.url) || '';
+              const hostname = getHostname(urlStr);
+              const headers = new Headers((init && init.headers) || {});
+              if (LOADER_STATE.token && !headers.has('Authorization')) {
+                headers.set('Authorization', `Bearer ${LOADER_STATE.token}`);
+              }
+              // Avoid credentials for sentry.io (or other telemetry) to satisfy CORS
+              const wantsCredentials = hostname && !/(^|\.)sentry\.io$/i.test(hostname);
+              const finalInit = {
+                credentials: wantsCredentials ? 'include' : 'omit',
+                mode: 'cors',
+                ...init,
+                headers,
+              };
+              return originalFetch(input, finalInit);
+            } catch (err) {
+              console.warn('[Loader] fetch patch error', err);
+              return originalFetch(input, init);
+            }
+          };
+          window.__FETCH_PATCHED__ = true;
+        }
+
+        // Patch axios if present
+        if (window.axios && !window.__AXIOS_PATCHED__) {
+          try {
+            window.axios.defaults.withCredentials = true;
+            window.axios.interceptors.request.use((config) => {
+              if (!config.headers) config.headers = {};
+              if (LOADER_STATE.token && !config.headers['Authorization']) {
+                config.headers['Authorization'] = `Bearer ${LOADER_STATE.token}`;
+              }
+              const hostname = getHostname(config.url || '');
+              config.withCredentials = hostname ? !/(^|\.)sentry\.io$/i.test(hostname) : true;
+              return config;
+            });
+            window.__AXIOS_PATCHED__ = true;
+          } catch (e) {
+            console.warn('[Loader] axios patch failed', e);
+          }
+        }
+
+        // Listen for INIT_GAME and SET_AUTH_TOKEN from parent to populate token/config
+        if (!window.__TOKEN_LISTENER__) {
+          window.addEventListener('message', (event) => {
+            const data = (typeof event.data === 'string') ? (function safeParse(s){try{return JSON.parse(s);}catch{return null;}})(event.data) : event.data;
+            if (!data) return;
+
+            if (data.type === 'INIT_GAME' && data.config) {
+              LOADER_STATE.config = { ...data.config };
+              if (!LOADER_STATE.token && data.config.authToken) {
+                LOADER_STATE.token = data.config.authToken;
+              }
+              if (data.config.gameSessionId) LOADER_STATE.gameSessionId = data.config.gameSessionId;
+              if (data.config.userId) LOADER_STATE.userId = data.config.userId;
+              console.log('[Loader] INIT_GAME received', { hasToken: !!LOADER_STATE.token });
+            }
+
+            if (data.type === 'SET_AUTH_TOKEN') {
+              LOADER_STATE.token = data.token || LOADER_STATE.token;
+              LOADER_STATE.gameSessionId = data.gameSessionId || LOADER_STATE.gameSessionId;
+              LOADER_STATE.userId = data.userId || LOADER_STATE.userId;
+              console.log('[Loader] SET_AUTH_TOKEN received', { hasToken: !!LOADER_STATE.token });
+            }
+          });
+          window.__TOKEN_LISTENER__ = true;
+        }
+
+        // Warmup call to use the token immediately (optional)
+        async function warmupAuth() {
+          if (!LOADER_STATE.token) return;
+          try {
+            // Only warm up against cashflowcasino.com to avoid 404s on local/dev endpoints
+            const apiBase = (LOADER_STATE.config && (LOADER_STATE.config.rgsApiBase || LOADER_STATE.config.rgsApi)) || 'https://api.cashflowcasino.com/api';
+            const host = (() => { try { return new URL(apiBase, window.location.origin).hostname; } catch { return ''; } })();
+            if (!/(^|\.)cashflowcasino\.com$/i.test(host)) {
+              // Skip warmup for non-cashflow hosts to avoid noise
+              return;
+            }
+            const url = apiBase.replace(/\/$/, '') + '/auth/me';
+            const res = await fetch(url, { method: 'GET' });
+            console.log('[Loader] warmupAuth status', res.status);
+          } catch (e) {
+            console.warn('[Loader] warmupAuth failed', e);
+          }
+        }
+        // Kick a short poll that fires warmup once a token is available
+        if (!window.__TOKEN_WARMUP__) {
+          const poll = setInterval(() => {
+            if (LOADER_STATE.token) { clearInterval(poll); warmupAuth(); }
+          }, 100);
+          setTimeout(() => clearInterval(poll), 5000);
+          window.__TOKEN_WARMUP__ = true;
+        }
+      })();
+      // END: Authorization + credentials plumbing
+    </script>
+
+    <!-- <script type="text/javascript" crossorigin="" src="https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bridge/bridge.min.js?t=1753092943667"></script> -->
+
+    <script type="text/javascript">
+      (function () {
+        'use strict';
+        const urlParams = new URLSearchParams(window.location.search);
+        const bridgeScriptElement = document.getElementById('bridgeScript');
+
+        // Ensure com.casino namespace and utils exist defensively
+        window.com = window.com || {};
+        window.com.casino = window.com.casino || {};
+        com.casino.utils = com.casino.utils || {};
+        // Fallback implementation for getURLParams if vendor utils are not yet loaded
+        if (typeof com.casino.utils.getURLParams !== 'function') {
+          com.casino.utils.getURLParams = function getURLParams() {
+            const params = {};
+            try {
+              const usp = new URLSearchParams(window.location.search);
+              usp.forEach((v, k) => { params[k] = v; });
+            } catch (_) {}
+            return params;
+          };
+        }
+
+        // Optional: guard debug flag access
+        if (com.casino && com.casino.debug) {
+          com.casino.debug.onlyGaff = true;
+        }
+
+        // --- LOAD SCRIPT FROM THE LOCAL PATH ---
+        bridgeScriptElement.src = `/games/redtiger/rtg.bridge.js?t=${Date.now()}`;
+
+            // --- DECODE THE 'options' PARAMETER ---
+            const optionsParam = urlParams.get('options');
+        var get = com.casino.utils.getURLParams();
+
+        // IMPORTANT: rgsApi points to your API origin; auth cookies will only apply if cookie attributes allow it.
+        // With our patches, Authorization header is included from LOADER_STATE.token.
+        com.casino.preconfig = {
+          bridge: {
+            postParams: [],
+            feedUrl: 'https://feed-rtg.redtiger.com',
+            provider: 'kronos',
+            operator: 'redtiger',
+            timestamp: '?t=1753092943667',
+            notifications: {
+              inRealPlay: true, inDemoPlay: false, showUnfinishedWins: true, showUnfinishedNoWins: false
+            },
+            bridgeLaunch: true
+          },
+          server: {
+            rgsApi: `https://api.cashflowcasino.com/api/redtiger/`,
+            launchParams: { gameId: 'Atlantis' }
+          },
+          game: {
+            namespace: 'com.casino.game',
+            preconfig: {
+              cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
+              delayedBalanceUpdate: false,
+              defaultLang: 'en',
+              splash: true,
+              hideCurrency: get['hideCurrency'] === 'true',
+              disclaimer: '',
+              skin: 'next-name-payouts',
+              skinURL: get['skinURL'],
+              gameType: 'slot',
+              gameAppId: 'Atlantis',
+              responsive: true,
+              addedAnticipation: get['addedAnticipation'] === 'false' ? false : true
+            }
+          },
+          bars: {
+            basePath: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../bars-next/',
+            options: {
+              historySrc: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/../../history/',
+              hasGamble: true
+            }
+          },
+          bonusWheel: {
+            cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/Atlantis/',
+            basePath: '../../scenes/bonus-wheels/{skin}/',
+            skin: get['bonusWheelSkin'] || 'base-wheel',
+            enabled: true,
+          },
+          analytics: { gaTrackingIds: ["G-5YV4BNS2LW"] }
+        };
+
+        com.casino.bridge.init(com.casino.preconfig); // now invoked in bridgeScriptElement.onload
+      })();
     </script>
   </body>
 </html>

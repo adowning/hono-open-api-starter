@@ -161,7 +161,7 @@ export async function enterGame(
     }
 
     return {
-        webUrl: '/games/redtiger/loader.html',
+        webUrl: '/games/redtiger/launcher.html',
         gameConfig,
     }
 }

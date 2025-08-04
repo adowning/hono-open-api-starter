@@ -16,9 +16,9 @@ export default antfu(
             '**/public/*',
             '**/node_modules/*',
             '*.md',
-            'src/routes/redtiger/data.ts',
+            'src/modules/redtiger/data.ts',
             '**/scripts/*',
-            'src/routes/blackjack/**/*',
+            'src/modules/blackjack/**/*',
         ],
     },
     {

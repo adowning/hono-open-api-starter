@@ -10,6 +10,7 @@ import { getGameImageUrl } from "@/lib/imageUrl";
 import { useGameImageLoader } from "@/composables/useGameImageLoader";
 import SpriteAnimator from "./SpriteAnimator.vue";
 import LogoJson from "@/assets/anim/logo_shine.json";
+import router from "@/router";
 
 interface LocalGame extends Omit<Game, "id"> {
   id: string | number;
@@ -17,7 +18,7 @@ interface LocalGame extends Omit<Game, "id"> {
   featured?: boolean;
   developer: string;
 }
-
+const imageState = ref<string>("");
 const gameStore = useGameStore();
 
 // Optional prop to allow parent-driven lists (e.g., filtered)
@@ -44,24 +45,55 @@ function getGameCarouselAboveTheFoldAssets(): PreloadManifest {
 /**
  * Normalizer to LocalGame for both store and prop sources
  */
-const toLocal = (list: Array<any>): LocalGame[] =>
-  list.map((game) => ({
-    ...game,
-    id: game.id,
-    temperature: "none",
-    featured: false,
-    title: (game as any).title || (game as any).name || "Untitled Game",
-    category: (game as any).category || "other",
-    tags: Array.isArray((game as any).tags) ? (game as any).tags : [],
-    isActive: (game as any).isActive ?? true,
-    developer: String((game as any).developer ?? "").toLowerCase(),
-  })) as LocalGame[]
+type PartialGameWithId = Partial<Game> & { id: string | number }
+
+/**
+ * Normalize arbitrary Game-like input into LocalGame safely without using any.
+ * We coerce and provide sane defaults.
+ */
+const toLocal = (list: Array<PartialGameWithId>): LocalGame[] =>
+  list.map((game) => {
+    const title =
+      (typeof game.title === "string" && game.title) ||
+      (typeof (game as { name?: unknown }).name === "string" && (game as { name?: string }).name) ||
+      "Untitled Game"
+
+    const category =
+      (typeof game.category === "string" && game.category) || "other"
+
+    const tagsInput = (game as { tags?: unknown }).tags
+    const tags = Array.isArray(tagsInput) ? tagsInput as string[] : []
+
+    const isActive =
+      typeof (game as { isActive?: unknown }).isActive === "boolean"
+        ? (game as { isActive?: boolean }).isActive
+        : true
+
+    const developerRaw = (game as { developer?: unknown }).developer
+    const developer =
+      typeof developerRaw === "string" ? developerRaw.toLowerCase() : String(developerRaw ?? "").toLowerCase()
+
+    return {
+      ...(game as Record<string, unknown>),
+      id: game.id,
+      temperature: "none",
+      featured: false,
+      title,
+      category,
+      tags,
+      isActive,
+      developer,
+    } as LocalGame
+  })
 
 // When parent provides games prop, prefer it; otherwise follow store
 watch(
   () => [props.games, gameStore.games],
   () => {
-    const source = props.games && props.games.length ? (props.games as any[]) : (gameStore.games as any[])
+    const source: PartialGameWithId[] =
+      props.games && props.games.length
+        ? (props.games as PartialGameWithId[])
+        : (gameStore.games as unknown as PartialGameWithId[])
     games.value = toLocal(source)
   },
   { immediate: true, deep: true }
@@ -73,6 +105,9 @@ const __ensureOnUnmountedUsed = onUnmounted;
 /* eslint-enable @typescript-eslint/no-unused-vars */
 // Alive flag to guard async/observer callbacks after unmount
 let isAlive = true;
+
+// Selection state for center-and-grow interaction
+const selectedGameId = ref<string | null>(null);
 
 const carousel = ref<HTMLElement | null>(null);
 const customScrollbar = ref<HTMLElement | null>(null);
@@ -291,9 +326,9 @@ const loadGame = async (game: LocalGame): Promise<void> => {
 
   await new Promise((resolve) => setTimeout(resolve, 100));
 
-  const gameUrl = "url" in game && (game as any).url ? String((game as any).url) : "#";
-  window.open(gameUrl, "_blank");
-
+  // const maybeUrl = (game as { url?: unknown }).url
+  // const gameUrl = typeof maybeUrl === "string" && maybeUrl.length > 0 ? maybeUrl : "#"
+  router.push(`/games/redtiger?gameName=${game.name}`)
   setTimeout(() => {
     animatingGameId.value = null;
   }, 100);
@@ -391,7 +426,8 @@ onMounted((): void => {
     };
     carousel.value.addEventListener("scroll", localScrollWrapper);
     // Save remover for cleanup
-    (carousel as any)._removeScrollWrapper = () => {
+    // Attach a remover on the element instance in a typed-safe way
+    ;(carousel.value as HTMLElement & { _removeScrollWrapper?: () => void })._removeScrollWrapper = () => {
       try { carousel.value?.removeEventListener("scroll", localScrollWrapper); } catch {}
     };
     // Initial sync
@@ -423,14 +459,14 @@ onMounted((): void => {
   window.addEventListener("resize", onResize);
 
   // Attach cleanup handlers
-  (window as any)._gameCarouselCleanup = () => {
-    try { window.removeEventListener("pointermove", onPointerMove as any); } catch {}
-    try { window.removeEventListener("pointerup", onPointerUp as any); } catch {}
-    try { window.removeEventListener("pointercancel", onPointerUp as any); } catch {}
-    try { window.removeEventListener("blur", onPointerUp as any); } catch {}
-    try { window.removeEventListener("resize", onResize as any); } catch {}
-    try { customScrollbar.value?.removeEventListener("click", onTrackClick); } catch {}
-    try { (carousel as any)._removeScrollWrapper?.(); } catch {}
+  ;(window as Window & { _gameCarouselCleanup?: () => void })._gameCarouselCleanup = () => {
+    try { window.removeEventListener("pointermove", onPointerMove as EventListener); } catch {}
+    try { window.removeEventListener("pointerup", onPointerUp as EventListener); } catch {}
+    try { window.removeEventListener("pointercancel", onPointerUp as EventListener); } catch {}
+    try { window.removeEventListener("blur", onPointerUp as EventListener); } catch {}
+    try { window.removeEventListener("resize", onResize as EventListener); } catch {}
+    try { customScrollbar.value?.removeEventListener("click", onTrackClick as EventListener); } catch {}
+    try { (carousel.value as HTMLElement & { _removeScrollWrapper?: () => void })?._removeScrollWrapper?.(); } catch {}
     try { intersectionObserver?.disconnect(); } catch {}
   };
 });
@@ -479,9 +515,8 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
           :class="{
             'theme-cold': game.temperature === 'cold',
             'theme-hot': game.temperature === 'hot',
-            'animate-pulse': animatingGameId === String(game.id),
-            'is-fading-out':
-              animatingGameId !== null && animatingGameId !== String(game.id),
+            'is-selected': selectedGameId === String(game.id),
+            'is-fading-out': selectedGameId !== null && selectedGameId !== String(game.id),
           }"
           @click="loadGame(game)"
         >
@@ -507,16 +542,16 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
               >
                 <!-- Safe loading indicator without undefined LogoShineJson -->
                  <SpriteAnimator
-        v-if="showLogoOverlayWhenLoading !== false && imageState !== 'error'"
+       v-if="imageState !== 'error'"
         :animation-data="LogoJson"
         image-url="/images/logo_shine.png"
-        :width="60"
-        :height="60"
+        :width="80"
+        :height="80"
         :frame-count="LogoJson.frames.length"
         :initial-delay-max="0"
         :loop-delay="0"
         :framerate="30"
-        class="h-16 w-16 opacity-80"
+        class="h-18 w-18 opacity-80"
       />
               </div>
 
@@ -628,10 +663,6 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
                   :data-game-id="String(game.id)"
                 />
               </div>
-              <!-- Preserve temperature badges if needed; they can be reintroduced inside GameCard later -->
-              <!-- v-if blocks removed as GameCard handles its visual composition -->
-
-
             </div>
           </div>
           <StarBurst />
@@ -639,7 +670,6 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
       </div>
     </div>
 
-    <!-- Custom Scrollbar (controls the carousel) -->
     <div class="custom-scrollbar-wrapper">
       <div
         class="custom-scrollbar-track"
@@ -660,7 +690,6 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
 </template>
 
 <style scoped>
-/* Your existing styles */
 .carousel-container {
   height: 42vh;
   min-height: 300px;
@@ -669,7 +698,7 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
   max-width: 600px;
   margin: 0;
   margin-top: 4px; /* was 10px, bring the block higher on the page */
-  margin-bottom: 4px; /* was 10px */
+  margin-bottom: 0px; /* was 10px */
   position: relative;
   box-sizing: border-box;
 }
@@ -683,7 +712,7 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
   scrollbar-width: none;
   /* Disable smooth so drag-driven updates are stable */
   scroll-behavior: auto;
-  padding-bottom: 8px; /* ensure content not flush with scrollbar */
+  padding-bottom: 0px; /* ensure content not flush with scrollbar */
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: auto;
 }
@@ -697,7 +726,7 @@ const isFeatured = (game: LocalGame): boolean => Boolean(game.featured);
   gap: 12px;
   height: 100%;
   box-sizing: border-box;
-  padding-bottom: 4px; /* small spacing above the scrollbar */
+  padding-bottom: 0px; /* small spacing above the scrollbar */
 }
 
 .card-image-container {

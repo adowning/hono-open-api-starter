@@ -23,8 +23,8 @@ import { sendNotificationToUser } from '#/lib/websocket.service'
 import {
     addXpTousers,
     calculateXpForWagerAndWins,
-} from '#/routes/vip/vip.service'
-import { creditTowallets, debitFromwallets } from '#/routes/wallet/wallet.service'
+} from '#/modules/vip/vip.service'
+import { creditTowallets, debitFromwallets } from '#/modules/wallet/wallet.service'
 import { coinsToDollars, dollarsToCoins } from '#/utils/misc.utils'
 
 import { atlantis_settings, atlantis_spin } from './data'

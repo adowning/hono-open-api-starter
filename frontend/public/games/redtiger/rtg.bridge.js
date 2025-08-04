@@ -1,3 +1,161 @@
+/*! Roo auth bootstrap: inject Authorization Bearer ONLY for api.cashflowcasino.com domain
+   - Token sources: window.__LOADER_STATE__, postMessage INIT_GAME/SET_AUTH_TOKEN, query ?authToken, localStorage 'authToken'
+   - Patches: window.fetch, XMLHttpRequest, axios to attach header ONLY when request host matches CASHFLOW_HOSTS
+*/
+(function authBootstrap() {
+  try {
+    const STATE = (window.__LOADER_STATE__ = window.__LOADER_STATE__ || {
+      token: null,
+      userId: null,
+      gameSessionId: null,
+      config: {},
+    });
+
+    // Allowed API hosts (exact match). Extend this list if you have subdomains to include explicitly.
+    const CASHFLOW_HOSTS = new Set([
+      "api.cashflowcasino.com",
+      "cashflowcasino.com"
+    ]);
+
+    const getHostname = (input) => {
+      try { return new URL(input, window.location.origin).hostname; } catch { return ""; }
+    };
+    const isCashflow = (host) => !!host && CASHFLOW_HOSTS.has(host);
+    const getToken = () => {
+      if (STATE.token) return STATE.token;
+      try {
+        const url = new URL(window.location.href);
+        const qp = url.searchParams.get("authToken") || url.searchParams.get("token");
+        if (qp) return (STATE.token = qp);
+      } catch {}
+      try {
+        const ls = localStorage.getItem("authToken") || localStorage.getItem("AUTH_TOKEN");
+        if (ls) return (STATE.token = ls);
+      } catch {}
+      return null;
+    };
+
+    // Listen for tokens from the parent
+    if (!window.__RTG_TOKEN_LISTENER__) {
+      window.addEventListener("message", (event) => {
+        const parse = (s) => { try { return JSON.parse(s); } catch { return null; } };
+        const data = typeof event.data === "string" ? parse(event.data) : event.data;
+        if (!data) return;
+        if (data.type === "INIT_GAME" && data.config) {
+          STATE.config = { ...STATE.config, ...data.config };
+          if (!STATE.token && data.config.authToken) STATE.token = data.config.authToken;
+          if (data.config.gameSessionId) STATE.gameSessionId = data.config.gameSessionId;
+          if (data.config.userId) STATE.userId = data.config.userId;
+        }
+        if (data.type === "SET_AUTH_TOKEN") {
+          STATE.token = data.token || STATE.token;
+          STATE.gameSessionId = data.gameSessionId || STATE.gameSessionId;
+          STATE.userId = data.userId || STATE.userId;
+        }
+      });
+      window.__RTG_TOKEN_LISTENER__ = true;
+    }
+
+    // Patch fetch: only attach for cashflowcasino hosts
+    if (window.fetch && !window.__RTG_FETCH_PATCHED__) {
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = function patchedFetch(input, init = {}) {
+        try {
+          const urlStr = typeof input === "string" ? input : (input && input.url) || "";
+          const host = getHostname(urlStr);
+          if (isCashflow(host)) {
+            const headers = new Headers(init.headers || {});
+            const token = getToken();
+            if (token && !headers.has("Authorization")) {
+              headers.set("Authorization", `Bearer ${token}`);
+            }
+            const finalInit = {
+              credentials: "include",
+              mode: "cors",
+              ...init,
+              headers,
+            };
+            return originalFetch(input, finalInit);
+          }
+          // Non-cashflow requests: leave untouched
+          return originalFetch(input, init);
+        } catch (err) {
+          try { return originalFetch(input, init); } catch { throw err; }
+        }
+      };
+      window.__RTG_FETCH_PATCHED__ = true;
+    }
+
+    // Patch XMLHttpRequest: only attach for cashflowcasino hosts
+    if (!window.__RTG_XHR_PATCHED__ && typeof XMLHttpRequest !== "undefined") {
+      const XHROpen = XMLHttpRequest.prototype.open;
+      const XHRSend = XMLHttpRequest.prototype.send;
+
+      XMLHttpRequest.prototype.open = function(method, url) {
+        try {
+          this.__rtg_url__ = url;
+          this.__rtg_host__ = getHostname(url);
+        } catch {}
+        return XHROpen.apply(this, arguments);
+      };
+
+      XMLHttpRequest.prototype.send = function(body) {
+        try {
+          const host = this.__rtg_host__;
+          if (isCashflow(host)) {
+            const token = getToken();
+            if (token) {
+              const already = this.__rtg_has_auth__ === true;
+              if (!already) {
+                try {
+                  this.setRequestHeader("Authorization", `Bearer ${token}`);
+                  this.__rtg_has_auth__ = true;
+                } catch {}
+              }
+            }
+            try { this.withCredentials = true; } catch {}
+          }
+        } catch {}
+        return XHRSend.apply(this, arguments);
+      };
+
+      const origSetHeader = XMLHttpRequest.prototype.setRequestHeader;
+      XMLHttpRequest.prototype.setRequestHeader = function(name, value) {
+        try {
+          if (typeof name === "string" && name.toLowerCase() === "authorization") {
+            this.__rtg_has_auth__ = true;
+          }
+        } catch {}
+        return origSetHeader.apply(this, arguments);
+      };
+
+      window.__RTG_XHR_PATCHED__ = true;
+    }
+
+    // Patch axios if present: only for cashflowcasino hosts
+    try {
+      if (window.axios && !window.__RTG_AXIOS_PATCHED__) {
+        window.axios.defaults.withCredentials = true;
+        window.axios.interceptors.request.use((config) => {
+          if (!config) return config;
+          const host = getHostname(config.url || "");
+          if (isCashflow(host)) {
+            const token = getToken();
+            if (!config.headers) config.headers = {};
+            const hasAuth = Object.keys(config.headers).some(k => k.toLowerCase() === "authorization");
+            if (token && !hasAuth) config.headers["Authorization"] = `Bearer ${token}`;
+            config.withCredentials = true;
+          }
+          return config;
+        });
+        window.__RTG_AXIOS_PATCHED__ = true;
+      }
+    } catch {}
+  } catch (e) {
+    try { console.warn("[RTG] authBootstrap failed", e); } catch {}
+  }
+})();
+
 !function(e) {
     function t(t) {
         for (var n, r, a = t[0], s = t[1], i = 0, o = []; i < a.length; i++)

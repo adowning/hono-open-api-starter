@@ -26,7 +26,7 @@ const router = createRouter({
             component: LoginView,
         },
         {
-            path: '/redtiger',
+            path: '/games/redtiger',
             name: 'rtgGame',
             component: RtgGame,
         },
@@ -57,7 +57,7 @@ router.beforeEach(async (_to, _from, next) => {
     if (
         !authStore.isAuthenticated &&
         _to.path !== '/login' &&
-        _to.path !== '/redtiger'
+        _to.path !== '/games/redtiger'
     ) {
         next('/login')
     } else {

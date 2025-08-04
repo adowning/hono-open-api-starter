@@ -89,41 +89,43 @@ export const useGameStore = defineStore('game', () => {
         onSettled: () => appStore.hideLoading(),
     })
 
-    const enterGame = useDebounceFn(
-        async (id: string) => {
-            const authStore = useAuthStore()
-            const data: PostApiGamesByIdEnterData = {
-                path: {
-                    id,
-                },
-                url: '/api/games/{id}/enter',
-            }
+    /**
+     * Enter a game and persist the options immediately.
+     * Note: Removed debounce to avoid timing gaps where callers observe undefined.
+     */
+    const enterGame = async (id: string) => {
+        const authStore = useAuthStore()
+        const data: PostApiGamesByIdEnterData = {
+            path: { id },
+            url: '/api/games/{id}/enter',
+        }
 
-            if (currentGame.value === id) {
-                console.log('Already in game:', id)
-                return
-            }
+        // If already in this game but we have cached options, return them immediately.
+        if (currentGame.value === id && currentGameOptions.value) {
+            return currentGameOptions.value
+        }
 
-            try {
-                const response = await postApiGamesByIdEnter(data)
-                if (response.data) {
-                    if (response.data.gameConfig && authStore.accessToken) {
-                        response.data.gameConfig.authToken =
-                            authStore.accessToken
-                    }
-                    currentGame.value = id
-                    currentGameOptions.value = response.data
-                    return response.data
+        try {
+            const response = await postApiGamesByIdEnter(data)
+            if (response.data) {
+                // Inject token into gameConfig if available
+                if (response.data.gameConfig && authStore.accessToken) {
+                    response.data.gameConfig.authToken = authStore.accessToken
                 }
-            } catch (error) {
-                console.error('Error entering game:', error)
-                throw error
+                currentGame.value = id
+                currentGameOptions.value = response.data
+                return response.data
+            } else {
+                console.warn('[game.store][enterGame] Empty response body for id:', id)
+                currentGameOptions.value = null
+                return null
             }
-            // gameSession.value = await fetchGameSession(gameId, userId);
-        },
-        500,
-        { maxWait: 5000 }
-    )
+        } catch (error) {
+            console.error('Error entering game:', error)
+            currentGameOptions.value = null
+            throw error
+        }
+    }
 
     const leaveGame = async () => {
         const leaveGame = await postApiGamesLeave()

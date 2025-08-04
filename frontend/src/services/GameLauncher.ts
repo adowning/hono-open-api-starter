@@ -168,7 +168,7 @@ class GameLauncher {
     private buildUrl(options: LaunchOptions): URL {
         const gameLauncherUrl = options.launch_options?.game_launcher_url
         const launchUrl = options.launch_url
-
+        console.log(options)
         if (!gameLauncherUrl && !launchUrl) {
             throw new Error(
                 'GameLauncher error: game_launcher_url or launch_url must be set.'
@@ -266,13 +266,26 @@ class GameLauncher {
 
             this.launchOptions = options // Store the options
 
+            // Normalize input so buildUrl always receives a LaunchOptions object
+            // with either launch_url or launch_options.game_launcher_url set.
             if (!options.launch_url && !options.launch_options) {
+                // Treat plain object as launch_options payload (legacy shape)
                 options = { launch_options: options as any }
             }
 
-            const url = this.buildUrl(
-                (options.launch_options as LaunchOptions) || options
-            )
+            // If caller provided only launch_options without game_launcher_url but with a top-level launch_url,
+            // promote that URL into launch_options.game_launcher_url so buildUrl passes validation.
+            if (options.launch_url && options.launch_options && !options.launch_options.game_launcher_url) {
+                options.launch_options.game_launcher_url = options.launch_url as string
+            }
+
+            // If caller provided only launch_options with game_launcher_url, ensure launch_url is unset to avoid "both set" error.
+            if (options.launch_options?.game_launcher_url && options.launch_url) {
+                // Prefer game_launcher_url path, which encodes full options into URL param
+                delete (options as any).launch_url
+            }
+
+            const url = this.buildUrl(options)
 
             if (!this.iframe) {
                 this.iframe = this.createIframe()

@@ -91,7 +91,7 @@ function onSelect(): void {
       class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-3"
       aria-hidden="true"
     >
-      <div class="flex items-center justify-between gap-2">
+      <!-- <div class="flex items-center justify-between gap-2">
         <span class="line-clamp-1 text-left text-sm font-medium text-white drop-shadow">
           {{ title }}
         </span>
@@ -100,7 +100,7 @@ function onSelect(): void {
         >
           {{ developer }}
         </span>
-      </div>
+      </div> -->
     </div>
 
     <!-- Hover/press glow -->

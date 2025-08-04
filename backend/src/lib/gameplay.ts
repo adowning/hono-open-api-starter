@@ -8,7 +8,7 @@ import { addSpinToCache, saveGameSessionToCache } from '#/lib/cache'
 import {
     addXpTousers,
     calculateXpForWagerAndWins,
-} from '#/routes/vip/vip.service'
+} from '#/modules/vip/vip.service'
 import chalk from 'chalk'
 import type { Context } from 'hono'
 

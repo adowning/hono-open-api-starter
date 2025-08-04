@@ -45,7 +45,7 @@ const showLoader = computed(() => !isLogin.value && !isGateReady.value)
 
 const showChrome = computed(() => {
   const user = authStore.currentUser
-  const notInGame = !user || user.currentGameSessionDataId == null
+  const notInGame = !user || !router.currentRoute.value.fullPath.includes('/games')//user.currentGameSessionDataId == null
   return isAuthenticated.value && notInGame && !isLogin.value && isGateReady.value
 })
 

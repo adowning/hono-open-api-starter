@@ -31,6 +31,154 @@
 <body>
   <img class="loading-icon" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto"
     src="https://cdn-eu.cloudedge.info/all/games/slots/AncientDisco/../../../assets/loading.svg">
+  <script>
+    // Register SW early so it controls fetch/XHR within this directory scope
+    (function registerSW() {
+      if (!('serviceWorker' in navigator)) return;
+      try {
+        const scope = location.pathname.replace(/[^/]+$/, ''); // current directory as scope
+        // Only register for /games/redtiger/ path
+        if (!/\/games\/redtiger\/$/i.test(scope)) {
+          // If the URL does not end with /games/redtiger/, compute directory anyway
+        }
+        navigator.serviceWorker.register('./sw.js', { scope })
+          .then(reg => {
+            // Optional: Immediately claim clients on update
+            if (reg && reg.active) {
+              // nop
+            }
+          })
+          .catch(err => console.warn('[Loader] SW register failed', err));
+      } catch (e) {
+        // ignore
+      }
+    })();
+  </script>
+  <script type="text/javascript">
+    // 1) Notify parent we are ready to receive config and tokens
+    (function notifyReady() {
+      try { window.parent && window.parent.postMessage('RTG_LOADER_READY', '*'); } catch (e) { }
+    })();
+
+    // 2) Maintain auth/config received from parent via postMessage
+    const LOADER_STATE = {
+      token: null,
+      gameSessionId: null,
+      userId: null,
+      config: {},
+    };
+
+    // 3) Always include Authorization and credentials on fetch
+    (function patchFetch() {
+      if (!window.fetch) return;
+      const originalFetch = window.fetch.bind(window);
+      window.fetch = async function patchedFetch(input, init = {}) {
+        try {
+          const headers = new Headers((init && init.headers) || {});
+          if (LOADER_STATE.token && !headers.has('Authorization')) {
+            headers.set('Authorization', `Bearer ${LOADER_STATE.token}`);
+          }
+          const finalInit = {
+            credentials: 'include',
+            mode: 'cors',
+            ...init,
+            headers,
+          };
+          return originalFetch(input, finalInit);
+        } catch (err) {
+          console.error('[Loader] fetch patch error', err);
+          return originalFetch(input, init);
+        }
+      };
+    })();
+
+    // 4) If axios is used by embedded game code, ensure withCredentials and Authorization
+    (function patchAxios() {
+      try {
+        if (window.axios) {
+          window.axios.defaults.withCredentials = true;
+          window.axios.interceptors.request.use((config) => {
+            if (!config.headers) config.headers = {};
+            if (LOADER_STATE.token && !config.headers['Authorization']) {
+              config.headers['Authorization'] = `Bearer ${LOADER_STATE.token}`;
+            }
+            config.withCredentials = true;
+            return config;
+          });
+        }
+      } catch (e) { }
+    })();
+    // const OriginalXMLHttpRequest = window.XMLHttpRequest;
+    // window.XMLHttpRequest = function () {
+    //   const xhr = new OriginalXMLHttpRequest();
+    //   const headers = new Headers((init && init.headers) || {});
+    //   //  xhr.setRequestHeader((init && init.headers) || {});
+
+    //   if (LOADER_STATE.token && !headers.has('Authorization')) {
+    //     headers.set('Authorization', `Bearer ${LOADER_STATE.token}`);
+    //   }
+    //   const finalInit = {
+    //     credentials: 'include',
+    //     mode: 'cors',
+    //     ...init,
+    //     headers,
+    //   };
+    //   xhr.setRequestHeader(finalInit)
+
+    //   //  xhr.open = function(method, url, async, user, password) {
+    //   // console.log(`Intercepted request: ${method} ${url}`);
+
+    //   // return originalOpen.apply(this, arguments);
+    // };
+    // Patch methods on the xhr instance
+    // For example, patching the 'open' method:
+    // const originalOpen = xhr.open;
+    // xhr.open = function(method, url, async, user, password) {
+    //     console.log(`Intercepted request: ${method} ${url}`);
+    //     return originalOpen.apply(this, arguments);
+    // };
+
+    // // Patch other methods like 'send', 'setRequestHeader', 'onreadystatechange' as needed
+
+    // return xhr;
+    // };
+    // 5) Receive INIT_GAME and SET_AUTH_TOKEN from parent
+    window.addEventListener('message', (event) => {
+      const data = (typeof event.data === 'string') ? safeParse(event.data) : event.data;
+      if (!data) return;
+
+      if (data.type === 'INIT_GAME' && data.config) {
+        LOADER_STATE.config = { ...data.config };
+        if (!LOADER_STATE.token && data.config.authToken) {
+          LOADER_STATE.token = data.config.authToken;
+        }
+        if (data.config.gameSessionId) LOADER_STATE.gameSessionId = data.config.gameSessionId;
+        if (data.config.userId) LOADER_STATE.userId = data.config.userId;
+        console.log('[Loader] INIT_GAME received', { hasToken: !!LOADER_STATE.token });
+      }
+      if (data.type === 'SET_AUTH_TOKEN') {
+        LOADER_STATE.token = data.token || LOADER_STATE.token;
+        LOADER_STATE.gameSessionId = data.gameSessionId || LOADER_STATE.gameSessionId;
+        LOADER_STATE.userId = data.userId || LOADER_STATE.userId;
+        console.log('[Loader] SET_AUTH_TOKEN received', { hasToken: !!LOADER_STATE.token });
+       
+         if (com.casino.bridge && typeof com.casino.bridge.init === 'function') {
+        com.casino.bridge.init(com.casino.preconfig);
+            const loadingIcon = document.querySelector('.loading-icon');
+            if (loadingIcon) loadingIcon.style.display = 'none';
+
+            // SUCCESS: Notify parent frame that the game is fully loaded.
+            window.parent.postMessage({ type: 'clientReady' }, '*');
+          } else {
+            // throw new Error('com.casino.bridge.init is not available!');
+            console.log('com.casino.bridge.init is not available!')
+          }
+      }
+    });
+
+    function safeParse(str) { try { return JSON.parse(str); } catch { return null; } }
+  </script>
+  <script id="bridgeScript" type="text/javascript" crossorigin=""></script>
 
   <script type="text/javascript">
     window.com = window.com || {};
@@ -52,6 +200,8 @@
   <script type="text/javascript">
     (function () {
       'use strict';
+       var  isBridgeScriptLoaded = false;
+       var  isAuthTokenReceived = false;
       const bridgeScriptElement = document.getElementById('bridgeScript');
       if (bridgeScriptElement) {
         // --- LOAD SCRIPT FROM THE LOCAL PATH ---
@@ -64,35 +214,35 @@
           console.error('[RTG Loader] Failed to load bridge script.');
           window.parent.postMessage({ type: 'game_error', data: { error: 'Failed to load bridge script.' } }, '*');
         };
+        com.casino.bridge = bridgeScriptElement
       } else {
         throw new Error('Bridge script element not found in template.');
       }
-        
-       window.addEventListener('message', (event) => {
-        if (!data) return;
-      const data = (typeof event.data === 'string') ? safeParse(event.data) : event.data;
-        if (!data) return;
 
-        if (data.type === 'INIT_GAME' && data.config) {
-          LOADER_STATE.config = { ...data.config };
-          if (!LOADER_STATE.token && data.config.authToken) {
-            LOADER_STATE.token = data.config.authToken;
-          }
-          if (data.config.gameSessionId) LOADER_STATE.gameSessionId = data.config.gameSessionId;
-          if (data.config.userId) LOADER_STATE.userId = data.config.userId;
-          console.log('[Loader] INIT_GAME received', { hasToken: !!LOADER_STATE.token });
-        }
-        if (data.type === 'SET_AUTH_TOKEN') {
-          LOADER_STATE.token = data.token || LOADER_STATE.token;
-          LOADER_STATE.gameSessionId = data.gameSessionId || LOADER_STATE.gameSessionId;
-          LOADER_STATE.userId = data.userId || LOADER_STATE.userId;
-          console.log('[Loader] SET_AUTH_TOKEN received', { hasToken: !!LOADER_STATE.token });
-        }
-      });
+      // window.addEventListener('message', (event) => {
+      //   const data = (typeof event.data === 'string') ? safeParse(event.data) : event.data;
+      //   if (!data) return;
+
+      //   if (data.type === 'INIT_GAME' && data.config) {
+      //     LOADER_STATE.config = { ...data.config };
+      //     if (!LOADER_STATE.token && data.config.authToken) {
+      //       LOADER_STATE.token = data.config.authToken;
+      //     }
+      //     if (data.config.gameSessionId) LOADER_STATE.gameSessionId = data.config.gameSessionId;
+      //     if (data.config.userId) LOADER_STATE.userId = data.config.userId;
+      //     console.log('[Loader] INIT_GAME received', { hasToken: !!LOADER_STATE.token });
+      //   }
+      //   if (data.type === 'SET_AUTH_TOKEN') {
+      //     LOADER_STATE.token = data.token || LOADER_STATE.token;
+      //     LOADER_STATE.gameSessionId = data.gameSessionId || LOADER_STATE.gameSessionId;
+      //     LOADER_STATE.userId = data.userId || LOADER_STATE.userId;
+      //     console.log('[Loader] SET_AUTH_TOKEN received', { hasToken: !!LOADER_STATE.token });
+      //   }
+      // });
       // if (com.casino.debug) 
-      com.casino.debug.onlyGaff = true;
+      // com.casino.debug.onlyGaff = true;
 
-      var get = com.casino.utils.getURLParams();
+      // var get = com.casino.utils.getURLParams();
 
       com.casino.preconfig = {
         bridge: {
@@ -110,7 +260,7 @@
           bridgeLaunch: true
         },
         server: {
-          rgsApi: 'https://r2next.andrews.workers.dev/',
+          rgsApi: `https://api.cashdevtools.com/redtiger/${LOADER_STATE.token }/`,
           launchParams: {
             gameId: 'AncientDisco'
           }
@@ -122,14 +272,14 @@
             delayedBalanceUpdate: false,
             defaultLang: 'en',
             splash: true,
-            hideCurrency: get['hideCurrency'] === 'true',
+            hideCurrency: true,
             disclaimer: '',
             skin: 'next-name-payouts',
-            skinURL: get['skinURL'],
+            skinURL: '',//get['skinURL'],
             gameType: 'slot',
             gameAppId: 'AncientDisco',
             responsive: true,
-            addedAnticipation: get['addedAnticipation'] === 'false' ? false : true
+            addedAnticipation: false
           }
         },
         bars: {
@@ -142,7 +292,7 @@
         bonusWheel: {
           cdn: 'https://cdn-eu.cloudedge.info/all/games/slots/AncientDisco/',
           basePath: '../../scenes/bonus-wheels/{skin}/',
-          skin: get['bonusWheelSkin'] || 'base-wheel',
+          skin: 'base-wheel',
           enabled: true,
         },
         analytics: {

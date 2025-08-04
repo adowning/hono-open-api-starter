@@ -8,7 +8,7 @@ import db from './db'
 import { authSessions, users } from './db/schema'
 import env from './env'
 import { decrypt, lzwDecode, } from './utils/lzw'
-import { websocketHandler } from './routes/websocket/websocket.handler'
+import { websocketHandler } from './modules/websocket/websocket.handler'
 
 
 const port = env.PORT
